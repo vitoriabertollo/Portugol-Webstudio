@@ -133,6 +133,9 @@ GPL-3.0
 @portugol-webstudio/ide
 GPL-3.0
 
+@portugol-webstudio/parser
+GPL-3.0
+
 @portugol-webstudio/runner
 GPL-3.0
 
