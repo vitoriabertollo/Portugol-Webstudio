@@ -152,6 +152,10 @@ class ElementPath {
             && path[0] === 3 /* PartFingerprint.OverflowGuard */
             && path[3] === 1 /* PartFingerprint.ContentWidgets */);
     }
+    static isChildOfOverflowGuard(path) {
+        return (path.length >= 1
+            && path[0] === 3 /* PartFingerprint.OverflowGuard */);
+    }
     static isChildOfOverflowingContentWidgets(path) {
         return (path.length >= 1
             && path[0] === 2 /* PartFingerprint.OverflowingContentWidgets */);
@@ -409,6 +413,10 @@ export class MouseTargetFactory {
         // we know for a fact that request.target is not null
         const resolvedRequest = request;
         let result = null;
+        if (!ElementPath.isChildOfOverflowGuard(request.targetPath) && !ElementPath.isChildOfOverflowingContentWidgets(request.targetPath)) {
+            // We only render dom nodes inside the overflow guard or in the overflowing content widgets
+            result = result || request.fulfillUnknown();
+        }
         result = result || MouseTargetFactory._hitTestContentWidget(ctx, resolvedRequest);
         result = result || MouseTargetFactory._hitTestOverlayWidget(ctx, resolvedRequest);
         result = result || MouseTargetFactory._hitTestMinimap(ctx, resolvedRequest);

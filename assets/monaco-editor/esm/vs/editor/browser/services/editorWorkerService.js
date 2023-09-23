@@ -29,7 +29,6 @@ import { ILanguageConfigurationService } from '../../common/languages/languageCo
 import { EditorSimpleWorker } from '../../common/services/editorSimpleWorker.js';
 import { IModelService } from '../../common/services/model.js';
 import { ITextResourceConfigurationService } from '../../common/services/textResourceConfiguration.js';
-import { regExpFlags } from '../../../base/common/strings.js';
 import { isNonEmptyArray } from '../../../base/common/arrays.js';
 import { ILogService } from '../../../platform/log/common/log.js';
 import { StopWatch } from '../../../base/common/stopwatch.js';
@@ -434,7 +433,7 @@ export class EditorWorkerClient extends Disposable {
         return __awaiter(this, void 0, void 0, function* () {
             const proxy = yield this._withSyncedResources(resources);
             const wordDef = wordDefRegExp.source;
-            const wordDefFlags = regExpFlags(wordDefRegExp);
+            const wordDefFlags = wordDefRegExp.flags;
             return proxy.textualSuggest(resources.map(r => r.toString()), leadingWord, wordDef, wordDefFlags);
         });
     }
@@ -446,7 +445,7 @@ export class EditorWorkerClient extends Disposable {
             }
             const wordDefRegExp = this.languageConfigurationService.getLanguageConfiguration(model.getLanguageId()).getWordDefinition();
             const wordDef = wordDefRegExp.source;
-            const wordDefFlags = regExpFlags(wordDefRegExp);
+            const wordDefFlags = wordDefRegExp.flags;
             return proxy.computeWordRanges(resource.toString(), range, wordDef, wordDefFlags);
         });
     }
@@ -458,7 +457,7 @@ export class EditorWorkerClient extends Disposable {
             }
             const wordDefRegExp = this.languageConfigurationService.getLanguageConfiguration(model.getLanguageId()).getWordDefinition();
             const wordDef = wordDefRegExp.source;
-            const wordDefFlags = regExpFlags(wordDefRegExp);
+            const wordDefFlags = wordDefRegExp.flags;
             return proxy.navigateValueSet(resource.toString(), range, up, wordDef, wordDefFlags);
         });
     }

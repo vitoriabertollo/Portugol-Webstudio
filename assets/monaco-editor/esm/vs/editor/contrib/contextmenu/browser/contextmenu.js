@@ -11,6 +11,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var ContextMenuController_1;
 import * as dom from '../../../../base/browser/dom.js';
 import { ActionViewItem } from '../../../../base/browser/ui/actionbar/actionViewItems.js';
 import { Separator, SubmenuAction } from '../../../../base/common/actions.js';
@@ -25,9 +26,9 @@ import { IContextMenuService, IContextViewService } from '../../../../platform/c
 import { IKeybindingService } from '../../../../platform/keybinding/common/keybinding.js';
 import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
 import { IWorkspaceContextService, isStandaloneEditorWorkspace } from '../../../../platform/workspace/common/workspace.js';
-let ContextMenuController = class ContextMenuController {
+let ContextMenuController = ContextMenuController_1 = class ContextMenuController {
     static get(editor) {
-        return editor.getContribution(ContextMenuController.ID);
+        return editor.getContribution(ContextMenuController_1.ID);
     }
     constructor(editor, _contextMenuService, _contextViewService, _contextKeyService, _keybindingService, _menuService, _configurationService, _workspaceContextService) {
         this._contextMenuService = _contextMenuService;
@@ -311,7 +312,7 @@ let ContextMenuController = class ContextMenuController {
     }
 };
 ContextMenuController.ID = 'editor.contrib.contextmenu';
-ContextMenuController = __decorate([
+ContextMenuController = ContextMenuController_1 = __decorate([
     __param(1, IContextMenuService),
     __param(2, IContextViewService),
     __param(3, IContextKeyService),

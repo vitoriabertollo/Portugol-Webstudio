@@ -11,6 +11,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var ModesHoverController_1;
 import { KeyChord } from '../../../../base/common/keyCodes.js';
 import { DisposableStore } from '../../../../base/common/lifecycle.js';
 import { EditorAction, registerEditorAction, registerEditorContribution } from '../../../browser/editorExtensions.js';
@@ -20,7 +21,6 @@ import { ILanguageService } from '../../../common/languages/language.js';
 import { GotoDefinitionAtPositionEditorContribution } from '../../gotoSymbol/browser/link/goToDefinitionAtPosition.js';
 import { ContentHoverWidget, ContentHoverController } from './contentHover.js';
 import { MarginHoverWidget } from './marginHover.js';
-import { IAccessibilityService } from '../../../../platform/accessibility/common/accessibility.js';
 import { IInstantiationService } from '../../../../platform/instantiation/common/instantiation.js';
 import { IOpenerService } from '../../../../platform/opener/common/opener.js';
 import { editorHoverBorder } from '../../../../platform/theme/common/colorRegistry.js';
@@ -32,13 +32,11 @@ import { InlineSuggestionHintsContentWidget } from '../../inlineCompletions/brow
 import { IKeybindingService } from '../../../../platform/keybinding/common/keybinding.js';
 import * as nls from '../../../../nls.js';
 import './hover.css';
-import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
-import { status } from '../../../../base/browser/ui/aria/aria.js';
 // sticky hover widget which doesn't disappear on focus out and such
 const _sticky = false;
-let ModesHoverController = class ModesHoverController {
+let ModesHoverController = ModesHoverController_1 = class ModesHoverController {
     static get(editor) {
-        return editor.getContribution(ModesHoverController.ID);
+        return editor.getContribution(ModesHoverController_1.ID);
     }
     constructor(_editor, _instantiationService, _openerService, _languageService, _keybindingService) {
         this._editor = _editor;
@@ -271,7 +269,7 @@ let ModesHoverController = class ModesHoverController {
     }
 };
 ModesHoverController.ID = 'editor.contrib.hover';
-ModesHoverController = __decorate([
+ModesHoverController = ModesHoverController_1 = __decorate([
     __param(1, IInstantiationService),
     __param(2, IOpenerService),
     __param(3, ILanguageService),
@@ -317,10 +315,6 @@ class ShowOrFocusHoverAction extends EditorAction {
         });
     }
     run(accessor, editor, args) {
-        var _a;
-        const configurationService = accessor.get(IConfigurationService);
-        const accessibilityService = accessor.get(IAccessibilityService);
-        const keybindingService = accessor.get(IKeybindingService);
         if (!editor.hasModel()) {
             return;
         }
@@ -336,11 +330,6 @@ class ShowOrFocusHoverAction extends EditorAction {
         }
         else {
             controller.showContentHover(range, 1 /* HoverStartMode.Immediate */, 1 /* HoverStartSource.Keyboard */, focus);
-        }
-        if (configurationService.getValue('accessibility.verbosity.hover') && accessibilityService.isScreenReaderOptimized()) {
-            const keybinding = (_a = keybindingService.lookupKeybinding('editor.action.accessibleView')) === null || _a === void 0 ? void 0 : _a.getAriaLabel();
-            const hint = keybinding ? nls.localize('chatAccessibleViewHint', "Inspect this in the accessible view with {0}", keybinding) : nls.localize('chatAccessibleViewHintNoKb', "Inspect this in the accessible view via the command Open Accessible View which is currently not triggerable via keybinding");
-            status(hint);
         }
     }
 }

@@ -268,7 +268,7 @@ export class ViewLines extends ViewPart {
             // Couldn't find line
             return null;
         }
-        let column = this._visibleLines.getVisibleLine(lineNumber).getColumnOfNodeOffset(lineNumber, spanNode, offset);
+        let column = this._visibleLines.getVisibleLine(lineNumber).getColumnOfNodeOffset(spanNode, offset);
         const minColumn = this._context.viewModel.getLineMinColumn(lineNumber);
         if (column < minColumn) {
             column = minColumn;

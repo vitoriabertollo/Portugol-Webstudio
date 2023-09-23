@@ -12,8 +12,9 @@ export class DiffEditorSash extends Disposable {
         this._domNode = _domNode;
         this._dimensions = _dimensions;
         this._sashRatio = observableValue('sashRatio', undefined);
-        this.sashLeft = derived('sashLeft', reader => {
+        this.sashLeft = derived(reader => {
             var _a;
+            /** @description sashLeft */
             const ratio = (_a = this._sashRatio.read(reader)) !== null && _a !== void 0 ? _a : this._options.splitViewDefaultRatio.read(reader);
             return this._computeSashLeft(ratio, reader);
         });
@@ -33,7 +34,8 @@ export class DiffEditorSash extends Disposable {
         }));
         this._register(this._sash.onDidEnd(() => this._sash.layout()));
         this._register(this._sash.onDidReset(() => this._sashRatio.set(undefined, undefined)));
-        this._register(autorun('update sash layout', (reader) => {
+        this._register(autorun(reader => {
+            /** @description update sash layout */
             const enabled = this._options.enableSplitViewResizing.read(reader);
             this._sash.state = enabled ? 3 /* SashState.Enabled */ : 0 /* SashState.Disabled */;
             this.sashLeft.read(reader);

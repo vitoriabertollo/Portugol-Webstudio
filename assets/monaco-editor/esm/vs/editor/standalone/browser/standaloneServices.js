@@ -656,7 +656,7 @@ StandaloneContextMenuService = __decorate([
     __param(5, IContextKeyService)
 ], StandaloneContextMenuService);
 class StandaloneAudioService {
-    playAudioCue(cue, allowManyInParallel) {
+    playAudioCue(cue, options) {
         return __awaiter(this, void 0, void 0, function* () {
         });
     }
@@ -708,6 +708,9 @@ export var StandaloneServices;
     const instantiationService = new InstantiationService(serviceCollection, true);
     serviceCollection.set(IInstantiationService, instantiationService);
     function get(serviceId) {
+        if (!initialized) {
+            initialize({});
+        }
         const r = serviceCollection.get(serviceId);
         if (!r) {
             throw new Error('Missing service ' + serviceId);

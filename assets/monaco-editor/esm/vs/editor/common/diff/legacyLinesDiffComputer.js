@@ -9,7 +9,7 @@ import { Range } from '../core/range.js';
 import { assertFn, checkAdjacentItems } from '../../../base/common/assert.js';
 import { LineRange } from '../core/lineRange.js';
 const MINIMUM_MATCHING_CHARACTER_LENGTH = 3;
-export class SmartLinesDiffComputer {
+export class LegacyLinesDiffComputer {
     computeDiff(originalLines, modifiedLines, options) {
         var _a;
         const diffComputer = new DiffComputer(originalLines, modifiedLines, {

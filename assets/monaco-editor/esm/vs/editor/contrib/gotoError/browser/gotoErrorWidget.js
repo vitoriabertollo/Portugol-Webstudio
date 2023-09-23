@@ -11,6 +11,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var MarkerNavigationWidget_1;
 import * as dom from '../../../../base/browser/dom.js';
 import { ScrollableElement } from '../../../../base/browser/ui/scrollbar/scrollableElement.js';
 import { isNonEmptyArray } from '../../../../base/common/arrays.js';
@@ -194,7 +195,7 @@ class MessageWidget {
         return ariaLabel;
     }
 }
-let MarkerNavigationWidget = class MarkerNavigationWidget extends PeekViewWidget {
+let MarkerNavigationWidget = MarkerNavigationWidget_1 = class MarkerNavigationWidget extends PeekViewWidget {
     constructor(editor, _themeService, _openerService, _menuService, instantiationService, _contextKeyService, _labelService) {
         super(editor, { showArrow: true, showFrame: true, isAccessible: true, frameWidth: 1 }, instantiationService);
         this._themeService = _themeService;
@@ -247,7 +248,7 @@ let MarkerNavigationWidget = class MarkerNavigationWidget extends PeekViewWidget
         super._fillHead(container);
         this._disposables.add(this._actionbarWidget.actionRunner.onWillRun(e => this.editor.focus()));
         const actions = [];
-        const menu = this._menuService.createMenu(MarkerNavigationWidget.TitleMenu, this._contextKeyService);
+        const menu = this._menuService.createMenu(MarkerNavigationWidget_1.TitleMenu, this._contextKeyService);
         createAndFillInActionBarActions(menu, undefined, actions);
         this._actionbarWidget.push(actions, { label: false, icon: true, index: 0 });
         menu.dispose();
@@ -318,7 +319,7 @@ let MarkerNavigationWidget = class MarkerNavigationWidget extends PeekViewWidget
     }
 };
 MarkerNavigationWidget.TitleMenu = new MenuId('gotoErrorTitleMenu');
-MarkerNavigationWidget = __decorate([
+MarkerNavigationWidget = MarkerNavigationWidget_1 = __decorate([
     __param(1, IThemeService),
     __param(2, IOpenerService),
     __param(3, IMenuService),

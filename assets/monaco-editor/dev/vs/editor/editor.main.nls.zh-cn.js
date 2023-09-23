@@ -1,6 +1,6 @@
 /*!-----------------------------------------------------------
  * Copyright (c) Microsoft Corporation. All rights reserved.
- * Version: 0.41.0(38e1e3d097f84e336c311d071a9ffb5191d4ffd1)
+ * Version: 0.43.0(94c055bcbdd49f04a0fa15515e848542a79fb948)
  * Released under the MIT license
  * https://github.com/microsoft/vscode/blob/main/LICENSE.txt
  *-----------------------------------------------------------*/
@@ -20,6 +20,10 @@ define("vs/editor/editor.main.nls.zh-cn", {
 	"vs/base/browser/ui/findinput/replaceInput": [
 		"输入",
 		"保留大小写",
+	],
+	"vs/base/browser/ui/hover/hoverWidget": [
+		"Inspect this in the accessible view with {0}.",
+		"Inspect this in the accessible view via the command Open Accessible View which is currently not triggerable via keybinding.",
 	],
 	"vs/base/browser/ui/iconLabel/iconLabelHover": [
 		"正在加载…",
@@ -140,6 +144,7 @@ define("vs/editor/editor.main.nls.zh-cn", {
 	],
 	"vs/editor/browser/widget/diffEditorWidget2/colors": [
 		"在差异编辑器中移动的文本的边框颜色。",
+		"The active border color for text that got moved in the diff editor.",
 	],
 	"vs/editor/browser/widget/diffEditorWidget2/decorations": [
 		"差异编辑器中插入项的线条修饰。",
@@ -158,8 +163,19 @@ define("vs/editor/editor.main.nls.zh-cn", {
 		"复制更改的行({0})",
 		"还原此更改",
 	],
+	"vs/editor/browser/widget/diffEditorWidget2/movedBlocksLines": [
+		"Code moved with changes to line {0}-{1}",
+		"Code moved with changes from line {0}-{1}",
+		"Code moved to line {0}-{1}",
+		"Code moved from line {0}-{1}",
+	],
 	"vs/editor/browser/widget/diffEditorWidget2/unchangedRanges": [
 		"折叠未更改的区域",
+		"Click or drag to show more above",
+		"Show all",
+		"Click or drag to show more below",
+		"{0} hidden lines",
+		"Double click to unfold",
 	],
 	"vs/editor/browser/widget/diffReview": [
 		"差异评审中的“插入”图标。",
@@ -218,6 +234,8 @@ define("vs/editor/editor.main.nls.zh-cn", {
 		"超时(以毫秒为单位)，之后将取消差异计算。使用0表示没有超时。",
 		"要为其计算差异的最大文件大小(MB)。使用 0 表示无限制。",
 		"控制差异编辑器的显示方式是并排还是内联。",
+		"If the diff editor width is smaller than this value, the inline view is used.",
+		"If enabled and the editor width is too small, the inline view is used.",
 		"启用后，差异编辑器会在其字形边距中显示箭头以还原更改。",
 		"启用后，差异编辑器将忽略前导空格或尾随空格中的更改。",
 		"控制差异编辑器是否为添加/删除的更改显示 +/- 指示符号。",
@@ -227,7 +245,10 @@ define("vs/editor/editor.main.nls.zh-cn", {
 		"行将根据 {0} 设置进行换行。",
 		"使用旧差异算法。",
 		"使用高级差异算法。",
-		"控制差异编辑器是否显示未更改的区域。仅当设置了 {0} 时才有效。",
+		"Controls whether the diff editor shows unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used for unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used as a minimum for unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used as context when comparing unchanged regions. Only works when {0} is set.",
 		"控制差异编辑器是否应显示检测到的代码移动情况。仅当设置了 {0} 时才有效。",
 		"控制差异编辑器是使用新实现还是旧实现。",
 		"控制差异编辑器是否显示空修饰，以查看插入或删除字符的位置。",
@@ -286,6 +307,7 @@ define("vs/editor/editor.main.nls.zh-cn", {
 		"在编辑器顶部的滚动过程中显示嵌套的当前作用域。",
 		"定义要显示的最大粘滞行数。",
 		"定义用于确定要粘贴的行的模型。如果大纲模型不存在，它将回退到回退到缩进模型的折叠提供程序模型上。在所有三种情况下都遵循此顺序。",
+		"Enable scrolling of the sticky scroll widget with the editor\'s horizontal scrollbar.",
 		"在编辑器中启用内联提示。",
 		"已启用内嵌提示",
 		"默认情况下显示内嵌提示，并在按住 {0} 时隐藏",
@@ -545,6 +567,7 @@ define("vs/editor/editor.main.nls.zh-cn", {
 		"不显示代码片段建议。",
 		"控制代码片段是否与其他建议一起显示及其排列的位置。",
 		"控制编辑器是否使用动画滚动。",
+		"Controls whether the accessibility hint should be provided to screen reader users when an inline completion is shown.",
 		"建议小组件的字号。设置为 {0} 时，将使用 {1} 的值。",
 		"建议小组件的行高。设置为 {0} 时，将使用 {1} 的值。最小值为 8。",
 		"控制在键入触发字符后是否自动显示建议。",
@@ -650,7 +673,9 @@ define("vs/editor/editor.main.nls.zh-cn", {
 		"编辑器是否为只读",
 		"上下文是否为差异编辑器",
 		"上下文是否为嵌入式差异编辑器",
+		"Whether a moved code block is selected for comparison",
 		"可访问差异查看器是否可见",
+		"Whether the diff editor render side by side inline breakpoint is reached",
 		"是否已启用 \"editor.columnSelection\"",
 		"编辑器是否已选定文本",
 		"编辑器是否有多个选择",
@@ -889,6 +914,9 @@ define("vs/editor/editor.main.nls.zh-cn", {
 		"插入相对路径",
 		"插入相对路径",
 	],
+	"vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorContribution": [
+		"Configures the default drop provider to use for content of a given mime type.",
+	],
 	"vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorController": [
 		"是否显示放置小组件",
 		"显示放置选项...",
@@ -1092,8 +1120,6 @@ define("vs/editor/editor.main.nls.zh-cn", {
 	],
 	"vs/editor/contrib/hover/browser/hover": [
 		"显示或聚焦悬停",
-		"在辅助视图中用 {0} 检查此项",
-		"通过命令“打开辅助视图”在辅助视图中检查此项，该命令当前无法通过键绑定触发",
 		"显示定义预览悬停",
 		"向上滚动悬停",
 		"向下滚动悬停",
@@ -1165,6 +1191,9 @@ define("vs/editor/editor.main.nls.zh-cn", {
 		"内联建议是否以空白开头",
 		"内联建议是否以小于选项卡插入内容的空格开头",
 		"是否应抑制当前建议",
+	],
+	"vs/editor/contrib/inlineCompletions/browser/inlineCompletionsController": [
+		"Inspect this in the accessible view ({0})",
 	],
 	"vs/editor/contrib/inlineCompletions/browser/inlineCompletionsHintsWidget": [
 		"“显示下一个参数”提示的图标。",
@@ -1566,6 +1595,7 @@ define("vs/editor/editor.main.nls.zh-cn", {
 		"操作小组件",
 	],
 	"vs/platform/actionWidget/browser/actionWidget": [
+		"Background color for toggled action items in action bar.",
 		"操作小组件列表是否可见",
 		"隐藏操作小组件",
 		"选择上一个操作",
@@ -1707,13 +1737,15 @@ define("vs/editor/editor.main.nls.zh-cn", {
 		"按 \"Enter\" 以确认或按 \"Esc\" 以取消",
 		"{0}/{1}",
 		"在此输入可缩小结果范围。",
-		"切换所有复选框",
-		"{0} 个结果",
-		"已选 {0} 项",
-		"确定",
-		"自定义",
-		"后退 ({0})",
-		"上一步",
+	],
+	"vs/platform/quickinput/browser/quickInputController": [
+		"Toggle all checkboxes",
+		"{0} Results",
+		"{0} Selected",
+		"OK",
+		"Custom",
+		"Back ({0})",
+		"Back",
 	],
 	"vs/platform/quickinput/browser/quickInputList": [
 		"快速输入",

@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var DiffReview_1;
 import * as dom from '../../../base/browser/dom.js';
 import { createFastDomNode } from '../../../base/browser/fastDomNode.js';
 import { createTrustedTypesPolicy } from '../../../base/browser/trustedTypes.js';
@@ -67,7 +68,7 @@ class Diff {
 const diffReviewInsertIcon = registerIcon('diff-review-insert', Codicon.add, nls.localize('diffReviewInsertIcon', 'Icon for \'Insert\' in diff review.'));
 const diffReviewRemoveIcon = registerIcon('diff-review-remove', Codicon.remove, nls.localize('diffReviewRemoveIcon', 'Icon for \'Remove\' in diff review.'));
 const diffReviewCloseIcon = registerIcon('diff-review-close', Codicon.close, nls.localize('diffReviewCloseIcon', 'Icon for \'Close\' in diff review.'));
-let DiffReview = class DiffReview extends Disposable {
+let DiffReview = DiffReview_1 = class DiffReview extends Disposable {
     constructor(diffEditor, _languageService, _audioCueService, _configurationService) {
         super();
         this._languageService = _languageService;
@@ -263,10 +264,10 @@ let DiffReview = class DiffReview extends Disposable {
         }
         const element = !type ? current : type === 'next' ? current === null || current === void 0 ? void 0 : current.nextElementSibling : current === null || current === void 0 ? void 0 : current.previousElementSibling;
         if (element === null || element === void 0 ? void 0 : element.classList.contains("line-insert" /* DiffEditorLineClasses.Insert */)) {
-            this._audioCueService.playAudioCue(AudioCue.diffLineInserted, true);
+            this._audioCueService.playAudioCue(AudioCue.diffLineInserted, { allowManyInParallel: true });
         }
         else if (element === null || element === void 0 ? void 0 : element.classList.contains("line-delete" /* DiffEditorLineClasses.Delete */)) {
-            this._audioCueService.playAudioCue(AudioCue.diffLineDeleted, true);
+            this._audioCueService.playAudioCue(AudioCue.diffLineDeleted, { allowManyInParallel: true });
         }
         this.scrollbar.scanDomNode();
     }
@@ -302,7 +303,7 @@ let DiffReview = class DiffReview extends Disposable {
         if (!originalModel || !modifiedModel) {
             return [];
         }
-        return DiffReview._mergeAdjacent(lineChanges, originalModel.getLineCount(), modifiedModel.getLineCount());
+        return DiffReview_1._mergeAdjacent(lineChanges, originalModel.getLineCount(), modifiedModel.getLineCount());
     }
     static _mergeAdjacent(lineChanges, originalLineCount, modifiedLineCount) {
         if (!lineChanges || lineChanges.length === 0) {
@@ -525,7 +526,7 @@ let DiffReview = class DiffReview extends Disposable {
         let modLine = minModifiedLine;
         for (let i = 0, len = diffs.length; i < len; i++) {
             const diffEntry = diffs[i];
-            DiffReview._renderSection(container, diffEntry, modLine, lineHeight, this._width, originalOptions, originalModel, originalModelOpts, modifiedOptions, modifiedModel, modifiedModelOpts, this._languageService.languageIdCodec);
+            DiffReview_1._renderSection(container, diffEntry, modLine, lineHeight, this._width, originalOptions, originalModel, originalModelOpts, modifiedOptions, modifiedModel, modifiedModelOpts, this._languageService.languageIdCodec);
             if (diffEntry.modifiedLineStart !== 0) {
                 modLine = diffEntry.modifiedLineEnd;
             }
@@ -614,16 +615,16 @@ let DiffReview = class DiffReview extends Disposable {
             let lineContent;
             if (modifiedLine !== 0) {
                 let html = this._renderLine(modifiedModel, modifiedOptions, modifiedModelOpts.tabSize, modifiedLine, languageIdCodec);
-                if (DiffReview._ttPolicy) {
-                    html = DiffReview._ttPolicy.createHTML(html);
+                if (DiffReview_1._ttPolicy) {
+                    html = DiffReview_1._ttPolicy.createHTML(html);
                 }
                 cell.insertAdjacentHTML('beforeend', html);
                 lineContent = modifiedModel.getLineContent(modifiedLine);
             }
             else {
                 let html = this._renderLine(originalModel, originalOptions, originalModelOpts.tabSize, originalLine, languageIdCodec);
-                if (DiffReview._ttPolicy) {
-                    html = DiffReview._ttPolicy.createHTML(html);
+                if (DiffReview_1._ttPolicy) {
+                    html = DiffReview_1._ttPolicy.createHTML(html);
                 }
                 cell.insertAdjacentHTML('beforeend', html);
                 lineContent = originalModel.getLineContent(originalLine);
@@ -663,7 +664,7 @@ let DiffReview = class DiffReview extends Disposable {
     }
 };
 DiffReview._ttPolicy = createTrustedTypesPolicy('diffReview', { createHTML: value => value });
-DiffReview = __decorate([
+DiffReview = DiffReview_1 = __decorate([
     __param(1, ILanguageService),
     __param(2, IAudioCueService),
     __param(3, IConfigurationService)

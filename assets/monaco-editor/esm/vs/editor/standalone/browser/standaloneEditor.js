@@ -290,8 +290,9 @@ export function createWebWorker(opts) {
 export function colorizeElement(domNode, options) {
     const languageService = StandaloneServices.get(ILanguageService);
     const themeService = StandaloneServices.get(IStandaloneThemeService);
-    themeService.registerEditorContainer(domNode);
-    return Colorizer.colorizeElement(themeService, languageService, domNode, options);
+    return Colorizer.colorizeElement(themeService, languageService, domNode, options).then(() => {
+        themeService.registerEditorContainer(domNode);
+    });
 }
 /**
  * Colorize `text` using language `languageId`.

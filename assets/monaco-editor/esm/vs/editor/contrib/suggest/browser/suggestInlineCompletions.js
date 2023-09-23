@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var EditorContribution_1;
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { FuzzyScore } from '../../../../base/common/filters.js';
 import { Iterable } from '../../../../base/common/iterator.js';
@@ -188,29 +189,29 @@ SuggestInlineCompletions = __decorate([
     __param(3, ISuggestMemoryService)
 ], SuggestInlineCompletions);
 export { SuggestInlineCompletions };
-let EditorContribution = class EditorContribution {
+let EditorContribution = EditorContribution_1 = class EditorContribution {
     constructor(_editor, languageFeatureService, editorService, instaService) {
         // HACK - way to contribute something only once
-        if (++EditorContribution._counter === 1) {
+        if (++EditorContribution_1._counter === 1) {
             const provider = instaService.createInstance(SuggestInlineCompletions, (id, model) => {
                 var _a;
                 // HACK - reuse the editor options world outside from a "normal" contribution
                 const editor = (_a = editorService.listCodeEditors().find(editor => editor.getModel() === model)) !== null && _a !== void 0 ? _a : _editor;
                 return editor.getOption(id);
             });
-            EditorContribution._disposable = languageFeatureService.inlineCompletionsProvider.register('*', provider);
+            EditorContribution_1._disposable = languageFeatureService.inlineCompletionsProvider.register('*', provider);
         }
     }
     dispose() {
         var _a;
-        if (--EditorContribution._counter === 0) {
-            (_a = EditorContribution._disposable) === null || _a === void 0 ? void 0 : _a.dispose();
-            EditorContribution._disposable = undefined;
+        if (--EditorContribution_1._counter === 0) {
+            (_a = EditorContribution_1._disposable) === null || _a === void 0 ? void 0 : _a.dispose();
+            EditorContribution_1._disposable = undefined;
         }
     }
 };
 EditorContribution._counter = 0;
-EditorContribution = __decorate([
+EditorContribution = EditorContribution_1 = __decorate([
     __param(1, ILanguageFeaturesService),
     __param(2, ICodeEditorService),
     __param(3, IInstantiationService)

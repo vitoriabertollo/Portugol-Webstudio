@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var SuggestModel_1;
 import { TimeoutTimer } from '../../../../base/common/async.js';
 import { CancellationTokenSource } from '../../../../base/common/cancellation.js';
 import { onUnexpectedError } from '../../../../base/common/errors.js';
@@ -93,7 +94,7 @@ function canShowSuggestOnTriggerCharacters(editor, contextKeyService, configurat
     }
     return !editor.getOption(61 /* EditorOption.inlineSuggest */).suppressSuggestions;
 }
-let SuggestModel = class SuggestModel {
+let SuggestModel = SuggestModel_1 = class SuggestModel {
     constructor(_editor, _editorWorkerService, _clipboardService, _telemetryService, _logService, _contextKeyService, _configurationService, _languageFeaturesService, _envService) {
         this._editor = _editor;
         this._editorWorkerService = _editorWorkerService;
@@ -397,7 +398,7 @@ let SuggestModel = class SuggestModel {
                 snippetSortOrder = 2 /* SnippetSortOrder.Bottom */;
                 break;
         }
-        const { itemKind: itemKindFilter, showDeprecated } = SuggestModel._createSuggestFilter(this._editor);
+        const { itemKind: itemKindFilter, showDeprecated } = SuggestModel_1._createSuggestFilter(this._editor);
         const completionOptions = new CompletionOptions(snippetSortOrder, (_d = (_c = options.completionOptions) === null || _c === void 0 ? void 0 : _c.kindFilter) !== null && _d !== void 0 ? _d : itemKindFilter, (_e = options.completionOptions) === null || _e === void 0 ? void 0 : _e.providerFilter, (_f = options.completionOptions) === null || _f === void 0 ? void 0 : _f.providerItemsToReuse, showDeprecated);
         const wordDistance = WordDistance.create(this._editorWorkerService, this._editor);
         const completions = provideSuggestionItems(this._languageFeaturesService.completionProvider, model, this._editor.getPosition(), completionOptions, suggestCtx, this._requestToken.token);
@@ -658,7 +659,7 @@ let SuggestModel = class SuggestModel {
         }
     }
 };
-SuggestModel = __decorate([
+SuggestModel = SuggestModel_1 = __decorate([
     __param(1, IEditorWorkerService),
     __param(2, IClipboardService),
     __param(3, ITelemetryService),

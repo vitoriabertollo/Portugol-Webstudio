@@ -11,12 +11,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var WordContextKey_1;
 import { IContextKeyService, RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
-let WordContextKey = class WordContextKey {
+let WordContextKey = WordContextKey_1 = class WordContextKey {
     constructor(_editor, contextKeyService) {
         this._editor = _editor;
         this._enabled = false;
-        this._ckAtEnd = WordContextKey.AtEnd.bindTo(contextKeyService);
+        this._ckAtEnd = WordContextKey_1.AtEnd.bindTo(contextKeyService);
         this._configListener = this._editor.onDidChangeConfiguration(e => e.hasChanged(121 /* EditorOption.tabCompletion */) && this._update());
         this._update();
     }
@@ -59,7 +60,7 @@ let WordContextKey = class WordContextKey {
     }
 };
 WordContextKey.AtEnd = new RawContextKey('atEndOfWord', false);
-WordContextKey = __decorate([
+WordContextKey = WordContextKey_1 = __decorate([
     __param(1, IContextKeyService)
 ], WordContextKey);
 export { WordContextKey };

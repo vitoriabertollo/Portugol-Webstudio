@@ -11,13 +11,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var LightBulbWidget_1;
 import * as dom from '../../../../base/browser/dom.js';
 import { Gesture } from '../../../../base/browser/touch.js';
 import { Codicon } from '../../../../base/common/codicons.js';
 import { Emitter, Event } from '../../../../base/common/event.js';
 import { Disposable } from '../../../../base/common/lifecycle.js';
 import { ThemeIcon } from '../../../../base/common/themables.js';
-import { withNullAsUndefined } from '../../../../base/common/types.js';
 import './lightBulbWidget.css';
 import { computeIndentLevel } from '../../../common/model/utils.js';
 import { autoFixCommandId, quickFixCommandId } from './codeAction.js';
@@ -37,7 +37,7 @@ var LightBulbState;
     }
     LightBulbState.Showing = Showing;
 })(LightBulbState || (LightBulbState = {}));
-let LightBulbWidget = class LightBulbWidget extends Disposable {
+let LightBulbWidget = LightBulbWidget_1 = class LightBulbWidget extends Disposable {
     constructor(_editor, keybindingService) {
         super();
         this._editor = _editor;
@@ -91,9 +91,9 @@ let LightBulbWidget = class LightBulbWidget extends Disposable {
             }
         }));
         this._register(Event.runAndSubscribe(keybindingService.onDidUpdateKeybindings, () => {
-            var _a, _b;
-            this._preferredKbLabel = withNullAsUndefined((_a = keybindingService.lookupKeybinding(autoFixCommandId)) === null || _a === void 0 ? void 0 : _a.getLabel());
-            this._quickFixKbLabel = withNullAsUndefined((_b = keybindingService.lookupKeybinding(quickFixCommandId)) === null || _b === void 0 ? void 0 : _b.getLabel());
+            var _a, _b, _c, _d;
+            this._preferredKbLabel = (_b = (_a = keybindingService.lookupKeybinding(autoFixCommandId)) === null || _a === void 0 ? void 0 : _a.getLabel()) !== null && _b !== void 0 ? _b : undefined;
+            this._quickFixKbLabel = (_d = (_c = keybindingService.lookupKeybinding(quickFixCommandId)) === null || _c === void 0 ? void 0 : _c.getLabel()) !== null && _d !== void 0 ? _d : undefined;
             this._updateLightBulbTitleAndIcon();
         }));
     }
@@ -147,7 +147,7 @@ let LightBulbWidget = class LightBulbWidget extends Disposable {
         }
         this.state = new LightBulbState.Showing(actions, trigger, atPosition, {
             position: { lineNumber: effectiveLineNumber, column: 1 },
-            preference: LightBulbWidget._posPref
+            preference: LightBulbWidget_1._posPref
         });
         this._editor.layoutContentWidget(this);
     }
@@ -189,7 +189,7 @@ let LightBulbWidget = class LightBulbWidget extends Disposable {
 };
 LightBulbWidget.ID = 'editor.contrib.lightbulbWidget';
 LightBulbWidget._posPref = [0 /* ContentWidgetPositionPreference.EXACT */];
-LightBulbWidget = __decorate([
+LightBulbWidget = LightBulbWidget_1 = __decorate([
     __param(1, IKeybindingService)
 ], LightBulbWidget);
 export { LightBulbWidget };

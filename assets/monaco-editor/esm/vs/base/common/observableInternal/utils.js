@@ -6,6 +6,9 @@ import { toDisposable } from '../lifecycle.js';
 import { autorun } from './autorun.js';
 import { BaseObservable, ConvenientObservable, getFunctionName, transaction } from './base.js';
 import { getLogger } from './logging.js';
+/**
+ * Represents an efficient observable whose value never changes.
+ */
 export function constObservable(value) {
     return new ConstObservable(value);
 }
@@ -34,7 +37,8 @@ export function waitForState(observable, predicate) {
     return new Promise(resolve => {
         let didRun = false;
         let shouldDispose = false;
-        const d = autorun('waitForState', reader => {
+        const d = autorun(reader => {
+            /** @description waitForState */
             const currentState = observable.read(reader);
             if (predicate(currentState)) {
                 if (!didRun) {
@@ -56,16 +60,16 @@ export function observableFromEvent(event, getValue) {
     return new FromEventObservable(event, getValue);
 }
 export class FromEventObservable extends BaseObservable {
-    constructor(event, getValue) {
+    constructor(event, _getValue) {
         super();
         this.event = event;
-        this.getValue = getValue;
+        this._getValue = _getValue;
         this.hasValue = false;
         this.handleEvent = (args) => {
             var _a;
-            const newValue = this.getValue(args);
+            const newValue = this._getValue(args);
             const didChange = !this.hasValue || this.value !== newValue;
-            (_a = getLogger()) === null || _a === void 0 ? void 0 : _a.handleFromEventObservableTriggered(this, { oldValue: this.value, newValue, change: undefined, didChange });
+            (_a = getLogger()) === null || _a === void 0 ? void 0 : _a.handleFromEventObservableTriggered(this, { oldValue: this.value, newValue, change: undefined, didChange, hadValue: this.hasValue });
             if (didChange) {
                 this.value = newValue;
                 if (this.hasValue) {
@@ -84,7 +88,7 @@ export class FromEventObservable extends BaseObservable {
         };
     }
     getDebugName() {
-        return getFunctionName(this.getValue);
+        return getFunctionName(this._getValue);
     }
     get debugName() {
         const name = this.getDebugName();
@@ -108,7 +112,7 @@ export class FromEventObservable extends BaseObservable {
         }
         else {
             // no cache, as there are no subscribers to keep it updated
-            return this.getValue(undefined);
+            return this._getValue(undefined);
         }
     }
 }
@@ -145,6 +149,8 @@ class FromEventObservableSignal extends BaseObservable {
 }
 /**
  * Creates a signal that can be triggered to invalidate observers.
+ * Signals don't have a value - when they are triggered they indicate a change.
+ * However, signals can carry a delta that is passed to observers.
  */
 export function observableSignal(debugName) {
     return new ObservableSignal(debugName);

@@ -4,7 +4,6 @@
  *--------------------------------------------------------------------------------------------*/
 import { once } from '../../../../base/common/functional.js';
 import { DisposableStore, MutableDisposable, toDisposable } from '../../../../base/common/lifecycle.js';
-import { withNullAsUndefined } from '../../../../base/common/types.js';
 import { getCodeEditor, isDiffEditor } from '../../../browser/editorBrowser.js';
 import { OverviewRulerLane } from '../../../common/model.js';
 import { overviewRulerRangeHighlight } from '../../../common/core/editorColorRegistry.js';
@@ -43,6 +42,7 @@ export class AbstractEditorNavigationQuickAccessProvider {
         return disposables;
     }
     doProvide(picker, token) {
+        var _a;
         const disposables = new DisposableStore();
         // With text control
         const editor = this.activeTextEditorControl;
@@ -56,9 +56,10 @@ export class AbstractEditorNavigationQuickAccessProvider {
                 // changes even later because it could be that the user has
                 // configured quick access to remain open when focus is lost and
                 // we always want to restore the current location.
-                let lastKnownEditorViewState = withNullAsUndefined(editor.saveViewState());
+                let lastKnownEditorViewState = (_a = editor.saveViewState()) !== null && _a !== void 0 ? _a : undefined;
                 disposables.add(codeEditor.onDidChangeCursorPosition(() => {
-                    lastKnownEditorViewState = withNullAsUndefined(editor.saveViewState());
+                    var _a;
+                    lastKnownEditorViewState = (_a = editor.saveViewState()) !== null && _a !== void 0 ? _a : undefined;
                 }));
                 context.restoreViewState = () => {
                     if (lastKnownEditorViewState && editor === this.activeTextEditorControl) {

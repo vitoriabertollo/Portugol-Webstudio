@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var SmartSelectController_1;
 import * as arrays from '../../../../base/common/arrays.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { onUnexpectedExternalError } from '../../../../base/common/errors.js';
@@ -55,9 +56,9 @@ class SelectionRanges {
         return res;
     }
 }
-let SmartSelectController = class SmartSelectController {
+let SmartSelectController = SmartSelectController_1 = class SmartSelectController {
     static get(editor) {
-        return editor.getContribution(SmartSelectController.ID);
+        return editor.getContribution(SmartSelectController_1.ID);
     }
     constructor(_editor, _languageFeaturesService) {
         this._editor = _editor;
@@ -123,7 +124,7 @@ let SmartSelectController = class SmartSelectController {
     }
 };
 SmartSelectController.ID = 'editor.contrib.smartSelectController';
-SmartSelectController = __decorate([
+SmartSelectController = SmartSelectController_1 = __decorate([
     __param(1, ILanguageFeaturesService)
 ], SmartSelectController);
 export { SmartSelectController };

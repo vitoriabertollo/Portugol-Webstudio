@@ -11,6 +11,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var SelectionHighlighter_1;
 import { status } from '../../../../base/browser/ui/aria/aria.js';
 import { RunOnceScheduler } from '../../../../base/common/async.js';
 import { KeyChord } from '../../../../base/common/keyCodes.js';
@@ -719,7 +720,7 @@ class SelectionHighlighterState {
         return this._cachedFindMatches;
     }
 }
-let SelectionHighlighter = class SelectionHighlighter extends Disposable {
+let SelectionHighlighter = SelectionHighlighter_1 = class SelectionHighlighter extends Disposable {
     constructor(editor, _languageFeaturesService) {
         super();
         this._languageFeaturesService = _languageFeaturesService;
@@ -770,7 +771,7 @@ let SelectionHighlighter = class SelectionHighlighter extends Disposable {
         this.updateSoon.schedule();
     }
     _update() {
-        this._setState(SelectionHighlighter._createState(this.state, this._isEnabled, this.editor));
+        this._setState(SelectionHighlighter_1._createState(this.state, this._isEnabled, this.editor));
     }
     static _createState(oldState, isEnabled, editor) {
         if (!isEnabled) {
@@ -901,7 +902,7 @@ let SelectionHighlighter = class SelectionHighlighter extends Disposable {
     }
 };
 SelectionHighlighter.ID = 'editor.contrib.selectionHighlighter';
-SelectionHighlighter = __decorate([
+SelectionHighlighter = SelectionHighlighter_1 = __decorate([
     __param(1, ILanguageFeaturesService)
 ], SelectionHighlighter);
 export { SelectionHighlighter };

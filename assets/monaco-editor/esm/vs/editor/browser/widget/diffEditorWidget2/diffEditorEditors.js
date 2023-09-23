@@ -13,7 +13,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
  *--------------------------------------------------------------------------------------------*/
 import { Emitter } from '../../../../base/common/event.js';
 import { Disposable } from '../../../../base/common/lifecycle.js';
-import { autorunHandleChanges } from '../../../../base/common/observableImpl/autorun.js';
+import { autorunHandleChanges } from '../../../../base/common/observable.js';
 import { OverviewRulerPart } from './overviewRulerPart.js';
 import { EditorOptions } from '../../../common/config/editorOptions.js';
 import { localize } from '../../../../nls.js';
@@ -29,9 +29,9 @@ let DiffEditorEditors = class DiffEditorEditors extends Disposable {
         this._instantiationService = _instantiationService;
         this._keybindingService = _keybindingService;
         this._onDidContentSizeChange = this._register(new Emitter());
-        this.original = this._createLeftHandSideEditor(_options.editorOptions.get(), codeEditorWidgetOptions.originalEditor || {});
-        this.modified = this._createRightHandSideEditor(_options.editorOptions.get(), codeEditorWidgetOptions.modifiedEditor || {});
-        this._register(autorunHandleChanges('update editor options', {
+        this.original = this._register(this._createLeftHandSideEditor(_options.editorOptions.get(), codeEditorWidgetOptions.originalEditor || {}));
+        this.modified = this._register(this._createRightHandSideEditor(_options.editorOptions.get(), codeEditorWidgetOptions.modifiedEditor || {}));
+        this._register(autorunHandleChanges({
             createEmptyChangeSummary: () => ({}),
             handleChange: (ctx, changeSummary) => {
                 if (ctx.didChange(_options.editorOptions)) {
@@ -40,7 +40,9 @@ let DiffEditorEditors = class DiffEditorEditors extends Disposable {
                 return true;
             }
         }, (reader, changeSummary) => {
+            /** @description update editor options */
             _options.editorOptions.read(reader);
+            this._options.renderSideBySide.read(reader);
             this.modified.updateOptions(this._adjustOptionsForRightHandSide(reader, changeSummary));
             this.original.updateOptions(this._adjustOptionsForLeftHandSide(reader, changeSummary));
         }));
@@ -78,8 +80,11 @@ let DiffEditorEditors = class DiffEditorEditors extends Disposable {
             result.wordWrapOverride1 = 'off';
             result.wordWrapOverride2 = 'off';
             result.stickyScroll = { enabled: false };
+            // Disable unicode highlighting for the original side in inline mode, as they are not shown anyway.
+            result.unicodeHighlight = { nonBasicASCII: false, ambiguousCharacters: false, invisibleCharacters: false };
         }
         else {
+            result.unicodeHighlight = this._options.editorOptions.get().unicodeHighlight || {};
             result.wordWrapOverride1 = this._options.diffWordWrap.get();
         }
         if (changedOptions.originalAriaLabel) {
@@ -119,7 +124,7 @@ let DiffEditorEditors = class DiffEditorEditors extends Disposable {
         // Clone minimap options before changing them
         clonedOptions.minimap = Object.assign({}, (clonedOptions.minimap || {}));
         clonedOptions.minimap.enabled = false;
-        if (this._options.collapseUnchangedRegions.get()) {
+        if (this._options.hideUnchangedRegions.get()) {
             clonedOptions.stickyScroll = { enabled: false };
         }
         else {

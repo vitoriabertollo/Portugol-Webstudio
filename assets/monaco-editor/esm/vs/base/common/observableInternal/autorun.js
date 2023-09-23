@@ -4,21 +4,22 @@
  *--------------------------------------------------------------------------------------------*/
 import { assertFn } from '../assert.js';
 import { DisposableStore, toDisposable } from '../lifecycle.js';
+import { getFunctionName } from './base.js';
 import { getLogger } from './logging.js';
-export function autorun(debugName, fn) {
-    return new AutorunObserver(debugName, fn, undefined, undefined);
+export function autorunOpts(options, fn) {
+    return new AutorunObserver(options.debugName, fn, undefined, undefined);
 }
-export function autorunHandleChanges(debugName, options, fn) {
-    return new AutorunObserver(debugName, fn, options.createEmptyChangeSummary, options.handleChange);
+export function autorun(fn) {
+    return new AutorunObserver(undefined, fn, undefined, undefined);
 }
-// TODO@hediet rename to autorunWithStore
-export function autorunWithStore2(debugName, fn) {
-    return autorunWithStore(fn, debugName);
+export function autorunHandleChanges(options, fn) {
+    return new AutorunObserver(options.debugName, fn, options.createEmptyChangeSummary, options.handleChange);
 }
-// TODO@hediet deprecate, rename to autorunWithStoreEx
-export function autorunWithStore(fn, debugName) {
+export function autorunWithStore(fn) {
     const store = new DisposableStore();
-    const disposable = autorun(debugName, reader => {
+    const disposable = autorunOpts({
+        debugName: () => getFunctionName(fn) || '(anonymous)',
+    }, reader => {
         store.clear();
         fn(reader, store);
     });
@@ -28,10 +29,26 @@ export function autorunWithStore(fn, debugName) {
     });
 }
 export class AutorunObserver {
-    constructor(debugName, runFn, createChangeSummary, _handleChange) {
+    get debugName() {
+        if (typeof this._debugName === 'string') {
+            return this._debugName;
+        }
+        if (typeof this._debugName === 'function') {
+            const name = this._debugName();
+            if (name !== undefined) {
+                return name;
+            }
+        }
+        const name = getFunctionName(this._runFn);
+        if (name !== undefined) {
+            return name;
+        }
+        return '(anonymous)';
+    }
+    constructor(_debugName, _runFn, createChangeSummary, _handleChange) {
         var _a, _b;
-        this.debugName = debugName;
-        this.runFn = runFn;
+        this._debugName = _debugName;
+        this._runFn = _runFn;
         this.createChangeSummary = createChangeSummary;
         this._handleChange = _handleChange;
         this.state = 2 /* AutorunState.stale */;
@@ -51,7 +68,7 @@ export class AutorunObserver {
         this.dependencies.clear();
     }
     _runIfNeeded() {
-        var _a, _b;
+        var _a, _b, _c;
         if (this.state === 3 /* AutorunState.upToDate */) {
             return;
         }
@@ -59,13 +76,16 @@ export class AutorunObserver {
         this.dependenciesToBeRemoved = this.dependencies;
         this.dependencies = emptySet;
         this.state = 3 /* AutorunState.upToDate */;
-        (_a = getLogger()) === null || _a === void 0 ? void 0 : _a.handleAutorunTriggered(this);
         try {
-            const changeSummary = this.changeSummary;
-            this.changeSummary = (_b = this.createChangeSummary) === null || _b === void 0 ? void 0 : _b.call(this);
-            this.runFn(this, changeSummary);
+            if (!this.disposed) {
+                (_a = getLogger()) === null || _a === void 0 ? void 0 : _a.handleAutorunTriggered(this);
+                const changeSummary = this.changeSummary;
+                this.changeSummary = (_b = this.createChangeSummary) === null || _b === void 0 ? void 0 : _b.call(this);
+                this._runFn(this, changeSummary);
+            }
         }
         finally {
+            (_c = getLogger()) === null || _c === void 0 ? void 0 : _c.handleAutorunFinished(this);
             // We don't want our observed observables to think that they are (not even temporarily) not being observed.
             // Thus, we only unsubscribe from observables that are definitely not read anymore.
             for (const o of this.dependenciesToBeRemoved) {

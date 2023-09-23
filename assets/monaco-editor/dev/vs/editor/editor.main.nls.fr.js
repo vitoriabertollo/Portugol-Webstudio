@@ -1,6 +1,6 @@
 /*!-----------------------------------------------------------
  * Copyright (c) Microsoft Corporation. All rights reserved.
- * Version: 0.41.0(38e1e3d097f84e336c311d071a9ffb5191d4ffd1)
+ * Version: 0.43.0(94c055bcbdd49f04a0fa15515e848542a79fb948)
  * Released under the MIT license
  * https://github.com/microsoft/vscode/blob/main/LICENSE.txt
  *-----------------------------------------------------------*/
@@ -20,6 +20,10 @@ define("vs/editor/editor.main.nls.fr", {
 	"vs/base/browser/ui/findinput/replaceInput": [
 		"entrée",
 		"Préserver la casse",
+	],
+	"vs/base/browser/ui/hover/hoverWidget": [
+		"Inspect this in the accessible view with {0}.",
+		"Inspect this in the accessible view via the command Open Accessible View which is currently not triggerable via keybinding.",
 	],
 	"vs/base/browser/ui/iconLabel/iconLabelHover": [
 		"Chargement...",
@@ -140,6 +144,7 @@ define("vs/editor/editor.main.nls.fr", {
 	],
 	"vs/editor/browser/widget/diffEditorWidget2/colors": [
 		"Couleur de bordure du texte déplacé dans l’éditeur de diff.",
+		"The active border color for text that got moved in the diff editor.",
 	],
 	"vs/editor/browser/widget/diffEditorWidget2/decorations": [
 		"Élément décoratif de ligne pour les insertions dans l\'éditeur de différences.",
@@ -158,8 +163,19 @@ define("vs/editor/editor.main.nls.fr", {
 		"Copier la ligne modifiée ({0})",
 		"Annuler la modification",
 	],
+	"vs/editor/browser/widget/diffEditorWidget2/movedBlocksLines": [
+		"Code moved with changes to line {0}-{1}",
+		"Code moved with changes from line {0}-{1}",
+		"Code moved to line {0}-{1}",
+		"Code moved from line {0}-{1}",
+	],
 	"vs/editor/browser/widget/diffEditorWidget2/unchangedRanges": [
 		"Replier la région inchangée",
+		"Click or drag to show more above",
+		"Show all",
+		"Click or drag to show more below",
+		"{0} hidden lines",
+		"Double click to unfold",
 	],
 	"vs/editor/browser/widget/diffReview": [
 		"Icône de l\'option Insérer dans la revue des différences.",
@@ -218,6 +234,8 @@ define("vs/editor/editor.main.nls.fr", {
 		"Délai d\'expiration en millisecondes avant annulation du calcul de diff. Utilisez 0 pour supprimer le délai d\'expiration.",
 		"Taille de fichier maximale en Mo pour laquelle calculer les différences. Utilisez 0 pour ne pas avoir de limite.",
 		"Contrôle si l\'éditeur de différences affiche les différences en mode côte à côte ou inline.",
+		"If the diff editor width is smaller than this value, the inline view is used.",
+		"If enabled and the editor width is too small, the inline view is used.",
 		"Lorsqu’il est activé, l’éditeur de différences affiche des flèches dans sa marge de glyphe pour rétablir les modifications.",
 		"Quand il est activé, l\'éditeur de différences ignore les changements d\'espace blanc de début ou de fin.",
 		"Contrôle si l\'éditeur de différences affiche les indicateurs +/- pour les changements ajoutés/supprimés .",
@@ -227,7 +245,10 @@ define("vs/editor/editor.main.nls.fr", {
 		"Le retour automatique à la ligne dépend du paramètre {0}.",
 		"Utilise l’algorithme de comparaison hérité.",
 		"Utilise l’algorithme de comparaison avancé.",
-		"Contrôle si l’éditeur de différences affiche les régions inchangées. Fonctionne uniquement lorsque {0} est défini.",
+		"Controls whether the diff editor shows unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used for unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used as a minimum for unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used as context when comparing unchanged regions. Only works when {0} is set.",
 		"Contrôle si l’éditeur de différences doit afficher les déplacements de code détectés. Ne fonctionne que si {0} est activé.",
 		"Contrôle si l’éditeur de différences utilise la nouvelle ou l’ancienne implémentation.",
 		"Contrôle si l’éditeur de différences affiche des décorations vides pour voir où les caractères ont été insérés ou supprimés.",
@@ -286,6 +307,7 @@ define("vs/editor/editor.main.nls.fr", {
 		"Affiche les étendues actives imbriqués pendant le défilement en haut de l’éditeur.",
 		"Définit le nombre maximal de lignes rémanentes à afficher.",
 		"Définit le modèle à utiliser pour déterminer les lignes à coller. Si le modèle hiérarchique n’existe pas, il revient au modèle de fournisseur de pliage qui revient au modèle de mise en retrait. Cette demande est respectée dans les trois cas.",
+		"Enable scrolling of the sticky scroll widget with the editor\'s horizontal scrollbar.",
 		"Active les indicateurs inlay dans l’éditeur.",
 		"Les indicateurs d’inlay sont activés.",
 		"Les indicateurs d’inlay sont affichés par défaut et masqués lors de la conservation {0}",
@@ -545,6 +567,7 @@ define("vs/editor/editor.main.nls.fr", {
 		"Ne pas afficher de suggestions d’extrait de code.",
 		"Contrôle si les extraits de code s\'affichent en même temps que d\'autres suggestions, ainsi que leur mode de tri.",
 		"Contrôle si l\'éditeur défile en utilisant une animation.",
+		"Controls whether the accessibility hint should be provided to screen reader users when an inline completion is shown.",
 		"Taille de police pour le widget suggest. Lorsqu’elle est définie sur {0}, la valeur de {1} est utilisée.",
 		"Hauteur de ligne pour le widget suggest. Lorsqu’elle est définie sur {0}, la valeur de {1} est utilisée. La valeur minimale est 8.",
 		"Contrôle si les suggestions devraient automatiquement s’afficher lorsque vous tapez les caractères de déclencheur.",
@@ -650,7 +673,9 @@ define("vs/editor/editor.main.nls.fr", {
 		"Indique si l’éditeur est en lecture seule",
 		"Indique si le contexte est celui d\'un éditeur de différences",
 		"Indique si le contexte est celui d’un éditeur de différences intégré",
+		"Whether a moved code block is selected for comparison",
 		"Indique si la visionneuse diff accessible est visible",
+		"Whether the diff editor render side by side inline breakpoint is reached",
 		"Indique si \'editor.columnSelection\' est activé",
 		"Indique si du texte est sélectionné dans l\'éditeur",
 		"Indique si l\'éditeur a plusieurs sélections",
@@ -889,6 +914,9 @@ define("vs/editor/editor.main.nls.fr", {
 		"Insérer des chemins d’accès relatifs",
 		"Insérer un chemin d’accès relatif",
 	],
+	"vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorContribution": [
+		"Configures the default drop provider to use for content of a given mime type.",
+	],
 	"vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorController": [
 		"Indique si le widget de suppression s’affiche",
 		"Afficher les options de suppression...",
@@ -1092,8 +1120,6 @@ define("vs/editor/editor.main.nls.fr", {
 	],
 	"vs/editor/contrib/hover/browser/hover": [
 		"Afficher ou focus sur pointer",
-		"Inspecter ceci dans l’affichage accessible avec {0}",
-		"Inspecter ceci dans l’affichage accessible à l’aide de la commande Ouvrir l’affichage accessible qui n’est pas déclenchable via la combinaison de touches pour le moment",
 		"Afficher le pointeur de l\'aperçu de définition",
 		"Faire défiler le pointage vers le haut",
 		"Faire défiler le pointage vers le bas",
@@ -1165,6 +1191,9 @@ define("vs/editor/editor.main.nls.fr", {
 		"Indique si la suggestion en ligne commence par un espace blanc",
 		"Indique si la suggestion incluse commence par un espace blanc inférieur à ce qui serait inséré par l’onglet.",
 		"Indique si les suggestions doivent être supprimées pour la suggestion actuelle",
+	],
+	"vs/editor/contrib/inlineCompletions/browser/inlineCompletionsController": [
+		"Inspect this in the accessible view ({0})",
 	],
 	"vs/editor/contrib/inlineCompletions/browser/inlineCompletionsHintsWidget": [
 		"Icône d\'affichage du prochain conseil de paramètre.",
@@ -1566,6 +1595,7 @@ define("vs/editor/editor.main.nls.fr", {
 		"Widget d’action",
 	],
 	"vs/platform/actionWidget/browser/actionWidget": [
+		"Background color for toggled action items in action bar.",
 		"Indique si la liste des widgets d’action est visible",
 		"Masquer le widget d’action",
 		"Sélectionner l’action précédente",
@@ -1707,13 +1737,15 @@ define("vs/editor/editor.main.nls.fr", {
 		"Appuyez sur \'Entrée\' pour confirmer votre saisie, ou sur \'Échap\' pour l\'annuler",
 		"{0}/{1}",
 		"Taper pour affiner les résultats.",
-		"Activer/désactiver toutes les cases à cocher",
-		"{0} résultats",
-		"{0} Sélectionnés",
+	],
+	"vs/platform/quickinput/browser/quickInputController": [
+		"Toggle all checkboxes",
+		"{0} Results",
+		"{0} Selected",
 		"OK",
-		"Personnalisé",
-		"Précédent ({0})",
-		"Précédent",
+		"Custom",
+		"Back ({0})",
+		"Back",
 	],
 	"vs/platform/quickinput/browser/quickInputList": [
 		"Entrée rapide",

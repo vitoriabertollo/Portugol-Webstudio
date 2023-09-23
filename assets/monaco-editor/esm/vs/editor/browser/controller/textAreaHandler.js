@@ -129,8 +129,7 @@ let TextAreaHandler = class TextAreaHandler extends ViewPart {
         this.textArea.setAttribute('role', 'textbox');
         this.textArea.setAttribute('aria-roledescription', nls.localize('editor', "editor"));
         this.textArea.setAttribute('aria-multiline', 'true');
-        this.textArea.setAttribute('aria-haspopup', 'false');
-        this.textArea.setAttribute('aria-autocomplete', 'both');
+        this.textArea.setAttribute('aria-autocomplete', options.get(89 /* EditorOption.readOnly */) ? 'none' : 'both');
         this._ensureReadOnlyAttribute();
         this.textAreaCover = createFastDomNode(document.createElement('div'));
         this.textAreaCover.setPosition('absolute');

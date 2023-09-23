@@ -231,11 +231,11 @@ export class ViewLine {
         }
         return null;
     }
-    getColumnOfNodeOffset(lineNumber, spanNode, offset) {
+    getColumnOfNodeOffset(spanNode, offset) {
         if (!this._renderedViewLine) {
             return 1;
         }
-        return this._renderedViewLine.getColumnOfNodeOffset(lineNumber, spanNode, offset);
+        return this._renderedViewLine.getColumnOfNodeOffset(spanNode, offset);
     }
 }
 ViewLine.CLASS_NAME = 'view-line';
@@ -335,14 +335,8 @@ class FastRenderedViewLine {
         }
         return r[0].left;
     }
-    getColumnOfNodeOffset(lineNumber, spanNode, offset) {
-        const spanNodeTextContentLength = spanNode.textContent.length;
-        let spanIndex = -1;
-        while (spanNode) {
-            spanNode = spanNode.previousSibling;
-            spanIndex++;
-        }
-        return this._characterMapping.getColumn(new DomPosition(spanIndex, offset), spanNodeTextContentLength);
+    getColumnOfNodeOffset(spanNode, offset) {
+        return getColumnOfNodeOffset(this._characterMapping, spanNode, offset);
     }
 }
 /**
@@ -499,14 +493,8 @@ class RenderedViewLine {
     /**
      * Returns the column for the text found at a specific offset inside a rendered dom node
      */
-    getColumnOfNodeOffset(lineNumber, spanNode, offset) {
-        const spanNodeTextContentLength = spanNode.textContent.length;
-        let spanIndex = -1;
-        while (spanNode) {
-            spanNode = spanNode.previousSibling;
-            spanIndex++;
-        }
-        return this._characterMapping.getColumn(new DomPosition(spanIndex, offset), spanNodeTextContentLength);
+    getColumnOfNodeOffset(spanNode, offset) {
+        return getColumnOfNodeOffset(this._characterMapping, spanNode, offset);
     }
 }
 class WebKitRenderedViewLine extends RenderedViewLine {
@@ -543,4 +531,13 @@ function createWebKitRenderedLine(domNode, renderLineInput, characterMapping, co
 }
 function createNormalRenderedLine(domNode, renderLineInput, characterMapping, containsRTL, containsForeignElements) {
     return new RenderedViewLine(domNode, renderLineInput, characterMapping, containsRTL, containsForeignElements);
+}
+export function getColumnOfNodeOffset(characterMapping, spanNode, offset) {
+    const spanNodeTextContentLength = spanNode.textContent.length;
+    let spanIndex = -1;
+    while (spanNode) {
+        spanNode = spanNode.previousSibling;
+        spanIndex++;
+    }
+    return characterMapping.getColumn(new DomPosition(spanIndex, offset), spanNodeTextContentLength);
 }

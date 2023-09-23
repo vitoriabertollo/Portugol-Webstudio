@@ -1,6 +1,6 @@
 /*!-----------------------------------------------------------
  * Copyright (c) Microsoft Corporation. All rights reserved.
- * Version: 0.41.0(38e1e3d097f84e336c311d071a9ffb5191d4ffd1)
+ * Version: 0.43.0(94c055bcbdd49f04a0fa15515e848542a79fb948)
  * Released under the MIT license
  * https://github.com/microsoft/vscode/blob/main/LICENSE.txt
  *-----------------------------------------------------------*/
@@ -20,6 +20,10 @@ define("vs/editor/editor.main.nls.ko", {
 	"vs/base/browser/ui/findinput/replaceInput": [
 		"입력",
 		"대/소문자 보존",
+	],
+	"vs/base/browser/ui/hover/hoverWidget": [
+		"Inspect this in the accessible view with {0}.",
+		"Inspect this in the accessible view via the command Open Accessible View which is currently not triggerable via keybinding.",
 	],
 	"vs/base/browser/ui/iconLabel/iconLabelHover": [
 		"로드 중...",
@@ -140,6 +144,7 @@ define("vs/editor/editor.main.nls.ko", {
 	],
 	"vs/editor/browser/widget/diffEditorWidget2/colors": [
 		"diff 편집기에서 이동된 텍스트의 테두리 색입니다.",
+		"The active border color for text that got moved in the diff editor.",
 	],
 	"vs/editor/browser/widget/diffEditorWidget2/decorations": [
 		"diff 편집기의 삽입에 대한 줄 데코레이션입니다.",
@@ -158,8 +163,19 @@ define("vs/editor/editor.main.nls.ko", {
 		"변경된 줄({0}) 복사",
 		"이 변경 내용 되돌리기",
 	],
+	"vs/editor/browser/widget/diffEditorWidget2/movedBlocksLines": [
+		"Code moved with changes to line {0}-{1}",
+		"Code moved with changes from line {0}-{1}",
+		"Code moved to line {0}-{1}",
+		"Code moved from line {0}-{1}",
+	],
 	"vs/editor/browser/widget/diffEditorWidget2/unchangedRanges": [
 		"변경되지 않은 영역 접기",
+		"Click or drag to show more above",
+		"Show all",
+		"Click or drag to show more below",
+		"{0} hidden lines",
+		"Double click to unfold",
 	],
 	"vs/editor/browser/widget/diffReview": [
 		"Diff 검토에서 \'삽입\'의 아이콘입니다.",
@@ -218,6 +234,8 @@ define("vs/editor/editor.main.nls.ko", {
 		"diff 계산이 취소된 후 밀리초 단위로 시간을 제한합니다. 제한 시간이 없는 경우 0을 사용합니다.",
 		"차이를 계산할 최대 파일 크기(MB)입니다. 제한이 없으면 0을 사용합니다.",
 		"diff 편집기에서 diff를 나란히 표시할지 인라인으로 표시할지를 제어합니다.",
+		"If the diff editor width is smaller than this value, the inline view is used.",
+		"If enabled and the editor width is too small, the inline view is used.",
 		"활성화되면 diff 편집기는 변경 내용을 되돌리기 위해 글리프 여백에 화살표를 표시합니다.",
 		"사용하도록 설정하면 Diff 편집기가 선행 또는 후행 공백의 변경 내용을 무시합니다.",
 		"diff 편집기에서 추가/제거된 변경 내용에 대해 +/- 표시기를 표시하는지 여부를 제어합니다.",
@@ -227,7 +245,10 @@ define("vs/editor/editor.main.nls.ko", {
 		"줄은 {0} 설정에 따라 줄 바꿈됩니다.",
 		"레거시 비교 알고리즘을 사용합니다.",
 		"고급 비교 알고리즘을 사용합니다.",
-		"diff 편집기가 변경되지 않은 영역을 표시할지 여부를 제어합니다. {0}이(가) 설정된 경우에만 작동합니다.",
+		"Controls whether the diff editor shows unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used for unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used as a minimum for unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used as context when comparing unchanged regions. Only works when {0} is set.",
 		"diff 편집기가 감지된 코드 이동을 표시할지 여부를 제어합니다. {0}이(가) 설정된 경우에만 작동합니다.",
 		"diff 편집기에서 새 구현을 사용하는지 또는 이전 구현을 사용하는지 여부를 제어합니다.",
 		"문자가 삽입되거나 삭제된 위치를 볼 수 있도록 diff 편집기에 빈 장식적 요소를 표시할지 여부를 제어합니다.",
@@ -286,6 +307,7 @@ define("vs/editor/editor.main.nls.ko", {
 		"편집기 위쪽에서 스크롤하는 동안 중첩된 현재 범위를 표시합니다.",
 		"표시할 최대 고정 선 수를 정의합니다.",
 		"고정할 줄을 결정하는 데 사용할 모델을 정의합니다. 개요 모델이 없으면 들여쓰기 모델에 해당하는 접기 공급자 모델에서 대체됩니다. 이 순서는 세 가지 경우 모두 적용됩니다.",
+		"Enable scrolling of the sticky scroll widget with the editor\'s horizontal scrollbar.",
 		"편집기에서 인레이 힌트를 사용하도록 설정합니다.",
 		"인레이 힌트를 사용할 수 있음",
 		"인레이 힌트는 기본적으로 표시되고 {0}을(를) 길게 누를 때 숨겨집니다.",
@@ -545,6 +567,7 @@ define("vs/editor/editor.main.nls.ko", {
 		"코드 조각 제안을 표시하지 않습니다.",
 		"코드 조각이 다른 추천과 함께 표시되는지 여부 및 정렬 방법을 제어합니다.",
 		"편집기에서 애니메이션을 사용하여 스크롤할지 여부를 제어합니다.",
+		"Controls whether the accessibility hint should be provided to screen reader users when an inline completion is shown.",
 		"제안 위젯의 글꼴 크기입니다. {0}(으)로 설정하면 {1} 값이 사용됩니다.",
 		"제안 위젯의 줄 높이입니다. {0}(으)로 설정하면 {1} 값이 사용됩니다. 최소값은 8입니다.",
 		"트리거 문자를 입력할 때 제안을 자동으로 표시할지 여부를 제어합니다.",
@@ -650,7 +673,9 @@ define("vs/editor/editor.main.nls.ko", {
 		"편집기가 읽기 전용인지 여부",
 		"컨텍스트가 diff 편집기인지 여부",
 		"컨텍스트가 포함된 diff 편집기인지 여부",
+		"Whether a moved code block is selected for comparison",
 		"액세스 가능한 Diff 뷰어 표시 여부",
+		"Whether the diff editor render side by side inline breakpoint is reached",
 		"\'editor.columnSelection\'을 사용하도록 설정되어 있는지 여부",
 		"편집기에 선택된 텍스트가 있는지 여부",
 		"편집기에 여러 개의 선택 항목이 있는지 여부",
@@ -889,6 +914,9 @@ define("vs/editor/editor.main.nls.ko", {
 		"상대 경로 삽입",
 		"상대 경로 삽입",
 	],
+	"vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorContribution": [
+		"Configures the default drop provider to use for content of a given mime type.",
+	],
 	"vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorController": [
 		"드롭 위젯이 표시되는지 여부",
 		"드롭 옵션 표시...",
@@ -1092,8 +1120,6 @@ define("vs/editor/editor.main.nls.ko", {
 	],
 	"vs/editor/contrib/hover/browser/hover": [
 		"가리키기 또는 포커스 표시",
-		"{0}을(를) 사용하여 접근성 보기에서 이를 검사",
-		"현재 키 바인딩을 통해 트리거할 수 없는 접근성 보기 열기 명령을 통해 접근성 보기에서 이를 검사합니다.",
 		"정의 미리 보기 가리킨 항목 표시",
 		"위로 스크롤 가리키기",
 		"아래로 스크롤 가리키기",
@@ -1165,6 +1191,9 @@ define("vs/editor/editor.main.nls.ko", {
 		"인라인 제안이 공백으로 시작하는지 여부",
 		"인라인 제안이 탭에 의해 삽입되는 것보다 작은 공백으로 시작하는지 여부",
 		"현재 제안에 대한 제안 표시 여부",
+	],
+	"vs/editor/contrib/inlineCompletions/browser/inlineCompletionsController": [
+		"Inspect this in the accessible view ({0})",
 	],
 	"vs/editor/contrib/inlineCompletions/browser/inlineCompletionsHintsWidget": [
 		"다음 매개 변수 힌트 표시의 아이콘입니다.",
@@ -1566,6 +1595,7 @@ define("vs/editor/editor.main.nls.ko", {
 		"작업 위젯",
 	],
 	"vs/platform/actionWidget/browser/actionWidget": [
+		"Background color for toggled action items in action bar.",
 		"작업 위젯 목록 표시 여부",
 		"작업 위젯 숨기기",
 		"이전 작업 선택",
@@ -1707,13 +1737,15 @@ define("vs/editor/editor.main.nls.ko", {
 		"입력을 확인하려면 \'Enter\' 키를 누르고, 취소하려면 \'Esc\' 키를 누르세요.",
 		"{0} / {1}",
 		"결과의 범위를 축소하려면 입력하세요.",
-		"모든 확인란 선택/해제",
-		"{0}개 결과",
-		"{0} 선택됨",
-		"확인",
-		"사용자 지정",
-		"뒤로({0})",
-		"뒤로",
+	],
+	"vs/platform/quickinput/browser/quickInputController": [
+		"Toggle all checkboxes",
+		"{0} Results",
+		"{0} Selected",
+		"OK",
+		"Custom",
+		"Back ({0})",
+		"Back",
 	],
 	"vs/platform/quickinput/browser/quickInputList": [
 		"빠른 입력",

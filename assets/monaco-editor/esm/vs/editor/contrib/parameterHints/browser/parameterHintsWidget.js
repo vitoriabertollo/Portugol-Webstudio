@@ -11,6 +11,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var ParameterHintsWidget_1;
 import * as dom from '../../../../base/browser/dom.js';
 import * as aria from '../../../../base/browser/ui/aria/aria.js';
 import { DomScrollableElement } from '../../../../base/browser/ui/scrollbar/scrollableElement.js';
@@ -32,7 +33,7 @@ import { ThemeIcon } from '../../../../base/common/themables.js';
 const $ = dom.$;
 const parameterHintsNextIcon = registerIcon('parameter-hints-next', Codicon.chevronDown, nls.localize('parameterHintsNextIcon', 'Icon for show next parameter hint.'));
 const parameterHintsPreviousIcon = registerIcon('parameter-hints-previous', Codicon.chevronUp, nls.localize('parameterHintsPreviousIcon', 'Icon for show previous parameter hint.'));
-let ParameterHintsWidget = class ParameterHintsWidget extends Disposable {
+let ParameterHintsWidget = ParameterHintsWidget_1 = class ParameterHintsWidget extends Disposable {
     constructor(editor, model, contextKeyService, openerService, languageService) {
         super();
         this.editor = editor;
@@ -287,7 +288,7 @@ let ParameterHintsWidget = class ParameterHintsWidget extends Disposable {
         return this.domNodes.element;
     }
     getId() {
-        return ParameterHintsWidget.ID;
+        return ParameterHintsWidget_1.ID;
     }
     updateMaxHeight() {
         if (!this.domNodes) {
@@ -303,7 +304,7 @@ let ParameterHintsWidget = class ParameterHintsWidget extends Disposable {
     }
 };
 ParameterHintsWidget.ID = 'editor.widget.parameterHintsWidget';
-ParameterHintsWidget = __decorate([
+ParameterHintsWidget = ParameterHintsWidget_1 = __decorate([
     __param(2, IContextKeyService),
     __param(3, IOpenerService),
     __param(4, ILanguageService)

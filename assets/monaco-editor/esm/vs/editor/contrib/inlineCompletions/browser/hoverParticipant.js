@@ -114,8 +114,9 @@ let InlineCompletionsHoverParticipant = class InlineCompletionsHoverParticipant 
             const renderedContents = disposableStore.add(renderer.render(new MarkdownString().appendText(inlineSuggestionAvailable).appendCodeblock('text', code)));
             hoverContentsElement.replaceChildren(renderedContents.element);
         };
-        disposableStore.add(autorun('update hover', (reader) => {
+        disposableStore.add(autorun(reader => {
             var _a;
+            /** @description update hover */
             const ghostText = (_a = part.controller.model.read(reader)) === null || _a === void 0 ? void 0 : _a.ghostText.read(reader);
             if (ghostText) {
                 const lineText = this._editor.getModel().getLineContent(ghostText.lineNumber);

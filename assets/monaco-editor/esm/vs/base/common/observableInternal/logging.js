@@ -21,6 +21,15 @@ export class ConsoleObservableLogger {
         ]);
     }
     formatInfo(info) {
+        if (!info.hadValue) {
+            return [
+                normalText(` `),
+                styled(formatValue(info.newValue, 60), {
+                    color: 'green',
+                }),
+                normalText(` (initial)`),
+            ];
+        }
         return info.didChange
             ? [
                 normalText(` `),
@@ -64,7 +73,8 @@ export class ConsoleObservableLogger {
             formatKind('derived recomputed'),
             styled(derived.debugName, { color: 'BlueViolet' }),
             ...this.formatInfo(info),
-            this.formatChanges(changedObservables)
+            this.formatChanges(changedObservables),
+            { data: [{ fn: derived._computeFn }] }
         ]));
         changedObservables.clear();
     }
@@ -73,6 +83,7 @@ export class ConsoleObservableLogger {
             formatKind('observable from event triggered'),
             styled(observable.debugName, { color: 'BlueViolet' }),
             ...this.formatInfo(info),
+            { data: [{ fn: observable._getValue }] }
         ]));
     }
     handleAutorunCreated(autorun) {
@@ -88,9 +99,14 @@ export class ConsoleObservableLogger {
         console.log(...this.textToConsoleArgs([
             formatKind('autorun'),
             styled(autorun.debugName, { color: 'BlueViolet' }),
-            this.formatChanges(changedObservables)
+            this.formatChanges(changedObservables),
+            { data: [{ fn: autorun._runFn }] }
         ]));
         changedObservables.clear();
+        this.indentation++;
+    }
+    handleAutorunFinished(autorun) {
+        this.indentation--;
     }
     handleBeginTransaction(transaction) {
         let transactionName = transaction.getDebugName();
@@ -100,6 +116,7 @@ export class ConsoleObservableLogger {
         console.log(...this.textToConsoleArgs([
             formatKind('transaction'),
             styled(transactionName, { color: 'BlueViolet' }),
+            { data: [{ fn: transaction._fn }] }
         ]));
         this.indentation++;
     }
@@ -109,8 +126,7 @@ export class ConsoleObservableLogger {
 }
 function consoleTextToArgs(text) {
     const styles = new Array();
-    const initial = {};
-    const data = initial;
+    const data = [];
     let firstArg = '';
     function process(t) {
         if ('length' in t) {
@@ -124,18 +140,16 @@ function consoleTextToArgs(text) {
             firstArg += `%c${t.text}`;
             styles.push(t.style);
             if (t.data) {
-                Object.assign(data, t.data);
+                data.push(...t.data);
             }
         }
         else if ('data' in t) {
-            Object.assign(data, t.data);
+            data.push(...t.data);
         }
     }
     process(text);
     const result = [firstArg, ...styles];
-    if (Object.keys(data).length > 0) {
-        result.push(data);
-    }
+    result.push(...data);
     return result;
 }
 function normalText(text) {

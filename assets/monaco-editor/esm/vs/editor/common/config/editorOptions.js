@@ -1190,7 +1190,7 @@ class EditorLightbulb extends BaseEditorOption {
 }
 class EditorStickyScroll extends BaseEditorOption {
     constructor() {
-        const defaults = { enabled: false, maxLineCount: 5, defaultModel: 'outlineModel' };
+        const defaults = { enabled: false, maxLineCount: 5, defaultModel: 'outlineModel', scrollWithEditor: true };
         super(113 /* EditorOption.stickyScroll */, 'stickyScroll', defaults, {
             'editor.stickyScroll.enabled': {
                 type: 'boolean',
@@ -1210,6 +1210,11 @@ class EditorStickyScroll extends BaseEditorOption {
                 default: defaults.defaultModel,
                 description: nls.localize('editor.stickyScroll.defaultModel', "Defines the model to use for determining which lines to stick. If the outline model does not exist, it will fall back on the folding provider model which falls back on the indentation model. This order is respected in all three cases.")
             },
+            'editor.stickyScroll.scrollWithEditor': {
+                type: 'boolean',
+                default: defaults.scrollWithEditor,
+                description: nls.localize('editor.stickyScroll.scrollWithEditor', "Enable scrolling of the sticky scroll widget with the editor's horizontal scrollbar.")
+            },
         });
     }
     validate(_input) {
@@ -1221,6 +1226,7 @@ class EditorStickyScroll extends BaseEditorOption {
             enabled: boolean(input.enabled, this.defaultValue.enabled),
             maxLineCount: EditorIntOption.clampedInt(input.maxLineCount, this.defaultValue.maxLineCount, 1, 10),
             defaultModel: stringSet(input.defaultModel, this.defaultValue.defaultModel, ['outlineModel', 'foldingProviderModel', 'indentationModel']),
+            scrollWithEditor: boolean(input.scrollWithEditor, this.defaultValue.scrollWithEditor)
         };
     }
 }
@@ -2828,6 +2834,7 @@ export const EditorOptions = {
     stopRenderingLineAfter: register(new EditorIntOption(115 /* EditorOption.stopRenderingLineAfter */, 'stopRenderingLineAfter', 10000, -1, 1073741824 /* Constants.MAX_SAFE_SMALL_INTEGER */)),
     suggest: register(new EditorSuggest()),
     inlineSuggest: register(new InlineEditorSuggest()),
+    inlineCompletionsAccessibilityVerbose: register(new EditorBooleanOption(146 /* EditorOption.inlineCompletionsAccessibilityVerbose */, 'inlineCompletionsAccessibilityVerbose', false, { description: nls.localize('inlineCompletionsAccessibilityVerbose', "Controls whether the accessibility hint should be provided to screen reader users when an inline completion is shown.") })),
     suggestFontSize: register(new EditorIntOption(117 /* EditorOption.suggestFontSize */, 'suggestFontSize', 0, 0, 1000, { markdownDescription: nls.localize('suggestFontSize', "Font size for the suggest widget. When set to {0}, the value of {1} is used.", '`0`', '`#editor.fontSize#`') })),
     suggestLineHeight: register(new EditorIntOption(118 /* EditorOption.suggestLineHeight */, 'suggestLineHeight', 0, 0, 1000, { markdownDescription: nls.localize('suggestLineHeight', "Line height for the suggest widget. When set to {0}, the value of {1} is used. The minimum value is 8.", '`0`', '`#editor.lineHeight#`') })),
     suggestOnTriggerCharacters: register(new EditorBooleanOption(119 /* EditorOption.suggestOnTriggerCharacters */, 'suggestOnTriggerCharacters', true, { description: nls.localize('suggestOnTriggerCharacters', "Controls whether suggestions should automatically show up when typing trigger characters.") })),

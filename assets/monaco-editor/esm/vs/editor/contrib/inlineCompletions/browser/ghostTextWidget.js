@@ -37,7 +37,8 @@ let GhostTextWidget = class GhostTextWidget extends Disposable {
         this.languageService = languageService;
         this.isDisposed = observableValue('isDisposed', false);
         this.currentTextModel = observableFromEvent(this.editor.onDidChangeModel, () => this.editor.getModel());
-        this.uiState = derived('uiState', reader => {
+        this.uiState = derived(reader => {
+            /** @description uiState */
             if (this.isDisposed.read(reader)) {
                 return undefined;
             }
@@ -106,7 +107,8 @@ let GhostTextWidget = class GhostTextWidget extends Disposable {
                 targetTextModel: textModel,
             };
         });
-        this.decorations = derived('decorations', reader => {
+        this.decorations = derived(reader => {
+            /** @description decorations */
             const uiState = this.uiState.read(reader);
             if (!uiState) {
                 return [];
@@ -136,7 +138,8 @@ let GhostTextWidget = class GhostTextWidget extends Disposable {
             }
             return decorations;
         });
-        this.additionalLinesWidget = this._register(new AdditionalLinesWidget(this.editor, this.languageService.languageIdCodec, derived('lines', (reader) => {
+        this.additionalLinesWidget = this._register(new AdditionalLinesWidget(this.editor, this.languageService.languageIdCodec, derived(reader => {
+            /** @description lines */
             const uiState = this.uiState.read(reader);
             return uiState ? {
                 lineNumber: uiState.lineNumber,
@@ -171,7 +174,8 @@ class AdditionalLinesWidget extends Disposable {
             || e.hasChanged(50 /* EditorOption.fontLigatures */)
             || e.hasChanged(49 /* EditorOption.fontInfo */)
             || e.hasChanged(65 /* EditorOption.lineHeight */)));
-        this._register(autorun('update view zone', reader => {
+        this._register(autorun(reader => {
+            /** @description update view zone */
             const lines = this.lines.read(reader);
             this.editorOptionsChanged.read(reader);
             if (lines) {

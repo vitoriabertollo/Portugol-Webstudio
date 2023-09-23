@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { BugIndicatingError } from '../../../base/common/errors.js';
+import { OffsetRange } from './offsetRange.js';
 import { Range } from './range.js';
 /**
  * A range of lines (1-based).
@@ -135,6 +136,9 @@ export class LineRange {
     delta(offset) {
         return new LineRange(this.startLineNumber + offset, this.endLineNumberExclusive + offset);
     }
+    deltaLength(offset) {
+        return new LineRange(this.startLineNumber, this.endLineNumberExclusive + offset);
+    }
     /**
      * The number of lines this line range spans.
      */
@@ -200,5 +204,12 @@ export class LineRange {
     }
     includes(lineNumber) {
         return this.startLineNumber <= lineNumber && lineNumber < this.endLineNumberExclusive;
+    }
+    /**
+     * Converts this 1-based line range to a 0-based offset range (subtracts 1!).
+     * @internal
+     */
+    toOffsetRange() {
+        return new OffsetRange(this.startLineNumber - 1, this.endLineNumberExclusive - 1);
     }
 }

@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var LinkDetector_1;
 import { createCancelablePromise, RunOnceScheduler } from '../../../../base/common/async.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { onUnexpectedError } from '../../../../base/common/errors.js';
@@ -40,9 +41,9 @@ import { getLinks } from './getLinks.js';
 import * as nls from '../../../../nls.js';
 import { INotificationService } from '../../../../platform/notification/common/notification.js';
 import { IOpenerService } from '../../../../platform/opener/common/opener.js';
-let LinkDetector = class LinkDetector extends Disposable {
+let LinkDetector = LinkDetector_1 = class LinkDetector extends Disposable {
     static get(editor) {
-        return editor.getContribution(LinkDetector.ID);
+        return editor.getContribution(LinkDetector_1.ID);
     }
     constructor(editor, openerService, notificationService, languageFeaturesService, languageFeatureDebounceService) {
         super();
@@ -275,7 +276,7 @@ let LinkDetector = class LinkDetector extends Disposable {
     }
 };
 LinkDetector.ID = 'editor.linkDetector';
-LinkDetector = __decorate([
+LinkDetector = LinkDetector_1 = __decorate([
     __param(1, IOpenerService),
     __param(2, INotificationService),
     __param(3, ILanguageFeaturesService),

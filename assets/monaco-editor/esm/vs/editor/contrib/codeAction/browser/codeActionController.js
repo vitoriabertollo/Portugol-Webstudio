@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var CodeActionController_1;
 import { getDomNodePagePosition } from '../../../../base/browser/dom.js';
 import { onUnexpectedError } from '../../../../base/common/errors.js';
 import { Lazy } from '../../../../base/common/lazy.js';
@@ -41,9 +42,9 @@ import { IMarkerService } from '../../../../platform/markers/common/markers.js';
 import { IEditorProgressService } from '../../../../platform/progress/common/progress.js';
 import { CodeActionTriggerSource } from '../common/types.js';
 import { CodeActionModel } from './codeActionModel.js';
-let CodeActionController = class CodeActionController extends Disposable {
+let CodeActionController = CodeActionController_1 = class CodeActionController extends Disposable {
     static get(editor) {
-        return editor.getContribution(CodeActionController.ID);
+        return editor.getContribution(CodeActionController_1.ID);
     }
     constructor(editor, markerService, contextKeyService, instantiationService, languageFeaturesService, progressService, _commandService, _configurationService, _actionWidgetService, _instantiationService) {
         super();
@@ -269,7 +270,7 @@ let CodeActionController = class CodeActionController extends Disposable {
     }
 };
 CodeActionController.ID = 'editor.contrib.codeActionController';
-CodeActionController = __decorate([
+CodeActionController = CodeActionController_1 = __decorate([
     __param(1, IMarkerService),
     __param(2, IContextKeyService),
     __param(3, IInstantiationService),

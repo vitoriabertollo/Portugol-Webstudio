@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var InlayHintsController_1;
 import { ModifierKeyEmitter } from '../../../../base/browser/dom.js';
 import { isNonEmptyArray } from '../../../../base/common/arrays.js';
 import { RunOnceScheduler } from '../../../../base/common/async.js';
@@ -91,10 +92,10 @@ class ActiveInlayHintInfo {
     }
 }
 // --- controller
-let InlayHintsController = class InlayHintsController {
+let InlayHintsController = InlayHintsController_1 = class InlayHintsController {
     static get(editor) {
         var _a;
-        return (_a = editor.getContribution(InlayHintsController.ID)) !== null && _a !== void 0 ? _a : undefined;
+        return (_a = editor.getContribution(InlayHintsController_1.ID)) !== null && _a !== void 0 ? _a : undefined;
     }
     constructor(_editor, _languageFeaturesService, _featureDebounce, _inlayHintsCache, _commandService, _notificationService, _instaService) {
         this._editor = _editor;
@@ -484,7 +485,7 @@ let InlayHintsController = class InlayHintsController {
             if (item.hint.paddingRight) {
                 addInjectedWhitespace(item, true);
             }
-            if (newDecorationsData.length > InlayHintsController._MAX_DECORATORS) {
+            if (newDecorationsData.length > InlayHintsController_1._MAX_DECORATORS) {
                 break;
             }
         }
@@ -550,7 +551,7 @@ let InlayHintsController = class InlayHintsController {
 };
 InlayHintsController.ID = 'editor.contrib.InlayHints';
 InlayHintsController._MAX_DECORATORS = 1500;
-InlayHintsController = __decorate([
+InlayHintsController = InlayHintsController_1 = __decorate([
     __param(1, ILanguageFeaturesService),
     __param(2, ILanguageFeatureDebounceService),
     __param(3, IInlayHintsCache),

@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { Disposable, DisposableStore, toDisposable } from '../../../../base/common/lifecycle.js';
-import { autorun, autorunHandleChanges, observableSignalFromEvent, observableValue, transaction } from '../../../../base/common/observable.js';
+import { autorun, autorunHandleChanges, autorunOpts, observableSignalFromEvent, observableValue, transaction } from '../../../../base/common/observable.js';
 import { ElementSizeObserver } from '../../config/elementSizeObserver.js';
 export function joinCombine(arr1, arr2, keySelector, combine) {
     if (arr1.length === 0) {
@@ -48,7 +48,7 @@ export function joinCombine(arr1, arr2, keySelector, combine) {
 export function applyObservableDecorations(editor, decorations) {
     const d = new DisposableStore();
     const decorationsCollection = editor.createDecorationsCollection();
-    d.add(autorun(`Apply decorations from ${decorations.debugName}`, reader => {
+    d.add(autorunOpts({ debugName: `Apply decorations from ${decorations.debugName}` }, reader => {
         const d = decorations.read(reader);
         decorationsCollection.set(d);
     }));
@@ -74,6 +74,7 @@ export class ObservableElementSizeObserver extends Disposable {
         this._width = observableValue('width', this.elementSizeObserver.getWidth());
         this._height = observableValue('height', this.elementSizeObserver.getHeight());
         this._register(this.elementSizeObserver.onDidChange(e => transaction(tx => {
+            /** @description Set width/height from elementSizeObserver */
             this._width.set(this.elementSizeObserver.getWidth(), tx);
             this._height.set(this.elementSizeObserver.getHeight(), tx);
         })));
@@ -98,7 +99,7 @@ export function animatedObservable(base, store) {
     let animationStartMs = -1;
     const durationMs = 300;
     let animationFrame = undefined;
-    store.add(autorunHandleChanges('update value', {
+    store.add(autorunHandleChanges({
         createEmptyChangeSummary: () => ({ animate: false }),
         handleChange: (ctx, s) => {
             if (ctx.didChange(base)) {
@@ -107,6 +108,7 @@ export function animatedObservable(base, store) {
             return true;
         }
     }, (reader, s) => {
+        /** @description update value */
         if (animationFrame !== undefined) {
             cancelAnimationFrame(animationFrame);
             animationFrame = undefined;
@@ -180,7 +182,8 @@ export class ManagedOverlayWidget {
 }
 ManagedOverlayWidget._counter = 0;
 export function applyStyle(domNode, style) {
-    return autorun('applyStyle', (reader) => {
+    return autorun(reader => {
+        /** @description applyStyle */
         for (let [key, val] of Object.entries(style)) {
             if (val && typeof val === 'object' && 'read' in val) {
                 val = val.read(reader);
@@ -188,6 +191,7 @@ export function applyStyle(domNode, style) {
             if (typeof val === 'number') {
                 val = `${val}px`;
             }
+            key = key.replace(/[A-Z]/g, m => '-' + m.toLowerCase());
             domNode.style[key] = val;
         }
     });
@@ -219,7 +223,8 @@ export function observeHotReloadableExports(values, reader) {
 export function applyViewZones(editor, viewZones, setIsUpdating) {
     const store = new DisposableStore();
     const lastViewZoneIds = [];
-    store.add(autorun('applyViewZones', (reader) => {
+    store.add(autorun(reader => {
+        /** @description applyViewZones */
         const curViewZones = viewZones.read(reader);
         const viewZonIdsPerViewZone = new Map();
         const viewZoneIdPerOnChangeObservable = new Map();
@@ -240,7 +245,7 @@ export function applyViewZones(editor, viewZones, setIsUpdating) {
         if (setIsUpdating) {
             setIsUpdating(false);
         }
-        store.add(autorunHandleChanges('layoutZone on change', {
+        store.add(autorunHandleChanges({
             createEmptyChangeSummary() {
                 return [];
             },
@@ -252,6 +257,7 @@ export function applyViewZones(editor, viewZones, setIsUpdating) {
                 return true;
             },
         }, (reader, changeSummary) => {
+            /** @description layoutZone on change */
             for (const vz of curViewZones) {
                 if (vz.onChange) {
                     viewZoneIdPerOnChangeObservable.set(vz.onChange, viewZonIdsPerViewZone.get(vz));

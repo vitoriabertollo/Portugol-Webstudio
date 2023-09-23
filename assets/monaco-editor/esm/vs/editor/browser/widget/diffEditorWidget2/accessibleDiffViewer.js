@@ -26,16 +26,14 @@ import { DomScrollableElement } from '../../../../base/browser/ui/scrollbar/scro
 import { Action } from '../../../../base/common/actions.js';
 import { Codicon } from '../../../../base/common/codicons.js';
 import { Disposable, toDisposable } from '../../../../base/common/lifecycle.js';
-import { autorun, derived, keepAlive, observableValue, transaction } from '../../../../base/common/observable.js';
-import { autorunWithStore2 } from '../../../../base/common/observableImpl/autorun.js';
-import { subtransaction } from '../../../../base/common/observableImpl/base.js';
-import { derivedWithStore } from '../../../../base/common/observableImpl/derived.js';
+import { autorun, autorunWithStore, derived, derivedWithStore, keepAlive, observableValue, subtransaction, transaction } from '../../../../base/common/observable.js';
 import { ThemeIcon } from '../../../../base/common/themables.js';
 import { applyFontInfo } from '../../config/domFontInfo.js';
 import { applyStyle } from './utils.js';
 import { DiffReview } from '../diffReview.js';
 import { EditorFontLigatures } from '../../../common/config/editorOptions.js';
 import { LineRange } from '../../../common/core/lineRange.js';
+import { OffsetRange } from '../../../common/core/offsetRange.js';
 import { Position } from '../../../common/core/position.js';
 import { Range } from '../../../common/core/range.js';
 import { SimpleLineRangeMapping } from '../../../common/diff/linesDiffComputer.js';
@@ -117,7 +115,8 @@ let ViewModel = class ViewModel extends Disposable {
         this.currentGroup = this._currentGroupIdx.map((idx, r) => this._groups.read(r)[idx]);
         this.currentGroupIndex = this._currentGroupIdx;
         this.currentElement = this._currentElementIdx.map((idx, r) => { var _a; return (_a = this.currentGroup.read(r)) === null || _a === void 0 ? void 0 : _a.lines[idx]; });
-        this._register(autorun('update groups', reader => {
+        this._register(autorun(reader => {
+            /** @description update groups */
             const diffs = this._diffs.read(reader);
             if (!diffs) {
                 this._groups.set([], undefined);
@@ -135,17 +134,19 @@ let ViewModel = class ViewModel extends Disposable {
                 this._groups.set(groups, tx);
             });
         }));
-        this._register(autorun('play audio-cue for diff', reader => {
+        this._register(autorun(reader => {
+            /** @description play audio-cue for diff */
             const currentViewItem = this.currentElement.read(reader);
             if ((currentViewItem === null || currentViewItem === void 0 ? void 0 : currentViewItem.type) === LineType.Deleted) {
-                this._audioCueService.playAudioCue(AudioCue.diffLineDeleted);
+                this._audioCueService.playAudioCue(AudioCue.diffLineDeleted, { source: 'accessibleDiffViewer.currentElementChanged' });
             }
             else if ((currentViewItem === null || currentViewItem === void 0 ? void 0 : currentViewItem.type) === LineType.Added) {
-                this._audioCueService.playAudioCue(AudioCue.diffLineInserted);
+                this._audioCueService.playAudioCue(AudioCue.diffLineInserted, { source: 'accessibleDiffViewer.currentElementChanged' });
             }
         }));
-        this._register(autorun('select lines in editor', reader => {
+        this._register(autorun(reader => {
             var _a;
+            /** @description select lines in editor */
             // This ensures editor commands (like revert/stage) work
             const currentViewItem = this.currentElement.read(reader);
             if (currentViewItem && currentViewItem.type !== LineType.Header) {
@@ -160,7 +161,7 @@ let ViewModel = class ViewModel extends Disposable {
             return;
         }
         subtransaction(tx, tx => {
-            this._currentGroupIdx.set((this._currentGroupIdx.get() + groups.length + delta) % groups.length, tx);
+            this._currentGroupIdx.set(OffsetRange.ofLength(groups.length).clipCyclic(this._currentGroupIdx.get() + delta), tx);
             this._currentElementIdx.set(0, tx);
         });
     }
@@ -172,7 +173,7 @@ let ViewModel = class ViewModel extends Disposable {
             return;
         }
         transaction(tx => {
-            this._currentElementIdx.set((this._currentElementIdx.get() + group.lines.length + delta) % group.lines.length, tx);
+            this._currentElementIdx.set(OffsetRange.ofLength(group.lines.length).clip(this._currentElementIdx.get() + delta), tx);
         });
     }
     goToNextLine() { this._goToLineDelta(1); }
@@ -300,7 +301,8 @@ let View = class View extends Disposable {
         const actionBarContainer = document.createElement('div');
         actionBarContainer.className = 'diff-review-actions';
         this._actionBar = this._register(new ActionBar(actionBarContainer));
-        this._register(autorun('update actions', reader => {
+        this._register(autorun(reader => {
+            /** @description update actions */
             this._actionBar.clear();
             if (this._model.canClose.read(reader)) {
                 this._actionBar.push(new Action('diffreview.close', localize('label.close', "Close"), 'close-diff-review ' + ThemeIcon.asClassName(accessibleDiffViewerCloseIcon), true, () => __awaiter(this, void 0, void 0, function* () { return _model.close(); })), { label: false, icon: true });
@@ -314,7 +316,8 @@ let View = class View extends Disposable {
         this._register(toDisposable(() => { reset(this.domNode); }));
         this._register(applyStyle(this.domNode, { width: this._width, height: this._height }));
         this._register(applyStyle(this._content, { width: this._width, height: this._height }));
-        this._register(autorunWithStore2('render', (reader, store) => {
+        this._register(autorunWithStore((reader, store) => {
+            /** @description render */
             this._model.currentGroup.read(reader);
             this._render(store);
         }));
@@ -403,8 +406,9 @@ let View = class View extends Disposable {
                 row = this._createRow(viewItem, lineHeight, this._width.get(), originalOptions, originalModel, originalModelOpts, modifiedOptions, modifiedModel, modifiedModelOpts);
             }
             container.appendChild(row);
-            const isSelectedObs = derived('isSelected', reader => this._model.currentElement.read(reader) === viewItem);
-            store.add(autorun('update tab index', reader => {
+            const isSelectedObs = derived(reader => /** @description isSelected */ this._model.currentElement.read(reader) === viewItem);
+            store.add(autorun(reader => {
+                /** @description update tab index */
                 const isSelected = isSelectedObs.read(reader);
                 row.tabIndex = isSelected ? 0 : -1;
                 if (isSelected) {

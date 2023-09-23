@@ -1,6 +1,6 @@
 /*!-----------------------------------------------------------
  * Copyright (c) Microsoft Corporation. All rights reserved.
- * Version: 0.41.0(38e1e3d097f84e336c311d071a9ffb5191d4ffd1)
+ * Version: 0.43.0(94c055bcbdd49f04a0fa15515e848542a79fb948)
  * Released under the MIT license
  * https://github.com/microsoft/vscode/blob/main/LICENSE.txt
  *-----------------------------------------------------------*/
@@ -20,6 +20,10 @@ define("vs/editor/editor.main.nls.ru", {
 	"vs/base/browser/ui/findinput/replaceInput": [
 		"входные данные",
 		"Сохранить регистр",
+	],
+	"vs/base/browser/ui/hover/hoverWidget": [
+		"Inspect this in the accessible view with {0}.",
+		"Inspect this in the accessible view via the command Open Accessible View which is currently not triggerable via keybinding.",
 	],
 	"vs/base/browser/ui/iconLabel/iconLabelHover": [
 		"Загрузка…",
@@ -140,6 +144,7 @@ define("vs/editor/editor.main.nls.ru", {
 	],
 	"vs/editor/browser/widget/diffEditorWidget2/colors": [
 		"Цвет границы для текста, перемещенного в редакторе несовпадений.",
+		"The active border color for text that got moved in the diff editor.",
 	],
 	"vs/editor/browser/widget/diffEditorWidget2/decorations": [
 		"Оформление строки для вставок в редакторе несовпадений.",
@@ -158,8 +163,19 @@ define("vs/editor/editor.main.nls.ru", {
 		"Копировать измененную строку ({0})",
 		"Отменить это изменение",
 	],
+	"vs/editor/browser/widget/diffEditorWidget2/movedBlocksLines": [
+		"Code moved with changes to line {0}-{1}",
+		"Code moved with changes from line {0}-{1}",
+		"Code moved to line {0}-{1}",
+		"Code moved from line {0}-{1}",
+	],
 	"vs/editor/browser/widget/diffEditorWidget2/unchangedRanges": [
 		"Свернуть неизмененную область",
+		"Click or drag to show more above",
+		"Show all",
+		"Click or drag to show more below",
+		"{0} hidden lines",
+		"Double click to unfold",
 	],
 	"vs/editor/browser/widget/diffReview": [
 		"Значок для кнопки \"Вставить\" в окне проверки несовпадений.",
@@ -218,6 +234,8 @@ define("vs/editor/editor.main.nls.ru", {
 		"Время ожидания в миллисекундах, по истечении которого вычисление несовпадений отменяется. Укажите значение 0, чтобы не использовать время ожидания.",
 		"Максимальный размер файла в МБ для вычисления различий. Используйте 0 без ограничений.",
 		"Определяет, как редактор несовпадений отображает отличия: рядом или в тексте.",
+		"If the diff editor width is smaller than this value, the inline view is used.",
+		"If enabled and the editor width is too small, the inline view is used.",
 		"Если этот параметр включен, в редакторе несовпадений на поле глифа отображаются стрелки для отмены изменений.",
 		"Когда параметр включен, редактор несовпадений игнорирует изменения начального или конечного пробела.",
 		"Определяет, должны ли в редакторе отображаться индикаторы +/- для добавленных или удаленных изменений.",
@@ -227,7 +245,10 @@ define("vs/editor/editor.main.nls.ru", {
 		"Строки будут переноситься в соответствии с настройкой {0}.",
 		"Использует устаревший алгоритм сравнения.",
 		"Использует расширенный алгоритм сравнения.",
-		"Определяет, отображает ли редактор несовпадений неизмененные регионы. Работает только при настройке параметра {0}.",
+		"Controls whether the diff editor shows unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used for unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used as a minimum for unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used as context when comparing unchanged regions. Only works when {0} is set.",
 		"Определяет, должен ли редактор несовпадений показывать обнаруженные перемещения кода. Работает только при настройке параметра {0}.",
 		"Определяет реализацию, используемую редактором несовпадений (новая или старая реализация).",
 		"Определяет, отображает ли редактор несовпадений пустые элементы оформления, чтобы увидеть, где вставлены или удалены символы.",
@@ -286,6 +307,7 @@ define("vs/editor/editor.main.nls.ru", {
 		"Отображает вложенные текущие области во время прокрутки в верхней части редактора.",
 		"Определяет максимальное число залипающих линий для отображения.",
 		"Определяет модель, используемую для определения строк залипания. Если модель структуры не существует, она откатится к модели поставщика свертывания, которая откатывается к модели отступов. Этот порядок соблюдается во всех трех случаях.",
+		"Enable scrolling of the sticky scroll widget with the editor\'s horizontal scrollbar.",
 		"Включает встроенные указания в редакторе.",
 		"Вложенные подсказки включены.",
 		"Вложенные подсказки отображаются по умолчанию и скрываются удержанием клавиш {0}.",
@@ -545,6 +567,7 @@ define("vs/editor/editor.main.nls.ru", {
 		"Не отображать предложения фрагментов.",
 		"Управляет отображением фрагментов вместе с другими предложениями и их сортировкой.",
 		"Определяет, будет ли использоваться анимация при прокрутке содержимого редактора",
+		"Controls whether the accessibility hint should be provided to screen reader users when an inline completion is shown.",
 		"Размер шрифта для мини-приложения предложений. Если установлено {0}, используется значение {1}.",
 		"Высота строки для мини-приложения предложений. Если установлено {0}, используется значение {1}. Минимальное значение — 8.",
 		"Определяет, должны ли при вводе триггерных символов автоматически отображаться предложения.",
@@ -650,7 +673,9 @@ define("vs/editor/editor.main.nls.ru", {
 		"Является ли редактор доступным только для чтения",
 		"Является ли контекст редактором несовпадений",
 		"Является ли контекст внедренным редактором несовпадений",
+		"Whether a moved code block is selected for comparison",
 		"Отображается ли средство просмотра с поддержкой специальных возможностей инструмента сравнений",
+		"Whether the diff editor render side by side inline breakpoint is reached",
 		"Включен ли параметр \"editor.columnSelection\"",
 		"Есть ли в редакторе выбранный текст",
 		"Есть ли в редакторе множественный выбор",
@@ -889,6 +914,9 @@ define("vs/editor/editor.main.nls.ru", {
 		"Вставить относительные пути",
 		"Вставить относительный путь",
 	],
+	"vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorContribution": [
+		"Configures the default drop provider to use for content of a given mime type.",
+	],
 	"vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorController": [
 		"Отображается ли мини-приложение сброса",
 		"Показать параметры сброса...",
@@ -1092,8 +1120,6 @@ define("vs/editor/editor.main.nls.ru", {
 	],
 	"vs/editor/contrib/hover/browser/hover": [
 		"Показать наведение или перевести на него фокус",
-		"Проверьте этот аспект в доступном представлении с помощью {0}",
-		"Проверьте этот аспект в доступном представлении с помощью команды \"Открыть доступное представление\", которая в настоящее время недоступна для активации с помощью сочетания клавиш",
 		"Отображать предварительный просмотр определения при наведении курсора мыши",
 		"Прокрутить наведение вверх",
 		"Прокрутить наведение вниз",
@@ -1165,6 +1191,9 @@ define("vs/editor/editor.main.nls.ru", {
 		"Начинается ли встроенное предложение с пробела",
 		"Проверяет, не является ли пробел перед встроенной рекомендацией короче, чем текст, вставляемый клавишей TAB",
 		"Следует ли подавлять предложения для текущего предложения",
+	],
+	"vs/editor/contrib/inlineCompletions/browser/inlineCompletionsController": [
+		"Inspect this in the accessible view ({0})",
 	],
 	"vs/editor/contrib/inlineCompletions/browser/inlineCompletionsHintsWidget": [
 		"Значок для отображения подсказки следующего параметра.",
@@ -1566,6 +1595,7 @@ define("vs/editor/editor.main.nls.ru", {
 		"Мини-приложения действий",
 	],
 	"vs/platform/actionWidget/browser/actionWidget": [
+		"Background color for toggled action items in action bar.",
 		"Отображается ли список мини-приложений действий",
 		"Скрыть мини-приложение действия",
 		"Выбрать предыдущее действие",
@@ -1707,13 +1737,15 @@ define("vs/editor/editor.main.nls.ru", {
 		"Нажмите клавишу ВВОД, чтобы подтвердить введенные данные, или ESCAPE для отмены",
 		"{0} / {1}",
 		"Введите текст, чтобы уменьшить число результатов.",
-		"Переключить все флажки",
-		"Результаты: {0}",
-		"{0} выбрано",
-		"ОК",
-		"Другой",
-		"Назад ({0})",
-		"Назад",
+	],
+	"vs/platform/quickinput/browser/quickInputController": [
+		"Toggle all checkboxes",
+		"{0} Results",
+		"{0} Selected",
+		"OK",
+		"Custom",
+		"Back ({0})",
+		"Back",
 	],
 	"vs/platform/quickinput/browser/quickInputList": [
 		"Быстрый ввод",

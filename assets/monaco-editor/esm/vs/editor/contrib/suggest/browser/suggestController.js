@@ -11,12 +11,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var SuggestController_1;
 import { alert } from '../../../../base/browser/ui/aria/aria.js';
 import { isNonEmptyArray } from '../../../../base/common/arrays.js';
 import { IdleValue } from '../../../../base/common/async.js';
 import { CancellationTokenSource } from '../../../../base/common/cancellation.js';
 import { onUnexpectedError, onUnexpectedExternalError } from '../../../../base/common/errors.js';
-import { Event } from '../../../../base/common/event.js';
+import { Emitter, Event } from '../../../../base/common/event.js';
 import { KeyCodeChord } from '../../../../base/common/keybindings.js';
 import { DisposableStore, dispose, MutableDisposable, toDisposable } from '../../../../base/common/lifecycle.js';
 import * as platform from '../../../../base/common/platform.js';
@@ -87,9 +88,9 @@ class LineSuffix {
         }
     }
 }
-let SuggestController = class SuggestController {
+let SuggestController = SuggestController_1 = class SuggestController {
     static get(editor) {
-        return editor.getContribution(SuggestController.ID);
+        return editor.getContribution(SuggestController_1.ID);
     }
     constructor(editor, _memoryService, _commandService, _contextKeyService, _instantiationService, _logService, _telemetryService) {
         this._memoryService = _memoryService;
@@ -101,6 +102,8 @@ let SuggestController = class SuggestController {
         this._lineSuffix = new MutableDisposable();
         this._toDispose = new DisposableStore();
         this._selectors = new PriorityRegistry(s => s.priority);
+        this._onWillInsertSuggestItem = new Emitter();
+        this.onWillInsertSuggestItem = this._onWillInsertSuggestItem.event;
         this.editor = editor;
         this.model = _instantiationService.createInstance(SuggestModel, this.editor);
         // default selector
@@ -111,7 +114,7 @@ let SuggestController = class SuggestController {
         // context key: update insert/replace mode
         const ctxInsertMode = SuggestContext.InsertMode.bindTo(_contextKeyService);
         ctxInsertMode.set(editor.getOption(116 /* EditorOption.suggest */).insertMode);
-        this.model.onDidTrigger(() => ctxInsertMode.set(editor.getOption(116 /* EditorOption.suggest */).insertMode));
+        this._toDispose.add(this.model.onDidTrigger(() => ctxInsertMode.set(editor.getOption(116 /* EditorOption.suggest */).insertMode)));
         this.widget = this._toDispose.add(new IdleValue(() => {
             const widget = this._instantiationService.createInstance(SuggestWidget, this.editor);
             this._toDispose.add(widget);
@@ -237,6 +240,7 @@ let SuggestController = class SuggestController {
         this.widget.dispose();
         this.model.dispose();
         this._lineSuffix.dispose();
+        this._onWillInsertSuggestItem.dispose();
     }
     _insertSuggestion(event, flags) {
         if (!event || !event.item) {
@@ -252,6 +256,7 @@ let SuggestController = class SuggestController {
         if (!snippetController) {
             return;
         }
+        this._onWillInsertSuggestItem.fire({ item: event.item });
         const model = this.editor.getModel();
         const modelVersionNow = model.getAlternativeVersionId();
         const { item } = event;
@@ -572,7 +577,7 @@ let SuggestController = class SuggestController {
     }
 };
 SuggestController.ID = 'editor.contrib.suggestController';
-SuggestController = __decorate([
+SuggestController = SuggestController_1 = __decorate([
     __param(1, ISuggestMemoryService),
     __param(2, ICommandService),
     __param(3, IContextKeyService),

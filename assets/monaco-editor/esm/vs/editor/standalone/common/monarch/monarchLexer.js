@@ -11,6 +11,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var MonarchTokenizer_1;
 import * as languages from '../../../common/languages.js';
 import { NullState, nullTokenizeEncoded, nullTokenize } from '../../../common/languages/nullTokenize.js';
 import * as monarchCommon from './monarchCommon.js';
@@ -294,7 +295,7 @@ class MonarchModernTokensCollector {
         return new languages.EncodedTokenizationResult(MonarchModernTokensCollector._merge(this._prependTokens, this._tokens, null), endState);
     }
 }
-let MonarchTokenizer = class MonarchTokenizer {
+let MonarchTokenizer = MonarchTokenizer_1 = class MonarchTokenizer {
     constructor(languageService, standaloneThemeService, languageId, lexer, _configurationService) {
         this._configurationService = _configurationService;
         this._languageService = languageService;
@@ -343,7 +344,7 @@ let MonarchTokenizer = class MonarchTokenizer {
             const tokenizationSupport = languages.TokenizationRegistry.get(nestedLanguageId);
             if (tokenizationSupport) {
                 // The nested language is already loaded
-                if (tokenizationSupport instanceof MonarchTokenizer) {
+                if (tokenizationSupport instanceof MonarchTokenizer_1) {
                     const nestedModeStatus = tokenizationSupport.getLoadStatus();
                     if (nestedModeStatus.loaded === false) {
                         promises.push(nestedModeStatus.promise);
@@ -737,7 +738,7 @@ let MonarchTokenizer = class MonarchTokenizer {
         return new EmbeddedLanguageData(languageId, NullState);
     }
 };
-MonarchTokenizer = __decorate([
+MonarchTokenizer = MonarchTokenizer_1 = __decorate([
     __param(4, IConfigurationService)
 ], MonarchTokenizer);
 export { MonarchTokenizer };

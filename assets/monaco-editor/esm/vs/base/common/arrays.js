@@ -196,13 +196,13 @@ export function distinct(array, keyFn = value => value) {
     });
 }
 export function findLast(arr, predicate) {
-    const idx = lastIndex(arr, predicate);
+    const idx = findLastIndex(arr, predicate);
     if (idx === -1) {
         return undefined;
     }
     return arr[idx];
 }
-export function lastIndex(array, fn) {
+export function findLastIndex(array, fn) {
     for (let i = array.length - 1; i >= 0; i--) {
         const element = array[i];
         if (fn(element)) {
@@ -334,6 +334,10 @@ export var CompareResult;
         return result < 0;
     }
     CompareResult.isLessThan = isLessThan;
+    function isLessThanOrEqual(result) {
+        return result <= 0;
+    }
+    CompareResult.isLessThanOrEqual = isLessThanOrEqual;
     function isGreaterThan(result) {
         return result > 0;
     }
@@ -349,10 +353,25 @@ export var CompareResult;
 export function compareBy(selector, comparator) {
     return (a, b) => comparator(selector(a), selector(b));
 }
+export function tieBreakComparators(...comparators) {
+    return (item1, item2) => {
+        for (const comparator of comparators) {
+            const result = comparator(item1, item2);
+            if (!CompareResult.isNeitherLessOrGreaterThan(result)) {
+                return result;
+            }
+        }
+        return CompareResult.neitherLessOrGreaterThan;
+    };
+}
 /**
  * The natural order on numbers.
 */
 export const numberComparator = (a, b) => a - b;
+export const booleanComparator = (a, b) => numberComparator(a ? 1 : 0, b ? 1 : 0);
+export function reverseOrder(comparator) {
+    return (a, b) => -comparator(a, b);
+}
 /**
  * Returns the first item that is equal to or greater than every other item.
 */
@@ -390,6 +409,19 @@ export function findLastMaxBy(items, comparator) {
 */
 export function findMinBy(items, comparator) {
     return findMaxBy(items, (a, b) => -comparator(a, b));
+}
+export function findMaxIdxBy(items, comparator) {
+    if (items.length === 0) {
+        return -1;
+    }
+    let maxIdx = 0;
+    for (let i = 1; i < items.length; i++) {
+        const item = items[i];
+        if (comparator(item, items[maxIdx]) > 0) {
+            maxIdx = i;
+        }
+    }
+    return maxIdx;
 }
 export class ArrayQueue {
     /**

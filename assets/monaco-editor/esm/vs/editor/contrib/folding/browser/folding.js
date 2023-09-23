@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var FoldingController_1;
 import { createCancelablePromise, Delayer, RunOnceScheduler } from '../../../../base/common/async.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { illegalArgument, onUnexpectedError } from '../../../../base/common/errors.js';
@@ -51,14 +52,14 @@ import { URI } from '../../../../base/common/uri.js';
 import { IModelService } from '../../../common/services/model.js';
 import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
 const CONTEXT_FOLDING_ENABLED = new RawContextKey('foldingEnabled', false);
-let FoldingController = class FoldingController extends Disposable {
+let FoldingController = FoldingController_1 = class FoldingController extends Disposable {
     static get(editor) {
-        return editor.getContribution(FoldingController.ID);
+        return editor.getContribution(FoldingController_1.ID);
     }
     static getFoldingRangeProviders(languageFeaturesService, model) {
         var _a, _b;
         const foldingRangeProviders = languageFeaturesService.foldingRangeProvider.ordered(model);
-        return (_b = ((_a = FoldingController._foldingRangeSelector) === null || _a === void 0 ? void 0 : _a.call(FoldingController, foldingRangeProviders, model))) !== null && _b !== void 0 ? _b : foldingRangeProviders;
+        return (_b = ((_a = FoldingController_1._foldingRangeSelector) === null || _a === void 0 ? void 0 : _a.call(FoldingController_1, foldingRangeProviders, model))) !== null && _b !== void 0 ? _b : foldingRangeProviders;
     }
     constructor(editor, contextKeyService, languageConfigurationService, notificationService, languageFeatureDebounceService, languageFeaturesService) {
         super();
@@ -209,7 +210,7 @@ let FoldingController = class FoldingController extends Disposable {
         const indentRangeProvider = new IndentRangeProvider(editorModel, this.languageConfigurationService, this._foldingLimitReporter);
         this.rangeProvider = indentRangeProvider; // fallback
         if (this._useFoldingProviders && this.foldingModel) {
-            const selectedProviders = FoldingController.getFoldingRangeProviders(this.languageFeaturesService, editorModel);
+            const selectedProviders = FoldingController_1.getFoldingRangeProviders(this.languageFeaturesService, editorModel);
             if (selectedProviders.length > 0) {
                 this.rangeProvider = new SyntaxRangeProvider(editorModel, selectedProviders, () => this.triggerFoldingModelChanged(), this._foldingLimitReporter, indentRangeProvider);
             }
@@ -418,7 +419,7 @@ let FoldingController = class FoldingController extends Disposable {
     }
 };
 FoldingController.ID = 'editor.contrib.folding';
-FoldingController = __decorate([
+FoldingController = FoldingController_1 = __decorate([
     __param(1, IContextKeyService),
     __param(2, ILanguageConfigurationService),
     __param(3, INotificationService),
@@ -775,12 +776,12 @@ class UnfoldAllRegionsAction extends FoldingAction {
         }
     }
 }
-class FoldAllRegionsExceptAction extends FoldingAction {
+class FoldAllExceptAction extends FoldingAction {
     constructor() {
         super({
             id: 'editor.foldAllExcept',
-            label: nls.localize('foldAllExcept.label', "Fold All Regions Except Selected"),
-            alias: 'Fold All Regions Except Selected',
+            label: nls.localize('foldAllExcept.label', "Fold All Except Selected"),
+            alias: 'Fold All Except Selected',
             precondition: CONTEXT_FOLDING_ENABLED,
             kbOpts: {
                 kbExpr: EditorContextKeys.editorTextFocus,
@@ -794,12 +795,12 @@ class FoldAllRegionsExceptAction extends FoldingAction {
         setCollapseStateForRest(foldingModel, true, selectedLines);
     }
 }
-class UnfoldAllRegionsExceptAction extends FoldingAction {
+class UnfoldAllExceptAction extends FoldingAction {
     constructor() {
         super({
             id: 'editor.unfoldAllExcept',
-            label: nls.localize('unfoldAllExcept.label', "Unfold All Regions Except Selected"),
-            alias: 'Unfold All Regions Except Selected',
+            label: nls.localize('unfoldAllExcept.label', "Unfold All Except Selected"),
+            alias: 'Unfold All Except Selected',
             precondition: CONTEXT_FOLDING_ENABLED,
             kbOpts: {
                 kbExpr: EditorContextKeys.editorTextFocus,
@@ -1033,8 +1034,8 @@ registerEditorAction(UnfoldAllAction);
 registerEditorAction(FoldAllBlockCommentsAction);
 registerEditorAction(FoldAllRegionsAction);
 registerEditorAction(UnfoldAllRegionsAction);
-registerEditorAction(FoldAllRegionsExceptAction);
-registerEditorAction(UnfoldAllRegionsExceptAction);
+registerEditorAction(FoldAllExceptAction);
+registerEditorAction(UnfoldAllExceptAction);
 registerEditorAction(ToggleFoldAction);
 registerEditorAction(GotoParentFoldAction);
 registerEditorAction(GotoPreviousFoldAction);

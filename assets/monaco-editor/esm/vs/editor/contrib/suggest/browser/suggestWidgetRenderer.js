@@ -35,16 +35,16 @@ export function getAriaId(index) {
 const suggestMoreInfoIcon = registerIcon('suggest-more-info', Codicon.chevronRight, nls.localize('suggestMoreInfoIcon', 'Icon for more information in the suggest widget.'));
 const _completionItemColor = new (_a = class ColorExtractor {
         extract(item, out) {
-            if (item.textLabel.match(ColorExtractor._regexStrict)) {
+            if (item.textLabel.match(_a._regexStrict)) {
                 out[0] = item.textLabel;
                 return true;
             }
-            if (item.completion.detail && item.completion.detail.match(ColorExtractor._regexStrict)) {
+            if (item.completion.detail && item.completion.detail.match(_a._regexStrict)) {
                 out[0] = item.completion.detail;
                 return true;
             }
             if (typeof item.completion.documentation === 'string') {
-                const match = ColorExtractor._regexRelaxed.exec(item.completion.documentation);
+                const match = _a._regexRelaxed.exec(item.completion.documentation);
                 if (match && (match.index === 0 || match.index + match[0].length === item.completion.documentation.length)) {
                     out[0] = match[0];
                     return true;

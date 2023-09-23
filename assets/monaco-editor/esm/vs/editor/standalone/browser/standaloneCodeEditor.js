@@ -311,7 +311,7 @@ let StandaloneDiffEditor2 = class StandaloneDiffEditor2 extends DiffEditorWidget
         if (typeof options.autoDetectHighContrast !== 'undefined') {
             themeService.setAutoDetectHighContrast(Boolean(options.autoDetectHighContrast));
         }
-        super(domElement, options, {}, contextKeyService, instantiationService, codeEditorService, audioCueService);
+        super(domElement, options, {}, contextKeyService, instantiationService, codeEditorService, audioCueService, editorProgressService);
         this._configurationService = configurationService;
         this._standaloneThemeService = themeService;
         this._register(themeDomRegistration);

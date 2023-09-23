@@ -1,6 +1,6 @@
 /*!-----------------------------------------------------------
  * Copyright (c) Microsoft Corporation. All rights reserved.
- * Version: 0.41.0(38e1e3d097f84e336c311d071a9ffb5191d4ffd1)
+ * Version: 0.43.0(94c055bcbdd49f04a0fa15515e848542a79fb948)
  * Released under the MIT license
  * https://github.com/microsoft/vscode/blob/main/LICENSE.txt
  *-----------------------------------------------------------*/
@@ -20,6 +20,10 @@ define("vs/editor/editor.main.nls.ja", {
 	"vs/base/browser/ui/findinput/replaceInput": [
 		"入力",
 		"保持する",
+	],
+	"vs/base/browser/ui/hover/hoverWidget": [
+		"Inspect this in the accessible view with {0}.",
+		"Inspect this in the accessible view via the command Open Accessible View which is currently not triggerable via keybinding.",
 	],
 	"vs/base/browser/ui/iconLabel/iconLabelHover": [
 		"読み込み中...",
@@ -140,6 +144,7 @@ define("vs/editor/editor.main.nls.ja", {
 	],
 	"vs/editor/browser/widget/diffEditorWidget2/colors": [
 		"差分エディターで移動されたテキストの境界線の色。",
+		"The active border color for text that got moved in the diff editor.",
 	],
 	"vs/editor/browser/widget/diffEditorWidget2/decorations": [
 		"差分エディターで挿入を示す行の装飾。",
@@ -158,8 +163,19 @@ define("vs/editor/editor.main.nls.ja", {
 		"変更された行のコピー ({0})",
 		"この変更を元に戻す",
 	],
+	"vs/editor/browser/widget/diffEditorWidget2/movedBlocksLines": [
+		"Code moved with changes to line {0}-{1}",
+		"Code moved with changes from line {0}-{1}",
+		"Code moved to line {0}-{1}",
+		"Code moved from line {0}-{1}",
+	],
 	"vs/editor/browser/widget/diffEditorWidget2/unchangedRanges": [
 		"変更されていない領域を折りたたむ",
+		"Click or drag to show more above",
+		"Show all",
+		"Click or drag to show more below",
+		"{0} hidden lines",
+		"Double click to unfold",
 	],
 	"vs/editor/browser/widget/diffReview": [
 		"差分レビューでの \'挿入\' のアイコン。",
@@ -218,6 +234,8 @@ define("vs/editor/editor.main.nls.ja", {
 		"差分計算が取り消された後のタイムアウト (ミリ秒単位)。タイムアウトなしには 0 を使用します。",
 		"差分を計算する場合の最大ファイル サイズ (MB)。制限なしの場合は 0 を使用します。",
 		"差分エディターが差分を横に並べて表示するか、行内に表示するかを制御します。",
+		"If the diff editor width is smaller than this value, the inline view is used.",
+		"If enabled and the editor width is too small, the inline view is used.",
 		"有効にすると、差分エディターでグリフ余白に、変更を元に戻すための矢印が表示されます。",
 		"有効にすると、差分エディターは先頭または末尾の空白文字の変更を無視します。",
 		"差分エディターが追加/削除された変更に +/- インジケーターを示すかどうかを制御します。",
@@ -227,7 +245,10 @@ define("vs/editor/editor.main.nls.ja", {
 		"行は、{0} の設定に従って折り返されます。",
 		"従来の差分アルゴリズムを使用します。",
 		"高度な差分アルゴリズムを使用します。",
-		"差分エディターで変更されていない領域を表示するかどうかを制御します。{0} が設定されている場合にのみ機能します。",
+		"Controls whether the diff editor shows unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used for unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used as a minimum for unchanged regions. Only works when {0} is set.",
+		"Controls how many lines are used as context when comparing unchanged regions. Only works when {0} is set.",
 		"差分エディターで検出されたコードの移動を表示するかどうかを制御します。{0} が設定されている場合にのみ機能します。",
 		"差分エディターで新しい実装と古い実装のどちらを使用するかを制御します。",
 		"文字が挿入または削除された場所を確認するために、差分エディターに空の装飾を表示するかどうかを制御します。",
@@ -286,6 +307,7 @@ define("vs/editor/editor.main.nls.ja", {
 		"スクロール中にエディターの上部に入れ子になった現在のスコープを表示します。",
 		"表示する追従行の最大数を定義します。",
 		"固定する行を決定するために使用するモデルを定義します。アウトライン モデルが存在しない場合、インデント モデルにフォールバックする折りたたみプロバイダー モデルにフォールバックします。この順序は、3 つのケースすべてで優先されます。",
+		"Enable scrolling of the sticky scroll widget with the editor\'s horizontal scrollbar.",
 		"エディターでインレー ヒントを有効にします。",
 		"インレイ ヒントが有効になっています",
 		"インレイ ヒントは既定で表示され、{0} を押したままにすると非表示になります",
@@ -545,6 +567,7 @@ define("vs/editor/editor.main.nls.ja", {
 		"スニペットの候補を表示しません。",
 		"他の修正候補と一緒にスニペットを表示するかどうか、およびその並び替えの方法を制御します。",
 		"アニメーションでエディターをスクロールするかどうかを制御します。",
+		"Controls whether the accessibility hint should be provided to screen reader users when an inline completion is shown.",
 		"候補ウィジェットのフォント サイズ。{0} に設定すると、値 {1} が使用されます。",
 		"候補ウィジェットの行の高さ。{0} に設定すると、{1} の値が使用されます。最小値は 8 です。",
 		"トリガー文字の入力時に候補が自動的に表示されるようにするかどうかを制御します。",
@@ -650,7 +673,9 @@ define("vs/editor/editor.main.nls.ja", {
 		"エディターが読み取り専用かどうか",
 		"コンテキストが差分エディターであるかどうか",
 		"コンテキストが埋め込み差分エディターであるかどうか",
+		"Whether a moved code block is selected for comparison",
 		"アクセシビリティの高い差分ビューアーが表示されているかどうか",
+		"Whether the diff editor render side by side inline breakpoint is reached",
 		"`editor.columnSelection` が有効になっているかどうか",
 		"エディターでテキストが選択されているかどうか",
 		"エディターに複数の選択範囲があるかどうか",
@@ -889,6 +914,9 @@ define("vs/editor/editor.main.nls.ja", {
 		"相対パスの挿入",
 		"相対パスの挿入",
 	],
+	"vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorContribution": [
+		"Configures the default drop provider to use for content of a given mime type.",
+	],
 	"vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorController": [
 		"ドロップ ウィジェットが表示されているかどうか",
 		"ドロップ オプションを表示...",
@@ -1092,8 +1120,6 @@ define("vs/editor/editor.main.nls.ja", {
 	],
 	"vs/editor/contrib/hover/browser/hover": [
 		"[表示またはフォーカス] ホバー",
-		"{0}を使用して、アクセス可能なビューでこれを検査します",
-		"キー バインドを介して現在トリガーできない [アクセス可能なビューを開く] コマンドを使用して、アクセス可能なビューでこれを検査します",
 		"定義プレビューのホバーを表示する",
 		"[上にスクロール] ホバー",
 		"[下にスクロール] ホバー",
@@ -1165,6 +1191,9 @@ define("vs/editor/editor.main.nls.ja", {
 		"インライン候補がスペースで始まるかどうか",
 		"インライン候補が、タブで挿入されるものよりも小さいスペースで始まるかどうか",
 		"現在の候補について候補表示を止めるかどうか",
+	],
+	"vs/editor/contrib/inlineCompletions/browser/inlineCompletionsController": [
+		"Inspect this in the accessible view ({0})",
 	],
 	"vs/editor/contrib/inlineCompletions/browser/inlineCompletionsHintsWidget": [
 		"次のパラメーター ヒントを表示するためのアイコン。",
@@ -1566,6 +1595,7 @@ define("vs/editor/editor.main.nls.ja", {
 		"アクション ウィジェット",
 	],
 	"vs/platform/actionWidget/browser/actionWidget": [
+		"Background color for toggled action items in action bar.",
 		"アクション ウィジェットの一覧が表示されるかどうか",
 		"アクション ウィジェットを非表示にする",
 		"前のアクションを選択",
@@ -1707,13 +1737,15 @@ define("vs/editor/editor.main.nls.ja", {
 		"\'Enter\' を押して入力を確認するか \'Escape\' を押して取り消します",
 		"{0}/{1}",
 		"入力すると結果が絞り込まれます。",
-		"すべてのチェック ボックスを切り替える",
-		"{0} 件の結果",
-		"{0} 個選択済み",
+	],
+	"vs/platform/quickinput/browser/quickInputController": [
+		"Toggle all checkboxes",
+		"{0} Results",
+		"{0} Selected",
 		"OK",
-		"カスタム",
-		"戻る ({0})",
-		"戻る",
+		"Custom",
+		"Back ({0})",
+		"Back",
 	],
 	"vs/platform/quickinput/browser/quickInputList": [
 		"クイック入力",

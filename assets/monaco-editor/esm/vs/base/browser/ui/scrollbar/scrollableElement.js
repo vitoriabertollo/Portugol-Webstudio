@@ -290,7 +290,14 @@ export class AbstractScrollableElement extends Widget {
             let deltaY = e.deltaY * this._options.mouseWheelScrollSensitivity;
             let deltaX = e.deltaX * this._options.mouseWheelScrollSensitivity;
             if (this._options.scrollPredominantAxis) {
-                if (Math.abs(deltaY) >= Math.abs(deltaX)) {
+                if (this._options.scrollYToX && deltaX + deltaY === 0) {
+                    // when configured to map Y to X and we both see
+                    // no dominant axis and X and Y are competing with
+                    // identical values into opposite directions, we
+                    // ignore the delta as we cannot make a decision then
+                    deltaX = deltaY = 0;
+                }
+                else if (Math.abs(deltaY) >= Math.abs(deltaX)) {
                     deltaX = 0;
                 }
                 else {

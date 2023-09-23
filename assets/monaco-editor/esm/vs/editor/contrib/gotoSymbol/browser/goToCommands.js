@@ -241,7 +241,7 @@ registerAction2((_a = class GoToDefinitionAction extends DefinitionAction {
                 openInPeek: false,
                 muteMessage: false
             }, {
-                id: GoToDefinitionAction.id,
+                id: _a.id,
                 title: {
                     value: nls.localize('actions.goToDecl.label', "Go to Definition"),
                     original: 'Go to Definition',
@@ -268,7 +268,7 @@ registerAction2((_a = class GoToDefinitionAction extends DefinitionAction {
                         order: 2,
                     }]
             });
-            CommandsRegistry.registerCommandAlias('editor.action.goToDeclaration', GoToDefinitionAction.id);
+            CommandsRegistry.registerCommandAlias('editor.action.goToDeclaration', _a.id);
         }
     },
     _a.id = 'editor.action.revealDefinition',
@@ -280,7 +280,7 @@ registerAction2((_b = class OpenDefinitionToSideAction extends DefinitionAction 
                 openInPeek: false,
                 muteMessage: false
             }, {
-                id: OpenDefinitionToSideAction.id,
+                id: _b.id,
                 title: {
                     value: nls.localize('actions.goToDeclToSide.label', "Open Definition to the Side"),
                     original: 'Open Definition to the Side'
@@ -296,7 +296,7 @@ registerAction2((_b = class OpenDefinitionToSideAction extends DefinitionAction 
                         weight: 100 /* KeybindingWeight.EditorContrib */
                     }]
             });
-            CommandsRegistry.registerCommandAlias('editor.action.openDeclarationToTheSide', OpenDefinitionToSideAction.id);
+            CommandsRegistry.registerCommandAlias('editor.action.openDeclarationToTheSide', _b.id);
         }
     },
     _b.id = 'editor.action.revealDefinitionAside',
@@ -308,7 +308,7 @@ registerAction2((_c = class PeekDefinitionAction extends DefinitionAction {
                 openInPeek: true,
                 muteMessage: false
             }, {
-                id: PeekDefinitionAction.id,
+                id: _c.id,
                 title: {
                     value: nls.localize('actions.previewDecl.label', "Peek Definition"),
                     original: 'Peek Definition'
@@ -326,7 +326,7 @@ registerAction2((_c = class PeekDefinitionAction extends DefinitionAction {
                     order: 2
                 }
             });
-            CommandsRegistry.registerCommandAlias('editor.action.previewDeclaration', PeekDefinitionAction.id);
+            CommandsRegistry.registerCommandAlias('editor.action.previewDeclaration', _c.id);
         }
     },
     _c.id = 'editor.action.peekDefinition',
@@ -358,7 +358,7 @@ registerAction2((_d = class GoToDeclarationAction extends DeclarationAction {
                 openInPeek: false,
                 muteMessage: false
             }, {
-                id: GoToDeclarationAction.id,
+                id: _d.id,
                 title: {
                     value: nls.localize('actions.goToDeclaration.label', "Go to Declaration"),
                     original: 'Go to Declaration',
@@ -433,7 +433,7 @@ registerAction2((_e = class GoToTypeDefinitionAction extends TypeDefinitionActio
                 openInPeek: false,
                 muteMessage: false
             }, {
-                id: GoToTypeDefinitionAction.ID,
+                id: _e.ID,
                 title: {
                     value: nls.localize('actions.goToTypeDefinition.label', "Go to Type Definition"),
                     original: 'Go to Type Definition',
@@ -467,7 +467,7 @@ registerAction2((_f = class PeekTypeDefinitionAction extends TypeDefinitionActio
                 openInPeek: true,
                 muteMessage: false
             }, {
-                id: PeekTypeDefinitionAction.ID,
+                id: _f.ID,
                 title: {
                     value: nls.localize('actions.peekTypeDefinition.label', "Peek Type Definition"),
                     original: 'Peek Type Definition'
@@ -510,7 +510,7 @@ registerAction2((_g = class GoToImplementationAction extends ImplementationActio
                 openInPeek: false,
                 muteMessage: false
             }, {
-                id: GoToImplementationAction.ID,
+                id: _g.ID,
                 title: {
                     value: nls.localize('actions.goToImplementation.label', "Go to Implementations"),
                     original: 'Go to Implementations',
@@ -544,7 +544,7 @@ registerAction2((_h = class PeekImplementationAction extends ImplementationActio
                 openInPeek: true,
                 muteMessage: false
             }, {
-                id: PeekImplementationAction.ID,
+                id: _h.ID,
                 title: {
                     value: nls.localize('actions.peekImplementation.label', "Peek Implementations"),
                     original: 'Peek Implementations'

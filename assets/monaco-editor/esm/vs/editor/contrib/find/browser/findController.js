@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var CommonFindController_1;
 import { Delayer } from '../../../../base/common/async.js';
 import { Disposable } from '../../../../base/common/lifecycle.js';
 import * as strings from '../../../../base/common/strings.js';
@@ -64,12 +65,12 @@ export function getSelectionSearchString(editor, seedSearchStringFromSelection =
     }
     return null;
 }
-let CommonFindController = class CommonFindController extends Disposable {
+let CommonFindController = CommonFindController_1 = class CommonFindController extends Disposable {
     get editor() {
         return this._editor;
     }
     static get(editor) {
-        return editor.getContribution(CommonFindController.ID);
+        return editor.getContribution(CommonFindController_1.ID);
     }
     constructor(editor, contextKeyService, storageService, clipboardService) {
         super();
@@ -343,7 +344,7 @@ let CommonFindController = class CommonFindController extends Disposable {
     }
 };
 CommonFindController.ID = 'editor.contrib.findController';
-CommonFindController = __decorate([
+CommonFindController = CommonFindController_1 = __decorate([
     __param(1, IContextKeyService),
     __param(2, IStorageService),
     __param(3, IClipboardService)

@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var SuggestWidget_1;
 import * as dom from '../../../../base/browser/dom.js';
 import '../../../../base/browser/ui/codicons/codiconStyles.js'; // The codicon symbol styles are defined here and must be loaded
 import { List } from '../../../../base/browser/ui/list/listWidget.js';
@@ -45,6 +46,7 @@ import { Context as SuggestContext, suggestWidgetStatusbarMenu } from './suggest
 import { canExpandCompletionItem, SuggestDetailsOverlay, SuggestDetailsWidget } from './suggestWidgetDetails.js';
 import { getAriaId, ItemRenderer } from './suggestWidgetRenderer.js';
 import { getListStyles } from '../../../../platform/theme/browser/defaultStyles.js';
+import { status } from '../../../../base/browser/ui/aria/aria.js';
 /**
  * Suggest widget colors
  */
@@ -83,7 +85,7 @@ class PersistedWidgetSize {
         this._service.remove(this._key, 0 /* StorageScope.PROFILE */);
     }
 }
-let SuggestWidget = class SuggestWidget {
+let SuggestWidget = SuggestWidget_1 = class SuggestWidget {
     constructor(editor, _storageService, _contextKeyService, _themeService, instantiationService) {
         this.editor = editor;
         this._storageService = _storageService;
@@ -364,21 +366,23 @@ let SuggestWidget = class SuggestWidget {
                 break;
             case 1 /* State.Loading */:
                 this.element.domNode.classList.add('message');
-                this._messageElement.textContent = SuggestWidget.LOADING_MESSAGE;
+                this._messageElement.textContent = SuggestWidget_1.LOADING_MESSAGE;
                 dom.hide(this._listElement, this._status.element);
                 dom.show(this._messageElement);
                 this._details.hide();
                 this._show();
                 this._focusedItem = undefined;
+                status(SuggestWidget_1.LOADING_MESSAGE);
                 break;
             case 2 /* State.Empty */:
                 this.element.domNode.classList.add('message');
-                this._messageElement.textContent = SuggestWidget.NO_SUGGESTIONS_MESSAGE;
+                this._messageElement.textContent = SuggestWidget_1.NO_SUGGESTIONS_MESSAGE;
                 dom.hide(this._listElement, this._status.element);
                 dom.show(this._messageElement);
                 this._details.hide();
                 this._show();
                 this._focusedItem = undefined;
+                status(SuggestWidget_1.NO_SUGGESTIONS_MESSAGE);
                 break;
             case 3 /* State.Open */:
                 dom.hide(this._messageElement);
@@ -780,7 +784,7 @@ let SuggestWidget = class SuggestWidget {
 };
 SuggestWidget.LOADING_MESSAGE = nls.localize('suggestWidget.loading', "Loading...");
 SuggestWidget.NO_SUGGESTIONS_MESSAGE = nls.localize('suggestWidget.noSuggestions', "No suggestions.");
-SuggestWidget = __decorate([
+SuggestWidget = SuggestWidget_1 = __decorate([
     __param(1, IStorageService),
     __param(2, IContextKeyService),
     __param(3, IThemeService),

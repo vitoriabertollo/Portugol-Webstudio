@@ -85,6 +85,9 @@ export class SimpleLineRangeMapping {
     flip() {
         return new SimpleLineRangeMapping(this.modified, this.original);
     }
+    join(other) {
+        return new SimpleLineRangeMapping(this.original.join(other.original), this.modified.join(other.modified));
+    }
 }
 export class MovedText {
     constructor(lineRangeMapping, changes) {

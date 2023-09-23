@@ -4,34 +4,43 @@
  *--------------------------------------------------------------------------------------------*/
 import { BugIndicatingError } from '../errors.js';
 import { DisposableStore } from '../lifecycle.js';
-import { BaseObservable, _setDerived } from './base.js';
+import { BaseObservable, _setDerived, getFunctionName } from './base.js';
 import { getLogger } from './logging.js';
-export function derived(debugName, computeFn) {
-    return new Derived(debugName, computeFn, undefined, undefined, undefined);
+const defaultEqualityComparer = (a, b) => a === b;
+export function derived(computeFn, debugName) {
+    return new Derived(debugName, computeFn, undefined, undefined, undefined, defaultEqualityComparer);
+}
+export function derivedOpts(options, computeFn) {
+    var _a;
+    return new Derived(options.debugName, computeFn, undefined, undefined, undefined, (_a = options.equalityComparer) !== null && _a !== void 0 ? _a : defaultEqualityComparer);
 }
 export function derivedHandleChanges(debugName, options, computeFn) {
-    return new Derived(debugName, computeFn, options.createEmptyChangeSummary, options.handleChange, undefined);
+    return new Derived(debugName, computeFn, options.createEmptyChangeSummary, options.handleChange, undefined, defaultEqualityComparer);
 }
 export function derivedWithStore(name, computeFn) {
     const store = new DisposableStore();
     return new Derived(name, r => {
         store.clear();
         return computeFn(r, store);
-    }, undefined, undefined, () => store.dispose());
+    }, undefined, undefined, () => store.dispose(), defaultEqualityComparer);
 }
 _setDerived(derived);
 export class Derived extends BaseObservable {
     get debugName() {
+        if (!this._debugName) {
+            return getFunctionName(this._computeFn) || '(anonymous)';
+        }
         return typeof this._debugName === 'function' ? this._debugName() : this._debugName;
     }
-    constructor(_debugName, computeFn, createChangeSummary, _handleChange, _handleLastObserverRemoved = undefined) {
+    constructor(_debugName, _computeFn, createChangeSummary, _handleChange, _handleLastObserverRemoved = undefined, _equalityComparator) {
         var _a, _b;
         super();
         this._debugName = _debugName;
-        this.computeFn = computeFn;
+        this._computeFn = _computeFn;
         this.createChangeSummary = createChangeSummary;
         this._handleChange = _handleChange;
         this._handleLastObserverRemoved = _handleLastObserverRemoved;
+        this._equalityComparator = _equalityComparator;
         this.state = 0 /* DerivedState.initial */;
         this.value = undefined;
         this.updateCount = 0;
@@ -60,25 +69,29 @@ export class Derived extends BaseObservable {
         if (this.observers.size === 0) {
             // Without observers, we don't know when to clean up stuff.
             // Thus, we don't cache anything to prevent memory leaks.
-            const result = this.computeFn(this, (_a = this.createChangeSummary) === null || _a === void 0 ? void 0 : _a.call(this));
+            const result = this._computeFn(this, (_a = this.createChangeSummary) === null || _a === void 0 ? void 0 : _a.call(this));
             // Clear new dependencies
             this.onLastObserverRemoved();
             return result;
         }
         else {
             do {
+                // We might not get a notification for a dependency that changed while it is updating,
+                // thus we also have to ask all our depedencies if they changed in this case.
                 if (this.state === 1 /* DerivedState.dependenciesMightHaveChanged */) {
-                    // We might not get a notification for a dependency that changed while it is updating,
-                    // thus we also have to ask all our depedencies if they changed in this case.
-                    this.state = 3 /* DerivedState.upToDate */;
                     for (const d of this.dependencies) {
-                        /** might call {@link handleChange} indirectly, which could invalidate us */
+                        /** might call {@link handleChange} indirectly, which could make us stale */
                         d.reportChanges();
                         if (this.state === 2 /* DerivedState.stale */) {
                             // The other dependencies will refresh on demand, so early break
                             break;
                         }
                     }
+                }
+                // We called report changes of all dependencies.
+                // If we are still not stale, we can assume to be up to date again.
+                if (this.state === 1 /* DerivedState.dependenciesMightHaveChanged */) {
+                    this.state = 3 /* DerivedState.upToDate */;
                 }
                 this._recomputeIfNeeded();
                 // In case recomputation changed one of our dependencies, we need to recompute again.
@@ -101,7 +114,7 @@ export class Derived extends BaseObservable {
         this.changeSummary = (_a = this.createChangeSummary) === null || _a === void 0 ? void 0 : _a.call(this);
         try {
             /** might call {@link handleChange} indirectly, which could invalidate us */
-            this.value = this.computeFn(this, changeSummary);
+            this.value = this._computeFn(this, changeSummary);
         }
         finally {
             // We don't want our observed observables to think that they are (not even temporarily) not being observed.
@@ -111,12 +124,13 @@ export class Derived extends BaseObservable {
             }
             this.dependenciesToBeRemoved.clear();
         }
-        const didChange = hadValue && oldValue !== this.value;
+        const didChange = hadValue && !(this._equalityComparator(oldValue, this.value));
         (_b = getLogger()) === null || _b === void 0 ? void 0 : _b.handleDerivedRecomputed(this, {
             oldValue,
             newValue: this.value,
             change: undefined,
-            didChange
+            didChange,
+            hadValue,
         });
         if (didChange) {
             for (const r of this.observers) {

@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var CodeEditorWidget_1;
 import '../services/markerDecorations.js';
 import './media/editor.css';
 import * as nls from '../../../nls.js';
@@ -52,7 +53,6 @@ import { ServiceCollection } from '../../../platform/instantiation/common/servic
 import { INotificationService, Severity } from '../../../platform/notification/common/notification.js';
 import { IThemeService, registerThemingParticipant } from '../../../platform/theme/common/themeService.js';
 import { IAccessibilityService } from '../../../platform/accessibility/common/accessibility.js';
-import { withNullAsUndefined } from '../../../base/common/types.js';
 import { MonospaceLineBreaksComputerFactory } from '../../common/viewModel/monospaceLineBreaksComputer.js';
 import { DOMLineBreaksComputerFactory } from '../view/domLineBreaksComputer.js';
 import { WordOperations } from '../../common/cursor/cursorWordOperations.js';
@@ -80,12 +80,13 @@ class ModelData {
         this.viewModel.dispose();
     }
 }
-let CodeEditorWidget = class CodeEditorWidget extends Disposable {
+let CodeEditorWidget = CodeEditorWidget_1 = class CodeEditorWidget extends Disposable {
     //#endregion
     get isSimpleWidget() {
         return this._configuration.isSimpleWidget;
     }
     constructor(domElement, _options, codeEditorWidgetOptions, instantiationService, codeEditorService, commandService, contextKeyService, themeService, notificationService, accessibilityService, languageConfigurationService, languageFeaturesService) {
+        var _a;
         super();
         this.languageConfigurationService = languageConfigurationService;
         //#region Eventing
@@ -215,7 +216,7 @@ let CodeEditorWidget = class CodeEditorWidget extends Disposable {
                 onUnexpectedError(new Error(`Cannot have two actions with the same id ${action.id}`));
                 continue;
             }
-            const internalAction = new InternalEditorAction(action.id, action.label, action.alias, withNullAsUndefined(action.precondition), () => {
+            const internalAction = new InternalEditorAction(action.id, action.label, action.alias, (_a = action.precondition) !== null && _a !== void 0 ? _a : undefined, () => {
                 return this._instantiationService.invokeFunction((accessor) => {
                     return Promise.resolve(action.runEditorCommand(accessor, this, null));
                 });
@@ -400,13 +401,13 @@ let CodeEditorWidget = class CodeEditorWidget extends Disposable {
         if (!this._modelData) {
             return -1;
         }
-        return CodeEditorWidget._getVerticalOffsetForPosition(this._modelData, lineNumber, 1, includeViewZones);
+        return CodeEditorWidget_1._getVerticalOffsetForPosition(this._modelData, lineNumber, 1, includeViewZones);
     }
     getTopForPosition(lineNumber, column) {
         if (!this._modelData) {
             return -1;
         }
-        return CodeEditorWidget._getVerticalOffsetForPosition(this._modelData, lineNumber, column, false);
+        return CodeEditorWidget_1._getVerticalOffsetForPosition(this._modelData, lineNumber, column, false);
     }
     static _getVerticalOffsetForPosition(modelData, modelLineNumber, modelColumn, includeViewZones = false) {
         const modelPosition = modelData.model.validatePosition({
@@ -420,7 +421,7 @@ let CodeEditorWidget = class CodeEditorWidget extends Disposable {
         if (!this._modelData) {
             return -1;
         }
-        return CodeEditorWidget._getVerticalOffsetAfterPosition(this._modelData, lineNumber, 1, includeViewZones);
+        return CodeEditorWidget_1._getVerticalOffsetAfterPosition(this._modelData, lineNumber, 1, includeViewZones);
     }
     setHiddenAreas(ranges, source) {
         var _a;
@@ -1117,7 +1118,7 @@ let CodeEditorWidget = class CodeEditorWidget extends Disposable {
         const position = this._modelData.model.validatePosition(rawPosition);
         const options = this._configuration.options;
         const layoutInfo = options.get(142 /* EditorOption.layoutInfo */);
-        const top = CodeEditorWidget._getVerticalOffsetForPosition(this._modelData, position.lineNumber, position.column) - this.getScrollTop();
+        const top = CodeEditorWidget_1._getVerticalOffsetForPosition(this._modelData, position.lineNumber, position.column) - this.getScrollTop();
         const left = this._modelData.view.getOffsetForColumn(position.lineNumber, position.column) + layoutInfo.glyphMarginWidth + layoutInfo.lineNumbersWidth + layoutInfo.decorationsWidth - this.getScrollLeft();
         return {
             top: top,
@@ -1378,7 +1379,7 @@ let CodeEditorWidget = class CodeEditorWidget extends Disposable {
     showDropIndicatorAt(position) {
         const newDecorations = [{
                 range: new Range(position.lineNumber, position.column, position.lineNumber, position.column),
-                options: CodeEditorWidget.dropIntoEditorDecorationOptions
+                options: CodeEditorWidget_1.dropIntoEditorDecorationOptions
             }];
         this._dropIntoEditorDecorations.set(newDecorations);
         this.revealPosition(position, 1 /* editorCommon.ScrollType.Immediate */);
@@ -1394,7 +1395,7 @@ CodeEditorWidget.dropIntoEditorDecorationOptions = ModelDecorationOptions.regist
     description: 'workbench-dnd-target',
     className: 'dnd-target'
 });
-CodeEditorWidget = __decorate([
+CodeEditorWidget = CodeEditorWidget_1 = __decorate([
     __param(3, IInstantiationService),
     __param(4, ICodeEditorService),
     __param(5, ICommandService),

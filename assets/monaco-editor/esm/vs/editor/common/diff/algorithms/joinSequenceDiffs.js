@@ -27,6 +27,44 @@ export function smoothenSequenceDiffs(sequence1, sequence2, sequenceDiffs) {
     }
     return result;
 }
+export function removeRandomLineMatches(sequence1, _sequence2, sequenceDiffs) {
+    let diffs = sequenceDiffs;
+    if (diffs.length === 0) {
+        return diffs;
+    }
+    let counter = 0;
+    let shouldRepeat;
+    do {
+        shouldRepeat = false;
+        const result = [
+            diffs[0]
+        ];
+        for (let i = 1; i < diffs.length; i++) {
+            const cur = diffs[i];
+            const lastResult = result[result.length - 1];
+            function shouldJoinDiffs(before, after) {
+                const unchangedRange = new OffsetRange(lastResult.seq1Range.endExclusive, cur.seq1Range.start);
+                const unchangedText = sequence1.getText(unchangedRange);
+                const unchangedTextWithoutWs = unchangedText.replace(/\s/g, '');
+                if (unchangedTextWithoutWs.length <= 4
+                    && (before.seq1Range.length + before.seq2Range.length > 5 || after.seq1Range.length + after.seq2Range.length > 5)) {
+                    return true;
+                }
+                return false;
+            }
+            const shouldJoin = shouldJoinDiffs(lastResult, cur);
+            if (shouldJoin) {
+                shouldRepeat = true;
+                result[result.length - 1] = result[result.length - 1].join(cur);
+            }
+            else {
+                result.push(cur);
+            }
+        }
+        diffs = result;
+    } while (counter++ < 10 && shouldRepeat);
+    return diffs;
+}
 export function removeRandomMatches(sequence1, sequence2, sequenceDiffs) {
     let diffs = sequenceDiffs;
     if (diffs.length === 0) {
@@ -82,6 +120,24 @@ export function removeRandomMatches(sequence1, sequence2, sequenceDiffs) {
         }
         diffs = result;
     } while (counter++ < 10 && shouldRepeat);
+    // Remove short suffixes/prefixes
+    for (let i = 0; i < diffs.length; i++) {
+        const cur = diffs[i];
+        let range1 = cur.seq1Range;
+        let range2 = cur.seq2Range;
+        const fullRange1 = sequence1.extendToFullLines(cur.seq1Range);
+        const prefix = sequence1.getText(new OffsetRange(fullRange1.start, cur.seq1Range.start));
+        if (prefix.length > 0 && prefix.trim().length <= 3 && cur.seq1Range.length + cur.seq2Range.length > 100) {
+            range1 = cur.seq1Range.deltaStart(-prefix.length);
+            range2 = cur.seq2Range.deltaStart(-prefix.length);
+        }
+        const suffix = sequence1.getText(new OffsetRange(cur.seq1Range.endExclusive, fullRange1.endExclusive));
+        if (suffix.length > 0 && (suffix.trim().length <= 3 && cur.seq1Range.length + cur.seq2Range.length > 150)) {
+            range1 = range1.deltaEnd(suffix.length);
+            range2 = range2.deltaEnd(suffix.length);
+        }
+        diffs[i] = new SequenceDiff(range1, range2);
+    }
     return diffs;
 }
 /**
@@ -193,16 +249,14 @@ function shiftDiffToBetterPosition(diff, sequence1, sequence2, seq1ValidRange, s
     let deltaBefore = 1;
     while (diff.seq1Range.start - deltaBefore >= seq1ValidRange.start &&
         diff.seq2Range.start - deltaBefore >= seq2ValidRange.start &&
-        sequence2.getElement(diff.seq2Range.start - deltaBefore) ===
-            sequence2.getElement(diff.seq2Range.endExclusive - deltaBefore) && deltaBefore < maxShiftLimit) {
+        sequence2.isStronglyEqual(diff.seq2Range.start - deltaBefore, diff.seq2Range.endExclusive - deltaBefore) && deltaBefore < maxShiftLimit) {
         deltaBefore++;
     }
     deltaBefore--;
     let deltaAfter = 0;
     while (diff.seq1Range.start + deltaAfter < seq1ValidRange.endExclusive &&
         diff.seq2Range.endExclusive + deltaAfter < seq2ValidRange.endExclusive &&
-        sequence2.getElement(diff.seq2Range.start + deltaAfter) ===
-            sequence2.getElement(diff.seq2Range.endExclusive + deltaAfter) && deltaAfter < maxShiftLimit) {
+        sequence2.isStronglyEqual(diff.seq2Range.start + deltaAfter, diff.seq2Range.endExclusive + deltaAfter) && deltaAfter < maxShiftLimit) {
         deltaAfter++;
     }
     if (deltaBefore === 0 && deltaAfter === 0) {

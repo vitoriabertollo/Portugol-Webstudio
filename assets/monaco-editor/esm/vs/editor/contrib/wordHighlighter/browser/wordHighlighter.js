@@ -11,6 +11,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var WordHighlighterContribution_1;
 import { alert } from '../../../../base/browser/ui/aria/aria.js';
 import * as arrays from '../../../../base/common/arrays.js';
 import { createCancelablePromise, first, timeout } from '../../../../base/common/async.js';
@@ -368,9 +369,9 @@ class WordHighlighter {
         this.toUnhook.dispose();
     }
 }
-let WordHighlighterContribution = class WordHighlighterContribution extends Disposable {
+let WordHighlighterContribution = WordHighlighterContribution_1 = class WordHighlighterContribution extends Disposable {
     static get(editor) {
-        return editor.getContribution(WordHighlighterContribution.ID);
+        return editor.getContribution(WordHighlighterContribution_1.ID);
     }
     constructor(editor, contextKeyService, languageFeaturesService) {
         super();
@@ -418,7 +419,7 @@ let WordHighlighterContribution = class WordHighlighterContribution extends Disp
     }
 };
 WordHighlighterContribution.ID = 'editor.contrib.wordHighlighter';
-WordHighlighterContribution = __decorate([
+WordHighlighterContribution = WordHighlighterContribution_1 = __decorate([
     __param(1, IContextKeyService),
     __param(2, ILanguageFeaturesService)
 ], WordHighlighterContribution);

@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var ColorDetector_1;
 import { createCancelablePromise, TimeoutTimer } from '../../../../base/common/async.js';
 import { RGBA } from '../../../../base/common/color.js';
 import { onUnexpectedError } from '../../../../base/common/errors.js';
@@ -36,7 +37,7 @@ import { ILanguageFeaturesService } from '../../../common/services/languageFeatu
 import { getColors } from './color.js';
 import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
 export const ColorDecorationInjectedTextMarker = Object.create({});
-let ColorDetector = class ColorDetector extends Disposable {
+let ColorDetector = ColorDetector_1 = class ColorDetector extends Disposable {
     constructor(_editor, _configurationService, _languageFeaturesService, languageFeatureDebounceService) {
         super();
         this._editor = _editor;
@@ -49,7 +50,7 @@ let ColorDetector = class ColorDetector extends Disposable {
         this._ruleFactory = new DynamicCssRules(this._editor);
         this._decoratorLimitReporter = new DecoratorLimitReporter();
         this._colorDecorationClassRefs = this._register(new DisposableStore());
-        this._debounceInformation = languageFeatureDebounceService.for(_languageFeaturesService.colorProvider, 'Document Colors', { min: ColorDetector.RECOMPUTE_TIME });
+        this._debounceInformation = languageFeatureDebounceService.for(_languageFeaturesService.colorProvider, 'Document Colors', { min: ColorDetector_1.RECOMPUTE_TIME });
         this._register(_editor.onDidChangeModel(() => {
             this._isColorDecoratorsEnabled = this.isEnabled();
             this.updateColors();
@@ -229,7 +230,7 @@ let ColorDetector = class ColorDetector extends Disposable {
 };
 ColorDetector.ID = 'editor.contrib.colorDetector';
 ColorDetector.RECOMPUTE_TIME = 1000; // ms
-ColorDetector = __decorate([
+ColorDetector = ColorDetector_1 = __decorate([
     __param(1, IConfigurationService),
     __param(2, ILanguageFeaturesService),
     __param(3, ILanguageFeatureDebounceService)

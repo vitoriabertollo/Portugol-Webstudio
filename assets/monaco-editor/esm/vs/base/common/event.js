@@ -433,6 +433,22 @@ export var Event;
     }
     Event.toPromise = toPromise;
     /**
+     * Creates an event out of a promise that fires once when the promise is
+     * resolved with the result of the promise or `undefined`.
+     */
+    function fromPromise(promise) {
+        const result = new Emitter();
+        promise.then(res => {
+            result.fire(res);
+        }, () => {
+            result.fire(undefined);
+        }).finally(() => {
+            result.dispose();
+        });
+        return result.event;
+    }
+    Event.fromPromise = fromPromise;
+    /**
      * Adds a listener to an event and calls the listener immediately with undefined as the event object.
      *
      * @example
@@ -975,6 +991,29 @@ export class MicrotaskEmitter extends Emitter {
         }
     }
 }
+/**
+ * An event emitter that multiplexes many events into a single event.
+ *
+ * @example Listen to the `onData` event of all `Thing`s, dynamically adding and removing `Thing`s
+ * to the multiplexer as needed.
+ *
+ * ```typescript
+ * const anythingDataMultiplexer = new EventMultiplexer<{ data: string }>();
+ *
+ * const thingListeners = DisposableMap<Thing, IDisposable>();
+ *
+ * thingService.onDidAddThing(thing => {
+ *   thingListeners.set(thing, anythingDataMultiplexer.add(thing.onData);
+ * });
+ * thingService.onDidRemoveThing(thing => {
+ *   thingListeners.deleteAndDispose(thing);
+ * });
+ *
+ * anythingDataMultiplexer.event(e => {
+ *   console.log('Something fired data ' + e.data)
+ * });
+ * ```
+ */
 export class EventMultiplexer {
     constructor() {
         this.hasListeners = false;

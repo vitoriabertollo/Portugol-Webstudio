@@ -28,7 +28,7 @@ import { timeout } from '../../../common/async.js';
 import { Color } from '../../../common/color.js';
 import { memoize } from '../../../common/decorators.js';
 import { Emitter, Event, EventBufferer } from '../../../common/event.js';
-import { matchesPrefix } from '../../../common/filters.js';
+import { matchesFuzzy2, matchesPrefix } from '../../../common/filters.js';
 import { DisposableStore, dispose } from '../../../common/lifecycle.js';
 import { clamp } from '../../../common/numbers.js';
 import * as platform from '../../../common/platform.js';
@@ -437,11 +437,29 @@ class TypeNavigationController {
             const index = (start + i + delta) % this.list.length;
             const label = this.keyboardNavigationLabelProvider.getKeyboardNavigationLabel(this.view.element(index));
             const labelStr = label && label.toString();
-            if (typeof labelStr === 'undefined' || matchesPrefix(word, labelStr)) {
-                this.previouslyFocused = start;
-                this.list.setFocus([index]);
-                this.list.reveal(index);
-                return;
+            if (this.list.options.typeNavigationEnabled) {
+                if (typeof labelStr !== 'undefined') {
+                    const prefix = matchesPrefix(word, labelStr);
+                    const fuzzy = matchesFuzzy2(word, labelStr);
+                    if (fuzzy) {
+                        const fuzzyScore = fuzzy[0].end - fuzzy[0].start;
+                        // ensures that when fuzzy matching, doesn't clash with prefix matching (1 input vs 1+ should be prefix and fuzzy respecitvely). Also makes sure that exact matches are prioritized.
+                        if (prefix || (fuzzyScore > 1 && fuzzy.length === 1)) {
+                            this.previouslyFocused = start;
+                            this.list.setFocus([index]);
+                            this.list.reveal(index);
+                            return;
+                        }
+                    }
+                }
+            }
+            else {
+                if (typeof labelStr === 'undefined' || matchesPrefix(word, labelStr)) {
+                    this.previouslyFocused = start;
+                    this.list.setFocus([index]);
+                    this.list.reveal(index);
+                    return;
+                }
             }
         }
     }
@@ -577,9 +595,6 @@ export class MouseController {
             this.list.setSelection([], e.browserEvent);
             this.list.setAnchor(undefined);
             return;
-        }
-        if (this.isSelectionRangeChangeEvent(e)) {
-            return this.changeSelection(e);
         }
         if (this.isSelectionChangeEvent(e)) {
             return this.changeSelection(e);

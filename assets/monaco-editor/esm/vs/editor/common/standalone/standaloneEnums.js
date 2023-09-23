@@ -317,6 +317,7 @@ export var EditorOption;
     EditorOption[EditorOption["wrappingInfo"] = 143] = "wrappingInfo";
     EditorOption[EditorOption["defaultColorDecorators"] = 144] = "defaultColorDecorators";
     EditorOption[EditorOption["colorDecoratorsActivatedOn"] = 145] = "colorDecoratorsActivatedOn";
+    EditorOption[EditorOption["inlineCompletionsAccessibilityVerbose"] = 146] = "inlineCompletionsAccessibilityVerbose";
 })(EditorOption || (EditorOption = {}));
 /**
  * End of line character preference.

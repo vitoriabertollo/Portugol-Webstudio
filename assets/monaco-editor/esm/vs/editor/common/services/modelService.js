@@ -11,6 +11,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var ModelService_1;
 import { Emitter } from '../../../base/common/event.js';
 import { Disposable, DisposableStore } from '../../../base/common/lifecycle.js';
 import * as platform from '../../../base/common/platform.js';
@@ -64,7 +65,7 @@ class DisposedModelInfo {
         this.alternativeVersionId = alternativeVersionId;
     }
 }
-let ModelService = class ModelService extends Disposable {
+let ModelService = ModelService_1 = class ModelService extends Disposable {
     constructor(_configurationService, _resourcePropertiesService, _undoRedoService, _languageService, _languageConfigurationService) {
         super();
         this._configurationService = _configurationService;
@@ -170,7 +171,7 @@ let ModelService = class ModelService extends Disposable {
         if (!creationOptions) {
             const editor = this._configurationService.getValue('editor', { overrideIdentifier: language, resource });
             const eol = this._getEOL(resource, language);
-            creationOptions = ModelService._readModelOptions({ editor, eol }, isForSimpleWidget);
+            creationOptions = ModelService_1._readModelOptions({ editor, eol }, isForSimpleWidget);
             this._modelCreationOptionsByLanguageAndResource[language + resource] = creationOptions;
         }
         return creationOptions;
@@ -190,7 +191,7 @@ let ModelService = class ModelService extends Disposable {
             }
             const oldOptions = oldOptionsByLanguageAndResource[language + uri];
             const newOptions = this.getCreationOptions(language, uri, modelData.model.isForSimpleWidget);
-            ModelService._setModelOptionsForModel(modelData.model, newOptions, oldOptions);
+            ModelService_1._setModelOptionsForModel(modelData.model, newOptions, oldOptions);
         }
     }
     static _setModelOptionsForModel(model, newOptions, currentOptions) {
@@ -359,7 +360,7 @@ let ModelService = class ModelService extends Disposable {
                 }
             }
         }
-        const maxMemory = ModelService.MAX_MEMORY_FOR_CLOSED_FILES_UNDO_STACK;
+        const maxMemory = ModelService_1.MAX_MEMORY_FOR_CLOSED_FILES_UNDO_STACK;
         if (!maintainUndoRedoStack) {
             if (!sharesUndoRedoStack) {
                 const initialUndoRedoSnapshot = modelData.model.getInitialUndoRedoSnapshot();
@@ -392,12 +393,12 @@ let ModelService = class ModelService extends Disposable {
         const newLanguageId = model.getLanguageId();
         const oldOptions = this.getCreationOptions(oldLanguageId, model.uri, model.isForSimpleWidget);
         const newOptions = this.getCreationOptions(newLanguageId, model.uri, model.isForSimpleWidget);
-        ModelService._setModelOptionsForModel(model, newOptions, oldOptions);
+        ModelService_1._setModelOptionsForModel(model, newOptions, oldOptions);
         this._onModelModeChanged.fire({ model, oldLanguageId: oldLanguageId });
     }
 };
 ModelService.MAX_MEMORY_FOR_CLOSED_FILES_UNDO_STACK = 20 * 1024 * 1024;
-ModelService = __decorate([
+ModelService = ModelService_1 = __decorate([
     __param(0, IConfigurationService),
     __param(1, ITextResourcePropertiesService),
     __param(2, IUndoRedoService),

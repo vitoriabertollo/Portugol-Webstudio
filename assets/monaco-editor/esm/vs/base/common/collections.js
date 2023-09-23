@@ -36,6 +36,6 @@ export class SetMap {
         if (!values) {
             return new Set();
         }
-        return new Set(values);
+        return values;
     }
 }

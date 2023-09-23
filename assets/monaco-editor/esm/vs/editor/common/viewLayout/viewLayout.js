@@ -108,6 +108,8 @@ export class ViewLayout extends Disposable {
         const layoutInfo = options.get(142 /* EditorOption.layoutInfo */);
         const padding = options.get(82 /* EditorOption.padding */);
         this._linesLayout = new LinesLayout(lineCount, options.get(65 /* EditorOption.lineHeight */), padding.top, padding.bottom);
+        this._maxLineWidth = 0;
+        this._overlayWidgetsMinWidth = 0;
         this._scrollable = this._register(new EditorScrollable(0, scheduleAtNextAnimationFrame));
         this._configureSmoothScrollDuration();
         this._scrollable.setScrollDimensions(new EditorScrollDimensions(layoutInfo.contentWidth, 0, layoutInfo.height, 0));
@@ -204,8 +206,9 @@ export class ViewLayout extends Disposable {
         const currentScrollPosition = this._scrollable.getFutureScrollPosition();
         return new Viewport(currentScrollPosition.scrollTop, currentScrollPosition.scrollLeft, scrollDimensions.width, scrollDimensions.height);
     }
-    _computeContentWidth(maxLineWidth) {
+    _computeContentWidth() {
         const options = this._configuration.options;
+        const maxLineWidth = this._maxLineWidth;
         const wrappingInfo = options.get(143 /* EditorOption.wrappingInfo */);
         const fontInfo = options.get(49 /* EditorOption.fontInfo */);
         const layoutInfo = options.get(142 /* EditorOption.layoutInfo */);
@@ -223,13 +226,20 @@ export class ViewLayout extends Disposable {
         else {
             const extraHorizontalSpace = options.get(102 /* EditorOption.scrollBeyondLastColumn */) * fontInfo.typicalHalfwidthCharacterWidth;
             const whitespaceMinWidth = this._linesLayout.getWhitespaceMinWidth();
-            return Math.max(maxLineWidth + extraHorizontalSpace + layoutInfo.verticalScrollbarWidth, whitespaceMinWidth);
+            return Math.max(maxLineWidth + extraHorizontalSpace + layoutInfo.verticalScrollbarWidth, whitespaceMinWidth, this._overlayWidgetsMinWidth);
         }
     }
     setMaxLineWidth(maxLineWidth) {
+        this._maxLineWidth = maxLineWidth;
+        this._updateContentWidth();
+    }
+    setOverlayWidgetsMinWidth(maxMinWidth) {
+        this._overlayWidgetsMinWidth = maxMinWidth;
+        this._updateContentWidth();
+    }
+    _updateContentWidth() {
         const scrollDimensions = this._scrollable.getScrollDimensions();
-        // const newScrollWidth = ;
-        this._scrollable.setScrollDimensions(new EditorScrollDimensions(scrollDimensions.width, this._computeContentWidth(maxLineWidth), scrollDimensions.height, scrollDimensions.contentHeight));
+        this._scrollable.setScrollDimensions(new EditorScrollDimensions(scrollDimensions.width, this._computeContentWidth(), scrollDimensions.height, scrollDimensions.contentHeight));
         // The height might depend on the fact that there is a horizontal scrollbar or not
         this._updateHeight();
     }

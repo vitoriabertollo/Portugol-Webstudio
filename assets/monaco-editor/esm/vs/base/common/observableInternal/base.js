@@ -27,10 +27,19 @@ export class ConvenientObservable {
     }
     /** @sealed */
     map(fn) {
-        return _derived(() => {
+        return _derived((reader) => fn(this.read(reader), reader), () => {
             const name = getFunctionName(fn);
-            return name !== undefined ? name : `${this.debugName} (mapped)`;
-        }, (reader) => fn(this.read(reader), reader));
+            if (name !== undefined) {
+                return name;
+            }
+            // regexp to match `x => x.y` where x and y can be arbitrary identifiers (uses backref):
+            const regexp = /^\s*\(?\s*([a-zA-Z_$][a-zA-Z_$0-9]*)\s*\)?\s*=>\s*\1\.([a-zA-Z_$][a-zA-Z_$0-9]*)\s*$/;
+            const match = regexp.exec(fn.toString());
+            if (match) {
+                return `${this.debugName}.${match[2]}`;
+            }
+            return `${this.debugName} (mapped)`;
+        });
     }
 }
 export class BaseObservable extends ConvenientObservable {
@@ -55,15 +64,12 @@ export class BaseObservable extends ConvenientObservable {
     onLastObserverRemoved() { }
 }
 export function transaction(fn, getDebugName) {
-    var _a, _b;
     const tx = new TransactionImpl(fn, getDebugName);
     try {
-        (_a = getLogger()) === null || _a === void 0 ? void 0 : _a.handleBeginTransaction(tx);
         fn(tx);
     }
     finally {
         tx.finish();
-        (_b = getLogger()) === null || _b === void 0 ? void 0 : _b.handleEndTransaction();
     }
 }
 export function subtransaction(tx, fn, getDebugName) {
@@ -75,28 +81,32 @@ export function subtransaction(tx, fn, getDebugName) {
     }
 }
 export class TransactionImpl {
-    constructor(fn, _getDebugName) {
-        this.fn = fn;
+    constructor(_fn, _getDebugName) {
+        var _a;
+        this._fn = _fn;
         this._getDebugName = _getDebugName;
         this.updatingObservers = [];
+        (_a = getLogger()) === null || _a === void 0 ? void 0 : _a.handleBeginTransaction(this);
     }
     getDebugName() {
         if (this._getDebugName) {
             return this._getDebugName();
         }
-        return getFunctionName(this.fn);
+        return getFunctionName(this._fn);
     }
     updateObserver(observer, observable) {
         this.updatingObservers.push({ observer, observable });
         observer.beginUpdate(observable);
     }
     finish() {
+        var _a;
         const updatingObservers = this.updatingObservers;
         // Prevent anyone from updating observers from now on.
         this.updatingObservers = null;
         for (const { observer, observable } of updatingObservers) {
             observer.endUpdate(observable);
         }
+        (_a = getLogger()) === null || _a === void 0 ? void 0 : _a.handleEndTransaction();
     }
 }
 export function getFunctionName(fn) {
@@ -135,7 +145,7 @@ export class ObservableValue extends BaseObservable {
         try {
             const oldValue = this._value;
             this._setValue(value);
-            (_a = getLogger()) === null || _a === void 0 ? void 0 : _a.handleObservableChanged(this, { oldValue, newValue: value, change, didChange: true });
+            (_a = getLogger()) === null || _a === void 0 ? void 0 : _a.handleObservableChanged(this, { oldValue, newValue: value, change, didChange: true, hadValue: true });
             for (const observer of this.observers) {
                 tx.updateObserver(observer, this);
                 observer.handleChange(this, change);

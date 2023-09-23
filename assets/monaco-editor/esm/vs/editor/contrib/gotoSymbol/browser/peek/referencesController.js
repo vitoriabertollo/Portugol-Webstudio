@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var ReferencesController_1;
 import { createCancelablePromise } from '../../../../../base/common/async.js';
 import { onUnexpectedError } from '../../../../../base/common/errors.js';
 import { KeyChord } from '../../../../../base/common/keyCodes.js';
@@ -40,9 +41,9 @@ import { IStorageService } from '../../../../../platform/storage/common/storage.
 import { OneReference } from '../referencesModel.js';
 import { LayoutData, ReferenceWidget } from './referencesWidget.js';
 export const ctxReferenceSearchVisible = new RawContextKey('referenceSearchVisible', false, nls.localize('referenceSearchVisible', "Whether reference peek is visible, like 'Peek References' or 'Peek Definition'"));
-let ReferencesController = class ReferencesController {
+let ReferencesController = ReferencesController_1 = class ReferencesController {
     static get(editor) {
-        return editor.getContribution(ReferencesController.ID);
+        return editor.getContribution(ReferencesController_1.ID);
     }
     constructor(_defaultTreeKeyboardSupport, _editor, contextKeyService, _editorService, _notificationService, _instantiationService, _storageService, _configurationService) {
         this._defaultTreeKeyboardSupport = _defaultTreeKeyboardSupport;
@@ -247,7 +248,7 @@ let ReferencesController = class ReferencesController {
             else {
                 // we opened a different editor instance which means a different controller instance.
                 // therefore we stop with this controller and continue with the other
-                const other = ReferencesController.get(openedEditor);
+                const other = ReferencesController_1.get(openedEditor);
                 const model = this._model.clone();
                 this.closeWidget();
                 openedEditor.focus();
@@ -271,7 +272,7 @@ let ReferencesController = class ReferencesController {
     }
 };
 ReferencesController.ID = 'editor.contrib.referencesController';
-ReferencesController = __decorate([
+ReferencesController = ReferencesController_1 = __decorate([
     __param(2, IContextKeyService),
     __param(3, ICodeEditorService),
     __param(4, INotificationService),

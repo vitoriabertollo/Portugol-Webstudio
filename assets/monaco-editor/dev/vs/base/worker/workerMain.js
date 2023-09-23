@@ -1,12 +1,12 @@
 /*!-----------------------------------------------------------
  * Copyright (c) Microsoft Corporation. All rights reserved.
- * Version: 0.41.0(38e1e3d097f84e336c311d071a9ffb5191d4ffd1)
+ * Version: 0.43.0(94c055bcbdd49f04a0fa15515e848542a79fb948)
  * Released under the MIT license
  * https://github.com/microsoft/vscode/blob/main/LICENSE.txt
  *-----------------------------------------------------------*/
 
 (function() {
-var __m = ["require","exports","vs/editor/common/core/range","vs/editor/common/core/position","vs/base/common/errors","vs/base/common/strings","vs/editor/common/core/offsetRange","vs/base/common/event","vs/editor/common/diff/algorithms/diffAlgorithm","vs/base/common/assert","vs/base/common/lifecycle","vs/base/common/objects","vs/editor/common/core/lineRange","vs/base/common/platform","vs/base/common/uri","vs/nls","vs/base/common/functional","vs/base/common/iterator","vs/base/common/linkedList","vs/base/common/stopwatch","vs/base/common/diff/diff","vs/base/common/types","vs/base/common/uint","vs/editor/common/core/characterClassifier","vs/editor/common/core/wordHelper","vs/editor/common/diff/linesDiffComputer","vs/base/common/arrays","vs/base/common/cache","vs/base/common/color","vs/base/common/diff/diffChange","vs/base/common/keyCodes","vs/base/common/lazy","vs/base/common/cancellation","vs/base/common/hash","vs/base/common/codicons","vs/editor/common/core/selection","vs/editor/common/core/wordCharacterClassifier","vs/editor/common/diff/algorithms/joinSequenceDiffs","vs/editor/common/diff/algorithms/myersDiffAlgorithm","vs/editor/common/diff/algorithms/utils","vs/editor/common/diff/algorithms/dynamicProgrammingDiffing","vs/editor/common/diff/smartLinesDiffComputer","vs/editor/common/diff/standardLinesDiffComputer","vs/editor/common/diff/linesDiffComputers","vs/editor/common/languages/defaultDocumentColorsComputer","vs/editor/common/languages/linkComputer","vs/editor/common/languages/supports/inplaceReplaceSupport","vs/editor/common/model","vs/editor/common/model/prefixSumComputer","vs/editor/common/model/mirrorTextModel","vs/editor/common/model/textModelSearch","vs/editor/common/services/unicodeTextModelHighlighter","vs/editor/common/standalone/standaloneEnums","vs/editor/common/tokenizationRegistry","vs/nls!vs/base/common/platform","vs/nls!vs/base/common/worker/simpleWorker","vs/base/common/process","vs/base/common/path","vs/nls!vs/editor/common/languages","vs/editor/common/languages","vs/editor/common/services/editorBaseApi","vs/base/common/worker/simpleWorker","vs/editor/common/services/editorSimpleWorker"];
+var __m = ["require","exports","vs/editor/common/core/range","vs/base/common/errors","vs/editor/common/core/position","vs/base/common/strings","vs/editor/common/core/offsetRange","vs/base/common/event","vs/editor/common/diff/algorithms/diffAlgorithm","vs/base/common/assert","vs/base/common/lifecycle","vs/base/common/objects","vs/editor/common/core/lineRange","vs/base/common/platform","vs/base/common/uri","vs/nls","vs/base/common/arrays","vs/base/common/functional","vs/base/common/iterator","vs/base/common/linkedList","vs/base/common/stopwatch","vs/base/common/diff/diff","vs/base/common/types","vs/base/common/uint","vs/editor/common/core/characterClassifier","vs/editor/common/core/wordHelper","vs/editor/common/diff/linesDiffComputer","vs/base/common/cache","vs/base/common/collections","vs/base/common/color","vs/base/common/diff/diffChange","vs/base/common/keyCodes","vs/base/common/lazy","vs/base/common/cancellation","vs/base/common/hash","vs/base/common/codicons","vs/editor/common/core/selection","vs/editor/common/core/wordCharacterClassifier","vs/editor/common/diff/algorithms/joinSequenceDiffs","vs/editor/common/diff/algorithms/myersDiffAlgorithm","vs/editor/common/diff/algorithms/utils","vs/editor/common/diff/algorithms/dynamicProgrammingDiffing","vs/editor/common/diff/advancedLinesDiffComputer","vs/editor/common/diff/legacyLinesDiffComputer","vs/editor/common/diff/linesDiffComputers","vs/editor/common/languages/defaultDocumentColorsComputer","vs/editor/common/languages/linkComputer","vs/editor/common/languages/supports/inplaceReplaceSupport","vs/editor/common/model","vs/editor/common/model/prefixSumComputer","vs/editor/common/model/mirrorTextModel","vs/editor/common/model/textModelSearch","vs/editor/common/services/unicodeTextModelHighlighter","vs/editor/common/standalone/standaloneEnums","vs/editor/common/tokenizationRegistry","vs/nls!vs/base/common/platform","vs/nls!vs/base/common/worker/simpleWorker","vs/base/common/process","vs/base/common/path","vs/nls!vs/editor/common/languages","vs/editor/common/languages","vs/editor/common/services/editorBaseApi","vs/base/common/worker/simpleWorker","vs/editor/common/services/editorSimpleWorker"];
 var __M = function(deps) {
   var result = [];
   for (var i = 0, len = deps.length; i < len; i++) {
@@ -1264,6 +1264,7 @@ var AMDLoader;
 			this._buildInfoPath = [];
 			this._buildInfoDefineStack = [];
 			this._buildInfoDependencies = [];
+			this._requireFunc.moduleManager = this;
 		}
 		reset() {
 			return new ModuleManager(this._env, this._scriptLoader, this._defineFunc, this._requireFunc, this._loaderAvailableTimestamp);
@@ -2234,10 +2235,10 @@ define(__m[15/*vs/nls*/], __M([0/*require*/,1/*exports*/]), function (require, e
     };
 })();
 
-define(__m[26/*vs/base/common/arrays*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[16/*vs/base/common/arrays*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.CallbackIterable = exports.ArrayQueue = exports.findMinBy = exports.findLastMaxBy = exports.findMaxBy = exports.numberComparator = exports.compareBy = exports.CompareResult = exports.splice = exports.insertInto = exports.mapFind = exports.asArray = exports.pushMany = exports.pushToEnd = exports.pushToStart = exports.arrayInsert = exports.range = exports.firstOrDefault = exports.lastIndex = exports.findLast = exports.distinct = exports.isNonEmptyArray = exports.isFalsyOrEmpty = exports.coalesceInPlace = exports.coalesce = exports.groupBy = exports.quickSelect = exports.findFirstInSorted = exports.binarySearch2 = exports.binarySearch = exports.removeFastWithoutKeepingOrder = exports.equals = exports.tail2 = exports.tail = void 0;
+    exports.CallbackIterable = exports.ArrayQueue = exports.findMaxIdxBy = exports.findMinBy = exports.findLastMaxBy = exports.findMaxBy = exports.reverseOrder = exports.booleanComparator = exports.numberComparator = exports.tieBreakComparators = exports.compareBy = exports.CompareResult = exports.splice = exports.insertInto = exports.mapFind = exports.asArray = exports.pushMany = exports.pushToEnd = exports.pushToStart = exports.arrayInsert = exports.range = exports.firstOrDefault = exports.findLastIndex = exports.findLast = exports.distinct = exports.isNonEmptyArray = exports.isFalsyOrEmpty = exports.coalesceInPlace = exports.coalesce = exports.groupBy = exports.quickSelect = exports.findFirstInSorted = exports.binarySearch2 = exports.binarySearch = exports.removeFastWithoutKeepingOrder = exports.equals = exports.tail2 = exports.tail = void 0;
     /**
      * Returns the last element of an array.
      * @param array The array.
@@ -2450,14 +2451,14 @@ define(__m[26/*vs/base/common/arrays*/], __M([0/*require*/,1/*exports*/]), funct
     }
     exports.distinct = distinct;
     function findLast(arr, predicate) {
-        const idx = lastIndex(arr, predicate);
+        const idx = findLastIndex(arr, predicate);
         if (idx === -1) {
             return undefined;
         }
         return arr[idx];
     }
     exports.findLast = findLast;
-    function lastIndex(array, fn) {
+    function findLastIndex(array, fn) {
         for (let i = array.length - 1; i >= 0; i--) {
             const element = array[i];
             if (fn(element)) {
@@ -2466,7 +2467,7 @@ define(__m[26/*vs/base/common/arrays*/], __M([0/*require*/,1/*exports*/]), funct
         }
         return -1;
     }
-    exports.lastIndex = lastIndex;
+    exports.findLastIndex = findLastIndex;
     function firstOrDefault(array, notFoundValue) {
         return array.length > 0 ? array[0] : notFoundValue;
     }
@@ -2600,6 +2601,10 @@ define(__m[26/*vs/base/common/arrays*/], __M([0/*require*/,1/*exports*/]), funct
             return result < 0;
         }
         CompareResult.isLessThan = isLessThan;
+        function isLessThanOrEqual(result) {
+            return result <= 0;
+        }
+        CompareResult.isLessThanOrEqual = isLessThanOrEqual;
         function isGreaterThan(result) {
             return result > 0;
         }
@@ -2616,11 +2621,29 @@ define(__m[26/*vs/base/common/arrays*/], __M([0/*require*/,1/*exports*/]), funct
         return (a, b) => comparator(selector(a), selector(b));
     }
     exports.compareBy = compareBy;
+    function tieBreakComparators(...comparators) {
+        return (item1, item2) => {
+            for (const comparator of comparators) {
+                const result = comparator(item1, item2);
+                if (!CompareResult.isNeitherLessOrGreaterThan(result)) {
+                    return result;
+                }
+            }
+            return CompareResult.neitherLessOrGreaterThan;
+        };
+    }
+    exports.tieBreakComparators = tieBreakComparators;
     /**
      * The natural order on numbers.
     */
     const numberComparator = (a, b) => a - b;
     exports.numberComparator = numberComparator;
+    const booleanComparator = (a, b) => (0, exports.numberComparator)(a ? 1 : 0, b ? 1 : 0);
+    exports.booleanComparator = booleanComparator;
+    function reverseOrder(comparator) {
+        return (a, b) => -comparator(a, b);
+    }
+    exports.reverseOrder = reverseOrder;
     /**
      * Returns the first item that is equal to or greater than every other item.
     */
@@ -2662,6 +2685,20 @@ define(__m[26/*vs/base/common/arrays*/], __M([0/*require*/,1/*exports*/]), funct
         return findMaxBy(items, (a, b) => -comparator(a, b));
     }
     exports.findMinBy = findMinBy;
+    function findMaxIdxBy(items, comparator) {
+        if (items.length === 0) {
+            return -1;
+        }
+        let maxIdx = 0;
+        for (let i = 1; i < items.length; i++) {
+            const item = items[i];
+            if (comparator(item, items[maxIdx]) > 0) {
+                maxIdx = i;
+            }
+        }
+        return maxIdx;
+    }
+    exports.findMaxIdxBy = findMaxIdxBy;
     class ArrayQueue {
         /**
          * Constructs a queue that is backed by the given array. Runtime is O(1).
@@ -2825,7 +2862,55 @@ define(__m[27/*vs/base/common/cache*/], __M([0/*require*/,1/*exports*/]), functi
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[28/*vs/base/common/color*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[28/*vs/base/common/collections*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.SetMap = void 0;
+    class SetMap {
+        constructor() {
+            this.map = new Map();
+        }
+        add(key, value) {
+            let values = this.map.get(key);
+            if (!values) {
+                values = new Set();
+                this.map.set(key, values);
+            }
+            values.add(value);
+        }
+        delete(key, value) {
+            const values = this.map.get(key);
+            if (!values) {
+                return;
+            }
+            values.delete(value);
+            if (values.size === 0) {
+                this.map.delete(key);
+            }
+        }
+        forEach(key, fn) {
+            const values = this.map.get(key);
+            if (!values) {
+                return;
+            }
+            values.forEach(fn);
+        }
+        get(key) {
+            const values = this.map.get(key);
+            if (!values) {
+                return new Set();
+            }
+            return values;
+        }
+    }
+    exports.SetMap = SetMap;
+});
+
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+define(__m[29/*vs/base/common/color*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Color = exports.HSVA = exports.HSLA = exports.RGBA = void 0;
@@ -3297,7 +3382,7 @@ define(__m[28/*vs/base/common/color*/], __M([0/*require*/,1/*exports*/]), functi
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[29/*vs/base/common/diff/diffChange*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[30/*vs/base/common/diff/diffChange*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.DiffChange = void 0;
@@ -3336,7 +3421,7 @@ define(__m[29/*vs/base/common/diff/diffChange*/], __M([0/*require*/,1/*exports*/
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[4/*vs/base/common/errors*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[3/*vs/base/common/errors*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.BugIndicatingError = exports.ErrorNoTelemetry = exports.NotSupportedError = exports.illegalState = exports.illegalArgument = exports.canceled = exports.CancellationError = exports.isCancellationError = exports.transformErrorForSerialization = exports.onUnexpectedExternalError = exports.onUnexpectedError = exports.errorHandler = exports.ErrorHandler = void 0;
@@ -3504,7 +3589,7 @@ define(__m[4/*vs/base/common/errors*/], __M([0/*require*/,1/*exports*/]), functi
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[9/*vs/base/common/assert*/], __M([0/*require*/,1/*exports*/,4/*vs/base/common/errors*/]), function (require, exports, errors_1) {
+define(__m[9/*vs/base/common/assert*/], __M([0/*require*/,1/*exports*/,3/*vs/base/common/errors*/]), function (require, exports, errors_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.checkAdjacentItems = exports.assertFn = exports.assertNever = exports.ok = void 0;
@@ -3564,7 +3649,7 @@ define(__m[9/*vs/base/common/assert*/], __M([0/*require*/,1/*exports*/,4/*vs/bas
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[16/*vs/base/common/functional*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[17/*vs/base/common/functional*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.once = void 0;
@@ -3588,7 +3673,7 @@ define(__m[16/*vs/base/common/functional*/], __M([0/*require*/,1/*exports*/]), f
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[17/*vs/base/common/iterator*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[18/*vs/base/common/iterator*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Iterable = void 0;
@@ -3722,7 +3807,7 @@ define(__m[17/*vs/base/common/iterator*/], __M([0/*require*/,1/*exports*/]), fun
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[30/*vs/base/common/keyCodes*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[31/*vs/base/common/keyCodes*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.KeyChord = exports.KeyCodeUtils = exports.IMMUTABLE_KEY_CODE_TO_CODE = exports.IMMUTABLE_CODE_TO_KEY_CODE = exports.NATIVE_WINDOWS_KEY_CODE_TO_KEY_CODE = exports.EVENT_KEY_CODE_MAP = void 0;
@@ -4101,7 +4186,7 @@ define(__m[30/*vs/base/common/keyCodes*/], __M([0/*require*/,1/*exports*/]), fun
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[31/*vs/base/common/lazy*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[32/*vs/base/common/lazy*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Lazy = void 0;
@@ -4145,7 +4230,7 @@ define(__m[31/*vs/base/common/lazy*/], __M([0/*require*/,1/*exports*/]), functio
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[10/*vs/base/common/lifecycle*/], __M([0/*require*/,1/*exports*/,16/*vs/base/common/functional*/,17/*vs/base/common/iterator*/]), function (require, exports, functional_1, iterator_1) {
+define(__m[10/*vs/base/common/lifecycle*/], __M([0/*require*/,1/*exports*/,17/*vs/base/common/functional*/,18/*vs/base/common/iterator*/]), function (require, exports, functional_1, iterator_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.DisposableMap = exports.ImmortalReference = exports.RefCountedDisposable = exports.MutableDisposable = exports.Disposable = exports.DisposableStore = exports.toDisposable = exports.combinedDisposable = exports.dispose = exports.isDisposable = exports.markAsSingleton = exports.setDisposableTracker = void 0;
@@ -4512,7 +4597,7 @@ define(__m[10/*vs/base/common/lifecycle*/], __M([0/*require*/,1/*exports*/,16/*v
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[18/*vs/base/common/linkedList*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[19/*vs/base/common/linkedList*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.LinkedList = void 0;
@@ -4643,7 +4728,7 @@ define(__m[18/*vs/base/common/linkedList*/], __M([0/*require*/,1/*exports*/]), f
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[19/*vs/base/common/stopwatch*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[20/*vs/base/common/stopwatch*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.StopWatch = void 0;
@@ -4670,7 +4755,7 @@ define(__m[19/*vs/base/common/stopwatch*/], __M([0/*require*/,1/*exports*/]), fu
     exports.StopWatch = StopWatch;
 });
 
-define(__m[7/*vs/base/common/event*/], __M([0/*require*/,1/*exports*/,4/*vs/base/common/errors*/,16/*vs/base/common/functional*/,10/*vs/base/common/lifecycle*/,18/*vs/base/common/linkedList*/,19/*vs/base/common/stopwatch*/]), function (require, exports, errors_1, functional_1, lifecycle_1, linkedList_1, stopwatch_1) {
+define(__m[7/*vs/base/common/event*/], __M([0/*require*/,1/*exports*/,3/*vs/base/common/errors*/,17/*vs/base/common/functional*/,10/*vs/base/common/lifecycle*/,19/*vs/base/common/linkedList*/,20/*vs/base/common/stopwatch*/]), function (require, exports, errors_1, functional_1, lifecycle_1, linkedList_1, stopwatch_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Relay = exports.EventBufferer = exports.EventMultiplexer = exports.MicrotaskEmitter = exports.DebounceEmitter = exports.PauseableEmitter = exports.createEventDeliveryQueue = exports.Emitter = exports.EventProfiling = exports.Event = void 0;
@@ -5103,6 +5188,22 @@ define(__m[7/*vs/base/common/event*/], __M([0/*require*/,1/*exports*/,4/*vs/base
             return new Promise(resolve => once(event)(resolve));
         }
         Event.toPromise = toPromise;
+        /**
+         * Creates an event out of a promise that fires once when the promise is
+         * resolved with the result of the promise or `undefined`.
+         */
+        function fromPromise(promise) {
+            const result = new Emitter();
+            promise.then(res => {
+                result.fire(res);
+            }, () => {
+                result.fire(undefined);
+            }).finally(() => {
+                result.dispose();
+            });
+            return result.event;
+        }
+        Event.fromPromise = fromPromise;
         /**
          * Adds a listener to an event and calls the listener immediately with undefined as the event object.
          *
@@ -5652,6 +5753,29 @@ define(__m[7/*vs/base/common/event*/], __M([0/*require*/,1/*exports*/,4/*vs/base
         }
     }
     exports.MicrotaskEmitter = MicrotaskEmitter;
+    /**
+     * An event emitter that multiplexes many events into a single event.
+     *
+     * @example Listen to the `onData` event of all `Thing`s, dynamically adding and removing `Thing`s
+     * to the multiplexer as needed.
+     *
+     * ```typescript
+     * const anythingDataMultiplexer = new EventMultiplexer<{ data: string }>();
+     *
+     * const thingListeners = DisposableMap<Thing, IDisposable>();
+     *
+     * thingService.onDidAddThing(thing => {
+     *   thingListeners.set(thing, anythingDataMultiplexer.add(thing.onData);
+     * });
+     * thingService.onDidRemoveThing(thing => {
+     *   thingListeners.deleteAndDispose(thing);
+     * });
+     *
+     * anythingDataMultiplexer.event(e => {
+     *   console.log('Something fired data ' + e.data)
+     * });
+     * ```
+     */
     class EventMultiplexer {
         constructor() {
             this.hasListeners = false;
@@ -5790,7 +5914,7 @@ define(__m[7/*vs/base/common/event*/], __M([0/*require*/,1/*exports*/,4/*vs/base
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[32/*vs/base/common/cancellation*/], __M([0/*require*/,1/*exports*/,7/*vs/base/common/event*/]), function (require, exports, event_1) {
+define(__m[33/*vs/base/common/cancellation*/], __M([0/*require*/,1/*exports*/,7/*vs/base/common/event*/]), function (require, exports, event_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.CancellationTokenSource = exports.CancellationToken = void 0;
@@ -5905,11 +6029,11 @@ define(__m[32/*vs/base/common/cancellation*/], __M([0/*require*/,1/*exports*/,7/
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[5/*vs/base/common/strings*/], __M([0/*require*/,1/*exports*/,27/*vs/base/common/cache*/,31/*vs/base/common/lazy*/]), function (require, exports, cache_1, lazy_1) {
+define(__m[5/*vs/base/common/strings*/], __M([0/*require*/,1/*exports*/,27/*vs/base/common/cache*/,32/*vs/base/common/lazy*/]), function (require, exports, cache_1, lazy_1) {
     "use strict";
     var _a;
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.InvisibleCharacters = exports.AmbiguousCharacters = exports.noBreakWhitespace = exports.getLeftDeleteOffset = exports.singleLetterHash = exports.containsUppercaseCharacter = exports.startsWithUTF8BOM = exports.UTF8_BOM_CHARACTER = exports.isEmojiImprecise = exports.isFullWidthCharacter = exports.containsUnusualLineTerminators = exports.UNUSUAL_LINE_TERMINATORS = exports.isBasicASCII = exports.containsRTL = exports.getCharContainingOffset = exports.prevCharLength = exports.nextCharLength = exports.GraphemeIterator = exports.CodePointIterator = exports.getNextCodePoint = exports.computeCodePoint = exports.isLowSurrogate = exports.isHighSurrogate = exports.commonSuffixLength = exports.commonPrefixLength = exports.startsWithIgnoreCase = exports.equalsIgnoreCase = exports.isUpperAsciiLetter = exports.isLowerAsciiLetter = exports.isAsciiDigit = exports.compareSubstringIgnoreCase = exports.compareIgnoreCase = exports.compareSubstring = exports.compare = exports.lastNonWhitespaceIndex = exports.getLeadingWhitespace = exports.firstNonWhitespaceIndex = exports.splitLines = exports.regExpFlags = exports.regExpLeadsToEndlessLoop = exports.createRegExp = exports.stripWildcards = exports.convertSimple2RegExpPattern = exports.rtrim = exports.ltrim = exports.trim = exports.escapeRegExpCharacters = exports.escape = exports.format = exports.isFalsyOrWhitespace = void 0;
+    exports.InvisibleCharacters = exports.AmbiguousCharacters = exports.noBreakWhitespace = exports.getLeftDeleteOffset = exports.singleLetterHash = exports.containsUppercaseCharacter = exports.startsWithUTF8BOM = exports.UTF8_BOM_CHARACTER = exports.isEmojiImprecise = exports.isFullWidthCharacter = exports.containsUnusualLineTerminators = exports.UNUSUAL_LINE_TERMINATORS = exports.isBasicASCII = exports.containsRTL = exports.getCharContainingOffset = exports.prevCharLength = exports.nextCharLength = exports.GraphemeIterator = exports.CodePointIterator = exports.getNextCodePoint = exports.computeCodePoint = exports.isLowSurrogate = exports.isHighSurrogate = exports.commonSuffixLength = exports.commonPrefixLength = exports.startsWithIgnoreCase = exports.equalsIgnoreCase = exports.isUpperAsciiLetter = exports.isLowerAsciiLetter = exports.isAsciiDigit = exports.compareSubstringIgnoreCase = exports.compareIgnoreCase = exports.compareSubstring = exports.compare = exports.lastNonWhitespaceIndex = exports.getLeadingWhitespace = exports.firstNonWhitespaceIndex = exports.splitLines = exports.regExpLeadsToEndlessLoop = exports.createRegExp = exports.stripWildcards = exports.convertSimple2RegExpPattern = exports.rtrim = exports.ltrim = exports.trim = exports.escapeRegExpCharacters = exports.escape = exports.format = exports.isFalsyOrWhitespace = void 0;
     function isFalsyOrWhitespace(str) {
         if (!str || typeof str !== 'string') {
             return true;
@@ -6066,13 +6190,6 @@ define(__m[5/*vs/base/common/strings*/], __M([0/*require*/,1/*exports*/,27/*vs/b
         return !!(match && regexp.lastIndex === 0);
     }
     exports.regExpLeadsToEndlessLoop = regExpLeadsToEndlessLoop;
-    function regExpFlags(regexp) {
-        return (regexp.global ? 'g' : '')
-            + (regexp.ignoreCase ? 'i' : '')
-            + (regexp.multiline ? 'm' : '')
-            + (regexp /* standalone editor compilation */.unicode ? 'u' : '');
-    }
-    exports.regExpFlags = regExpFlags;
     function splitLines(str) {
         return str.split(/\r\n|\r|\n/);
     }
@@ -6681,10 +6798,10 @@ define(__m[5/*vs/base/common/strings*/], __M([0/*require*/,1/*exports*/,27/*vs/b
     exports.noBreakWhitespace = '\xa0';
     class AmbiguousCharacters {
         static getInstance(locales) {
-            return AmbiguousCharacters.cache.get(Array.from(locales));
+            return _a.cache.get(Array.from(locales));
         }
         static getLocales() {
-            return AmbiguousCharacters._locales.value;
+            return _a._locales.value;
         }
         constructor(confusableDictionary) {
             this.confusableDictionary = confusableDictionary;
@@ -6749,9 +6866,9 @@ define(__m[5/*vs/base/common/strings*/], __M([0/*require*/,1/*exports*/,27/*vs/b
         }
         const commonMap = arrayToMap(data['_common']);
         const map = mergeMaps(commonMap, languageSpecificMap);
-        return new AmbiguousCharacters(map);
+        return new _a(map);
     });
-    AmbiguousCharacters._locales = new lazy_1.Lazy(() => Object.keys(AmbiguousCharacters.ambiguousCharacterData.value).filter((k) => !k.startsWith('_')));
+    AmbiguousCharacters._locales = new lazy_1.Lazy(() => Object.keys(_a.ambiguousCharacterData.value).filter((k) => !k.startsWith('_')));
     class InvisibleCharacters {
         static getRawData() {
             // Generated using https://github.com/hediet/vscode-unicode-data
@@ -6778,7 +6895,7 @@ define(__m[5/*vs/base/common/strings*/], __M([0/*require*/,1/*exports*/,27/*vs/b
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[33/*vs/base/common/hash*/], __M([0/*require*/,1/*exports*/,5/*vs/base/common/strings*/]), function (require, exports, strings) {
+define(__m[34/*vs/base/common/hash*/], __M([0/*require*/,1/*exports*/,5/*vs/base/common/strings*/]), function (require, exports, strings) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.StringSHA1 = exports.toHexString = exports.stringHash = exports.numberHash = exports.doHash = exports.hash = void 0;
@@ -7047,7 +7164,7 @@ define(__m[33/*vs/base/common/hash*/], __M([0/*require*/,1/*exports*/,5/*vs/base
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[20/*vs/base/common/diff/diff*/], __M([0/*require*/,1/*exports*/,29/*vs/base/common/diff/diffChange*/,33/*vs/base/common/hash*/]), function (require, exports, diffChange_1, hash_1) {
+define(__m[21/*vs/base/common/diff/diff*/], __M([0/*require*/,1/*exports*/,30/*vs/base/common/diff/diffChange*/,34/*vs/base/common/hash*/]), function (require, exports, diffChange_1, hash_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.LcsDiff = exports.stringDiff = exports.StringDiffSequence = void 0;
@@ -7953,10 +8070,10 @@ define(__m[20/*vs/base/common/diff/diff*/], __M([0/*require*/,1/*exports*/,29/*v
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[21/*vs/base/common/types*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[22/*vs/base/common/types*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.withUndefinedAsNull = exports.withNullAsUndefined = exports.validateConstraint = exports.validateConstraints = exports.isFunction = exports.assertIsDefined = exports.assertType = exports.isUndefinedOrNull = exports.isDefined = exports.isUndefined = exports.isBoolean = exports.isIterable = exports.isNumber = exports.isTypedArray = exports.isObject = exports.isString = void 0;
+    exports.validateConstraint = exports.validateConstraints = exports.isFunction = exports.assertIsDefined = exports.assertType = exports.isUndefinedOrNull = exports.isDefined = exports.isUndefined = exports.isBoolean = exports.isIterable = exports.isNumber = exports.isTypedArray = exports.isObject = exports.isString = void 0;
     /**
      * @returns whether the provided parameter is a JavaScript String or not.
      */
@@ -8086,23 +8203,9 @@ define(__m[21/*vs/base/common/types*/], __M([0/*require*/,1/*exports*/]), functi
         }
     }
     exports.validateConstraint = validateConstraint;
-    /**
-     * Converts null to undefined, passes all other values through.
-     */
-    function withNullAsUndefined(x) {
-        return x === null ? undefined : x;
-    }
-    exports.withNullAsUndefined = withNullAsUndefined;
-    /**
-     * Converts undefined to null, passes all other values through.
-     */
-    function withUndefinedAsNull(x) {
-        return typeof x === 'undefined' ? null : x;
-    }
-    exports.withUndefinedAsNull = withUndefinedAsNull;
 });
 
-define(__m[34/*vs/base/common/codicons*/], __M([0/*require*/,1/*exports*/,21/*vs/base/common/types*/]), function (require, exports, types_1) {
+define(__m[35/*vs/base/common/codicons*/], __M([0/*require*/,1/*exports*/,22/*vs/base/common/types*/]), function (require, exports, types_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Codicon = exports.getCodiconFontCharacters = void 0;
@@ -8151,6 +8254,7 @@ define(__m[34/*vs/base/common/codicons*/], __M([0/*require*/,1/*exports*/,21/*vs
         tag: register('tag', 0xea66),
         tagAdd: register('tag-add', 0xea66),
         tagRemove: register('tag-remove', 0xea66),
+        gitPullRequestLabel: register('git-pull-request-label', 0xea66),
         person: register('person', 0xea67),
         personFollow: register('person-follow', 0xea67),
         personOutline: register('person-outline', 0xea67),
@@ -8405,6 +8509,7 @@ define(__m[34/*vs/base/common/codicons*/], __M([0/*require*/,1/*exports*/,21/*vs
         megaphone: register('megaphone', 0xeb1e),
         mention: register('mention', 0xeb1f),
         milestone: register('milestone', 0xeb20),
+        gitPullRequestMilestone: register('git-pull-request-milestone', 0xeb20),
         mortarBoard: register('mortar-board', 0xeb21),
         move: register('move', 0xeb22),
         multipleWindows: register('multiple-windows', 0xeb23),
@@ -8529,9 +8634,11 @@ define(__m[34/*vs/base/common/codicons*/], __M([0/*require*/,1/*exports*/,21/*vs
         menu: register('menu', 0xeb94),
         expandAll: register('expand-all', 0xeb95),
         feedback: register('feedback', 0xeb96),
+        gitPullRequestReviewer: register('git-pull-request-reviewer', 0xeb96),
         groupByRefType: register('group-by-ref-type', 0xeb97),
         ungroupByRefType: register('ungroup-by-ref-type', 0xeb98),
         account: register('account', 0xeb99),
+        gitPullRequestAssignee: register('git-pull-request-assignee', 0xeb99),
         bellDot: register('bell-dot', 0xeb9a),
         debugConsole: register('debug-console', 0xeb9b),
         library: register('library', 0xeb9c),
@@ -8654,6 +8761,7 @@ define(__m[34/*vs/base/common/codicons*/], __M([0/*require*/,1/*exports*/,21/*vs
         send: register('send', 0xec0f),
         sparkle: register('sparkle', 0xec10),
         insert: register('insert', 0xec11),
+        mic: register('mic', 0xec12),
         // derived icons, that could become separate icons
         dialogError: register('dialog-error', 'error'),
         dialogWarning: register('dialog-warning', 'warning'),
@@ -8680,7 +8788,7 @@ define(__m[34/*vs/base/common/codicons*/], __M([0/*require*/,1/*exports*/,21/*vs
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[11/*vs/base/common/objects*/], __M([0/*require*/,1/*exports*/,21/*vs/base/common/types*/]), function (require, exports, types_1) {
+define(__m[11/*vs/base/common/objects*/], __M([0/*require*/,1/*exports*/,22/*vs/base/common/types*/]), function (require, exports, types_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.createProxyObject = exports.getAllMethodNames = exports.getAllPropertyNames = exports.equals = exports.mixin = exports.cloneAndChange = exports.deepFreeze = exports.deepClone = void 0;
@@ -8872,7 +8980,7 @@ define(__m[11/*vs/base/common/objects*/], __M([0/*require*/,1/*exports*/,21/*vs/
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[22/*vs/base/common/uint*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[23/*vs/base/common/uint*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.toUint32 = exports.toUint8 = void 0;
@@ -8902,7 +9010,7 @@ define(__m[22/*vs/base/common/uint*/], __M([0/*require*/,1/*exports*/]), functio
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[23/*vs/editor/common/core/characterClassifier*/], __M([0/*require*/,1/*exports*/,22/*vs/base/common/uint*/]), function (require, exports, uint_1) {
+define(__m[24/*vs/editor/common/core/characterClassifier*/], __M([0/*require*/,1/*exports*/,23/*vs/base/common/uint*/]), function (require, exports, uint_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.CharacterSet = exports.CharacterClassifier = void 0;
@@ -8965,10 +9073,10 @@ define(__m[23/*vs/editor/common/core/characterClassifier*/], __M([0/*require*/,1
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[6/*vs/editor/common/core/offsetRange*/], __M([0/*require*/,1/*exports*/,4/*vs/base/common/errors*/]), function (require, exports, errors_1) {
+define(__m[6/*vs/editor/common/core/offsetRange*/], __M([0/*require*/,1/*exports*/,3/*vs/base/common/errors*/]), function (require, exports, errors_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.OffsetRange = void 0;
+    exports.OffsetRangeSet = exports.OffsetRange = void 0;
     /**
      * A range of offsets (0-based).
     */
@@ -8997,6 +9105,9 @@ define(__m[6/*vs/editor/common/core/offsetRange*/], __M([0/*require*/,1/*exports
             }
             return new OffsetRange(start, endExclusive);
         }
+        static ofLength(length) {
+            return new OffsetRange(0, length);
+        }
         constructor(start, endExclusive) {
             this.start = start;
             this.endExclusive = endExclusive;
@@ -9009,6 +9120,12 @@ define(__m[6/*vs/editor/common/core/offsetRange*/], __M([0/*require*/,1/*exports
         }
         delta(offset) {
             return new OffsetRange(this.start + offset, this.endExclusive + offset);
+        }
+        deltaStart(offset) {
+            return new OffsetRange(this.start + offset, this.endExclusive);
+        }
+        deltaEnd(offset) {
+            return new OffsetRange(this.start, this.endExclusive + offset);
         }
         get length() {
             return this.endExclusive - this.start;
@@ -9046,15 +9163,101 @@ define(__m[6/*vs/editor/common/core/offsetRange*/], __M([0/*require*/,1/*exports
             }
             return undefined;
         }
+        slice(arr) {
+            return arr.slice(this.start, this.endExclusive);
+        }
+        /**
+         * Returns the given value if it is contained in this instance, otherwise the closest value that is contained.
+         * The range must not be empty.
+         */
+        clip(value) {
+            if (this.isEmpty) {
+                throw new errors_1.BugIndicatingError(`Invalid clipping range: ${this.toString()}`);
+            }
+            return Math.max(this.start, Math.min(this.endExclusive - 1, value));
+        }
+        /**
+         * Returns `r := value + k * length` such that `r` is contained in this range.
+         * The range must not be empty.
+         *
+         * E.g. `[5, 10).clipCyclic(10) === 5`, `[5, 10).clipCyclic(11) === 6` and `[5, 10).clipCyclic(4) === 9`.
+         */
+        clipCyclic(value) {
+            if (this.isEmpty) {
+                throw new errors_1.BugIndicatingError(`Invalid clipping range: ${this.toString()}`);
+            }
+            if (value < this.start) {
+                return this.endExclusive - ((this.start - value) % this.length);
+            }
+            if (value >= this.endExclusive) {
+                return this.start + ((value - this.start) % this.length);
+            }
+            return value;
+        }
     }
     exports.OffsetRange = OffsetRange;
+    class OffsetRangeSet {
+        constructor() {
+            this._sortedRanges = [];
+        }
+        addRange(range) {
+            let i = 0;
+            while (i < this._sortedRanges.length && this._sortedRanges[i].endExclusive < range.start) {
+                i++;
+            }
+            let j = i;
+            while (j < this._sortedRanges.length && this._sortedRanges[j].start <= range.endExclusive) {
+                j++;
+            }
+            if (i === j) {
+                this._sortedRanges.splice(i, 0, range);
+            }
+            else {
+                const start = Math.min(range.start, this._sortedRanges[i].start);
+                const end = Math.max(range.endExclusive, this._sortedRanges[j - 1].endExclusive);
+                this._sortedRanges.splice(i, j - i, new OffsetRange(start, end));
+            }
+        }
+        toString() {
+            return this._sortedRanges.map(r => r.toString()).join(', ');
+        }
+        /**
+         * Returns of there is a value that is contained in this instance and the given range.
+         */
+        intersectsStrict(other) {
+            // TODO use binary search
+            let i = 0;
+            while (i < this._sortedRanges.length && this._sortedRanges[i].endExclusive <= other.start) {
+                i++;
+            }
+            return i < this._sortedRanges.length && this._sortedRanges[i].start < other.endExclusive;
+        }
+        intersectWithRange(other) {
+            // TODO use binary search + slice
+            const result = new OffsetRangeSet();
+            for (const range of this._sortedRanges) {
+                const intersection = range.intersect(other);
+                if (intersection) {
+                    result.addRange(intersection);
+                }
+            }
+            return result;
+        }
+        intersectWithRangeLength(other) {
+            return this.intersectWithRange(other).length;
+        }
+        get length() {
+            return this._sortedRanges.reduce((prev, cur) => prev + cur.length, 0);
+        }
+    }
+    exports.OffsetRangeSet = OffsetRangeSet;
 });
 
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[3/*vs/editor/common/core/position*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[4/*vs/editor/common/core/position*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Position = void 0;
@@ -9195,7 +9398,7 @@ define(__m[3/*vs/editor/common/core/position*/], __M([0/*require*/,1/*exports*/]
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[2/*vs/editor/common/core/range*/], __M([0/*require*/,1/*exports*/,3/*vs/editor/common/core/position*/]), function (require, exports, position_1) {
+define(__m[2/*vs/editor/common/core/range*/], __M([0/*require*/,1/*exports*/,4/*vs/editor/common/core/position*/]), function (require, exports, position_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Range = void 0;
@@ -9601,7 +9804,7 @@ define(__m[2/*vs/editor/common/core/range*/], __M([0/*require*/,1/*exports*/,3/*
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[12/*vs/editor/common/core/lineRange*/], __M([0/*require*/,1/*exports*/,4/*vs/base/common/errors*/,2/*vs/editor/common/core/range*/]), function (require, exports, errors_1, range_1) {
+define(__m[12/*vs/editor/common/core/lineRange*/], __M([0/*require*/,1/*exports*/,3/*vs/base/common/errors*/,6/*vs/editor/common/core/offsetRange*/,2/*vs/editor/common/core/range*/]), function (require, exports, errors_1, offsetRange_1, range_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.LineRange = void 0;
@@ -9736,6 +9939,9 @@ define(__m[12/*vs/editor/common/core/lineRange*/], __M([0/*require*/,1/*exports*
         delta(offset) {
             return new LineRange(this.startLineNumber + offset, this.endLineNumberExclusive + offset);
         }
+        deltaLength(offset) {
+            return new LineRange(this.startLineNumber, this.endLineNumberExclusive + offset);
+        }
         /**
          * The number of lines this line range spans.
          */
@@ -9802,6 +10008,13 @@ define(__m[12/*vs/editor/common/core/lineRange*/], __M([0/*require*/,1/*exports*
         includes(lineNumber) {
             return this.startLineNumber <= lineNumber && lineNumber < this.endLineNumberExclusive;
         }
+        /**
+         * Converts this 1-based line range to a 0-based offset range (subtracts 1!).
+         * @internal
+         */
+        toOffsetRange() {
+            return new offsetRange_1.OffsetRange(this.startLineNumber - 1, this.endLineNumberExclusive - 1);
+        }
     }
     exports.LineRange = LineRange;
 });
@@ -9810,7 +10023,7 @@ define(__m[12/*vs/editor/common/core/lineRange*/], __M([0/*require*/,1/*exports*
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[35/*vs/editor/common/core/selection*/], __M([0/*require*/,1/*exports*/,3/*vs/editor/common/core/position*/,2/*vs/editor/common/core/range*/]), function (require, exports, position_1, range_1) {
+define(__m[36/*vs/editor/common/core/selection*/], __M([0/*require*/,1/*exports*/,4/*vs/editor/common/core/position*/,2/*vs/editor/common/core/range*/]), function (require, exports, position_1, range_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Selection = void 0;
@@ -9957,7 +10170,7 @@ define(__m[35/*vs/editor/common/core/selection*/], __M([0/*require*/,1/*exports*
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[36/*vs/editor/common/core/wordCharacterClassifier*/], __M([0/*require*/,1/*exports*/,23/*vs/editor/common/core/characterClassifier*/]), function (require, exports, characterClassifier_1) {
+define(__m[37/*vs/editor/common/core/wordCharacterClassifier*/], __M([0/*require*/,1/*exports*/,24/*vs/editor/common/core/characterClassifier*/]), function (require, exports, characterClassifier_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getMapForWordSeparators = exports.WordCharacterClassifier = void 0;
@@ -9988,7 +10201,7 @@ define(__m[36/*vs/editor/common/core/wordCharacterClassifier*/], __M([0/*require
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[24/*vs/editor/common/core/wordHelper*/], __M([0/*require*/,1/*exports*/,17/*vs/base/common/iterator*/,18/*vs/base/common/linkedList*/]), function (require, exports, iterator_1, linkedList_1) {
+define(__m[25/*vs/editor/common/core/wordHelper*/], __M([0/*require*/,1/*exports*/,18/*vs/base/common/iterator*/,19/*vs/base/common/linkedList*/]), function (require, exports, iterator_1, linkedList_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getWordAtText = exports.ensureValidWordDefinition = exports.DEFAULT_WORD_REGEXP = exports.USUAL_WORD_SEPARATORS = void 0;
@@ -10116,7 +10329,7 @@ define(__m[24/*vs/editor/common/core/wordHelper*/], __M([0/*require*/,1/*exports
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[8/*vs/editor/common/diff/algorithms/diffAlgorithm*/], __M([0/*require*/,1/*exports*/,4/*vs/base/common/errors*/,6/*vs/editor/common/core/offsetRange*/]), function (require, exports, errors_1, offsetRange_1) {
+define(__m[8/*vs/editor/common/diff/algorithms/diffAlgorithm*/], __M([0/*require*/,1/*exports*/,3/*vs/base/common/errors*/,6/*vs/editor/common/core/offsetRange*/]), function (require, exports, errors_1, offsetRange_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.DateTimeout = exports.InfiniteTimeout = exports.SequenceDiff = exports.DiffAlgorithmResult = void 0;
@@ -10194,10 +10407,10 @@ define(__m[8/*vs/editor/common/diff/algorithms/diffAlgorithm*/], __M([0/*require
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[37/*vs/editor/common/diff/algorithms/joinSequenceDiffs*/], __M([0/*require*/,1/*exports*/,6/*vs/editor/common/core/offsetRange*/,8/*vs/editor/common/diff/algorithms/diffAlgorithm*/]), function (require, exports, offsetRange_1, diffAlgorithm_1) {
+define(__m[38/*vs/editor/common/diff/algorithms/joinSequenceDiffs*/], __M([0/*require*/,1/*exports*/,6/*vs/editor/common/core/offsetRange*/,8/*vs/editor/common/diff/algorithms/diffAlgorithm*/]), function (require, exports, offsetRange_1, diffAlgorithm_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.shiftSequenceDiffs = exports.joinSequenceDiffs = exports.removeRandomMatches = exports.smoothenSequenceDiffs = exports.optimizeSequenceDiffs = void 0;
+    exports.shiftSequenceDiffs = exports.joinSequenceDiffs = exports.removeRandomMatches = exports.removeRandomLineMatches = exports.smoothenSequenceDiffs = exports.optimizeSequenceDiffs = void 0;
     function optimizeSequenceDiffs(sequence1, sequence2, sequenceDiffs) {
         let result = sequenceDiffs;
         result = joinSequenceDiffs(sequence1, sequence2, result);
@@ -10223,6 +10436,45 @@ define(__m[37/*vs/editor/common/diff/algorithms/joinSequenceDiffs*/], __M([0/*re
         return result;
     }
     exports.smoothenSequenceDiffs = smoothenSequenceDiffs;
+    function removeRandomLineMatches(sequence1, _sequence2, sequenceDiffs) {
+        let diffs = sequenceDiffs;
+        if (diffs.length === 0) {
+            return diffs;
+        }
+        let counter = 0;
+        let shouldRepeat;
+        do {
+            shouldRepeat = false;
+            const result = [
+                diffs[0]
+            ];
+            for (let i = 1; i < diffs.length; i++) {
+                const cur = diffs[i];
+                const lastResult = result[result.length - 1];
+                function shouldJoinDiffs(before, after) {
+                    const unchangedRange = new offsetRange_1.OffsetRange(lastResult.seq1Range.endExclusive, cur.seq1Range.start);
+                    const unchangedText = sequence1.getText(unchangedRange);
+                    const unchangedTextWithoutWs = unchangedText.replace(/\s/g, '');
+                    if (unchangedTextWithoutWs.length <= 4
+                        && (before.seq1Range.length + before.seq2Range.length > 5 || after.seq1Range.length + after.seq2Range.length > 5)) {
+                        return true;
+                    }
+                    return false;
+                }
+                const shouldJoin = shouldJoinDiffs(lastResult, cur);
+                if (shouldJoin) {
+                    shouldRepeat = true;
+                    result[result.length - 1] = result[result.length - 1].join(cur);
+                }
+                else {
+                    result.push(cur);
+                }
+            }
+            diffs = result;
+        } while (counter++ < 10 && shouldRepeat);
+        return diffs;
+    }
+    exports.removeRandomLineMatches = removeRandomLineMatches;
     function removeRandomMatches(sequence1, sequence2, sequenceDiffs) {
         let diffs = sequenceDiffs;
         if (diffs.length === 0) {
@@ -10278,6 +10530,24 @@ define(__m[37/*vs/editor/common/diff/algorithms/joinSequenceDiffs*/], __M([0/*re
             }
             diffs = result;
         } while (counter++ < 10 && shouldRepeat);
+        // Remove short suffixes/prefixes
+        for (let i = 0; i < diffs.length; i++) {
+            const cur = diffs[i];
+            let range1 = cur.seq1Range;
+            let range2 = cur.seq2Range;
+            const fullRange1 = sequence1.extendToFullLines(cur.seq1Range);
+            const prefix = sequence1.getText(new offsetRange_1.OffsetRange(fullRange1.start, cur.seq1Range.start));
+            if (prefix.length > 0 && prefix.trim().length <= 3 && cur.seq1Range.length + cur.seq2Range.length > 100) {
+                range1 = cur.seq1Range.deltaStart(-prefix.length);
+                range2 = cur.seq2Range.deltaStart(-prefix.length);
+            }
+            const suffix = sequence1.getText(new offsetRange_1.OffsetRange(cur.seq1Range.endExclusive, fullRange1.endExclusive));
+            if (suffix.length > 0 && (suffix.trim().length <= 3 && cur.seq1Range.length + cur.seq2Range.length > 150)) {
+                range1 = range1.deltaEnd(suffix.length);
+                range2 = range2.deltaEnd(suffix.length);
+            }
+            diffs[i] = new diffAlgorithm_1.SequenceDiff(range1, range2);
+        }
         return diffs;
     }
     exports.removeRandomMatches = removeRandomMatches;
@@ -10392,16 +10662,14 @@ define(__m[37/*vs/editor/common/diff/algorithms/joinSequenceDiffs*/], __M([0/*re
         let deltaBefore = 1;
         while (diff.seq1Range.start - deltaBefore >= seq1ValidRange.start &&
             diff.seq2Range.start - deltaBefore >= seq2ValidRange.start &&
-            sequence2.getElement(diff.seq2Range.start - deltaBefore) ===
-                sequence2.getElement(diff.seq2Range.endExclusive - deltaBefore) && deltaBefore < maxShiftLimit) {
+            sequence2.isStronglyEqual(diff.seq2Range.start - deltaBefore, diff.seq2Range.endExclusive - deltaBefore) && deltaBefore < maxShiftLimit) {
             deltaBefore++;
         }
         deltaBefore--;
         let deltaAfter = 0;
         while (diff.seq1Range.start + deltaAfter < seq1ValidRange.endExclusive &&
             diff.seq2Range.endExclusive + deltaAfter < seq2ValidRange.endExclusive &&
-            sequence2.getElement(diff.seq2Range.start + deltaAfter) ===
-                sequence2.getElement(diff.seq2Range.endExclusive + deltaAfter) && deltaAfter < maxShiftLimit) {
+            sequence2.isStronglyEqual(diff.seq2Range.start + deltaAfter, diff.seq2Range.endExclusive + deltaAfter) && deltaAfter < maxShiftLimit) {
             deltaAfter++;
         }
         if (deltaBefore === 0 && deltaAfter === 0) {
@@ -10430,7 +10698,7 @@ define(__m[37/*vs/editor/common/diff/algorithms/joinSequenceDiffs*/], __M([0/*re
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[38/*vs/editor/common/diff/algorithms/myersDiffAlgorithm*/], __M([0/*require*/,1/*exports*/,6/*vs/editor/common/core/offsetRange*/,8/*vs/editor/common/diff/algorithms/diffAlgorithm*/]), function (require, exports, offsetRange_1, diffAlgorithm_1) {
+define(__m[39/*vs/editor/common/diff/algorithms/myersDiffAlgorithm*/], __M([0/*require*/,1/*exports*/,6/*vs/editor/common/core/offsetRange*/,8/*vs/editor/common/diff/algorithms/diffAlgorithm*/]), function (require, exports, offsetRange_1, diffAlgorithm_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.MyersDiffAlgorithm = void 0;
@@ -10588,7 +10856,7 @@ define(__m[38/*vs/editor/common/diff/algorithms/myersDiffAlgorithm*/], __M([0/*r
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[39/*vs/editor/common/diff/algorithms/utils*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[40/*vs/editor/common/diff/algorithms/utils*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Array2D = void 0;
@@ -10613,7 +10881,7 @@ define(__m[39/*vs/editor/common/diff/algorithms/utils*/], __M([0/*require*/,1/*e
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[40/*vs/editor/common/diff/algorithms/dynamicProgrammingDiffing*/], __M([0/*require*/,1/*exports*/,6/*vs/editor/common/core/offsetRange*/,8/*vs/editor/common/diff/algorithms/diffAlgorithm*/,39/*vs/editor/common/diff/algorithms/utils*/]), function (require, exports, offsetRange_1, diffAlgorithm_1, utils_1) {
+define(__m[41/*vs/editor/common/diff/algorithms/dynamicProgrammingDiffing*/], __M([0/*require*/,1/*exports*/,6/*vs/editor/common/core/offsetRange*/,8/*vs/editor/common/diff/algorithms/diffAlgorithm*/,40/*vs/editor/common/diff/algorithms/utils*/]), function (require, exports, offsetRange_1, diffAlgorithm_1, utils_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.DynamicProgrammingDiffing = void 0;
@@ -10715,7 +10983,7 @@ define(__m[40/*vs/editor/common/diff/algorithms/dynamicProgrammingDiffing*/], __
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[25/*vs/editor/common/diff/linesDiffComputer*/], __M([0/*require*/,1/*exports*/,12/*vs/editor/common/core/lineRange*/]), function (require, exports, lineRange_1) {
+define(__m[26/*vs/editor/common/diff/linesDiffComputer*/], __M([0/*require*/,1/*exports*/,12/*vs/editor/common/core/lineRange*/]), function (require, exports, lineRange_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.MovedText = exports.SimpleLineRangeMapping = exports.RangeMapping = exports.LineRangeMapping = exports.LinesDiff = void 0;
@@ -10804,6 +11072,9 @@ define(__m[25/*vs/editor/common/diff/linesDiffComputer*/], __M([0/*require*/,1/*
         flip() {
             return new SimpleLineRangeMapping(this.modified, this.original);
         }
+        join(other) {
+            return new SimpleLineRangeMapping(this.original.join(other.original), this.modified.join(other.modified));
+        }
     }
     exports.SimpleLineRangeMapping = SimpleLineRangeMapping;
     class MovedText {
@@ -10822,12 +11093,858 @@ define(__m[25/*vs/editor/common/diff/linesDiffComputer*/], __M([0/*require*/,1/*
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[41/*vs/editor/common/diff/smartLinesDiffComputer*/], __M([0/*require*/,1/*exports*/,20/*vs/base/common/diff/diff*/,25/*vs/editor/common/diff/linesDiffComputer*/,5/*vs/base/common/strings*/,2/*vs/editor/common/core/range*/,9/*vs/base/common/assert*/,12/*vs/editor/common/core/lineRange*/]), function (require, exports, diff_1, linesDiffComputer_1, strings, range_1, assert_1, lineRange_1) {
+define(__m[42/*vs/editor/common/diff/advancedLinesDiffComputer*/], __M([0/*require*/,1/*exports*/,16/*vs/base/common/arrays*/,9/*vs/base/common/assert*/,28/*vs/base/common/collections*/,3/*vs/base/common/errors*/,12/*vs/editor/common/core/lineRange*/,6/*vs/editor/common/core/offsetRange*/,4/*vs/editor/common/core/position*/,2/*vs/editor/common/core/range*/,8/*vs/editor/common/diff/algorithms/diffAlgorithm*/,41/*vs/editor/common/diff/algorithms/dynamicProgrammingDiffing*/,38/*vs/editor/common/diff/algorithms/joinSequenceDiffs*/,39/*vs/editor/common/diff/algorithms/myersDiffAlgorithm*/,26/*vs/editor/common/diff/linesDiffComputer*/]), function (require, exports, arrays_1, assert_1, collections_1, errors_1, lineRange_1, offsetRange_1, position_1, range_1, diffAlgorithm_1, dynamicProgrammingDiffing_1, joinSequenceDiffs_1, myersDiffAlgorithm_1, linesDiffComputer_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.DiffComputer = exports.SmartLinesDiffComputer = void 0;
+    exports.findFirstMonotonous = exports.findLastMonotonous = exports.LinesSliceCharSequence = exports.LineSequence = exports.getLineRangeMapping = exports.lineRangeMappingFromRangeMappings = exports.AdvancedLinesDiffComputer = void 0;
+    class AdvancedLinesDiffComputer {
+        constructor() {
+            this.dynamicProgrammingDiffing = new dynamicProgrammingDiffing_1.DynamicProgrammingDiffing();
+            this.myersDiffingAlgorithm = new myersDiffAlgorithm_1.MyersDiffAlgorithm();
+        }
+        computeDiff(originalLines, modifiedLines, options) {
+            if (originalLines.length <= 1 && (0, arrays_1.equals)(originalLines, modifiedLines, (a, b) => a === b)) {
+                return new linesDiffComputer_1.LinesDiff([], [], false);
+            }
+            if (originalLines.length === 1 && originalLines[0].length === 0 || modifiedLines.length === 1 && modifiedLines[0].length === 0) {
+                return new linesDiffComputer_1.LinesDiff([
+                    new linesDiffComputer_1.LineRangeMapping(new lineRange_1.LineRange(1, originalLines.length + 1), new lineRange_1.LineRange(1, modifiedLines.length + 1), [
+                        new linesDiffComputer_1.RangeMapping(new range_1.Range(1, 1, originalLines.length, originalLines[0].length + 1), new range_1.Range(1, 1, modifiedLines.length, modifiedLines[0].length + 1))
+                    ])
+                ], [], false);
+            }
+            const timeout = options.maxComputationTimeMs === 0 ? diffAlgorithm_1.InfiniteTimeout.instance : new diffAlgorithm_1.DateTimeout(options.maxComputationTimeMs);
+            const considerWhitespaceChanges = !options.ignoreTrimWhitespace;
+            const perfectHashes = new Map();
+            function getOrCreateHash(text) {
+                let hash = perfectHashes.get(text);
+                if (hash === undefined) {
+                    hash = perfectHashes.size;
+                    perfectHashes.set(text, hash);
+                }
+                return hash;
+            }
+            const srcDocLines = originalLines.map((l) => getOrCreateHash(l.trim()));
+            const tgtDocLines = modifiedLines.map((l) => getOrCreateHash(l.trim()));
+            const sequence1 = new LineSequence(srcDocLines, originalLines);
+            const sequence2 = new LineSequence(tgtDocLines, modifiedLines);
+            const lineAlignmentResult = (() => {
+                if (sequence1.length + sequence2.length < 1700) {
+                    // Use the improved algorithm for small files
+                    return this.dynamicProgrammingDiffing.compute(sequence1, sequence2, timeout, (offset1, offset2) => originalLines[offset1] === modifiedLines[offset2]
+                        ? modifiedLines[offset2].length === 0
+                            ? 0.1
+                            : 1 + Math.log(1 + modifiedLines[offset2].length)
+                        : 0.99);
+                }
+                return this.myersDiffingAlgorithm.compute(sequence1, sequence2);
+            })();
+            let lineAlignments = lineAlignmentResult.diffs;
+            let hitTimeout = lineAlignmentResult.hitTimeout;
+            lineAlignments = (0, joinSequenceDiffs_1.optimizeSequenceDiffs)(sequence1, sequence2, lineAlignments);
+            lineAlignments = (0, joinSequenceDiffs_1.removeRandomLineMatches)(sequence1, sequence2, lineAlignments);
+            const alignments = [];
+            const scanForWhitespaceChanges = (equalLinesCount) => {
+                if (!considerWhitespaceChanges) {
+                    return;
+                }
+                for (let i = 0; i < equalLinesCount; i++) {
+                    const seq1Offset = seq1LastStart + i;
+                    const seq2Offset = seq2LastStart + i;
+                    if (originalLines[seq1Offset] !== modifiedLines[seq2Offset]) {
+                        // This is because of whitespace changes, diff these lines
+                        const characterDiffs = this.refineDiff(originalLines, modifiedLines, new diffAlgorithm_1.SequenceDiff(new offsetRange_1.OffsetRange(seq1Offset, seq1Offset + 1), new offsetRange_1.OffsetRange(seq2Offset, seq2Offset + 1)), timeout, considerWhitespaceChanges);
+                        for (const a of characterDiffs.mappings) {
+                            alignments.push(a);
+                        }
+                        if (characterDiffs.hitTimeout) {
+                            hitTimeout = true;
+                        }
+                    }
+                }
+            };
+            let seq1LastStart = 0;
+            let seq2LastStart = 0;
+            for (const diff of lineAlignments) {
+                (0, assert_1.assertFn)(() => diff.seq1Range.start - seq1LastStart === diff.seq2Range.start - seq2LastStart);
+                const equalLinesCount = diff.seq1Range.start - seq1LastStart;
+                scanForWhitespaceChanges(equalLinesCount);
+                seq1LastStart = diff.seq1Range.endExclusive;
+                seq2LastStart = diff.seq2Range.endExclusive;
+                const characterDiffs = this.refineDiff(originalLines, modifiedLines, diff, timeout, considerWhitespaceChanges);
+                if (characterDiffs.hitTimeout) {
+                    hitTimeout = true;
+                }
+                for (const a of characterDiffs.mappings) {
+                    alignments.push(a);
+                }
+            }
+            scanForWhitespaceChanges(originalLines.length - seq1LastStart);
+            const changes = lineRangeMappingFromRangeMappings(alignments, originalLines, modifiedLines);
+            let moves = [];
+            if (options.computeMoves) {
+                moves = this.computeMoves(changes, originalLines, modifiedLines, srcDocLines, tgtDocLines, timeout, considerWhitespaceChanges);
+            }
+            // Make sure all ranges are valid
+            (0, assert_1.assertFn)(() => {
+                function validatePosition(pos, lines) {
+                    if (pos.lineNumber < 1 || pos.lineNumber > lines.length) {
+                        return false;
+                    }
+                    const line = lines[pos.lineNumber - 1];
+                    if (pos.column < 1 || pos.column > line.length + 1) {
+                        return false;
+                    }
+                    return true;
+                }
+                function validateRange(range, lines) {
+                    if (range.startLineNumber < 1 || range.startLineNumber > lines.length + 1) {
+                        return false;
+                    }
+                    if (range.endLineNumberExclusive < 1 || range.endLineNumberExclusive > lines.length + 1) {
+                        return false;
+                    }
+                    return true;
+                }
+                for (const c of changes) {
+                    if (!c.innerChanges) {
+                        return false;
+                    }
+                    for (const ic of c.innerChanges) {
+                        const valid = validatePosition(ic.modifiedRange.getStartPosition(), modifiedLines) && validatePosition(ic.modifiedRange.getEndPosition(), modifiedLines) &&
+                            validatePosition(ic.originalRange.getStartPosition(), originalLines) && validatePosition(ic.originalRange.getEndPosition(), originalLines);
+                        if (!valid) {
+                            return false;
+                        }
+                    }
+                    if (!validateRange(c.modifiedRange, modifiedLines) || !validateRange(c.originalRange, originalLines)) {
+                        return false;
+                    }
+                }
+                return true;
+            });
+            return new linesDiffComputer_1.LinesDiff(changes, moves, hitTimeout);
+        }
+        computeMoves(changes, originalLines, modifiedLines, hashedOriginalLines, hashedModifiedLines, timeout, considerWhitespaceChanges) {
+            const moves = [];
+            const deletions = changes
+                .filter(c => c.modifiedRange.isEmpty && c.originalRange.length >= 3)
+                .map(d => new LineRangeFragment(d.originalRange, originalLines, d));
+            const insertions = new Set(changes
+                .filter(c => c.originalRange.isEmpty && c.modifiedRange.length >= 3)
+                .map(d => new LineRangeFragment(d.modifiedRange, modifiedLines, d)));
+            const excludedChanges = new Set();
+            for (const deletion of deletions) {
+                let highestSimilarity = -1;
+                let best;
+                for (const insertion of insertions) {
+                    const similarity = deletion.computeSimilarity(insertion);
+                    if (similarity > highestSimilarity) {
+                        highestSimilarity = similarity;
+                        best = insertion;
+                    }
+                }
+                if (highestSimilarity > 0.90 && best) {
+                    insertions.delete(best);
+                    moves.push(new linesDiffComputer_1.SimpleLineRangeMapping(deletion.range, best.range));
+                    excludedChanges.add(deletion.source);
+                    excludedChanges.add(best.source);
+                }
+                if (!timeout.isValid()) {
+                    return [];
+                }
+            }
+            const original3LineHashes = new collections_1.SetMap();
+            for (const change of changes) {
+                if (excludedChanges.has(change)) {
+                    continue;
+                }
+                for (let i = change.originalRange.startLineNumber; i < change.originalRange.endLineNumberExclusive - 2; i++) {
+                    const key = `${hashedOriginalLines[i - 1]}:${hashedOriginalLines[i + 1 - 1]}:${hashedOriginalLines[i + 2 - 1]}`;
+                    original3LineHashes.add(key, { range: new lineRange_1.LineRange(i, i + 3) });
+                }
+            }
+            const possibleMappings = [];
+            changes.sort((0, arrays_1.compareBy)(c => c.modifiedRange.startLineNumber, arrays_1.numberComparator));
+            for (const change of changes) {
+                if (excludedChanges.has(change)) {
+                    continue;
+                }
+                let lastMappings = [];
+                for (let i = change.modifiedRange.startLineNumber; i < change.modifiedRange.endLineNumberExclusive - 2; i++) {
+                    const key = `${hashedModifiedLines[i - 1]}:${hashedModifiedLines[i + 1 - 1]}:${hashedModifiedLines[i + 2 - 1]}`;
+                    const currentModifiedRange = new lineRange_1.LineRange(i, i + 3);
+                    const nextMappings = [];
+                    original3LineHashes.forEach(key, ({ range }) => {
+                        for (const lastMapping of lastMappings) {
+                            // does this match extend some last match?
+                            if (lastMapping.originalLineRange.endLineNumberExclusive + 1 === range.endLineNumberExclusive &&
+                                lastMapping.modifiedLineRange.endLineNumberExclusive + 1 === currentModifiedRange.endLineNumberExclusive) {
+                                lastMapping.originalLineRange = new lineRange_1.LineRange(lastMapping.originalLineRange.startLineNumber, range.endLineNumberExclusive);
+                                lastMapping.modifiedLineRange = new lineRange_1.LineRange(lastMapping.modifiedLineRange.startLineNumber, currentModifiedRange.endLineNumberExclusive);
+                                nextMappings.push(lastMapping);
+                                return;
+                            }
+                        }
+                        const mapping = {
+                            modifiedLineRange: currentModifiedRange,
+                            originalLineRange: range,
+                        };
+                        possibleMappings.push(mapping);
+                        nextMappings.push(mapping);
+                    });
+                    lastMappings = nextMappings;
+                }
+                if (!timeout.isValid()) {
+                    return [];
+                }
+            }
+            possibleMappings.sort((0, arrays_1.reverseOrder)((0, arrays_1.compareBy)(m => m.modifiedLineRange.length, arrays_1.numberComparator)));
+            const modifiedSet = new LineRangeSet();
+            const originalSet = new LineRangeSet();
+            for (const mapping of possibleMappings) {
+                const diffOrigToMod = mapping.modifiedLineRange.startLineNumber - mapping.originalLineRange.startLineNumber;
+                const modifiedSections = modifiedSet.subtractFrom(mapping.modifiedLineRange);
+                const originalTranslatedSections = originalSet.subtractFrom(mapping.originalLineRange).map(r => r.delta(diffOrigToMod));
+                const modifiedIntersectedSections = intersectRanges(modifiedSections, originalTranslatedSections);
+                for (const s of modifiedIntersectedSections) {
+                    if (s.length < 3) {
+                        continue;
+                    }
+                    const modifiedLineRange = s;
+                    const originalLineRange = s.delta(-diffOrigToMod);
+                    moves.push(new linesDiffComputer_1.SimpleLineRangeMapping(originalLineRange, modifiedLineRange));
+                    modifiedSet.addRange(modifiedLineRange);
+                    originalSet.addRange(originalLineRange);
+                }
+            }
+            // join moves
+            moves.sort((0, arrays_1.compareBy)(m => m.original.startLineNumber, arrays_1.numberComparator));
+            if (moves.length === 0) {
+                return [];
+            }
+            let joinedMoves = [moves[0]];
+            for (let i = 1; i < moves.length; i++) {
+                const last = joinedMoves[joinedMoves.length - 1];
+                const current = moves[i];
+                const originalDist = current.original.startLineNumber - last.original.endLineNumberExclusive;
+                const modifiedDist = current.modified.startLineNumber - last.modified.endLineNumberExclusive;
+                const currentMoveAfterLast = originalDist >= 0 && modifiedDist >= 0;
+                if (currentMoveAfterLast && originalDist + modifiedDist <= 2) {
+                    joinedMoves[joinedMoves.length - 1] = last.join(current);
+                    continue;
+                }
+                const originalText = current.original.toOffsetRange().slice(originalLines).map(l => l.trim()).join('\n');
+                if (originalText.length <= 10) {
+                    // Ignore small moves
+                    continue;
+                }
+                joinedMoves.push(current);
+            }
+            // Ignore non moves
+            const originalChanges = MonotonousFinder.createOfSorted(changes, c => c.originalRange.endLineNumberExclusive, arrays_1.numberComparator);
+            joinedMoves = joinedMoves.filter(m => {
+                const diffBeforeOriginalMove = originalChanges.findLastItemBeforeOrEqual(m.original.startLineNumber)
+                    || new linesDiffComputer_1.LineRangeMapping(new lineRange_1.LineRange(1, 1), new lineRange_1.LineRange(1, 1), []);
+                const modifiedDistToPrevDiff = m.modified.startLineNumber - diffBeforeOriginalMove.modifiedRange.endLineNumberExclusive;
+                const originalDistToPrevDiff = m.original.startLineNumber - diffBeforeOriginalMove.originalRange.endLineNumberExclusive;
+                const differentDistances = modifiedDistToPrevDiff !== originalDistToPrevDiff;
+                return differentDistances;
+            });
+            const fullMoves = joinedMoves.map(m => {
+                const moveChanges = this.refineDiff(originalLines, modifiedLines, new diffAlgorithm_1.SequenceDiff(m.original.toOffsetRange(), m.modified.toOffsetRange()), timeout, considerWhitespaceChanges);
+                const mappings = lineRangeMappingFromRangeMappings(moveChanges.mappings, originalLines, modifiedLines, true);
+                return new linesDiffComputer_1.MovedText(m, mappings);
+            });
+            return fullMoves;
+        }
+        refineDiff(originalLines, modifiedLines, diff, timeout, considerWhitespaceChanges) {
+            const slice1 = new LinesSliceCharSequence(originalLines, diff.seq1Range, considerWhitespaceChanges);
+            const slice2 = new LinesSliceCharSequence(modifiedLines, diff.seq2Range, considerWhitespaceChanges);
+            const diffResult = slice1.length + slice2.length < 500
+                ? this.dynamicProgrammingDiffing.compute(slice1, slice2, timeout)
+                : this.myersDiffingAlgorithm.compute(slice1, slice2, timeout);
+            let diffs = diffResult.diffs;
+            diffs = (0, joinSequenceDiffs_1.optimizeSequenceDiffs)(slice1, slice2, diffs);
+            diffs = coverFullWords(slice1, slice2, diffs);
+            diffs = (0, joinSequenceDiffs_1.smoothenSequenceDiffs)(slice1, slice2, diffs);
+            diffs = (0, joinSequenceDiffs_1.removeRandomMatches)(slice1, slice2, diffs);
+            const result = diffs.map((d) => new linesDiffComputer_1.RangeMapping(slice1.translateRange(d.seq1Range), slice2.translateRange(d.seq2Range)));
+            // Assert: result applied on original should be the same as diff applied to original
+            return {
+                mappings: result,
+                hitTimeout: diffResult.hitTimeout,
+            };
+        }
+    }
+    exports.AdvancedLinesDiffComputer = AdvancedLinesDiffComputer;
+    class MonotonousFinder {
+        static createOfSorted(items, itemToDomain, domainComparator) {
+            return new MonotonousFinder(items, itemToDomain, domainComparator);
+        }
+        constructor(_items, _itemToDomain, _domainComparator) {
+            this._items = _items;
+            this._itemToDomain = _itemToDomain;
+            this._domainComparator = _domainComparator;
+            this._currentIdx = 0; // All values with index lower than this are smaller than or equal to _lastValue and vice versa.
+            this._lastValue = undefined; // Represents a smallest value.
+            this._hasLastValue = false;
+        }
+        /**
+         * Assumes the values are monotonously increasing.
+         */
+        findLastItemBeforeOrEqual(value) {
+            if (this._hasLastValue && arrays_1.CompareResult.isLessThan(this._domainComparator(value, this._lastValue))) {
+                // Values must be monotonously increasing
+                throw new errors_1.BugIndicatingError();
+            }
+            this._lastValue = value;
+            this._hasLastValue = true;
+            while (this._currentIdx < this._items.length
+                && arrays_1.CompareResult.isLessThanOrEqual(this._domainComparator(this._itemToDomain(this._items[this._currentIdx]), value))) {
+                this._currentIdx++;
+            }
+            return this._currentIdx === 0 ? undefined : this._items[this._currentIdx - 1];
+        }
+    }
+    function intersectRanges(ranges1, ranges2) {
+        const result = [];
+        let i1 = 0;
+        let i2 = 0;
+        while (i1 < ranges1.length && i2 < ranges2.length) {
+            const r1 = ranges1[i1];
+            const r2 = ranges2[i2];
+            const i = r1.intersect(r2);
+            if (i && !i.isEmpty) {
+                result.push(i);
+            }
+            if (r1.endLineNumberExclusive < r2.endLineNumberExclusive) {
+                i1++;
+            }
+            else {
+                i2++;
+            }
+        }
+        return result;
+    }
+    // TODO make this fast
+    class LineRangeSet {
+        constructor() {
+            this._normalizedRanges = [];
+        }
+        addRange(range) {
+            // Idea: Find joinRange such that:
+            // replaceRange = _normalizedRanges.replaceRange(joinRange, range.joinAll(joinRange.map(idx => this._normalizedRanges[idx])))
+            // idx of first element that touches range or that is after range
+            const joinRangeStartIdx = mapMinusOne(this._normalizedRanges.findIndex(r => r.endLineNumberExclusive >= range.startLineNumber), this._normalizedRanges.length);
+            // idx of element after { last element that touches range or that is before range }
+            const joinRangeEndIdxExclusive = (0, arrays_1.findLastIndex)(this._normalizedRanges, r => r.startLineNumber <= range.endLineNumberExclusive) + 1;
+            if (joinRangeStartIdx === joinRangeEndIdxExclusive) {
+                // If there is no element that touches range, then joinRangeStartIdx === joinRangeEndIdxExclusive and that value is the index of the element after range
+                this._normalizedRanges.splice(joinRangeStartIdx, 0, range);
+            }
+            else if (joinRangeStartIdx === joinRangeEndIdxExclusive - 1) {
+                // Else, there is an element that touches range and in this case it is both the first and last element. Thus we can replace it
+                const joinRange = this._normalizedRanges[joinRangeStartIdx];
+                this._normalizedRanges[joinRangeStartIdx] = joinRange.join(range);
+            }
+            else {
+                // First and last element are different - we need to replace the entire range
+                const joinRange = this._normalizedRanges[joinRangeStartIdx].join(this._normalizedRanges[joinRangeEndIdxExclusive - 1]).join(range);
+                this._normalizedRanges.splice(joinRangeStartIdx, joinRangeEndIdxExclusive - joinRangeStartIdx, joinRange);
+            }
+        }
+        /**
+         * Subtracts all ranges in this set from `range` and returns the result.
+         */
+        subtractFrom(range) {
+            // idx of first element that touches range or that is after range
+            const joinRangeStartIdx = mapMinusOne(this._normalizedRanges.findIndex(r => r.endLineNumberExclusive >= range.startLineNumber), this._normalizedRanges.length);
+            // idx of element after { last element that touches range or that is before range }
+            const joinRangeEndIdxExclusive = (0, arrays_1.findLastIndex)(this._normalizedRanges, r => r.startLineNumber <= range.endLineNumberExclusive) + 1;
+            if (joinRangeStartIdx === joinRangeEndIdxExclusive) {
+                return [range];
+            }
+            const result = [];
+            let startLineNumber = range.startLineNumber;
+            for (let i = joinRangeStartIdx; i < joinRangeEndIdxExclusive; i++) {
+                const r = this._normalizedRanges[i];
+                if (r.startLineNumber > startLineNumber) {
+                    result.push(new lineRange_1.LineRange(startLineNumber, r.startLineNumber));
+                }
+                startLineNumber = r.endLineNumberExclusive;
+            }
+            if (startLineNumber < range.endLineNumberExclusive) {
+                result.push(new lineRange_1.LineRange(startLineNumber, range.endLineNumberExclusive));
+            }
+            return result;
+        }
+    }
+    function mapMinusOne(idx, mapTo) {
+        return idx === -1 ? mapTo : idx;
+    }
+    function coverFullWords(sequence1, sequence2, sequenceDiffs) {
+        const additional = [];
+        let lastModifiedWord = undefined;
+        function maybePushWordToAdditional() {
+            if (!lastModifiedWord) {
+                return;
+            }
+            const originalLength1 = lastModifiedWord.s1Range.length - lastModifiedWord.deleted;
+            const originalLength2 = lastModifiedWord.s2Range.length - lastModifiedWord.added;
+            if (originalLength1 !== originalLength2) {
+                // TODO figure out why this happens
+            }
+            if (Math.max(lastModifiedWord.deleted, lastModifiedWord.added) + (lastModifiedWord.count - 1) > originalLength1) {
+                additional.push(new diffAlgorithm_1.SequenceDiff(lastModifiedWord.s1Range, lastModifiedWord.s2Range));
+            }
+            lastModifiedWord = undefined;
+        }
+        for (const s of sequenceDiffs) {
+            function processWord(s1Range, s2Range) {
+                var _a, _b, _c, _d;
+                if (!lastModifiedWord || !lastModifiedWord.s1Range.containsRange(s1Range) || !lastModifiedWord.s2Range.containsRange(s2Range)) {
+                    if (lastModifiedWord && !(lastModifiedWord.s1Range.endExclusive < s1Range.start && lastModifiedWord.s2Range.endExclusive < s2Range.start)) {
+                        const s1Added = offsetRange_1.OffsetRange.tryCreate(lastModifiedWord.s1Range.endExclusive, s1Range.start);
+                        const s2Added = offsetRange_1.OffsetRange.tryCreate(lastModifiedWord.s2Range.endExclusive, s2Range.start);
+                        lastModifiedWord.deleted += (_a = s1Added === null || s1Added === void 0 ? void 0 : s1Added.length) !== null && _a !== void 0 ? _a : 0;
+                        lastModifiedWord.added += (_b = s2Added === null || s2Added === void 0 ? void 0 : s2Added.length) !== null && _b !== void 0 ? _b : 0;
+                        lastModifiedWord.s1Range = lastModifiedWord.s1Range.join(s1Range);
+                        lastModifiedWord.s2Range = lastModifiedWord.s2Range.join(s2Range);
+                    }
+                    else {
+                        maybePushWordToAdditional();
+                        lastModifiedWord = { added: 0, deleted: 0, count: 0, s1Range: s1Range, s2Range: s2Range };
+                    }
+                }
+                const changedS1 = s1Range.intersect(s.seq1Range);
+                const changedS2 = s2Range.intersect(s.seq2Range);
+                lastModifiedWord.count++;
+                lastModifiedWord.deleted += (_c = changedS1 === null || changedS1 === void 0 ? void 0 : changedS1.length) !== null && _c !== void 0 ? _c : 0;
+                lastModifiedWord.added += (_d = changedS2 === null || changedS2 === void 0 ? void 0 : changedS2.length) !== null && _d !== void 0 ? _d : 0;
+            }
+            const w1Before = sequence1.findWordContaining(s.seq1Range.start - 1);
+            const w2Before = sequence2.findWordContaining(s.seq2Range.start - 1);
+            const w1After = sequence1.findWordContaining(s.seq1Range.endExclusive);
+            const w2After = sequence2.findWordContaining(s.seq2Range.endExclusive);
+            if (w1Before && w1After && w2Before && w2After && w1Before.equals(w1After) && w2Before.equals(w2After)) {
+                processWord(w1Before, w2Before);
+            }
+            else {
+                if (w1Before && w2Before) {
+                    processWord(w1Before, w2Before);
+                }
+                if (w1After && w2After) {
+                    processWord(w1After, w2After);
+                }
+            }
+        }
+        maybePushWordToAdditional();
+        const merged = mergeSequenceDiffs(sequenceDiffs, additional);
+        return merged;
+    }
+    function mergeSequenceDiffs(sequenceDiffs1, sequenceDiffs2) {
+        const result = [];
+        while (sequenceDiffs1.length > 0 || sequenceDiffs2.length > 0) {
+            const sd1 = sequenceDiffs1[0];
+            const sd2 = sequenceDiffs2[0];
+            let next;
+            if (sd1 && (!sd2 || sd1.seq1Range.start < sd2.seq1Range.start)) {
+                next = sequenceDiffs1.shift();
+            }
+            else {
+                next = sequenceDiffs2.shift();
+            }
+            if (result.length > 0 && result[result.length - 1].seq1Range.endExclusive >= next.seq1Range.start) {
+                result[result.length - 1] = result[result.length - 1].join(next);
+            }
+            else {
+                result.push(next);
+            }
+        }
+        return result;
+    }
+    function lineRangeMappingFromRangeMappings(alignments, originalLines, modifiedLines, dontAssertStartLine = false) {
+        const changes = [];
+        for (const g of group(alignments.map(a => getLineRangeMapping(a, originalLines, modifiedLines)), (a1, a2) => a1.originalRange.overlapOrTouch(a2.originalRange)
+            || a1.modifiedRange.overlapOrTouch(a2.modifiedRange))) {
+            const first = g[0];
+            const last = g[g.length - 1];
+            changes.push(new linesDiffComputer_1.LineRangeMapping(first.originalRange.join(last.originalRange), first.modifiedRange.join(last.modifiedRange), g.map(a => a.innerChanges[0])));
+        }
+        (0, assert_1.assertFn)(() => {
+            if (!dontAssertStartLine) {
+                if (changes.length > 0 && changes[0].originalRange.startLineNumber !== changes[0].modifiedRange.startLineNumber) {
+                    return false;
+                }
+            }
+            return (0, assert_1.checkAdjacentItems)(changes, (m1, m2) => m2.originalRange.startLineNumber - m1.originalRange.endLineNumberExclusive === m2.modifiedRange.startLineNumber - m1.modifiedRange.endLineNumberExclusive &&
+                // There has to be an unchanged line in between (otherwise both diffs should have been joined)
+                m1.originalRange.endLineNumberExclusive < m2.originalRange.startLineNumber &&
+                m1.modifiedRange.endLineNumberExclusive < m2.modifiedRange.startLineNumber);
+        });
+        return changes;
+    }
+    exports.lineRangeMappingFromRangeMappings = lineRangeMappingFromRangeMappings;
+    function getLineRangeMapping(rangeMapping, originalLines, modifiedLines) {
+        let lineStartDelta = 0;
+        let lineEndDelta = 0;
+        // rangeMapping describes the edit that replaces `rangeMapping.originalRange` with `newText := getText(modifiedLines, rangeMapping.modifiedRange)`.
+        // original: ]xxx \n <- this line is not modified
+        // modified: ]xx  \n
+        if (rangeMapping.modifiedRange.endColumn === 1 && rangeMapping.originalRange.endColumn === 1
+            && rangeMapping.originalRange.startLineNumber + lineStartDelta <= rangeMapping.originalRange.endLineNumber
+            && rangeMapping.modifiedRange.startLineNumber + lineStartDelta <= rangeMapping.modifiedRange.endLineNumber) {
+            // We can only do this if the range is not empty yet
+            lineEndDelta = -1;
+        }
+        // original: xxx[ \n <- this line is not modified
+        // modified: xxx[ \n
+        if (rangeMapping.modifiedRange.startColumn - 1 >= modifiedLines[rangeMapping.modifiedRange.startLineNumber - 1].length
+            && rangeMapping.originalRange.startColumn - 1 >= originalLines[rangeMapping.originalRange.startLineNumber - 1].length
+            && rangeMapping.originalRange.startLineNumber <= rangeMapping.originalRange.endLineNumber + lineEndDelta
+            && rangeMapping.modifiedRange.startLineNumber <= rangeMapping.modifiedRange.endLineNumber + lineEndDelta) {
+            // We can only do this if the range is not empty yet
+            lineStartDelta = 1;
+        }
+        const originalLineRange = new lineRange_1.LineRange(rangeMapping.originalRange.startLineNumber + lineStartDelta, rangeMapping.originalRange.endLineNumber + 1 + lineEndDelta);
+        const modifiedLineRange = new lineRange_1.LineRange(rangeMapping.modifiedRange.startLineNumber + lineStartDelta, rangeMapping.modifiedRange.endLineNumber + 1 + lineEndDelta);
+        return new linesDiffComputer_1.LineRangeMapping(originalLineRange, modifiedLineRange, [rangeMapping]);
+    }
+    exports.getLineRangeMapping = getLineRangeMapping;
+    function* group(items, shouldBeGrouped) {
+        let currentGroup;
+        let last;
+        for (const item of items) {
+            if (last !== undefined && shouldBeGrouped(last, item)) {
+                currentGroup.push(item);
+            }
+            else {
+                if (currentGroup) {
+                    yield currentGroup;
+                }
+                currentGroup = [item];
+            }
+            last = item;
+        }
+        if (currentGroup) {
+            yield currentGroup;
+        }
+    }
+    class LineSequence {
+        constructor(trimmedHash, lines) {
+            this.trimmedHash = trimmedHash;
+            this.lines = lines;
+        }
+        getElement(offset) {
+            return this.trimmedHash[offset];
+        }
+        get length() {
+            return this.trimmedHash.length;
+        }
+        getBoundaryScore(length) {
+            const indentationBefore = length === 0 ? 0 : getIndentation(this.lines[length - 1]);
+            const indentationAfter = length === this.lines.length ? 0 : getIndentation(this.lines[length]);
+            return 1000 - (indentationBefore + indentationAfter);
+        }
+        getText(range) {
+            return this.lines.slice(range.start, range.endExclusive).join('\n');
+        }
+        isStronglyEqual(offset1, offset2) {
+            return this.lines[offset1] === this.lines[offset2];
+        }
+    }
+    exports.LineSequence = LineSequence;
+    function getIndentation(str) {
+        let i = 0;
+        while (i < str.length && (str.charCodeAt(i) === 32 /* CharCode.Space */ || str.charCodeAt(i) === 9 /* CharCode.Tab */)) {
+            i++;
+        }
+        return i;
+    }
+    class LinesSliceCharSequence {
+        constructor(lines, lineRange, considerWhitespaceChanges) {
+            // This slice has to have lineRange.length many \n! (otherwise diffing against an empty slice will be problematic)
+            // (Unless it covers the entire document, in that case the other slice also has to cover the entire document ands it's okay)
+            this.lines = lines;
+            this.considerWhitespaceChanges = considerWhitespaceChanges;
+            this.elements = [];
+            this.firstCharOffsetByLineMinusOne = [];
+            // To account for trimming
+            this.additionalOffsetByLine = [];
+            // If the slice covers the end, but does not start at the beginning, we include just the \n of the previous line.
+            let trimFirstLineFully = false;
+            if (lineRange.start > 0 && lineRange.endExclusive >= lines.length) {
+                lineRange = new offsetRange_1.OffsetRange(lineRange.start - 1, lineRange.endExclusive);
+                trimFirstLineFully = true;
+            }
+            this.lineRange = lineRange;
+            for (let i = this.lineRange.start; i < this.lineRange.endExclusive; i++) {
+                let line = lines[i];
+                let offset = 0;
+                if (trimFirstLineFully) {
+                    offset = line.length;
+                    line = '';
+                    trimFirstLineFully = false;
+                }
+                else if (!considerWhitespaceChanges) {
+                    const trimmedStartLine = line.trimStart();
+                    offset = line.length - trimmedStartLine.length;
+                    line = trimmedStartLine.trimEnd();
+                }
+                this.additionalOffsetByLine.push(offset);
+                for (let i = 0; i < line.length; i++) {
+                    this.elements.push(line.charCodeAt(i));
+                }
+                // Don't add an \n that does not exist in the document.
+                if (i < lines.length - 1) {
+                    this.elements.push('\n'.charCodeAt(0));
+                    this.firstCharOffsetByLineMinusOne[i - this.lineRange.start] = this.elements.length;
+                }
+            }
+            // To account for the last line
+            this.additionalOffsetByLine.push(0);
+        }
+        toString() {
+            return `Slice: "${this.text}"`;
+        }
+        get text() {
+            return this.getText(new offsetRange_1.OffsetRange(0, this.length));
+        }
+        getText(range) {
+            return this.elements.slice(range.start, range.endExclusive).map(e => String.fromCharCode(e)).join('');
+        }
+        getElement(offset) {
+            return this.elements[offset];
+        }
+        get length() {
+            return this.elements.length;
+        }
+        getBoundaryScore(length) {
+            //   a   b   c   ,           d   e   f
+            // 11  0   0   12  15  6   13  0   0   11
+            const prevCategory = getCategory(length > 0 ? this.elements[length - 1] : -1);
+            const nextCategory = getCategory(length < this.elements.length ? this.elements[length] : -1);
+            if (prevCategory === 6 /* CharBoundaryCategory.LineBreakCR */ && nextCategory === 7 /* CharBoundaryCategory.LineBreakLF */) {
+                // don't break between \r and \n
+                return 0;
+            }
+            let score = 0;
+            if (prevCategory !== nextCategory) {
+                score += 10;
+                if (nextCategory === 1 /* CharBoundaryCategory.WordUpper */) {
+                    score += 1;
+                }
+            }
+            score += getCategoryBoundaryScore(prevCategory);
+            score += getCategoryBoundaryScore(nextCategory);
+            return score;
+        }
+        translateOffset(offset) {
+            // find smallest i, so that lineBreakOffsets[i] <= offset using binary search
+            if (this.lineRange.isEmpty) {
+                return new position_1.Position(this.lineRange.start + 1, 1);
+            }
+            let i = 0;
+            let j = this.firstCharOffsetByLineMinusOne.length;
+            while (i < j) {
+                const k = Math.floor((i + j) / 2);
+                if (this.firstCharOffsetByLineMinusOne[k] > offset) {
+                    j = k;
+                }
+                else {
+                    i = k + 1;
+                }
+            }
+            const offsetOfFirstCharInLine = i === 0 ? 0 : this.firstCharOffsetByLineMinusOne[i - 1];
+            return new position_1.Position(this.lineRange.start + i + 1, offset - offsetOfFirstCharInLine + 1 + this.additionalOffsetByLine[i]);
+        }
+        translateRange(range) {
+            return range_1.Range.fromPositions(this.translateOffset(range.start), this.translateOffset(range.endExclusive));
+        }
+        /**
+         * Finds the word that contains the character at the given offset
+         */
+        findWordContaining(offset) {
+            if (offset < 0 || offset >= this.elements.length) {
+                return undefined;
+            }
+            if (!isWordChar(this.elements[offset])) {
+                return undefined;
+            }
+            // find start
+            let start = offset;
+            while (start > 0 && isWordChar(this.elements[start - 1])) {
+                start--;
+            }
+            // find end
+            let end = offset;
+            while (end < this.elements.length && isWordChar(this.elements[end])) {
+                end++;
+            }
+            return new offsetRange_1.OffsetRange(start, end);
+        }
+        countLinesIn(range) {
+            return this.translateOffset(range.endExclusive).lineNumber - this.translateOffset(range.start).lineNumber;
+        }
+        isStronglyEqual(offset1, offset2) {
+            return this.elements[offset1] === this.elements[offset2];
+        }
+        extendToFullLines(range) {
+            var _a, _b;
+            const start = (_a = findLastMonotonous(this.firstCharOffsetByLineMinusOne, x => x <= range.start)) !== null && _a !== void 0 ? _a : 0;
+            const end = (_b = findFirstMonotonous(this.firstCharOffsetByLineMinusOne, x => range.endExclusive <= x)) !== null && _b !== void 0 ? _b : this.elements.length;
+            return new offsetRange_1.OffsetRange(start, end);
+        }
+    }
+    exports.LinesSliceCharSequence = LinesSliceCharSequence;
+    /**
+     * `arr.map(predicate)` must be like `[true, ..., true, false, ..., false]`!
+     *
+     * @returns -1 if predicate is false for all items
+     */
+    function findLastIdxMonotonous(arr, predicate) {
+        let i = 0;
+        let j = arr.length;
+        while (i < j) {
+            const k = Math.floor((i + j) / 2);
+            if (predicate(arr[k])) {
+                i = k + 1;
+            }
+            else {
+                j = k;
+            }
+        }
+        return i - 1;
+    }
+    function findLastMonotonous(arr, predicate) {
+        const idx = findLastIdxMonotonous(arr, predicate);
+        return idx === -1 ? undefined : arr[idx];
+    }
+    exports.findLastMonotonous = findLastMonotonous;
+    /**
+     * `arr.map(predicate)` must be like `[false, ..., false, true, ..., true]`!
+     *
+     * @returns arr.length if predicate is false for all items
+     */
+    function findFirstIdxMonotonous(arr, predicate) {
+        let i = 0;
+        let j = arr.length;
+        while (i < j) {
+            const k = Math.floor((i + j) / 2);
+            if (predicate(arr[k])) {
+                j = k;
+            }
+            else {
+                i = k + 1;
+            }
+        }
+        return i;
+    }
+    function findFirstMonotonous(arr, predicate) {
+        const idx = findFirstIdxMonotonous(arr, predicate);
+        return idx === arr.length ? undefined : arr[idx];
+    }
+    exports.findFirstMonotonous = findFirstMonotonous;
+    function isWordChar(charCode) {
+        return charCode >= 97 /* CharCode.a */ && charCode <= 122 /* CharCode.z */
+            || charCode >= 65 /* CharCode.A */ && charCode <= 90 /* CharCode.Z */
+            || charCode >= 48 /* CharCode.Digit0 */ && charCode <= 57 /* CharCode.Digit9 */;
+    }
+    const score = {
+        [0 /* CharBoundaryCategory.WordLower */]: 0,
+        [1 /* CharBoundaryCategory.WordUpper */]: 0,
+        [2 /* CharBoundaryCategory.WordNumber */]: 0,
+        [3 /* CharBoundaryCategory.End */]: 10,
+        [4 /* CharBoundaryCategory.Other */]: 2,
+        [5 /* CharBoundaryCategory.Space */]: 3,
+        [6 /* CharBoundaryCategory.LineBreakCR */]: 10,
+        [7 /* CharBoundaryCategory.LineBreakLF */]: 10,
+    };
+    function getCategoryBoundaryScore(category) {
+        return score[category];
+    }
+    function getCategory(charCode) {
+        if (charCode === 10 /* CharCode.LineFeed */) {
+            return 7 /* CharBoundaryCategory.LineBreakLF */;
+        }
+        else if (charCode === 13 /* CharCode.CarriageReturn */) {
+            return 6 /* CharBoundaryCategory.LineBreakCR */;
+        }
+        else if (isSpace(charCode)) {
+            return 5 /* CharBoundaryCategory.Space */;
+        }
+        else if (charCode >= 97 /* CharCode.a */ && charCode <= 122 /* CharCode.z */) {
+            return 0 /* CharBoundaryCategory.WordLower */;
+        }
+        else if (charCode >= 65 /* CharCode.A */ && charCode <= 90 /* CharCode.Z */) {
+            return 1 /* CharBoundaryCategory.WordUpper */;
+        }
+        else if (charCode >= 48 /* CharCode.Digit0 */ && charCode <= 57 /* CharCode.Digit9 */) {
+            return 2 /* CharBoundaryCategory.WordNumber */;
+        }
+        else if (charCode === -1) {
+            return 3 /* CharBoundaryCategory.End */;
+        }
+        else {
+            return 4 /* CharBoundaryCategory.Other */;
+        }
+    }
+    function isSpace(charCode) {
+        return charCode === 32 /* CharCode.Space */ || charCode === 9 /* CharCode.Tab */;
+    }
+    const chrKeys = new Map();
+    function getKey(chr) {
+        let key = chrKeys.get(chr);
+        if (key === undefined) {
+            key = chrKeys.size;
+            chrKeys.set(chr, key);
+        }
+        return key;
+    }
+    class LineRangeFragment {
+        constructor(range, lines, source) {
+            this.range = range;
+            this.lines = lines;
+            this.source = source;
+            this.histogram = [];
+            let counter = 0;
+            for (let i = range.startLineNumber - 1; i < range.endLineNumberExclusive - 1; i++) {
+                const line = lines[i];
+                for (let j = 0; j < line.length; j++) {
+                    counter++;
+                    const chr = line[j];
+                    const key = getKey(chr);
+                    this.histogram[key] = (this.histogram[key] || 0) + 1;
+                }
+                counter++;
+                const key = getKey('\n');
+                this.histogram[key] = (this.histogram[key] || 0) + 1;
+            }
+            this.totalCount = counter;
+        }
+        computeSimilarity(other) {
+            var _a, _b;
+            let sumDifferences = 0;
+            const maxLength = Math.max(this.histogram.length, other.histogram.length);
+            for (let i = 0; i < maxLength; i++) {
+                sumDifferences += Math.abs(((_a = this.histogram[i]) !== null && _a !== void 0 ? _a : 0) - ((_b = other.histogram[i]) !== null && _b !== void 0 ? _b : 0));
+            }
+            return 1 - (sumDifferences / (this.totalCount + other.totalCount));
+        }
+    }
+});
+
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+define(__m[43/*vs/editor/common/diff/legacyLinesDiffComputer*/], __M([0/*require*/,1/*exports*/,21/*vs/base/common/diff/diff*/,26/*vs/editor/common/diff/linesDiffComputer*/,5/*vs/base/common/strings*/,2/*vs/editor/common/core/range*/,9/*vs/base/common/assert*/,12/*vs/editor/common/core/lineRange*/]), function (require, exports, diff_1, linesDiffComputer_1, strings, range_1, assert_1, lineRange_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.DiffComputer = exports.LegacyLinesDiffComputer = void 0;
     const MINIMUM_MATCHING_CHARACTER_LENGTH = 3;
-    class SmartLinesDiffComputer {
+    class LegacyLinesDiffComputer {
         computeDiff(originalLines, modifiedLines, options) {
             var _a;
             const diffComputer = new DiffComputer(originalLines, modifiedLines, {
@@ -10879,7 +11996,7 @@ define(__m[41/*vs/editor/common/diff/smartLinesDiffComputer*/], __M([0/*require*
             return new linesDiffComputer_1.LinesDiff(changes, [], result.quitEarly);
         }
     }
-    exports.SmartLinesDiffComputer = SmartLinesDiffComputer;
+    exports.LegacyLinesDiffComputer = LegacyLinesDiffComputer;
     function computeDiff(originalSequence, modifiedSequence, continueProcessingPredicate, pretty) {
         const diffAlgo = new diff_1.LcsDiff(originalSequence, modifiedSequence, continueProcessingPredicate);
         return diffAlgo.ComputeDiff(pretty);
@@ -11289,583 +12406,17 @@ define(__m[41/*vs/editor/common/diff/smartLinesDiffComputer*/], __M([0/*require*
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[42/*vs/editor/common/diff/standardLinesDiffComputer*/], __M([0/*require*/,1/*exports*/,9/*vs/base/common/assert*/,12/*vs/editor/common/core/lineRange*/,6/*vs/editor/common/core/offsetRange*/,3/*vs/editor/common/core/position*/,2/*vs/editor/common/core/range*/,8/*vs/editor/common/diff/algorithms/diffAlgorithm*/,40/*vs/editor/common/diff/algorithms/dynamicProgrammingDiffing*/,37/*vs/editor/common/diff/algorithms/joinSequenceDiffs*/,38/*vs/editor/common/diff/algorithms/myersDiffAlgorithm*/,25/*vs/editor/common/diff/linesDiffComputer*/]), function (require, exports, assert_1, lineRange_1, offsetRange_1, position_1, range_1, diffAlgorithm_1, dynamicProgrammingDiffing_1, joinSequenceDiffs_1, myersDiffAlgorithm_1, linesDiffComputer_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.LinesSliceCharSequence = exports.LineSequence = exports.getLineRangeMapping = exports.lineRangeMappingFromRangeMappings = exports.StandardLinesDiffComputer = void 0;
-    class StandardLinesDiffComputer {
-        constructor() {
-            this.dynamicProgrammingDiffing = new dynamicProgrammingDiffing_1.DynamicProgrammingDiffing();
-            this.myersDiffingAlgorithm = new myersDiffAlgorithm_1.MyersDiffAlgorithm();
-        }
-        computeDiff(originalLines, modifiedLines, options) {
-            if (originalLines.length === 1 && originalLines[0].length === 0 || modifiedLines.length === 1 && modifiedLines[0].length === 0) {
-                return {
-                    changes: [
-                        new linesDiffComputer_1.LineRangeMapping(new lineRange_1.LineRange(1, originalLines.length + 1), new lineRange_1.LineRange(1, modifiedLines.length + 1), [
-                            new linesDiffComputer_1.RangeMapping(new range_1.Range(1, 1, originalLines.length, originalLines[0].length + 1), new range_1.Range(1, 1, modifiedLines.length, modifiedLines[0].length + 1))
-                        ])
-                    ],
-                    hitTimeout: false,
-                    moves: [],
-                };
-            }
-            const timeout = options.maxComputationTimeMs === 0 ? diffAlgorithm_1.InfiniteTimeout.instance : new diffAlgorithm_1.DateTimeout(options.maxComputationTimeMs);
-            const considerWhitespaceChanges = !options.ignoreTrimWhitespace;
-            const perfectHashes = new Map();
-            function getOrCreateHash(text) {
-                let hash = perfectHashes.get(text);
-                if (hash === undefined) {
-                    hash = perfectHashes.size;
-                    perfectHashes.set(text, hash);
-                }
-                return hash;
-            }
-            const srcDocLines = originalLines.map((l) => getOrCreateHash(l.trim()));
-            const tgtDocLines = modifiedLines.map((l) => getOrCreateHash(l.trim()));
-            const sequence1 = new LineSequence(srcDocLines, originalLines);
-            const sequence2 = new LineSequence(tgtDocLines, modifiedLines);
-            const lineAlignmentResult = (() => {
-                if (sequence1.length + sequence2.length < 1500) {
-                    // Use the improved algorithm for small files
-                    return this.dynamicProgrammingDiffing.compute(sequence1, sequence2, timeout, (offset1, offset2) => originalLines[offset1] === modifiedLines[offset2]
-                        ? modifiedLines[offset2].length === 0
-                            ? 0.1
-                            : 1 + Math.log(1 + modifiedLines[offset2].length)
-                        : 0.99);
-                }
-                return this.myersDiffingAlgorithm.compute(sequence1, sequence2);
-            })();
-            let lineAlignments = lineAlignmentResult.diffs;
-            let hitTimeout = lineAlignmentResult.hitTimeout;
-            lineAlignments = (0, joinSequenceDiffs_1.optimizeSequenceDiffs)(sequence1, sequence2, lineAlignments);
-            const alignments = [];
-            const scanForWhitespaceChanges = (equalLinesCount) => {
-                if (!considerWhitespaceChanges) {
-                    return;
-                }
-                for (let i = 0; i < equalLinesCount; i++) {
-                    const seq1Offset = seq1LastStart + i;
-                    const seq2Offset = seq2LastStart + i;
-                    if (originalLines[seq1Offset] !== modifiedLines[seq2Offset]) {
-                        // This is because of whitespace changes, diff these lines
-                        const characterDiffs = this.refineDiff(originalLines, modifiedLines, new diffAlgorithm_1.SequenceDiff(new offsetRange_1.OffsetRange(seq1Offset, seq1Offset + 1), new offsetRange_1.OffsetRange(seq2Offset, seq2Offset + 1)), timeout, considerWhitespaceChanges);
-                        for (const a of characterDiffs.mappings) {
-                            alignments.push(a);
-                        }
-                        if (characterDiffs.hitTimeout) {
-                            hitTimeout = true;
-                        }
-                    }
-                }
-            };
-            let seq1LastStart = 0;
-            let seq2LastStart = 0;
-            for (const diff of lineAlignments) {
-                (0, assert_1.assertFn)(() => diff.seq1Range.start - seq1LastStart === diff.seq2Range.start - seq2LastStart);
-                const equalLinesCount = diff.seq1Range.start - seq1LastStart;
-                scanForWhitespaceChanges(equalLinesCount);
-                seq1LastStart = diff.seq1Range.endExclusive;
-                seq2LastStart = diff.seq2Range.endExclusive;
-                const characterDiffs = this.refineDiff(originalLines, modifiedLines, diff, timeout, considerWhitespaceChanges);
-                if (characterDiffs.hitTimeout) {
-                    hitTimeout = true;
-                }
-                for (const a of characterDiffs.mappings) {
-                    alignments.push(a);
-                }
-            }
-            scanForWhitespaceChanges(originalLines.length - seq1LastStart);
-            const changes = lineRangeMappingFromRangeMappings(alignments, originalLines, modifiedLines);
-            const moves = [];
-            if (options.computeMoves) {
-                const deletions = changes
-                    .filter(c => c.modifiedRange.isEmpty && c.originalRange.length >= 3)
-                    .map(d => new LineRangeFragment(d.originalRange, originalLines));
-                const insertions = new Set(changes
-                    .filter(c => c.originalRange.isEmpty && c.modifiedRange.length >= 3)
-                    .map(d => new LineRangeFragment(d.modifiedRange, modifiedLines)));
-                for (const deletion of deletions) {
-                    let highestSimilarity = -1;
-                    let best;
-                    for (const insertion of insertions) {
-                        const similarity = deletion.computeSimilarity(insertion);
-                        if (similarity > highestSimilarity) {
-                            highestSimilarity = similarity;
-                            best = insertion;
-                        }
-                    }
-                    if (highestSimilarity > 0.90 && best) {
-                        const moveChanges = this.refineDiff(originalLines, modifiedLines, new diffAlgorithm_1.SequenceDiff(new offsetRange_1.OffsetRange(deletion.range.startLineNumber - 1, deletion.range.endLineNumberExclusive - 1), new offsetRange_1.OffsetRange(best.range.startLineNumber - 1, best.range.endLineNumberExclusive - 1)), timeout, considerWhitespaceChanges);
-                        const mappings = lineRangeMappingFromRangeMappings(moveChanges.mappings, originalLines, modifiedLines, true);
-                        insertions.delete(best);
-                        moves.push(new linesDiffComputer_1.MovedText(new linesDiffComputer_1.SimpleLineRangeMapping(deletion.range, best.range), mappings));
-                    }
-                }
-            }
-            // Make sure all ranges are valid
-            (0, assert_1.assertFn)(() => {
-                function validatePosition(pos, lines) {
-                    if (pos.lineNumber < 1 || pos.lineNumber > lines.length) {
-                        return false;
-                    }
-                    const line = lines[pos.lineNumber - 1];
-                    if (pos.column < 1 || pos.column > line.length + 1) {
-                        return false;
-                    }
-                    return true;
-                }
-                function validateRange(range, lines) {
-                    if (range.startLineNumber < 1 || range.startLineNumber > lines.length + 1) {
-                        return false;
-                    }
-                    if (range.endLineNumberExclusive < 1 || range.endLineNumberExclusive > lines.length + 1) {
-                        return false;
-                    }
-                    return true;
-                }
-                for (const c of changes) {
-                    if (!c.innerChanges) {
-                        return false;
-                    }
-                    for (const ic of c.innerChanges) {
-                        const valid = validatePosition(ic.modifiedRange.getStartPosition(), modifiedLines) && validatePosition(ic.modifiedRange.getEndPosition(), modifiedLines) &&
-                            validatePosition(ic.originalRange.getStartPosition(), originalLines) && validatePosition(ic.originalRange.getEndPosition(), originalLines);
-                        if (!valid) {
-                            return false;
-                        }
-                    }
-                    if (!validateRange(c.modifiedRange, modifiedLines) || !validateRange(c.originalRange, originalLines)) {
-                        return false;
-                    }
-                }
-                return true;
-            });
-            return new linesDiffComputer_1.LinesDiff(changes, moves, hitTimeout);
-        }
-        refineDiff(originalLines, modifiedLines, diff, timeout, considerWhitespaceChanges) {
-            const slice1 = new LinesSliceCharSequence(originalLines, diff.seq1Range, considerWhitespaceChanges);
-            const slice2 = new LinesSliceCharSequence(modifiedLines, diff.seq2Range, considerWhitespaceChanges);
-            const diffResult = slice1.length + slice2.length < 500
-                ? this.dynamicProgrammingDiffing.compute(slice1, slice2, timeout)
-                : this.myersDiffingAlgorithm.compute(slice1, slice2, timeout);
-            let diffs = diffResult.diffs;
-            diffs = (0, joinSequenceDiffs_1.optimizeSequenceDiffs)(slice1, slice2, diffs);
-            diffs = coverFullWords(slice1, slice2, diffs);
-            diffs = (0, joinSequenceDiffs_1.smoothenSequenceDiffs)(slice1, slice2, diffs);
-            diffs = (0, joinSequenceDiffs_1.removeRandomMatches)(slice1, slice2, diffs);
-            const result = diffs.map((d) => new linesDiffComputer_1.RangeMapping(slice1.translateRange(d.seq1Range), slice2.translateRange(d.seq2Range)));
-            // Assert: result applied on original should be the same as diff applied to original
-            return {
-                mappings: result,
-                hitTimeout: diffResult.hitTimeout,
-            };
-        }
-    }
-    exports.StandardLinesDiffComputer = StandardLinesDiffComputer;
-    function coverFullWords(sequence1, sequence2, sequenceDiffs) {
-        const additional = [];
-        let lastModifiedWord = undefined;
-        function maybePushWordToAdditional() {
-            if (!lastModifiedWord) {
-                return;
-            }
-            const originalLength1 = lastModifiedWord.s1Range.length - lastModifiedWord.deleted;
-            const originalLength2 = lastModifiedWord.s2Range.length - lastModifiedWord.added;
-            if (originalLength1 !== originalLength2) {
-                // TODO figure out why this happens
-            }
-            if (Math.max(lastModifiedWord.deleted, lastModifiedWord.added) + (lastModifiedWord.count - 1) > originalLength1) {
-                additional.push(new diffAlgorithm_1.SequenceDiff(lastModifiedWord.s1Range, lastModifiedWord.s2Range));
-            }
-            lastModifiedWord = undefined;
-        }
-        for (const s of sequenceDiffs) {
-            function processWord(s1Range, s2Range) {
-                var _a, _b, _c, _d;
-                if (!lastModifiedWord || !lastModifiedWord.s1Range.containsRange(s1Range) || !lastModifiedWord.s2Range.containsRange(s2Range)) {
-                    if (lastModifiedWord && !(lastModifiedWord.s1Range.endExclusive < s1Range.start && lastModifiedWord.s2Range.endExclusive < s2Range.start)) {
-                        const s1Added = offsetRange_1.OffsetRange.tryCreate(lastModifiedWord.s1Range.endExclusive, s1Range.start);
-                        const s2Added = offsetRange_1.OffsetRange.tryCreate(lastModifiedWord.s2Range.endExclusive, s2Range.start);
-                        lastModifiedWord.deleted += (_a = s1Added === null || s1Added === void 0 ? void 0 : s1Added.length) !== null && _a !== void 0 ? _a : 0;
-                        lastModifiedWord.added += (_b = s2Added === null || s2Added === void 0 ? void 0 : s2Added.length) !== null && _b !== void 0 ? _b : 0;
-                        lastModifiedWord.s1Range = lastModifiedWord.s1Range.join(s1Range);
-                        lastModifiedWord.s2Range = lastModifiedWord.s2Range.join(s2Range);
-                    }
-                    else {
-                        maybePushWordToAdditional();
-                        lastModifiedWord = { added: 0, deleted: 0, count: 0, s1Range: s1Range, s2Range: s2Range };
-                    }
-                }
-                const changedS1 = s1Range.intersect(s.seq1Range);
-                const changedS2 = s2Range.intersect(s.seq2Range);
-                lastModifiedWord.count++;
-                lastModifiedWord.deleted += (_c = changedS1 === null || changedS1 === void 0 ? void 0 : changedS1.length) !== null && _c !== void 0 ? _c : 0;
-                lastModifiedWord.added += (_d = changedS2 === null || changedS2 === void 0 ? void 0 : changedS2.length) !== null && _d !== void 0 ? _d : 0;
-            }
-            const w1Before = sequence1.findWordContaining(s.seq1Range.start - 1);
-            const w2Before = sequence2.findWordContaining(s.seq2Range.start - 1);
-            const w1After = sequence1.findWordContaining(s.seq1Range.endExclusive);
-            const w2After = sequence2.findWordContaining(s.seq2Range.endExclusive);
-            if (w1Before && w1After && w2Before && w2After && w1Before.equals(w1After) && w2Before.equals(w2After)) {
-                processWord(w1Before, w2Before);
-            }
-            else {
-                if (w1Before && w2Before) {
-                    processWord(w1Before, w2Before);
-                }
-                if (w1After && w2After) {
-                    processWord(w1After, w2After);
-                }
-            }
-        }
-        maybePushWordToAdditional();
-        const merged = mergeSequenceDiffs(sequenceDiffs, additional);
-        return merged;
-    }
-    function mergeSequenceDiffs(sequenceDiffs1, sequenceDiffs2) {
-        const result = [];
-        while (sequenceDiffs1.length > 0 || sequenceDiffs2.length > 0) {
-            const sd1 = sequenceDiffs1[0];
-            const sd2 = sequenceDiffs2[0];
-            let next;
-            if (sd1 && (!sd2 || sd1.seq1Range.start < sd2.seq1Range.start)) {
-                next = sequenceDiffs1.shift();
-            }
-            else {
-                next = sequenceDiffs2.shift();
-            }
-            if (result.length > 0 && result[result.length - 1].seq1Range.endExclusive >= next.seq1Range.start) {
-                result[result.length - 1] = result[result.length - 1].join(next);
-            }
-            else {
-                result.push(next);
-            }
-        }
-        return result;
-    }
-    function lineRangeMappingFromRangeMappings(alignments, originalLines, modifiedLines, dontAssertStartLine = false) {
-        const changes = [];
-        for (const g of group(alignments.map(a => getLineRangeMapping(a, originalLines, modifiedLines)), (a1, a2) => a1.originalRange.overlapOrTouch(a2.originalRange)
-            || a1.modifiedRange.overlapOrTouch(a2.modifiedRange))) {
-            const first = g[0];
-            const last = g[g.length - 1];
-            changes.push(new linesDiffComputer_1.LineRangeMapping(first.originalRange.join(last.originalRange), first.modifiedRange.join(last.modifiedRange), g.map(a => a.innerChanges[0])));
-        }
-        (0, assert_1.assertFn)(() => {
-            if (!dontAssertStartLine) {
-                if (changes.length > 0 && changes[0].originalRange.startLineNumber !== changes[0].modifiedRange.startLineNumber) {
-                    return false;
-                }
-            }
-            return (0, assert_1.checkAdjacentItems)(changes, (m1, m2) => m2.originalRange.startLineNumber - m1.originalRange.endLineNumberExclusive === m2.modifiedRange.startLineNumber - m1.modifiedRange.endLineNumberExclusive &&
-                // There has to be an unchanged line in between (otherwise both diffs should have been joined)
-                m1.originalRange.endLineNumberExclusive < m2.originalRange.startLineNumber &&
-                m1.modifiedRange.endLineNumberExclusive < m2.modifiedRange.startLineNumber);
-        });
-        return changes;
-    }
-    exports.lineRangeMappingFromRangeMappings = lineRangeMappingFromRangeMappings;
-    function getLineRangeMapping(rangeMapping, originalLines, modifiedLines) {
-        let lineStartDelta = 0;
-        let lineEndDelta = 0;
-        // rangeMapping describes the edit that replaces `rangeMapping.originalRange` with `newText := getText(modifiedLines, rangeMapping.modifiedRange)`.
-        // original: ]xxx \n <- this line is not modified
-        // modified: ]xx  \n
-        if (rangeMapping.modifiedRange.endColumn === 1 && rangeMapping.originalRange.endColumn === 1
-            && rangeMapping.originalRange.startLineNumber + lineStartDelta <= rangeMapping.originalRange.endLineNumber
-            && rangeMapping.modifiedRange.startLineNumber + lineStartDelta <= rangeMapping.modifiedRange.endLineNumber) {
-            // We can only do this if the range is not empty yet
-            lineEndDelta = -1;
-        }
-        // original: xxx[ \n <- this line is not modified
-        // modified: xxx[ \n
-        if (rangeMapping.modifiedRange.startColumn - 1 >= modifiedLines[rangeMapping.modifiedRange.startLineNumber - 1].length
-            && rangeMapping.originalRange.startColumn - 1 >= originalLines[rangeMapping.originalRange.startLineNumber - 1].length
-            && rangeMapping.originalRange.startLineNumber <= rangeMapping.originalRange.endLineNumber + lineEndDelta
-            && rangeMapping.modifiedRange.startLineNumber <= rangeMapping.modifiedRange.endLineNumber + lineEndDelta) {
-            // We can only do this if the range is not empty yet
-            lineStartDelta = 1;
-        }
-        const originalLineRange = new lineRange_1.LineRange(rangeMapping.originalRange.startLineNumber + lineStartDelta, rangeMapping.originalRange.endLineNumber + 1 + lineEndDelta);
-        const modifiedLineRange = new lineRange_1.LineRange(rangeMapping.modifiedRange.startLineNumber + lineStartDelta, rangeMapping.modifiedRange.endLineNumber + 1 + lineEndDelta);
-        return new linesDiffComputer_1.LineRangeMapping(originalLineRange, modifiedLineRange, [rangeMapping]);
-    }
-    exports.getLineRangeMapping = getLineRangeMapping;
-    function* group(items, shouldBeGrouped) {
-        let currentGroup;
-        let last;
-        for (const item of items) {
-            if (last !== undefined && shouldBeGrouped(last, item)) {
-                currentGroup.push(item);
-            }
-            else {
-                if (currentGroup) {
-                    yield currentGroup;
-                }
-                currentGroup = [item];
-            }
-            last = item;
-        }
-        if (currentGroup) {
-            yield currentGroup;
-        }
-    }
-    class LineSequence {
-        constructor(trimmedHash, lines) {
-            this.trimmedHash = trimmedHash;
-            this.lines = lines;
-        }
-        getElement(offset) {
-            return this.trimmedHash[offset];
-        }
-        get length() {
-            return this.trimmedHash.length;
-        }
-        getBoundaryScore(length) {
-            const indentationBefore = length === 0 ? 0 : getIndentation(this.lines[length - 1]);
-            const indentationAfter = length === this.lines.length ? 0 : getIndentation(this.lines[length]);
-            return 1000 - (indentationBefore + indentationAfter);
-        }
-    }
-    exports.LineSequence = LineSequence;
-    function getIndentation(str) {
-        let i = 0;
-        while (i < str.length && (str.charCodeAt(i) === 32 /* CharCode.Space */ || str.charCodeAt(i) === 9 /* CharCode.Tab */)) {
-            i++;
-        }
-        return i;
-    }
-    class LinesSliceCharSequence {
-        constructor(lines, lineRange, considerWhitespaceChanges) {
-            // This slice has to have lineRange.length many \n! (otherwise diffing against an empty slice will be problematic)
-            // (Unless it covers the entire document, in that case the other slice also has to cover the entire document ands it's okay)
-            this.lines = lines;
-            this.considerWhitespaceChanges = considerWhitespaceChanges;
-            this.elements = [];
-            this.firstCharOffsetByLineMinusOne = [];
-            // To account for trimming
-            this.offsetByLine = [];
-            // If the slice covers the end, but does not start at the beginning, we include just the \n of the previous line.
-            let trimFirstLineFully = false;
-            if (lineRange.start > 0 && lineRange.endExclusive >= lines.length) {
-                lineRange = new offsetRange_1.OffsetRange(lineRange.start - 1, lineRange.endExclusive);
-                trimFirstLineFully = true;
-            }
-            this.lineRange = lineRange;
-            for (let i = this.lineRange.start; i < this.lineRange.endExclusive; i++) {
-                let line = lines[i];
-                let offset = 0;
-                if (trimFirstLineFully) {
-                    offset = line.length;
-                    line = '';
-                    trimFirstLineFully = false;
-                }
-                else if (!considerWhitespaceChanges) {
-                    const trimmedStartLine = line.trimStart();
-                    offset = line.length - trimmedStartLine.length;
-                    line = trimmedStartLine.trimEnd();
-                }
-                this.offsetByLine.push(offset);
-                for (let i = 0; i < line.length; i++) {
-                    this.elements.push(line.charCodeAt(i));
-                }
-                // Don't add an \n that does not exist in the document.
-                if (i < lines.length - 1) {
-                    this.elements.push('\n'.charCodeAt(0));
-                    this.firstCharOffsetByLineMinusOne[i - this.lineRange.start] = this.elements.length;
-                }
-            }
-            // To account for the last line
-            this.offsetByLine.push(0);
-        }
-        toString() {
-            return `Slice: "${this.text}"`;
-        }
-        get text() {
-            return this.getText(new offsetRange_1.OffsetRange(0, this.length));
-        }
-        getText(range) {
-            return this.elements.slice(range.start, range.endExclusive).map(e => String.fromCharCode(e)).join('');
-        }
-        getElement(offset) {
-            return this.elements[offset];
-        }
-        get length() {
-            return this.elements.length;
-        }
-        getBoundaryScore(length) {
-            //   a   b   c   ,           d   e   f
-            // 11  0   0   12  15  6   13  0   0   11
-            const prevCategory = getCategory(length > 0 ? this.elements[length - 1] : -1);
-            const nextCategory = getCategory(length < this.elements.length ? this.elements[length] : -1);
-            if (prevCategory === 6 /* CharBoundaryCategory.LineBreakCR */ && nextCategory === 7 /* CharBoundaryCategory.LineBreakLF */) {
-                // don't break between \r and \n
-                return 0;
-            }
-            let score = 0;
-            if (prevCategory !== nextCategory) {
-                score += 10;
-                if (nextCategory === 1 /* CharBoundaryCategory.WordUpper */) {
-                    score += 1;
-                }
-            }
-            score += getCategoryBoundaryScore(prevCategory);
-            score += getCategoryBoundaryScore(nextCategory);
-            return score;
-        }
-        translateOffset(offset) {
-            // find smallest i, so that lineBreakOffsets[i] <= offset using binary search
-            if (this.lineRange.isEmpty) {
-                return new position_1.Position(this.lineRange.start + 1, 1);
-            }
-            let i = 0;
-            let j = this.firstCharOffsetByLineMinusOne.length;
-            while (i < j) {
-                const k = Math.floor((i + j) / 2);
-                if (this.firstCharOffsetByLineMinusOne[k] > offset) {
-                    j = k;
-                }
-                else {
-                    i = k + 1;
-                }
-            }
-            const offsetOfFirstCharInLine = i === 0 ? 0 : this.firstCharOffsetByLineMinusOne[i - 1];
-            return new position_1.Position(this.lineRange.start + i + 1, offset - offsetOfFirstCharInLine + 1 + this.offsetByLine[i]);
-        }
-        translateRange(range) {
-            return range_1.Range.fromPositions(this.translateOffset(range.start), this.translateOffset(range.endExclusive));
-        }
-        /**
-         * Finds the word that contains the character at the given offset
-         */
-        findWordContaining(offset) {
-            if (offset < 0 || offset >= this.elements.length) {
-                return undefined;
-            }
-            if (!isWordChar(this.elements[offset])) {
-                return undefined;
-            }
-            // find start
-            let start = offset;
-            while (start > 0 && isWordChar(this.elements[start - 1])) {
-                start--;
-            }
-            // find end
-            let end = offset;
-            while (end < this.elements.length && isWordChar(this.elements[end])) {
-                end++;
-            }
-            return new offsetRange_1.OffsetRange(start, end);
-        }
-        countLinesIn(range) {
-            return this.translateOffset(range.endExclusive).lineNumber - this.translateOffset(range.start).lineNumber;
-        }
-    }
-    exports.LinesSliceCharSequence = LinesSliceCharSequence;
-    function isWordChar(charCode) {
-        return charCode >= 97 /* CharCode.a */ && charCode <= 122 /* CharCode.z */
-            || charCode >= 65 /* CharCode.A */ && charCode <= 90 /* CharCode.Z */
-            || charCode >= 48 /* CharCode.Digit0 */ && charCode <= 57 /* CharCode.Digit9 */;
-    }
-    const score = {
-        [0 /* CharBoundaryCategory.WordLower */]: 0,
-        [1 /* CharBoundaryCategory.WordUpper */]: 0,
-        [2 /* CharBoundaryCategory.WordNumber */]: 0,
-        [3 /* CharBoundaryCategory.End */]: 10,
-        [4 /* CharBoundaryCategory.Other */]: 2,
-        [5 /* CharBoundaryCategory.Space */]: 3,
-        [6 /* CharBoundaryCategory.LineBreakCR */]: 10,
-        [7 /* CharBoundaryCategory.LineBreakLF */]: 10,
-    };
-    function getCategoryBoundaryScore(category) {
-        return score[category];
-    }
-    function getCategory(charCode) {
-        if (charCode === 10 /* CharCode.LineFeed */) {
-            return 7 /* CharBoundaryCategory.LineBreakLF */;
-        }
-        else if (charCode === 13 /* CharCode.CarriageReturn */) {
-            return 6 /* CharBoundaryCategory.LineBreakCR */;
-        }
-        else if (isSpace(charCode)) {
-            return 5 /* CharBoundaryCategory.Space */;
-        }
-        else if (charCode >= 97 /* CharCode.a */ && charCode <= 122 /* CharCode.z */) {
-            return 0 /* CharBoundaryCategory.WordLower */;
-        }
-        else if (charCode >= 65 /* CharCode.A */ && charCode <= 90 /* CharCode.Z */) {
-            return 1 /* CharBoundaryCategory.WordUpper */;
-        }
-        else if (charCode >= 48 /* CharCode.Digit0 */ && charCode <= 57 /* CharCode.Digit9 */) {
-            return 2 /* CharBoundaryCategory.WordNumber */;
-        }
-        else if (charCode === -1) {
-            return 3 /* CharBoundaryCategory.End */;
-        }
-        else {
-            return 4 /* CharBoundaryCategory.Other */;
-        }
-    }
-    function isSpace(charCode) {
-        return charCode === 32 /* CharCode.Space */ || charCode === 9 /* CharCode.Tab */;
-    }
-    const chrKeys = new Map();
-    function getKey(chr) {
-        let key = chrKeys.get(chr);
-        if (key === undefined) {
-            key = chrKeys.size;
-            chrKeys.set(chr, key);
-        }
-        return key;
-    }
-    class LineRangeFragment {
-        constructor(range, lines) {
-            this.range = range;
-            this.lines = lines;
-            this.histogram = [];
-            let counter = 0;
-            for (let i = range.startLineNumber - 1; i < range.endLineNumberExclusive - 1; i++) {
-                const line = lines[i];
-                for (let j = 0; j < line.length; j++) {
-                    counter++;
-                    const chr = line[j];
-                    const key = getKey(chr);
-                    this.histogram[key] = (this.histogram[key] || 0) + 1;
-                }
-                counter++;
-                const key = getKey('\n');
-                this.histogram[key] = (this.histogram[key] || 0) + 1;
-            }
-            this.totalCount = counter;
-        }
-        computeSimilarity(other) {
-            var _a, _b;
-            let sumDifferences = 0;
-            const maxLength = Math.max(this.histogram.length, other.histogram.length);
-            for (let i = 0; i < maxLength; i++) {
-                sumDifferences += Math.abs(((_a = this.histogram[i]) !== null && _a !== void 0 ? _a : 0) - ((_b = other.histogram[i]) !== null && _b !== void 0 ? _b : 0));
-            }
-            return 1 - (sumDifferences / (this.totalCount + other.totalCount));
-        }
-    }
-});
-
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-define(__m[43/*vs/editor/common/diff/linesDiffComputers*/], __M([0/*require*/,1/*exports*/,41/*vs/editor/common/diff/smartLinesDiffComputer*/,42/*vs/editor/common/diff/standardLinesDiffComputer*/]), function (require, exports, smartLinesDiffComputer_1, standardLinesDiffComputer_1) {
+define(__m[44/*vs/editor/common/diff/linesDiffComputers*/], __M([0/*require*/,1/*exports*/,43/*vs/editor/common/diff/legacyLinesDiffComputer*/,42/*vs/editor/common/diff/advancedLinesDiffComputer*/]), function (require, exports, legacyLinesDiffComputer_1, advancedLinesDiffComputer_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.linesDiffComputers = void 0;
     exports.linesDiffComputers = {
-        getLegacy: () => new smartLinesDiffComputer_1.SmartLinesDiffComputer(),
-        getAdvanced: () => new standardLinesDiffComputer_1.StandardLinesDiffComputer(),
+        getLegacy: () => new legacyLinesDiffComputer_1.LegacyLinesDiffComputer(),
+        getAdvanced: () => new advancedLinesDiffComputer_1.AdvancedLinesDiffComputer(),
     };
 });
 
-define(__m[44/*vs/editor/common/languages/defaultDocumentColorsComputer*/], __M([0/*require*/,1/*exports*/,28/*vs/base/common/color*/]), function (require, exports, color_1) {
+define(__m[45/*vs/editor/common/languages/defaultDocumentColorsComputer*/], __M([0/*require*/,1/*exports*/,29/*vs/base/common/color*/]), function (require, exports, color_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.computeDefaultDocumentColors = void 0;
@@ -12006,7 +12557,7 @@ define(__m[44/*vs/editor/common/languages/defaultDocumentColorsComputer*/], __M(
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[45/*vs/editor/common/languages/linkComputer*/], __M([0/*require*/,1/*exports*/,23/*vs/editor/common/core/characterClassifier*/]), function (require, exports, characterClassifier_1) {
+define(__m[46/*vs/editor/common/languages/linkComputer*/], __M([0/*require*/,1/*exports*/,24/*vs/editor/common/core/characterClassifier*/]), function (require, exports, characterClassifier_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.computeLinks = exports.LinkComputer = exports.StateMachine = void 0;
@@ -12284,7 +12835,7 @@ define(__m[45/*vs/editor/common/languages/linkComputer*/], __M([0/*require*/,1/*
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[46/*vs/editor/common/languages/supports/inplaceReplaceSupport*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[47/*vs/editor/common/languages/supports/inplaceReplaceSupport*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.BasicInplaceReplace = void 0;
@@ -12376,7 +12927,7 @@ define(__m[46/*vs/editor/common/languages/supports/inplaceReplaceSupport*/], __M
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[47/*vs/editor/common/model*/], __M([0/*require*/,1/*exports*/,11/*vs/base/common/objects*/]), function (require, exports, objects_1) {
+define(__m[48/*vs/editor/common/model*/], __M([0/*require*/,1/*exports*/,11/*vs/base/common/objects*/]), function (require, exports, objects_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.shouldSynchronizeModel = exports.ApplyEditsResult = exports.SearchData = exports.ValidAnnotatedEditOperation = exports.isITextSnapshot = exports.FindMatch = exports.TextModelResolvedOptions = exports.InjectedTextCursorStops = exports.MinimapPosition = exports.GlyphMarginLane = exports.OverviewRulerLane = void 0;
@@ -12528,7 +13079,7 @@ define(__m[47/*vs/editor/common/model*/], __M([0/*require*/,1/*exports*/,11/*vs/
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[48/*vs/editor/common/model/prefixSumComputer*/], __M([0/*require*/,1/*exports*/,26/*vs/base/common/arrays*/,22/*vs/base/common/uint*/]), function (require, exports, arrays_1, uint_1) {
+define(__m[49/*vs/editor/common/model/prefixSumComputer*/], __M([0/*require*/,1/*exports*/,16/*vs/base/common/arrays*/,23/*vs/base/common/uint*/]), function (require, exports, arrays_1, uint_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.PrefixSumIndexOfResult = exports.ConstantTimePrefixSumComputer = exports.PrefixSumComputer = void 0;
@@ -12758,7 +13309,7 @@ define(__m[48/*vs/editor/common/model/prefixSumComputer*/], __M([0/*require*/,1/
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[49/*vs/editor/common/model/mirrorTextModel*/], __M([0/*require*/,1/*exports*/,5/*vs/base/common/strings*/,3/*vs/editor/common/core/position*/,48/*vs/editor/common/model/prefixSumComputer*/]), function (require, exports, strings_1, position_1, prefixSumComputer_1) {
+define(__m[50/*vs/editor/common/model/mirrorTextModel*/], __M([0/*require*/,1/*exports*/,5/*vs/base/common/strings*/,4/*vs/editor/common/core/position*/,49/*vs/editor/common/model/prefixSumComputer*/]), function (require, exports, strings_1, position_1, prefixSumComputer_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.MirrorTextModel = void 0;
@@ -12876,7 +13427,7 @@ define(__m[49/*vs/editor/common/model/mirrorTextModel*/], __M([0/*require*/,1/*e
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[50/*vs/editor/common/model/textModelSearch*/], __M([0/*require*/,1/*exports*/,5/*vs/base/common/strings*/,36/*vs/editor/common/core/wordCharacterClassifier*/,3/*vs/editor/common/core/position*/,2/*vs/editor/common/core/range*/,47/*vs/editor/common/model*/]), function (require, exports, strings, wordCharacterClassifier_1, position_1, range_1, model_1) {
+define(__m[51/*vs/editor/common/model/textModelSearch*/], __M([0/*require*/,1/*exports*/,5/*vs/base/common/strings*/,37/*vs/editor/common/core/wordCharacterClassifier*/,4/*vs/editor/common/core/position*/,2/*vs/editor/common/core/range*/,48/*vs/editor/common/model*/]), function (require, exports, strings, wordCharacterClassifier_1, position_1, range_1, model_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Searcher = exports.isValidMatch = exports.TextModelSearch = exports.createFindMatch = exports.isMultilineRegexSource = exports.SearchParams = void 0;
@@ -13335,7 +13886,7 @@ define(__m[50/*vs/editor/common/model/textModelSearch*/], __M([0/*require*/,1/*e
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[51/*vs/editor/common/services/unicodeTextModelHighlighter*/], __M([0/*require*/,1/*exports*/,2/*vs/editor/common/core/range*/,50/*vs/editor/common/model/textModelSearch*/,5/*vs/base/common/strings*/,9/*vs/base/common/assert*/,24/*vs/editor/common/core/wordHelper*/]), function (require, exports, range_1, textModelSearch_1, strings, assert_1, wordHelper_1) {
+define(__m[52/*vs/editor/common/services/unicodeTextModelHighlighter*/], __M([0/*require*/,1/*exports*/,2/*vs/editor/common/core/range*/,51/*vs/editor/common/model/textModelSearch*/,5/*vs/base/common/strings*/,9/*vs/base/common/assert*/,25/*vs/editor/common/core/wordHelper*/]), function (require, exports, range_1, textModelSearch_1, strings, assert_1, wordHelper_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.UnicodeTextModelHighlighter = void 0;
@@ -13522,7 +14073,7 @@ define(__m[51/*vs/editor/common/services/unicodeTextModelHighlighter*/], __M([0/
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[52/*vs/editor/common/standalone/standaloneEnums*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
+define(__m[53/*vs/editor/common/standalone/standaloneEnums*/], __M([0/*require*/,1/*exports*/]), function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.WrappingIndent = exports.TrackedRangeStickiness = exports.TextEditorCursorStyle = exports.TextEditorCursorBlinkingStyle = exports.SymbolTag = exports.SymbolKind = exports.SignatureHelpTriggerKind = exports.SelectionDirection = exports.ScrollbarVisibility = exports.ScrollType = exports.RenderMinimap = exports.RenderLineNumbersType = exports.PositionAffinity = exports.OverviewRulerLane = exports.OverlayWidgetPositionPreference = exports.MouseTargetType = exports.MinimapPosition = exports.MarkerTag = exports.MarkerSeverity = exports.KeyCode = exports.InlineCompletionTriggerKind = exports.InlayHintKind = exports.InjectedTextCursorStops = exports.IndentAction = exports.GlyphMarginLane = exports.EndOfLineSequence = exports.EndOfLinePreference = exports.EditorOption = exports.EditorAutoIndentStrategy = exports.DocumentHighlightKind = exports.DefaultEndOfLine = exports.CursorChangeReason = exports.ContentWidgetPositionPreference = exports.CompletionTriggerKind = exports.CompletionItemTag = exports.CompletionItemKind = exports.CompletionItemInsertTextRule = exports.CodeActionTriggerType = exports.AccessibilitySupport = void 0;
@@ -13841,6 +14392,7 @@ define(__m[52/*vs/editor/common/standalone/standaloneEnums*/], __M([0/*require*/
         EditorOption[EditorOption["wrappingInfo"] = 143] = "wrappingInfo";
         EditorOption[EditorOption["defaultColorDecorators"] = 144] = "defaultColorDecorators";
         EditorOption[EditorOption["colorDecoratorsActivatedOn"] = 145] = "colorDecoratorsActivatedOn";
+        EditorOption[EditorOption["inlineCompletionsAccessibilityVerbose"] = 146] = "inlineCompletionsAccessibilityVerbose";
     })(EditorOption || (exports.EditorOption = EditorOption = {}));
     /**
      * End of line character preference.
@@ -14461,7 +15013,7 @@ define(__m[52/*vs/editor/common/standalone/standaloneEnums*/], __M([0/*require*/
 
 
 
-define(__m[53/*vs/editor/common/tokenizationRegistry*/], __M([0/*require*/,1/*exports*/,7/*vs/base/common/event*/,10/*vs/base/common/lifecycle*/]), function (require, exports, event_1, lifecycle_1) {
+define(__m[54/*vs/editor/common/tokenizationRegistry*/], __M([0/*require*/,1/*exports*/,7/*vs/base/common/event*/,10/*vs/base/common/lifecycle*/]), function (require, exports, event_1, lifecycle_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.TokenizationRegistry = void 0;
@@ -14589,8 +15141,8 @@ define(__m[53/*vs/editor/common/tokenizationRegistry*/], __M([0/*require*/,1/*ex
     }
 });
 
-define(__m[54/*vs/nls!vs/base/common/platform*/], __M([15/*vs/nls*/,55/*vs/nls!vs/base/common/worker/simpleWorker*/]), function(nls, data) { return nls.create("vs/base/common/platform", data); });
-define(__m[13/*vs/base/common/platform*/], __M([0/*require*/,1/*exports*/,54/*vs/nls!vs/base/common/platform*/]), function (require, exports, nls) {
+define(__m[55/*vs/nls!vs/base/common/platform*/], __M([15/*vs/nls*/,56/*vs/nls!vs/base/common/worker/simpleWorker*/]), function(nls, data) { return nls.create("vs/base/common/platform", data); });
+define(__m[13/*vs/base/common/platform*/], __M([0/*require*/,1/*exports*/,55/*vs/nls!vs/base/common/platform*/]), function (require, exports, nls) {
     "use strict";
     var _a;
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -14760,7 +15312,7 @@ define(__m[13/*vs/base/common/platform*/], __M([0/*require*/,1/*exports*/,54/*vs
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[56/*vs/base/common/process*/], __M([0/*require*/,1/*exports*/,13/*vs/base/common/platform*/]), function (require, exports, platform_1) {
+define(__m[57/*vs/base/common/process*/], __M([0/*require*/,1/*exports*/,13/*vs/base/common/platform*/]), function (require, exports, platform_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.platform = exports.env = exports.cwd = void 0;
@@ -14822,7 +15374,7 @@ define(__m[56/*vs/base/common/process*/], __M([0/*require*/,1/*exports*/,13/*vs/
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[57/*vs/base/common/path*/], __M([0/*require*/,1/*exports*/,56/*vs/base/common/process*/]), function (require, exports, process) {
+define(__m[58/*vs/base/common/path*/], __M([0/*require*/,1/*exports*/,57/*vs/base/common/process*/]), function (require, exports, process) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.sep = exports.extname = exports.basename = exports.dirname = exports.relative = exports.resolve = exports.normalize = exports.posix = exports.win32 = void 0;
@@ -16196,7 +16748,7 @@ define(__m[57/*vs/base/common/path*/], __M([0/*require*/,1/*exports*/,56/*vs/bas
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[14/*vs/base/common/uri*/], __M([0/*require*/,1/*exports*/,57/*vs/base/common/path*/,13/*vs/base/common/platform*/]), function (require, exports, paths, platform_1) {
+define(__m[14/*vs/base/common/uri*/], __M([0/*require*/,1/*exports*/,58/*vs/base/common/path*/,13/*vs/base/common/platform*/]), function (require, exports, paths, platform_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.uriToFsPath = exports.URI = void 0;
@@ -16805,7 +17357,7 @@ define(__m[14/*vs/base/common/uri*/], __M([0/*require*/,1/*exports*/,57/*vs/base
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[61/*vs/base/common/worker/simpleWorker*/], __M([0/*require*/,1/*exports*/,4/*vs/base/common/errors*/,7/*vs/base/common/event*/,10/*vs/base/common/lifecycle*/,11/*vs/base/common/objects*/,13/*vs/base/common/platform*/,5/*vs/base/common/strings*/]), function (require, exports, errors_1, event_1, lifecycle_1, objects_1, platform_1, strings) {
+define(__m[62/*vs/base/common/worker/simpleWorker*/], __M([0/*require*/,1/*exports*/,3/*vs/base/common/errors*/,7/*vs/base/common/event*/,10/*vs/base/common/lifecycle*/,11/*vs/base/common/objects*/,13/*vs/base/common/platform*/,5/*vs/base/common/strings*/]), function (require, exports, errors_1, event_1, lifecycle_1, objects_1, platform_1, strings) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.create = exports.SimpleWorkerServer = exports.SimpleWorkerClient = exports.logOnceWebWorkerWarning = void 0;
@@ -17246,8 +17798,8 @@ define(__m[61/*vs/base/common/worker/simpleWorker*/], __M([0/*require*/,1/*expor
     exports.create = create;
 });
 
-define(__m[58/*vs/nls!vs/editor/common/languages*/], __M([15/*vs/nls*/,55/*vs/nls!vs/base/common/worker/simpleWorker*/]), function(nls, data) { return nls.create("vs/editor/common/languages", data); });
-define(__m[59/*vs/editor/common/languages*/], __M([0/*require*/,1/*exports*/,34/*vs/base/common/codicons*/,14/*vs/base/common/uri*/,2/*vs/editor/common/core/range*/,53/*vs/editor/common/tokenizationRegistry*/,58/*vs/nls!vs/editor/common/languages*/]), function (require, exports, codicons_1, uri_1, range_1, tokenizationRegistry_1, nls_1) {
+define(__m[59/*vs/nls!vs/editor/common/languages*/], __M([15/*vs/nls*/,56/*vs/nls!vs/base/common/worker/simpleWorker*/]), function(nls, data) { return nls.create("vs/editor/common/languages", data); });
+define(__m[60/*vs/editor/common/languages*/], __M([0/*require*/,1/*exports*/,35/*vs/base/common/codicons*/,14/*vs/base/common/uri*/,2/*vs/editor/common/core/range*/,54/*vs/editor/common/tokenizationRegistry*/,59/*vs/nls!vs/editor/common/languages*/]), function (require, exports, codicons_1, uri_1, range_1, tokenizationRegistry_1, nls_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.TokenizationRegistry = exports.LazyTokenizationSupport = exports.InlayHintKind = exports.Command = exports.FoldingRangeKind = exports.TextEdit = exports.SymbolKinds = exports.getAriaLabelForSymbol = exports.symbolKindNames = exports.isLocationLink = exports.DocumentHighlightKind = exports.SignatureHelpTriggerKind = exports.SelectedSuggestionInfo = exports.InlineCompletionTriggerKind = exports.CompletionItemKinds = exports.EncodedTokenizationResult = exports.TokenizationResult = exports.Token = void 0;
@@ -17628,7 +18180,7 @@ define(__m[59/*vs/editor/common/languages*/], __M([0/*require*/,1/*exports*/,34/
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-define(__m[60/*vs/editor/common/services/editorBaseApi*/], __M([0/*require*/,1/*exports*/,32/*vs/base/common/cancellation*/,7/*vs/base/common/event*/,30/*vs/base/common/keyCodes*/,14/*vs/base/common/uri*/,3/*vs/editor/common/core/position*/,2/*vs/editor/common/core/range*/,35/*vs/editor/common/core/selection*/,59/*vs/editor/common/languages*/,52/*vs/editor/common/standalone/standaloneEnums*/]), function (require, exports, cancellation_1, event_1, keyCodes_1, uri_1, position_1, range_1, selection_1, languages_1, standaloneEnums) {
+define(__m[61/*vs/editor/common/services/editorBaseApi*/], __M([0/*require*/,1/*exports*/,33/*vs/base/common/cancellation*/,7/*vs/base/common/event*/,31/*vs/base/common/keyCodes*/,14/*vs/base/common/uri*/,4/*vs/editor/common/core/position*/,2/*vs/editor/common/core/range*/,36/*vs/editor/common/core/selection*/,60/*vs/editor/common/languages*/,53/*vs/editor/common/standalone/standaloneEnums*/]), function (require, exports, cancellation_1, event_1, keyCodes_1, uri_1, position_1, range_1, selection_1, languages_1, standaloneEnums) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.createMonacoBaseAPI = exports.KeyMod = void 0;
@@ -17676,7 +18228,7 @@ define(__m[60/*vs/editor/common/services/editorBaseApi*/], __M([0/*require*/,1/*
 
 
 
-define(__m[62/*vs/editor/common/services/editorSimpleWorker*/], __M([0/*require*/,1/*exports*/,20/*vs/base/common/diff/diff*/,14/*vs/base/common/uri*/,3/*vs/editor/common/core/position*/,2/*vs/editor/common/core/range*/,49/*vs/editor/common/model/mirrorTextModel*/,24/*vs/editor/common/core/wordHelper*/,45/*vs/editor/common/languages/linkComputer*/,46/*vs/editor/common/languages/supports/inplaceReplaceSupport*/,60/*vs/editor/common/services/editorBaseApi*/,19/*vs/base/common/stopwatch*/,51/*vs/editor/common/services/unicodeTextModelHighlighter*/,43/*vs/editor/common/diff/linesDiffComputers*/,11/*vs/base/common/objects*/,44/*vs/editor/common/languages/defaultDocumentColorsComputer*/]), function (require, exports, diff_1, uri_1, position_1, range_1, mirrorTextModel_1, wordHelper_1, linkComputer_1, inplaceReplaceSupport_1, editorBaseApi_1, stopwatch_1, unicodeTextModelHighlighter_1, linesDiffComputers_1, objects_1, defaultDocumentColorsComputer_1) {
+define(__m[63/*vs/editor/common/services/editorSimpleWorker*/], __M([0/*require*/,1/*exports*/,21/*vs/base/common/diff/diff*/,14/*vs/base/common/uri*/,4/*vs/editor/common/core/position*/,2/*vs/editor/common/core/range*/,50/*vs/editor/common/model/mirrorTextModel*/,25/*vs/editor/common/core/wordHelper*/,46/*vs/editor/common/languages/linkComputer*/,47/*vs/editor/common/languages/supports/inplaceReplaceSupport*/,61/*vs/editor/common/services/editorBaseApi*/,20/*vs/base/common/stopwatch*/,52/*vs/editor/common/services/unicodeTextModelHighlighter*/,44/*vs/editor/common/diff/linesDiffComputers*/,11/*vs/base/common/objects*/,45/*vs/editor/common/languages/defaultDocumentColorsComputer*/]), function (require, exports, diff_1, uri_1, position_1, range_1, mirrorTextModel_1, wordHelper_1, linkComputer_1, inplaceReplaceSupport_1, editorBaseApi_1, stopwatch_1, unicodeTextModelHighlighter_1, linesDiffComputers_1, objects_1, defaultDocumentColorsComputer_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.create = exports.EditorSimpleWorker = void 0;

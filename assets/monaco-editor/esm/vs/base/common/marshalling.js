@@ -3,7 +3,6 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { VSBuffer } from './buffer.js';
-import { regExpFlags } from './strings.js';
 import { URI } from './uri.js';
 export function stringify(obj) {
     return JSON.stringify(obj, replacer);
@@ -19,7 +18,7 @@ function replacer(key, value) {
         return {
             $mid: 2 /* MarshalledId.Regexp */,
             source: value.source,
-            flags: regExpFlags(value),
+            flags: value.flags,
         };
     }
     return value;
