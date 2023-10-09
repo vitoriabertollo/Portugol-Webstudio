@@ -64,7 +64,7 @@ let LightBulbWidget = LightBulbWidget_1 = class LightBulbWidget extends Disposab
             // a bit of extra work to make sure the menu
             // doesn't cover the line-text
             const { top, height } = dom.getDomNodePagePosition(this._domNode);
-            const lineHeight = this._editor.getOption(65 /* EditorOption.lineHeight */);
+            const lineHeight = this._editor.getOption(66 /* EditorOption.lineHeight */);
             let pad = Math.floor(lineHeight / 3);
             if (this.state.widgetPosition.position !== null && this.state.widgetPosition.position.lineNumber < this.state.editorPosition.lineNumber) {
                 pad += lineHeight;
@@ -86,7 +86,7 @@ let LightBulbWidget = LightBulbWidget_1 = class LightBulbWidget extends Disposab
         }));
         this._register(this._editor.onDidChangeConfiguration(e => {
             // hide when told to do so
-            if (e.hasChanged(63 /* EditorOption.lightbulb */) && !this._editor.getOption(63 /* EditorOption.lightbulb */).enabled) {
+            if (e.hasChanged(64 /* EditorOption.lightbulb */) && !this._editor.getOption(64 /* EditorOption.lightbulb */).enabled) {
                 this.hide();
             }
         }));
@@ -115,7 +115,7 @@ let LightBulbWidget = LightBulbWidget_1 = class LightBulbWidget extends Disposab
             return this.hide();
         }
         const options = this._editor.getOptions();
-        if (!options.get(63 /* EditorOption.lightbulb */).enabled) {
+        if (!options.get(64 /* EditorOption.lightbulb */).enabled) {
             return this.hide();
         }
         const model = this._editor.getModel();
@@ -124,7 +124,7 @@ let LightBulbWidget = LightBulbWidget_1 = class LightBulbWidget extends Disposab
         }
         const { lineNumber, column } = model.validatePosition(atPosition);
         const tabSize = model.getOptions().tabSize;
-        const fontInfo = options.get(49 /* EditorOption.fontInfo */);
+        const fontInfo = options.get(50 /* EditorOption.fontInfo */);
         const lineContent = model.getLineContent(lineNumber);
         const indent = computeIndentLevel(lineContent, tabSize);
         const lineHasSpace = fontInfo.spaceWidth * indent > 22;

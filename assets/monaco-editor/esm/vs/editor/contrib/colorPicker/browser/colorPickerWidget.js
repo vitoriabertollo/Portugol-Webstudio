@@ -180,7 +180,7 @@ class SaturationBox extends Disposable {
             this.onDidChangePosition(e.offsetX, e.offsetY);
         }
         this.monitor.startMonitoring(e.target, e.pointerId, e.buttons, event => this.onDidChangePosition(event.pageX - origin.left, event.pageY - origin.top), () => null);
-        const pointerUpListener = dom.addDisposableListener(document, dom.EventType.POINTER_UP, () => {
+        const pointerUpListener = dom.addDisposableListener(e.target.ownerDocument, dom.EventType.POINTER_UP, () => {
             this._onColorFlushed.fire();
             pointerUpListener.dispose();
             if (this.monitor) {
@@ -278,7 +278,7 @@ class Strip extends Disposable {
             this.onDidChangeTop(e.offsetY);
         }
         monitor.startMonitoring(e.target, e.pointerId, e.buttons, event => this.onDidChangeTop(event.pageY - origin.top), () => null);
-        const pointerUpListener = dom.addDisposableListener(document, dom.EventType.POINTER_UP, () => {
+        const pointerUpListener = dom.addDisposableListener(e.target.ownerDocument, dom.EventType.POINTER_UP, () => {
             this._onColorFlushed.fire();
             pointerUpListener.dispose();
             monitor.stopMonitoring(true);

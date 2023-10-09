@@ -17,6 +17,7 @@ import { Registry } from '../../platform/registry/common/platform.js';
 import { ITelemetryService } from '../../platform/telemetry/common/telemetry.js';
 import { assertType } from '../../base/common/types.js';
 import { ILogService } from '../../platform/log/common/log.js';
+import { getActiveElement } from '../../base/browser/dom.js';
 export class Command {
     constructor(opts) {
         this.id = opts.id;
@@ -106,7 +107,7 @@ export class MultiCommand extends Command {
         logService.trace(`Executing Command '${this.id}' which has ${this._implementations.length} bound.`);
         for (const impl of this._implementations) {
             if (impl.when) {
-                const context = contextKeyService.getContext(document.activeElement);
+                const context = contextKeyService.getContext(getActiveElement());
                 const value = impl.when.evaluate(context);
                 if (!value) {
                     continue;

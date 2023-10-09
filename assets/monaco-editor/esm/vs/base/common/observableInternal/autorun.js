@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { assertFn } from '../assert.js';
-import { DisposableStore, toDisposable } from '../lifecycle.js';
+import { DisposableStore, markAsDisposed, toDisposable, trackDisposable } from '../lifecycle.js';
 import { getFunctionName } from './base.js';
 import { getLogger } from './logging.js';
 export function autorunOpts(options, fn) {
@@ -59,6 +59,7 @@ export class AutorunObserver {
         this.changeSummary = (_a = this.createChangeSummary) === null || _a === void 0 ? void 0 : _a.call(this);
         (_b = getLogger()) === null || _b === void 0 ? void 0 : _b.handleAutorunCreated(this);
         this._runIfNeeded();
+        trackDisposable(this);
     }
     dispose() {
         this.disposed = true;
@@ -66,6 +67,7 @@ export class AutorunObserver {
             o.removeObserver(this);
         }
         this.dependencies.clear();
+        markAsDisposed(this);
     }
     _runIfNeeded() {
         var _a, _b, _c;

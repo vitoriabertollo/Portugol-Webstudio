@@ -473,21 +473,21 @@ export class DomScrollableElement extends AbstractScrollableElement {
         options = options || {};
         options.mouseWheelSmoothScroll = false;
         const scrollable = new Scrollable({
-            forceIntegerValues: false,
+            forceIntegerValues: false, // See https://github.com/microsoft/vscode/issues/139877
             smoothScrollDuration: 0,
             scheduleAtNextAnimationFrame: (callback) => dom.scheduleAtNextAnimationFrame(callback)
         });
         super(element, options, scrollable);
         this._register(scrollable);
         this._element = element;
-        this.onScroll((e) => {
+        this._register(this.onScroll((e) => {
             if (e.scrollTopChanged) {
                 this._element.scrollTop = e.scrollTop;
             }
             if (e.scrollLeftChanged) {
                 this._element.scrollLeft = e.scrollLeft;
             }
-        });
+        }));
         this.scanDomNode();
     }
     setScrollPosition(update) {

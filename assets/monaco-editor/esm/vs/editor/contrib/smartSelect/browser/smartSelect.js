@@ -77,7 +77,7 @@ let SmartSelectController = SmartSelectController_1 = class SmartSelectControlle
             const selections = this._editor.getSelections();
             const model = this._editor.getModel();
             if (!this._state) {
-                yield provideSelectionRanges(this._languageFeaturesService.selectionRangeProvider, model, selections.map(s => s.getPosition()), this._editor.getOption(111 /* EditorOption.smartSelect */), CancellationToken.None).then(ranges => {
+                yield provideSelectionRanges(this._languageFeaturesService.selectionRangeProvider, model, selections.map(s => s.getPosition()), this._editor.getOption(112 /* EditorOption.smartSelect */), CancellationToken.None).then(ranges => {
                     var _a;
                     if (!arrays.isNonEmptyArray(ranges) || ranges.length !== selections.length) {
                         // invalid result

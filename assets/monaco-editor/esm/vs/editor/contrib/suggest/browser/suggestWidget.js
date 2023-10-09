@@ -155,10 +155,10 @@ let SuggestWidget = SuggestWidget_1 = class SuggestWidget {
         }));
         this._messageElement = dom.append(this.element.domNode, dom.$('.message'));
         this._listElement = dom.append(this.element.domNode, dom.$('.tree'));
-        const details = instantiationService.createInstance(SuggestDetailsWidget, this.editor);
+        const details = this._disposables.add(instantiationService.createInstance(SuggestDetailsWidget, this.editor));
         details.onDidClose(this.toggleDetails, this, this._disposables);
         this._details = new SuggestDetailsOverlay(details, this.editor);
-        const applyIconStyle = () => this.element.domNode.classList.toggle('no-icons', !this.editor.getOption(116 /* EditorOption.suggest */).showIcons);
+        const applyIconStyle = () => this.element.domNode.classList.toggle('no-icons', !this.editor.getOption(117 /* EditorOption.suggest */).showIcons);
         applyIconStyle();
         const renderer = instantiationService.createInstance(ItemRenderer, this.editor);
         this._disposables.add(renderer);
@@ -203,7 +203,7 @@ let SuggestWidget = SuggestWidget_1 = class SuggestWidget {
             listInactiveFocusOutline: activeContrastBorder
         }));
         this._status = instantiationService.createInstance(SuggestWidgetStatus, this.element.domNode, suggestWidgetStatusbarMenu);
-        const applyStatusBarStyle = () => this.element.domNode.classList.toggle('with-status-bar', this.editor.getOption(116 /* EditorOption.suggest */).showStatusBar);
+        const applyStatusBarStyle = () => this.element.domNode.classList.toggle('with-status-bar', this.editor.getOption(117 /* EditorOption.suggest */).showStatusBar);
         applyStatusBarStyle();
         this._disposables.add(_themeService.onDidColorThemeChange(t => this._onThemeChange(t)));
         this._onThemeChange(_themeService.getColorTheme());
@@ -213,7 +213,7 @@ let SuggestWidget = SuggestWidget_1 = class SuggestWidget {
         this._disposables.add(this._list.onDidChangeFocus(e => this._onListFocus(e)));
         this._disposables.add(this.editor.onDidChangeCursorSelection(() => this._onCursorSelectionChanged()));
         this._disposables.add(this.editor.onDidChangeConfiguration(e => {
-            if (e.hasChanged(116 /* EditorOption.suggest */)) {
+            if (e.hasChanged(117 /* EditorOption.suggest */)) {
                 applyStatusBarStyle();
                 applyIconStyle();
             }
@@ -315,10 +315,13 @@ let SuggestWidget = SuggestWidget_1 = class SuggestWidget {
                     }
                 }, 250);
                 const sub = token.onCancellationRequested(() => loading.dispose());
-                const result = yield item.resolve(token);
-                loading.dispose();
-                sub.dispose();
-                return result;
+                try {
+                    return yield item.resolve(token);
+                }
+                finally {
+                    loading.dispose();
+                    sub.dispose();
+                }
             }));
             this._currentSuggestionDetails.then(() => {
                 if (index >= this._list.length || item !== this._list.element(index)) {
@@ -663,7 +666,7 @@ let SuggestWidget = SuggestWidget_1 = class SuggestWidget {
             // happens when running tests
             return;
         }
-        const bodyBox = dom.getClientArea(document.body);
+        const bodyBox = dom.getClientArea(this.element.domNode.ownerDocument.body);
         const info = this.getLayoutInfo();
         if (!size) {
             size = info.defaultSize;
@@ -750,9 +753,9 @@ let SuggestWidget = SuggestWidget_1 = class SuggestWidget {
         }
     }
     getLayoutInfo() {
-        const fontInfo = this.editor.getOption(49 /* EditorOption.fontInfo */);
-        const itemHeight = clamp(this.editor.getOption(118 /* EditorOption.suggestLineHeight */) || fontInfo.lineHeight, 8, 1000);
-        const statusBarHeight = !this.editor.getOption(116 /* EditorOption.suggest */).showStatusBar || this._state === 2 /* State.Empty */ || this._state === 1 /* State.Loading */ ? 0 : itemHeight;
+        const fontInfo = this.editor.getOption(50 /* EditorOption.fontInfo */);
+        const itemHeight = clamp(this.editor.getOption(119 /* EditorOption.suggestLineHeight */) || fontInfo.lineHeight, 8, 1000);
+        const statusBarHeight = !this.editor.getOption(117 /* EditorOption.suggest */).showStatusBar || this._state === 2 /* State.Empty */ || this._state === 1 /* State.Loading */ ? 0 : itemHeight;
         const borderWidth = this._details.widget.borderWidth;
         const borderHeight = 2 * borderWidth;
         return {

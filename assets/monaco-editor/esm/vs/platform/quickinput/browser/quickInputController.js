@@ -87,19 +87,19 @@ export class QuickInputController extends Disposable {
         countContainer.setAttribute('aria-live', 'polite');
         const count = new CountBadge(countContainer, { countFormat: localize({ key: 'quickInput.countSelected', comment: ['This tells the user how many items are selected in a list of items to select from. The items can be anything.'] }, "{0} Selected") }, this.styles.countBadge);
         const okContainer = dom.append(headerContainer, $('.quick-input-action'));
-        const ok = new Button(okContainer, this.styles.button);
+        const ok = this._register(new Button(okContainer, this.styles.button));
         ok.label = localize('ok', "OK");
         this._register(ok.onDidClick(e => {
             this.onDidAcceptEmitter.fire();
         }));
         const customButtonContainer = dom.append(headerContainer, $('.quick-input-action'));
-        const customButton = new Button(customButtonContainer, this.styles.button);
+        const customButton = this._register(new Button(customButtonContainer, this.styles.button));
         customButton.label = localize('custom', "Custom");
         this._register(customButton.onDidClick(e => {
             this.onDidCustomEmitter.fire();
         }));
         const message = dom.append(inputContainer, $(`#${this.idPrefix}message.quick-input-message`));
-        const progressBar = new ProgressBar(container, this.styles.progressBar);
+        const progressBar = this._register(new ProgressBar(container, this.styles.progressBar));
         progressBar.getContainer().classList.add('quick-input-progress');
         const widget = dom.append(container, $('.quick-input-html-widget'));
         widget.tabIndex = -1;

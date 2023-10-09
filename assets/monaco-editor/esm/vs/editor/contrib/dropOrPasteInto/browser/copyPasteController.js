@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var CopyPasteController_1;
-import { addDisposableListener } from '../../../../base/browser/dom.js';
+import { addDisposableListener, getActiveDocument } from '../../../../base/browser/dom.js';
 import { coalesce } from '../../../../base/common/arrays.js';
 import { createCancelablePromise, raceCancellation } from '../../../../base/common/async.js';
 import { UriList, createStringDataTransferItem, matchesMimeType } from '../../../../base/common/dataTransfer.js';
@@ -73,15 +73,15 @@ let CopyPasteController = CopyPasteController_1 = class CopyPasteController exte
         this._editor.focus();
         try {
             this._pasteAsActionContext = { preferredId };
-            document.execCommand('paste');
+            getActiveDocument().execCommand('paste');
         }
         finally {
             this._pasteAsActionContext = undefined;
         }
     }
     isPasteAsEnabled() {
-        return this._editor.getOption(83 /* EditorOption.pasteAs */).enabled
-            && !this._editor.getOption(89 /* EditorOption.readOnly */);
+        return this._editor.getOption(84 /* EditorOption.pasteAs */).enabled
+            && !this._editor.getOption(90 /* EditorOption.readOnly */);
     }
     handleCopy(e) {
         var _a, _b;
@@ -102,7 +102,7 @@ let CopyPasteController = CopyPasteController_1 = class CopyPasteController exte
         if (!model || !(selections === null || selections === void 0 ? void 0 : selections.length)) {
             return;
         }
-        const enableEmptySelectionClipboard = this._editor.getOption(36 /* EditorOption.emptySelectionClipboard */);
+        const enableEmptySelectionClipboard = this._editor.getOption(37 /* EditorOption.emptySelectionClipboard */);
         let ranges = selections;
         const wasFromEmptySelection = selections.length === 1 && selections[0].isEmpty();
         if (wasFromEmptySelection) {
@@ -234,7 +234,7 @@ let CopyPasteController = CopyPasteController_1 = class CopyPasteController exte
                     return;
                 }
                 if (providerEdits.length) {
-                    const canShowWidget = editor.getOption(83 /* EditorOption.pasteAs */).showPasteSelector === 'afterPaste';
+                    const canShowWidget = editor.getOption(84 /* EditorOption.pasteAs */).showPasteSelector === 'afterPaste';
                     return this._postPasteWidgetManager.applyEditAndShowIfNeeded(selections, { activeEditIndex: 0, allEdits: providerEdits }, canShowWidget, tokenSource.token);
                 }
                 yield this.applyDefaultPasteHandler(dataTransfer, metadata, tokenSource.token);
@@ -378,8 +378,7 @@ let CopyPasteController = CopyPasteController_1 = class CopyPasteController exte
                 return undefined;
             }))), token);
             const edits = coalesce(results !== null && results !== void 0 ? results : []);
-            sortEditsByYieldTo(edits);
-            return edits;
+            return sortEditsByYieldTo(edits);
         });
     }
     applyDefaultPasteHandler(dataTransfer, metadata, token) {

@@ -151,7 +151,7 @@ let ReferencesController = ReferencesController_1 = class ReferencesController {
                     const selection = this._model.nearestReference(uri, pos);
                     if (selection) {
                         return this._widget.setSelection(selection).then(() => {
-                            if (this._widget && this._editor.getOption(85 /* EditorOption.peekWidgetDefaultFocus */) === 'editor') {
+                            if (this._widget && this._editor.getOption(86 /* EditorOption.peekWidgetDefaultFocus */) === 'editor') {
                                 this._widget.focusOnPreviewEditor();
                             }
                         });

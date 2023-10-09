@@ -228,10 +228,10 @@ export class DefinitionAction extends SymbolNavigationAction {
             : nls.localize('generic.noResults', "No definition found");
     }
     _getAlternativeCommand(editor) {
-        return editor.getOption(57 /* EditorOption.gotoLocation */).alternativeDefinitionCommand;
+        return editor.getOption(58 /* EditorOption.gotoLocation */).alternativeDefinitionCommand;
     }
     _getGoToPreference(editor) {
-        return editor.getOption(57 /* EditorOption.gotoLocation */).multipleDefinitions;
+        return editor.getOption(58 /* EditorOption.gotoLocation */).multipleDefinitions;
     }
 }
 registerAction2((_a = class GoToDefinitionAction extends DefinitionAction {
@@ -345,10 +345,10 @@ class DeclarationAction extends SymbolNavigationAction {
             : nls.localize('decl.generic.noResults', "No declaration found");
     }
     _getAlternativeCommand(editor) {
-        return editor.getOption(57 /* EditorOption.gotoLocation */).alternativeDeclarationCommand;
+        return editor.getOption(58 /* EditorOption.gotoLocation */).alternativeDeclarationCommand;
     }
     _getGoToPreference(editor) {
-        return editor.getOption(57 /* EditorOption.gotoLocation */).multipleDeclarations;
+        return editor.getOption(58 /* EditorOption.gotoLocation */).multipleDeclarations;
     }
 }
 registerAction2((_d = class GoToDeclarationAction extends DeclarationAction {
@@ -420,10 +420,10 @@ class TypeDefinitionAction extends SymbolNavigationAction {
             : nls.localize('goToTypeDefinition.generic.noResults', "No type definition found");
     }
     _getAlternativeCommand(editor) {
-        return editor.getOption(57 /* EditorOption.gotoLocation */).alternativeTypeDefinitionCommand;
+        return editor.getOption(58 /* EditorOption.gotoLocation */).alternativeTypeDefinitionCommand;
     }
     _getGoToPreference(editor) {
-        return editor.getOption(57 /* EditorOption.gotoLocation */).multipleTypeDefinitions;
+        return editor.getOption(58 /* EditorOption.gotoLocation */).multipleTypeDefinitions;
     }
 }
 registerAction2((_e = class GoToTypeDefinitionAction extends TypeDefinitionAction {
@@ -497,10 +497,10 @@ class ImplementationAction extends SymbolNavigationAction {
             : nls.localize('goToImplementation.generic.noResults', "No implementation found");
     }
     _getAlternativeCommand(editor) {
-        return editor.getOption(57 /* EditorOption.gotoLocation */).alternativeImplementationCommand;
+        return editor.getOption(58 /* EditorOption.gotoLocation */).alternativeImplementationCommand;
     }
     _getGoToPreference(editor) {
-        return editor.getOption(57 /* EditorOption.gotoLocation */).multipleImplementations;
+        return editor.getOption(58 /* EditorOption.gotoLocation */).multipleImplementations;
     }
 }
 registerAction2((_g = class GoToImplementationAction extends ImplementationAction {
@@ -574,10 +574,10 @@ class ReferencesAction extends SymbolNavigationAction {
             : nls.localize('references.noGeneric', "No references found");
     }
     _getAlternativeCommand(editor) {
-        return editor.getOption(57 /* EditorOption.gotoLocation */).alternativeReferenceCommand;
+        return editor.getOption(58 /* EditorOption.gotoLocation */).alternativeReferenceCommand;
     }
     _getGoToPreference(editor) {
-        return editor.getOption(57 /* EditorOption.gotoLocation */).multipleReferences;
+        return editor.getOption(58 /* EditorOption.gotoLocation */).multipleReferences;
     }
 }
 registerAction2(class GoToReferencesAction extends ReferencesAction {
@@ -668,7 +668,7 @@ class GenericGoToLocationAction extends SymbolNavigationAction {
     }
     _getGoToPreference(editor) {
         var _j;
-        return (_j = this._gotoMultipleBehaviour) !== null && _j !== void 0 ? _j : editor.getOption(57 /* EditorOption.gotoLocation */).multipleReferences;
+        return (_j = this._gotoMultipleBehaviour) !== null && _j !== void 0 ? _j : editor.getOption(58 /* EditorOption.gotoLocation */).multipleReferences;
     }
     _getAlternativeCommand() { return ''; }
 }

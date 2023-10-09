@@ -173,8 +173,7 @@ export class UpToDateInlineCompletions {
         this._refCount = 1;
         this._prependedInlineCompletionItems = [];
         this._rangeVersionIdValue = 0;
-        this._rangeVersionId = derived(reader => {
-            /** @description ranges */
+        this._rangeVersionId = derived(this, reader => {
             this.versionId.read(reader);
             let changed = false;
             for (const i of this._inlineCompletions) {

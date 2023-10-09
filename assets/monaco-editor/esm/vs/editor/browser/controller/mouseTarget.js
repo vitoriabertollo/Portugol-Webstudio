@@ -170,11 +170,11 @@ export class HitTestContext {
     constructor(context, viewHelper, lastRenderData) {
         this.viewModel = context.viewModel;
         const options = context.configuration.options;
-        this.layoutInfo = options.get(142 /* EditorOption.layoutInfo */);
+        this.layoutInfo = options.get(143 /* EditorOption.layoutInfo */);
         this.viewDomNode = viewHelper.viewDomNode;
-        this.lineHeight = options.get(65 /* EditorOption.lineHeight */);
-        this.stickyTabStops = options.get(114 /* EditorOption.stickyTabStops */);
-        this.typicalHalfwidthCharacterWidth = options.get(49 /* EditorOption.fontInfo */).typicalHalfwidthCharacterWidth;
+        this.lineHeight = options.get(66 /* EditorOption.lineHeight */);
+        this.stickyTabStops = options.get(115 /* EditorOption.stickyTabStops */);
+        this.typicalHalfwidthCharacterWidth = options.get(50 /* EditorOption.fontInfo */).typicalHalfwidthCharacterWidth;
         this.lastRenderData = lastRenderData;
         this._context = context;
         this._viewHelper = viewHelper;
@@ -257,7 +257,7 @@ export class HitTestContext {
         return HitTestContext._findAttribute(element, attr, this._viewHelper.viewDomNode);
     }
     static _findAttribute(element, attr, stopAt) {
-        while (element && element !== document.body) {
+        while (element && element !== element.ownerDocument.body) {
             if (element.hasAttribute && element.hasAttribute(attr)) {
                 return element.getAttribute(attr);
             }
@@ -610,9 +610,9 @@ export class MouseTargetFactory {
     }
     getMouseColumn(relativePos) {
         const options = this._context.configuration.options;
-        const layoutInfo = options.get(142 /* EditorOption.layoutInfo */);
+        const layoutInfo = options.get(143 /* EditorOption.layoutInfo */);
         const mouseContentHorizontalOffset = this._context.viewLayout.getCurrentScrollLeft() + relativePos.x - layoutInfo.contentLeft;
-        return MouseTargetFactory._getMouseColumn(mouseContentHorizontalOffset, options.get(49 /* EditorOption.fontInfo */).typicalHalfwidthCharacterWidth);
+        return MouseTargetFactory._getMouseColumn(mouseContentHorizontalOffset, options.get(50 /* EditorOption.fontInfo */).typicalHalfwidthCharacterWidth);
     }
     static _getMouseColumn(mouseContentHorizontalOffset, typicalHalfwidthCharacterWidth) {
         if (mouseContentHorizontalOffset < 0) {
@@ -716,7 +716,7 @@ export class MouseTargetFactory {
             }
         }
         else {
-            range = document.caretRangeFromPoint(coords.clientX, coords.clientY);
+            range = ctx.viewDomNode.ownerDocument.caretRangeFromPoint(coords.clientX, coords.clientY);
         }
         if (!range || !range.startContainer) {
             return new UnknownHitTestResult();
@@ -754,7 +754,7 @@ export class MouseTargetFactory {
      * Most probably Gecko
      */
     static _doHitTestWithCaretPositionFromPoint(ctx, coords) {
-        const hitResult = document.caretPositionFromPoint(coords.clientX, coords.clientY);
+        const hitResult = ctx.viewDomNode.ownerDocument.caretPositionFromPoint(coords.clientX, coords.clientY);
         if (hitResult.offsetNode.nodeType === hitResult.offsetNode.TEXT_NODE) {
             // offsetNode is expected to be the token text
             const parent1 = hitResult.offsetNode.parentNode; // expected to be the token span
@@ -800,10 +800,10 @@ export class MouseTargetFactory {
     }
     static _doHitTest(ctx, request) {
         let result = new UnknownHitTestResult();
-        if (typeof document.caretRangeFromPoint === 'function') {
+        if (typeof ctx.viewDomNode.ownerDocument.caretRangeFromPoint === 'function') {
             result = this._doHitTestWithCaretRangeFromPoint(ctx, request);
         }
-        else if (document.caretPositionFromPoint) {
+        else if (ctx.viewDomNode.ownerDocument.caretPositionFromPoint) {
             result = this._doHitTestWithCaretPositionFromPoint(ctx, request.pos.toClientCoordinates());
         }
         if (result.type === 1 /* HitTestResultType.Content */) {

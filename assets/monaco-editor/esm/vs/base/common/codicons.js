@@ -307,7 +307,7 @@ export const Codicon = {
     note: register('note', 0xeb26),
     octoface: register('octoface', 0xeb27),
     openPreview: register('open-preview', 0xeb28),
-    package_: register('package', 0xeb29),
+    package: register('package', 0xeb29),
     paintcan: register('paintcan', 0xeb2a),
     pin: register('pin', 0xeb2b),
     play: register('play', 0xeb2c),
@@ -556,7 +556,7 @@ export const Codicon = {
     dialogWarning: register('dialog-warning', 'warning'),
     dialogInfo: register('dialog-info', 'info'),
     dialogClose: register('dialog-close', 'close'),
-    treeItemExpanded: register('tree-item-expanded', 'chevron-down'),
+    treeItemExpanded: register('tree-item-expanded', 'chevron-down'), // collapsed is done with rotation
     treeFilterOnTypeOn: register('tree-filter-on-type-on', 'list-filter'),
     treeFilterOnTypeOff: register('tree-filter-on-type-off', 'list-selection'),
     treeFilterClear: register('tree-filter-clear', 'close'),

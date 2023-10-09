@@ -171,6 +171,7 @@ class ListElementRenderer {
         const row2 = dom.append(rows, $('.quick-input-list-row'));
         // Label
         data.label = new IconLabel(row1, { supportHighlights: true, supportDescriptionHighlights: true, supportIcons: true });
+        data.toDisposeTemplate.push(data.label);
         data.icon = dom.prepend(data.label.element, $('.quick-input-list-icon'));
         // Keybinding
         const keybindingContainer = dom.append(row1, $('.quick-input-list-entry-keybinding'));
@@ -178,6 +179,7 @@ class ListElementRenderer {
         // Detail
         const detailContainer = dom.append(row2, $('.quick-input-list-label-meta'));
         data.detail = new IconLabel(detailContainer, { supportHighlights: true, supportIcons: true });
+        data.toDisposeTemplate.push(data.detail);
         // Separator
         data.separator = dom.append(data.entry, $('.quick-input-list-separator'));
         // Actions

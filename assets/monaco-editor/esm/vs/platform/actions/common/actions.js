@@ -80,6 +80,7 @@ MenuId.ExplorerContextShare = new MenuId('ExplorerContextShare');
 MenuId.ExtensionContext = new MenuId('ExtensionContext');
 MenuId.GlobalActivity = new MenuId('GlobalActivity');
 MenuId.CommandCenter = new MenuId('CommandCenter');
+MenuId.CommandCenterCenter = new MenuId('CommandCenterCenter');
 MenuId.LayoutControlMenuSubmenu = new MenuId('LayoutControlMenuSubmenu');
 MenuId.LayoutControlMenu = new MenuId('LayoutControlMenu');
 MenuId.MenubarMainMenu = new MenuId('MenubarMainMenu');

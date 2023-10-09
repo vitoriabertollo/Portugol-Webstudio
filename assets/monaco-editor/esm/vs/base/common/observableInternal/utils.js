@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 import { toDisposable } from '../lifecycle.js';
 import { autorun } from './autorun.js';
-import { BaseObservable, ConvenientObservable, getFunctionName, transaction } from './base.js';
+import { BaseObservable, ConvenientObservable, getDebugName, getFunctionName, transaction } from './base.js';
 import { getLogger } from './logging.js';
 /**
  * Represents an efficient observable whose value never changes.
@@ -147,18 +147,23 @@ class FromEventObservableSignal extends BaseObservable {
         // NO OP
     }
 }
-/**
- * Creates a signal that can be triggered to invalidate observers.
- * Signals don't have a value - when they are triggered they indicate a change.
- * However, signals can carry a delta that is passed to observers.
- */
-export function observableSignal(debugName) {
-    return new ObservableSignal(debugName);
+export function observableSignal(debugNameOrOwner) {
+    if (typeof debugNameOrOwner === 'string') {
+        return new ObservableSignal(debugNameOrOwner);
+    }
+    else {
+        return new ObservableSignal(undefined, debugNameOrOwner);
+    }
 }
 class ObservableSignal extends BaseObservable {
-    constructor(debugName) {
+    get debugName() {
+        var _a;
+        return (_a = getDebugName(this._debugName, undefined, this._owner, this)) !== null && _a !== void 0 ? _a : 'Observable Signal';
+    }
+    constructor(_debugName, _owner) {
         super();
-        this.debugName = debugName;
+        this._debugName = _debugName;
+        this._owner = _owner;
     }
     trigger(tx, change) {
         if (!tx) {
@@ -176,22 +181,13 @@ class ObservableSignal extends BaseObservable {
         // NO OP
     }
 }
-// TODO@hediet: Have `keepCacheAlive` and `recomputeOnChange` instead of forceRecompute
 /**
- * This ensures the observable is being observed.
- * Observed observables (such as {@link derived}s) can maintain a cache, as they receive invalidation events.
- * Unobserved observables are forced to recompute their value from scratch every time they are read.
- *
- * @param observable the observable to keep alive
- * @param forceRecompute if true, the observable will be eagerly recomputed after it changed.
- * Use this if recomputing the observables causes side-effects.
-*/
-export function keepAlive(observable, forceRecompute) {
-    const o = new KeepAliveObserver(forceRecompute !== null && forceRecompute !== void 0 ? forceRecompute : false);
+ * This converts the given observable into an autorun.
+ */
+export function recomputeInitiallyAndOnChange(observable) {
+    const o = new KeepAliveObserver(true);
     observable.addObserver(o);
-    if (forceRecompute) {
-        observable.reportChanges();
-    }
+    observable.reportChanges();
     return toDisposable(() => {
         observable.removeObserver(o);
     });

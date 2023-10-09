@@ -182,8 +182,8 @@ let CodeEditorWidget = CodeEditorWidget_1 = class CodeEditorWidget extends Dispo
         this._register(this._configuration.onDidChange((e) => {
             this._onDidChangeConfiguration.fire(e);
             const options = this._configuration.options;
-            if (e.hasChanged(142 /* EditorOption.layoutInfo */)) {
-                const layoutInfo = options.get(142 /* EditorOption.layoutInfo */);
+            if (e.hasChanged(143 /* EditorOption.layoutInfo */)) {
+                const layoutInfo = options.get(143 /* EditorOption.layoutInfo */);
                 this._onDidLayoutChange.fire(layoutInfo);
             }
         }));
@@ -224,8 +224,8 @@ let CodeEditorWidget = CodeEditorWidget_1 = class CodeEditorWidget extends Dispo
             this._actions.set(internalAction.id, internalAction);
         }
         const isDropIntoEnabled = () => {
-            return !this._configuration.options.get(89 /* EditorOption.readOnly */)
-                && this._configuration.options.get(35 /* EditorOption.dropIntoEditor */).enabled;
+            return !this._configuration.options.get(90 /* EditorOption.readOnly */)
+                && this._configuration.options.get(36 /* EditorOption.dropIntoEditor */).enabled;
         };
         this._register(new dom.DragAndDropObserver(this._domElement, {
             onDragEnter: () => undefined,
@@ -306,7 +306,7 @@ let CodeEditorWidget = CodeEditorWidget_1 = class CodeEditorWidget extends Dispo
         if (!this._modelData) {
             return null;
         }
-        return WordOperations.getWordAtPosition(this._modelData.model, this._configuration.options.get(128 /* EditorOption.wordSeparators */), position);
+        return WordOperations.getWordAtPosition(this._modelData.model, this._configuration.options.get(129 /* EditorOption.wordSeparators */), position);
     }
     getValue(options = null) {
         if (!this._modelData) {
@@ -843,7 +843,7 @@ let CodeEditorWidget = CodeEditorWidget_1 = class CodeEditorWidget extends Dispo
         if (!this._modelData) {
             return false;
         }
-        if (this._configuration.options.get(89 /* EditorOption.readOnly */)) {
+        if (this._configuration.options.get(90 /* EditorOption.readOnly */)) {
             // read only editor => sorry!
             return false;
         }
@@ -854,7 +854,7 @@ let CodeEditorWidget = CodeEditorWidget_1 = class CodeEditorWidget extends Dispo
         if (!this._modelData) {
             return false;
         }
-        if (this._configuration.options.get(89 /* EditorOption.readOnly */)) {
+        if (this._configuration.options.get(90 /* EditorOption.readOnly */)) {
             // read only editor => sorry!
             return false;
         }
@@ -865,7 +865,7 @@ let CodeEditorWidget = CodeEditorWidget_1 = class CodeEditorWidget extends Dispo
         if (!this._modelData) {
             return false;
         }
-        if (this._configuration.options.get(89 /* EditorOption.readOnly */)) {
+        if (this._configuration.options.get(90 /* EditorOption.readOnly */)) {
             // read only editor => sorry!
             return false;
         }
@@ -951,7 +951,7 @@ let CodeEditorWidget = CodeEditorWidget_1 = class CodeEditorWidget extends Dispo
     }
     getLayoutInfo() {
         const options = this._configuration.options;
-        const layoutInfo = options.get(142 /* EditorOption.layoutInfo */);
+        const layoutInfo = options.get(143 /* EditorOption.layoutInfo */);
         return layoutInfo;
     }
     createOverviewRuler(cssClassName) {
@@ -1117,13 +1117,13 @@ let CodeEditorWidget = CodeEditorWidget_1 = class CodeEditorWidget extends Dispo
         }
         const position = this._modelData.model.validatePosition(rawPosition);
         const options = this._configuration.options;
-        const layoutInfo = options.get(142 /* EditorOption.layoutInfo */);
+        const layoutInfo = options.get(143 /* EditorOption.layoutInfo */);
         const top = CodeEditorWidget_1._getVerticalOffsetForPosition(this._modelData, position.lineNumber, position.column) - this.getScrollTop();
         const left = this._modelData.view.getOffsetForColumn(position.lineNumber, position.column) + layoutInfo.glyphMarginWidth + layoutInfo.lineNumbersWidth + layoutInfo.decorationsWidth - this.getScrollLeft();
         return {
             top: top,
             left: left,
-            height: options.get(65 /* EditorOption.lineHeight */)
+            height: options.get(66 /* EditorOption.lineHeight */)
         };
     }
     getOffsetForColumn(lineNumber, column) {
@@ -1145,7 +1145,7 @@ let CodeEditorWidget = CodeEditorWidget_1 = class CodeEditorWidget extends Dispo
         this._modelData.view.setAriaOptions(options);
     }
     applyFontInfo(target) {
-        applyFontInfo(target, this._configuration.options.get(49 /* EditorOption.fontInfo */));
+        applyFontInfo(target, this._configuration.options.get(50 /* EditorOption.fontInfo */));
     }
     setBanner(domNode, domNodeHeight) {
         if (this._bannerDomNode && this._domElement.contains(this._bannerDomNode)) {
@@ -1192,7 +1192,7 @@ let CodeEditorWidget = CodeEditorWidget_1 = class CodeEditorWidget extends Dispo
                     break;
                 case 6 /* OutgoingViewModelEventKind.CursorStateChanged */: {
                     if (e.reachedMaxCursorCount) {
-                        const multiCursorLimit = this.getOption(78 /* EditorOption.multiCursorLimit */);
+                        const multiCursorLimit = this.getOption(79 /* EditorOption.multiCursorLimit */);
                         const message = nls.localize('cursors.maximum', "The number of cursors has been limited to {0}. Consider using [find and replace](https://code.visualstudio.com/docs/editor/codebasics#_find-and-replace) for larger changes or increase the editor multi cursor limit setting.", multiCursorLimit);
                         this._notificationService.prompt(Severity.Warning, message, [
                             {
@@ -1453,7 +1453,7 @@ class EditorContextKeysManager extends Disposable {
         this._editorFocus = EditorContextKeys.focus.bindTo(contextKeyService);
         this._textInputFocus = EditorContextKeys.textInputFocus.bindTo(contextKeyService);
         this._editorTextFocus = EditorContextKeys.editorTextFocus.bindTo(contextKeyService);
-        this._editorTabMovesFocus = EditorContextKeys.tabMovesFocus.bindTo(contextKeyService);
+        this._tabMovesFocus = EditorContextKeys.tabMovesFocus.bindTo(contextKeyService);
         this._editorReadonly = EditorContextKeys.readOnly.bindTo(contextKeyService);
         this._inDiffEditor = EditorContextKeys.inDiffEditor.bindTo(contextKeyService);
         this._editorColumnSelection = EditorContextKeys.columnSelection.bindTo(contextKeyService);
@@ -1469,7 +1469,7 @@ class EditorContextKeysManager extends Disposable {
         this._register(this._editor.onDidBlurEditorText(() => this._updateFromFocus()));
         this._register(this._editor.onDidChangeModel(() => this._updateFromModel()));
         this._register(this._editor.onDidChangeConfiguration(() => this._updateFromModel()));
-        this._register(TabFocus.onDidChangeTabFocus(() => this._editorTabMovesFocus.set(TabFocus.getTabFocusMode("editorFocus" /* TabFocusContext.Editor */))));
+        this._register(TabFocus.onDidChangeTabFocus((tabFocusMode) => this._tabMovesFocus.set(tabFocusMode)));
         this._updateFromConfig();
         this._updateFromSelection();
         this._updateFromFocus();
@@ -1478,10 +1478,10 @@ class EditorContextKeysManager extends Disposable {
     }
     _updateFromConfig() {
         const options = this._editor.getOptions();
-        this._editorTabMovesFocus.set(TabFocus.getTabFocusMode("editorFocus" /* TabFocusContext.Editor */));
-        this._editorReadonly.set(options.get(89 /* EditorOption.readOnly */));
-        this._inDiffEditor.set(options.get(60 /* EditorOption.inDiffEditor */));
-        this._editorColumnSelection.set(options.get(21 /* EditorOption.columnSelection */));
+        this._tabMovesFocus.set(TabFocus.getTabFocusMode());
+        this._editorReadonly.set(options.get(90 /* EditorOption.readOnly */));
+        this._inDiffEditor.set(options.get(61 /* EditorOption.inDiffEditor */));
+        this._editorColumnSelection.set(options.get(22 /* EditorOption.columnSelection */));
     }
     _updateFromSelection() {
         const selections = this._editor.getSelections();

@@ -114,7 +114,7 @@ let InlayHintsController = InlayHintsController_1 = class InlayHintsController {
         this._disposables.add(_editor.onDidChangeModel(() => this._update()));
         this._disposables.add(_editor.onDidChangeModelLanguage(() => this._update()));
         this._disposables.add(_editor.onDidChangeConfiguration(e => {
-            if (e.hasChanged(138 /* EditorOption.inlayHints */)) {
+            if (e.hasChanged(139 /* EditorOption.inlayHints */)) {
                 this._update();
             }
         }));
@@ -128,7 +128,7 @@ let InlayHintsController = InlayHintsController_1 = class InlayHintsController {
     _update() {
         this._sessionDisposables.clear();
         this._removeAllDecorations();
-        const options = this._editor.getOption(138 /* EditorOption.inlayHints */);
+        const options = this._editor.getOption(139 /* EditorOption.inlayHints */);
         if (options.enabled === 'off') {
             return;
         }
@@ -409,7 +409,7 @@ let InlayHintsController = InlayHintsController_1 = class InlayHintsController {
                     options: {
                         // className: "rangeHighlight", // DEBUG highlight to see to what range a hint is attached
                         description: 'InlayHint',
-                        showIfCollapsed: item.anchor.range.isEmpty(),
+                        showIfCollapsed: item.anchor.range.isEmpty(), // "original" range is empty
                         collapseOnReplaceEdit: !item.anchor.range.isEmpty(),
                         stickiness: 0 /* TrackedRangeStickiness.AlwaysGrowsWhenTypingAtEdges */,
                         [item.anchor.direction]: this._activeRenderMode === 0 /* RenderMode.Normal */ ? opts : undefined
@@ -527,10 +527,10 @@ let InlayHintsController = InlayHintsController_1 = class InlayHintsController {
         }
     }
     _getLayoutInfo() {
-        const options = this._editor.getOption(138 /* EditorOption.inlayHints */);
+        const options = this._editor.getOption(139 /* EditorOption.inlayHints */);
         const padding = options.padding;
-        const editorFontSize = this._editor.getOption(51 /* EditorOption.fontSize */);
-        const editorFontFamily = this._editor.getOption(48 /* EditorOption.fontFamily */);
+        const editorFontSize = this._editor.getOption(52 /* EditorOption.fontSize */);
+        const editorFontFamily = this._editor.getOption(49 /* EditorOption.fontFamily */);
         let fontSize = options.fontSize;
         if (!fontSize || fontSize < 5 || fontSize > editorFontSize) {
             fontSize = editorFontSize;

@@ -61,7 +61,7 @@ let MessageController = MessageController_1 = class MessageController {
             if (this._mouseOverMessage) {
                 return; // override when mouse over message
             }
-            if (this._messageWidget.value && dom.isAncestor(document.activeElement, this._messageWidget.value.getDomNode())) {
+            if (this._messageWidget.value && dom.isAncestor(dom.getActiveElement(), this._messageWidget.value.getDomNode())) {
                 return; // override when focus is inside the message
             }
             this.closeMessage();

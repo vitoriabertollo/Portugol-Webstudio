@@ -94,7 +94,7 @@ let DropIntoEditorController = DropIntoEditorController_1 = class DropIntoEditor
                     }
                     if (edits.length) {
                         const activeEditIndex = this.getInitialActiveEditIndex(model, edits);
-                        const canShowWidget = editor.getOption(35 /* EditorOption.dropIntoEditor */).showDropSelector === 'afterDrop';
+                        const canShowWidget = editor.getOption(36 /* EditorOption.dropIntoEditor */).showDropSelector === 'afterDrop';
                         // Pass in the parent token here as it tracks cancelling the entire drop operation
                         yield this._postDropWidgetManager.applyEditAndShowIfNeeded([Range.fromPositions(position)], { activeEditIndex, allEdits: edits }, canShowWidget, token);
                     }

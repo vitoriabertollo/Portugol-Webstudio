@@ -120,6 +120,11 @@ export class OffsetRange {
         }
         return value;
     }
+    forEach(f) {
+        for (let i = this.start; i < this.endExclusive; i++) {
+            f(i);
+        }
+    }
 }
 export class OffsetRangeSet {
     constructor() {

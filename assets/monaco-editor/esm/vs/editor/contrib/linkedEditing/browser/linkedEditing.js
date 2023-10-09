@@ -72,7 +72,7 @@ let LinkedEditingContribution = LinkedEditingContribution_1 = class LinkedEditin
         this._currentRequestModelVersion = null;
         this._register(this._editor.onDidChangeModel(() => this.reinitialize(true)));
         this._register(this._editor.onDidChangeConfiguration(e => {
-            if (e.hasChanged(68 /* EditorOption.linkedEditing */) || e.hasChanged(91 /* EditorOption.renameOnType */)) {
+            if (e.hasChanged(69 /* EditorOption.linkedEditing */) || e.hasChanged(92 /* EditorOption.renameOnType */)) {
                 this.reinitialize(false);
             }
         }));
@@ -82,7 +82,7 @@ let LinkedEditingContribution = LinkedEditingContribution_1 = class LinkedEditin
     }
     reinitialize(forceRefresh) {
         const model = this._editor.getModel();
-        const isEnabled = model !== null && (this._editor.getOption(68 /* EditorOption.linkedEditing */) || this._editor.getOption(91 /* EditorOption.renameOnType */)) && this._providers.has(model);
+        const isEnabled = model !== null && (this._editor.getOption(69 /* EditorOption.linkedEditing */) || this._editor.getOption(92 /* EditorOption.renameOnType */)) && this._providers.has(model);
         if (isEnabled === this._enabled && !forceRefresh) {
             return;
         }

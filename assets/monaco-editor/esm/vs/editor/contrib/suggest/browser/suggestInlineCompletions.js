@@ -106,7 +106,7 @@ let SuggestInlineCompletions = class SuggestInlineCompletions {
             if (context.selectedSuggestionInfo) {
                 return;
             }
-            const config = this._getEditorOption(87 /* EditorOption.quickSuggestions */, model);
+            const config = this._getEditorOption(88 /* EditorOption.quickSuggestions */, model);
             if (QuickSuggestionsOptions.isAllOff(config)) {
                 // quick suggest is off (for this model/language)
                 return;
@@ -155,7 +155,7 @@ let SuggestInlineCompletions = class SuggestInlineCompletions {
                 if (completions.needsClipboard) {
                     clipboardText = yield this._clipboardService.readText();
                 }
-                const completionModel = new CompletionModel(completions.items, position.column, new LineContext(leadingLineContents, 0), WordDistance.None, this._getEditorOption(116 /* EditorOption.suggest */, model), this._getEditorOption(110 /* EditorOption.snippetSuggestions */, model), { boostFullMatch: false, firstMatchCanBeWeak: false }, clipboardText);
+                const completionModel = new CompletionModel(completions.items, position.column, new LineContext(leadingLineContents, 0), WordDistance.None, this._getEditorOption(117 /* EditorOption.suggest */, model), this._getEditorOption(111 /* EditorOption.snippetSuggestions */, model), { boostFullMatch: false, firstMatchCanBeWeak: false }, clipboardText);
                 result = new InlineCompletionResults(model, position.lineNumber, wordInfo, completionModel, completions, this._suggestMemoryService);
             }
             this._lastResult = result;

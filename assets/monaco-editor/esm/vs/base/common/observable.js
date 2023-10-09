@@ -5,7 +5,7 @@
 export { observableValue, disposableObservableValue, transaction, subtransaction } from './observableInternal/base.js';
 export { derived, derivedOpts, derivedHandleChanges, derivedWithStore } from './observableInternal/derived.js';
 export { autorun, autorunHandleChanges, autorunWithStore, autorunOpts } from './observableInternal/autorun.js';
-export { constObservable, keepAlive, observableFromEvent, observableSignal, observableSignalFromEvent, waitForState } from './observableInternal/utils.js';
+export { constObservable, recomputeInitiallyAndOnChange, observableFromEvent, observableSignal, observableSignalFromEvent, waitForState } from './observableInternal/utils.js';
 import { ConsoleObservableLogger, setLogger } from './observableInternal/logging.js';
 const enableLogging = false;
 if (enableLogging) {

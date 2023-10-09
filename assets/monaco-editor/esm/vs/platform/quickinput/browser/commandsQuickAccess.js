@@ -24,8 +24,10 @@ var AbstractCommandsQuickAccessProvider_1, CommandsHistory_1;
 import { toErrorMessage } from '../../../base/common/errorMessage.js';
 import { isCancellationError } from '../../../base/common/errors.js';
 import { matchesContiguousSubString, matchesPrefix, matchesWords, or } from '../../../base/common/filters.js';
+import { createSingleCallFunction } from '../../../base/common/functional.js';
 import { Disposable } from '../../../base/common/lifecycle.js';
 import { LRUCache } from '../../../base/common/map.js';
+import { TfIdfCalculator, normalizeTfIdfScores } from '../../../base/common/tfIdf.js';
 import { localize } from '../../../nls.js';
 import { ICommandService } from '../../commands/common/commands.js';
 import { IConfigurationService } from '../../configuration/common/configuration.js';
@@ -54,6 +56,17 @@ let AbstractCommandsQuickAccessProvider = AbstractCommandsQuickAccessProvider_1 
             if (token.isCancellationRequested) {
                 return [];
             }
+            const runTfidf = createSingleCallFunction(() => {
+                const tfidf = new TfIdfCalculator();
+                tfidf.updateDocuments(allCommandPicks.map(commandPick => ({
+                    key: commandPick.commandId,
+                    textChunks: [commandPick.label + (commandPick.commandAlias ? ` ${commandPick.commandAlias}` : '')]
+                })));
+                const result = tfidf.calculateScores(filter, token);
+                return normalizeTfIdfScores(result)
+                    .filter(score => score.score > AbstractCommandsQuickAccessProvider_1.TFIDF_THRESHOLD)
+                    .slice(0, AbstractCommandsQuickAccessProvider_1.TFIDF_MAX_RESULTS);
+            });
             // Filter
             const filteredCommandPicks = [];
             for (const commandPick of allCommandPicks) {
@@ -71,6 +84,19 @@ let AbstractCommandsQuickAccessProvider = AbstractCommandsQuickAccessProvider_1 
                 else if (filter === commandPick.commandId) {
                     filteredCommandPicks.push(commandPick);
                 }
+                // Handle tf-idf scoring for the rest if there's a filter
+                else if (filter.length >= 3) {
+                    const tfidf = runTfidf();
+                    if (token.isCancellationRequested) {
+                        return [];
+                    }
+                    // Add if we have a tf-idf score
+                    const tfidfScore = tfidf.find(score => score.key === commandPick.commandId);
+                    if (tfidfScore) {
+                        commandPick.tfIdfScore = tfidfScore.score;
+                        filteredCommandPicks.push(commandPick);
+                    }
+                }
             }
             // Add description to commands that have duplicate labels
             const mapLabelToCommand = new Map();
@@ -86,6 +112,19 @@ let AbstractCommandsQuickAccessProvider = AbstractCommandsQuickAccessProvider_1 
             }
             // Sort by MRU order and fallback to name otherwise
             filteredCommandPicks.sort((commandPickA, commandPickB) => {
+                // If a result came from tf-idf, we want to put that towards the bottom
+                if (commandPickA.tfIdfScore && commandPickB.tfIdfScore) {
+                    if (commandPickA.tfIdfScore === commandPickB.tfIdfScore) {
+                        return commandPickA.label.localeCompare(commandPickB.label); // prefer lexicographically smaller command
+                    }
+                    return commandPickB.tfIdfScore - commandPickA.tfIdfScore; // prefer higher tf-idf score
+                }
+                else if (commandPickA.tfIdfScore) {
+                    return 1; // first command has a score but other doesn't so other wins
+                }
+                else if (commandPickB.tfIdfScore) {
+                    return -1; // other command has a score but first doesn't so first wins
+                }
                 const commandACounter = this.commandsHistory.peek(commandPickA.commandId);
                 const commandBCounter = this.commandsHistory.peek(commandPickB.commandId);
                 if (commandACounter && commandBCounter) {
@@ -115,6 +154,7 @@ let AbstractCommandsQuickAccessProvider = AbstractCommandsQuickAccessProvider_1 
             });
             const commandPicks = [];
             let addOtherSeparator = false;
+            let addSuggestedSeparator = true;
             let addCommonlyUsedSeparator = !!this.options.suggestedCommandIds;
             for (let i = 0; i < filteredCommandPicks.length; i++) {
                 const commandPick = filteredCommandPicks[i];
@@ -123,14 +163,18 @@ let AbstractCommandsQuickAccessProvider = AbstractCommandsQuickAccessProvider_1 
                     commandPicks.push({ type: 'separator', label: localize('recentlyUsed', "recently used") });
                     addOtherSeparator = true;
                 }
+                if (addSuggestedSeparator && commandPick.tfIdfScore !== undefined) {
+                    commandPicks.push({ type: 'separator', label: localize('suggested', "similar commands") });
+                    addSuggestedSeparator = false;
+                }
                 // Separator: commonly used
-                if (addCommonlyUsedSeparator && !this.commandsHistory.peek(commandPick.commandId) && ((_c = this.options.suggestedCommandIds) === null || _c === void 0 ? void 0 : _c.has(commandPick.commandId))) {
+                if (addCommonlyUsedSeparator && commandPick.tfIdfScore === undefined && !this.commandsHistory.peek(commandPick.commandId) && ((_c = this.options.suggestedCommandIds) === null || _c === void 0 ? void 0 : _c.has(commandPick.commandId))) {
                     commandPicks.push({ type: 'separator', label: localize('commonlyUsed', "commonly used") });
                     addOtherSeparator = true;
                     addCommonlyUsedSeparator = false;
                 }
                 // Separator: other commands
-                if (addOtherSeparator && !this.commandsHistory.peek(commandPick.commandId) && !((_d = this.options.suggestedCommandIds) === null || _d === void 0 ? void 0 : _d.has(commandPick.commandId))) {
+                if (addOtherSeparator && commandPick.tfIdfScore === undefined && !this.commandsHistory.peek(commandPick.commandId) && !((_d = this.options.suggestedCommandIds) === null || _d === void 0 ? void 0 : _d.has(commandPick.commandId))) {
                     commandPicks.push({ type: 'separator', label: localize('morecCommands', "other commands") });
                     addOtherSeparator = false;
                 }
@@ -143,11 +187,18 @@ let AbstractCommandsQuickAccessProvider = AbstractCommandsQuickAccessProvider_1 
             return {
                 picks: commandPicks,
                 additionalPicks: (() => __awaiter(this, void 0, void 0, function* () {
+                    var _e;
                     const additionalCommandPicks = yield this.getAdditionalCommandPicks(allCommandPicks, filteredCommandPicks, filter, token);
                     if (token.isCancellationRequested) {
                         return [];
                     }
-                    return additionalCommandPicks.map(commandPick => this.toCommandPick(commandPick, runOptions));
+                    const commandPicks = additionalCommandPicks.map(commandPick => this.toCommandPick(commandPick, runOptions));
+                    // Basically, if we haven't already added a separator, we add one before the additional picks so long
+                    // as one hasn't been added to the start of the array.
+                    if (addSuggestedSeparator && ((_e = commandPicks[0]) === null || _e === void 0 ? void 0 : _e.type) !== 'separator') {
+                        commandPicks.unshift({ type: 'separator', label: localize('suggested', "similar commands") });
+                    }
+                    return commandPicks;
                 }))()
             };
         });
@@ -184,6 +235,8 @@ let AbstractCommandsQuickAccessProvider = AbstractCommandsQuickAccessProvider_1 
     }
 };
 AbstractCommandsQuickAccessProvider.PREFIX = '>';
+AbstractCommandsQuickAccessProvider.TFIDF_THRESHOLD = 0.5;
+AbstractCommandsQuickAccessProvider.TFIDF_MAX_RESULTS = 5;
 AbstractCommandsQuickAccessProvider.WORD_FILTER = or(matchesPrefix, matchesWords, matchesContiguousSubString);
 AbstractCommandsQuickAccessProvider = AbstractCommandsQuickAccessProvider_1 = __decorate([
     __param(1, IInstantiationService),

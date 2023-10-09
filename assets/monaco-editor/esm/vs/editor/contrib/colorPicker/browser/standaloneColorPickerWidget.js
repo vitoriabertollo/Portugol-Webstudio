@@ -165,7 +165,7 @@ let StandaloneColorPickerWidget = StandaloneColorPickerWidget_1 = class Standalo
         if (!this._position) {
             return null;
         }
-        const positionPreference = this._editor.getOption(59 /* EditorOption.hover */).above;
+        const positionPreference = this._editor.getOption(60 /* EditorOption.hover */).above;
         return {
             position: this._position,
             secondaryPosition: this._position,

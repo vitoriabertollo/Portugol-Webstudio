@@ -111,7 +111,7 @@ let TextModel = TextModel_1 = class TextModel extends Disposable {
             const guessedIndentation = guessIndentation(textBuffer, options.tabSize, options.insertSpaces);
             return new model.TextModelResolvedOptions({
                 tabSize: guessedIndentation.tabSize,
-                indentSize: 'tabSize',
+                indentSize: 'tabSize', // TODO@Alex: guess indentSize independent of tabSize
                 insertSpaces: guessedIndentation.insertSpaces,
                 trimAutoWhitespace: options.trimAutoWhitespace,
                 defaultEOL: options.defaultEOL,
@@ -183,9 +183,11 @@ let TextModel = TextModel_1 = class TextModel extends Disposable {
         if (creationOptions.largeFileOptimizations) {
             this._isTooLargeForTokenization = ((bufferTextLength > TextModel_1.LARGE_FILE_SIZE_THRESHOLD)
                 || (bufferLineCount > TextModel_1.LARGE_FILE_LINE_COUNT_THRESHOLD));
+            this._isTooLargeForHeapOperation = bufferTextLength > TextModel_1.LARGE_FILE_HEAP_OPERATION_THRESHOLD;
         }
         else {
             this._isTooLargeForTokenization = false;
+            this._isTooLargeForHeapOperation = false;
         }
         this._isTooLargeForSyncing = (bufferTextLength > TextModel_1._MODEL_SYNC_LIMIT);
         this._versionId = 1;
@@ -350,6 +352,9 @@ let TextModel = TextModel_1 = class TextModel extends Disposable {
     isTooLargeForTokenization() {
         return this._isTooLargeForTokenization;
     }
+    isTooLargeForHeapOperation() {
+        return this._isTooLargeForHeapOperation;
+    }
     isDisposed() {
         return this._isDisposed;
     }
@@ -477,6 +482,9 @@ let TextModel = TextModel_1 = class TextModel extends Disposable {
     }
     getValue(eol, preserveBOM = false) {
         this._assertNotDisposed();
+        if (this.isTooLargeForHeapOperation()) {
+            throw new BugIndicatingError('Operation would exceed heap memory limits');
+        }
         const fullModelRange = this.getFullModelRange();
         const fullModelValue = this.getValueInRange(fullModelRange, eol);
         if (preserveBOM) {
@@ -528,6 +536,9 @@ let TextModel = TextModel_1 = class TextModel extends Disposable {
     }
     getLinesContent() {
         this._assertNotDisposed();
+        if (this.isTooLargeForHeapOperation()) {
+            throw new BugIndicatingError('Operation would exceed heap memory limits');
+        }
         return this._buffer.getLinesContent();
     }
     getEOL() {
@@ -1463,6 +1474,7 @@ let TextModel = TextModel_1 = class TextModel extends Disposable {
 TextModel._MODEL_SYNC_LIMIT = 50 * 1024 * 1024; // 50 MB,  // used in tests
 TextModel.LARGE_FILE_SIZE_THRESHOLD = 20 * 1024 * 1024; // 20 MB;
 TextModel.LARGE_FILE_LINE_COUNT_THRESHOLD = 300 * 1000; // 300K lines
+TextModel.LARGE_FILE_HEAP_OPERATION_THRESHOLD = 256 * 1024 * 1024; // 256M characters, usually ~> 512MB memory usage
 TextModel.DEFAULT_CREATION_OPTIONS = {
     isForSimpleWidget: false,
     tabSize: EDITOR_MODEL_DEFAULTS.tabSize,

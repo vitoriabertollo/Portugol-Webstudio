@@ -77,7 +77,7 @@ let InlineCompletionsHoverParticipant = class InlineCompletionsHoverParticipant 
         return null;
     }
     computeSync(anchor, lineDecorations) {
-        if (this._editor.getOption(61 /* EditorOption.inlineSuggest */).showToolbar === 'always') {
+        if (this._editor.getOption(62 /* EditorOption.inlineSuggest */).showToolbar === 'always') {
             return [];
         }
         const controller = InlineCompletionsController.get(this._editor);
@@ -90,7 +90,7 @@ let InlineCompletionsHoverParticipant = class InlineCompletionsHoverParticipant 
         const disposableStore = new DisposableStore();
         const part = hoverParts[0];
         this._telemetryService.publicLog2('inlineCompletionHover.shown');
-        if (this.accessibilityService.isScreenReaderOptimized() && !this._editor.getOption(7 /* EditorOption.screenReaderAnnounceInlineSuggestion */)) {
+        if (this.accessibilityService.isScreenReaderOptimized() && !this._editor.getOption(8 /* EditorOption.screenReaderAnnounceInlineSuggestion */)) {
             this.renderScreenReaderText(context, part, disposableStore);
         }
         const model = part.controller.model.get();

@@ -50,7 +50,7 @@ let StickyLineCandidateProvider = class StickyLineCandidateProvider extends Disp
         this._sessionStore = this._register(new DisposableStore());
         this._updateSoon = this._register(new RunOnceScheduler(() => this.update(), 50));
         this._register(this._editor.onDidChangeConfiguration(e => {
-            if (e.hasChanged(113 /* EditorOption.stickyScroll */)) {
+            if (e.hasChanged(114 /* EditorOption.stickyScroll */)) {
                 this.readConfiguration();
             }
         }));
@@ -59,7 +59,7 @@ let StickyLineCandidateProvider = class StickyLineCandidateProvider extends Disp
     readConfiguration() {
         this._stickyModelProvider = null;
         this._sessionStore.clear();
-        this._options = this._editor.getOption(113 /* EditorOption.stickyScroll */);
+        this._options = this._editor.getOption(114 /* EditorOption.stickyScroll */);
         if (!this._options.enabled) {
             return;
         }
@@ -91,7 +91,7 @@ let StickyLineCandidateProvider = class StickyLineCandidateProvider extends Disp
     }
     updateStickyModel(token) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (!this._editor.hasModel() || !this._stickyModelProvider) {
+            if (!this._editor.hasModel() || !this._stickyModelProvider || this._editor.getModel().isTooLargeForTokenization()) {
                 this._model = null;
                 return;
             }

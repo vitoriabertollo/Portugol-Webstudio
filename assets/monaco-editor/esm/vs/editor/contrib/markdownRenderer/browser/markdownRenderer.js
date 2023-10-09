@@ -82,7 +82,7 @@ let MarkdownRenderer = MarkdownRenderer_1 = class MarkdownRenderer {
                 element.innerHTML = ((_c = (_b = MarkdownRenderer_1._ttpTokenizer) === null || _b === void 0 ? void 0 : _b.createHTML(html)) !== null && _c !== void 0 ? _c : html);
                 // use "good" font
                 if (this._options.editor) {
-                    const fontInfo = this._options.editor.getOption(49 /* EditorOption.fontInfo */);
+                    const fontInfo = this._options.editor.getOption(50 /* EditorOption.fontInfo */);
                     applyFontInfo(element, fontInfo);
                 }
                 else if (this._options.codeBlockFontFamily) {

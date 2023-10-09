@@ -44,11 +44,10 @@ let InlineCompletionsHintsWidget = class InlineCompletionsHintsWidget extends Di
         this.editor = editor;
         this.model = model;
         this.instantiationService = instantiationService;
-        this.alwaysShowToolbar = observableFromEvent(this.editor.onDidChangeConfiguration, () => this.editor.getOption(61 /* EditorOption.inlineSuggest */).showToolbar === 'always');
+        this.alwaysShowToolbar = observableFromEvent(this.editor.onDidChangeConfiguration, () => this.editor.getOption(62 /* EditorOption.inlineSuggest */).showToolbar === 'always');
         this.sessionPosition = undefined;
-        this.position = derived(reader => {
+        this.position = derived(this, reader => {
             var _a, _b, _c;
-            /** @description position */
             const ghostText = (_a = this.model.read(reader)) === null || _a === void 0 ? void 0 : _a.ghostText.read(reader);
             if (!this.alwaysShowToolbar.read(reader) || !ghostText || ghostText.parts.length === 0) {
                 this.sessionPosition = undefined;
