@@ -1585,7 +1585,29 @@ declare namespace monaco.editor {
      */
     export enum GlyphMarginLane {
         Left = 1,
-        Right = 2
+        Center = 2,
+        Right = 3
+    }
+
+    export interface IGlyphMarginLanesModel {
+        /**
+         * The number of lanes that should be rendered in the editor.
+         */
+        readonly requiredLanes: number;
+        /**
+         * Gets the lanes that should be rendered starting at a given line number.
+         */
+        getLanesAtLine(lineNumber: number): GlyphMarginLane[];
+        /**
+         * Resets the model and ensures it can contain at least `maxLine` lines.
+         */
+        reset(maxLine: number): void;
+        /**
+         * Registers that a lane should be visible at the Range in the model.
+         * @param persist - if true, notes that the lane should always be visible,
+         * even on lines where there's no specific request for that lane.
+         */
+        push(lane: GlyphMarginLane, range: Range, persist?: boolean): void;
     }
 
     /**
@@ -1614,6 +1636,11 @@ declare namespace monaco.editor {
          * The position in the glyph margin.
          */
         position: GlyphMarginLane;
+        /**
+         * Whether the glyph margin lane in {@link position} should be rendered even
+         * outside of this decoration's range.
+         */
+        persistLane?: boolean;
     }
 
     /**
@@ -1670,6 +1697,10 @@ declare namespace monaco.editor {
          */
         hoverMessage?: IMarkdownString | IMarkdownString[] | null;
         /**
+         * Array of MarkdownString to render as the line number message.
+         */
+        lineNumberHoverMessage?: IMarkdownString | IMarkdownString[] | null;
+        /**
          * Should the decoration expand to encompass a whole line.
          */
         isWholeLine?: boolean;
@@ -1704,6 +1735,14 @@ declare namespace monaco.editor {
          * If set, the decoration will be rendered in the lines decorations with this CSS class name.
          */
         linesDecorationsClassName?: string | null;
+        /**
+         * Controls the tooltip text of the line decoration.
+         */
+        linesDecorationsTooltip?: string | null;
+        /**
+         * If set, the decoration will be rendered on the line number.
+         */
+        lineNumberClassName?: string | null;
         /**
          * If set, the decoration will be rendered in the lines decorations with this CSS class name, but only for the first line in case of line wrapping.
          */
@@ -2904,6 +2943,7 @@ declare namespace monaco.editor {
         readonly affectsMinimap: boolean;
         readonly affectsOverviewRuler: boolean;
         readonly affectsGlyphMargin: boolean;
+        readonly affectsLineNumber: boolean;
     }
 
     export interface IModelOptionsChangedEvent {
@@ -4136,7 +4176,7 @@ declare namespace monaco.editor {
         readonly minimapCanvasOuterHeight: number;
     }
 
-    export enum ShowAiIconMode {
+    export enum ShowLightbulbIconMode {
         Off = 'off',
         OnCode = 'onCode',
         On = 'on'
@@ -4148,15 +4188,12 @@ declare namespace monaco.editor {
     export interface IEditorLightbulbOptions {
         /**
          * Enable the lightbulb code action.
-         * Defaults to true.
+         * The three possible values are `off`, `on` and `onCode` and the default is `onCode`.
+         * `off` disables the code action menu.
+         * `on` shows the code action menu on code and on empty lines.
+         * `onCode` shows the code action menu on code only.
          */
-        enabled?: boolean;
-        experimental?: {
-            /**
-             * Highlight AI code actions with AI icon
-             */
-            showAiIcon?: ShowAiIconMode;
-        };
+        enabled?: ShowLightbulbIconMode;
     }
 
     export interface IEditorStickyScrollOptions {
@@ -4470,6 +4507,10 @@ declare namespace monaco.editor {
          * Does not clear active inline suggestions when the editor loses focus.
          */
         keepOnBlur?: boolean;
+        /**
+         * Font family for inline suggestions.
+         */
+        fontFamily?: string | 'default';
     }
 
     export interface IBracketPairColorizationOptions {
@@ -5269,19 +5310,37 @@ declare namespace monaco.editor {
     }
 
     /**
+     * Represents editor-relative coordinates of an overlay widget.
+     */
+    export interface IOverlayWidgetPositionCoordinates {
+        /**
+         * The top position for the overlay widget, relative to the editor.
+         */
+        top: number;
+        /**
+         * The left position for the overlay widget, relative to the editor.
+         */
+        left: number;
+    }
+
+    /**
      * A position for rendering overlay widgets.
      */
     export interface IOverlayWidgetPosition {
         /**
          * The position preference for the overlay widget.
          */
-        preference: OverlayWidgetPositionPreference | null;
+        preference: OverlayWidgetPositionPreference | IOverlayWidgetPositionCoordinates | null;
     }
 
     /**
      * An overlay widgets renders on top of the text.
      */
     export interface IOverlayWidget {
+        /**
+         * Render this overlay widget in a location where it could overflow the editor's view dom node.
+         */
+        allowEditorOverflow?: boolean;
         /**
          * Get a unique identifier of the overlay widget.
          */
@@ -5433,6 +5492,7 @@ declare namespace monaco.editor {
         readonly isAfterLines: boolean;
         readonly glyphMarginLeft: number;
         readonly glyphMarginWidth: number;
+        readonly glyphMarginLane?: GlyphMarginLane;
         readonly lineNumbersWidth: number;
         readonly offsetX: number;
     }
@@ -5593,6 +5653,11 @@ declare namespace monaco.editor {
          * @event
          */
         readonly onDidChangeCursorSelection: IEvent<ICursorSelectionChangedEvent>;
+        /**
+         * An event emitted when the model of this editor is about to change (e.g. from `editor.setModel()`).
+         * @event
+         */
+        readonly onWillChangeModel: IEvent<IModelChangedEvent>;
         /**
          * An event emitted when the model of this editor has changed (e.g. `editor.setModel()`).
          * @event
@@ -7042,6 +7107,7 @@ declare namespace monaco.languages {
         isPreferred?: boolean;
         isAI?: boolean;
         disabled?: string;
+        ranges?: IRange[];
     }
 
     export enum CodeActionTriggerType {
@@ -7712,6 +7778,11 @@ declare namespace monaco.languages {
         arguments?: any[];
     }
 
+    export interface CommentAuthorInformation {
+        name: string;
+        iconPath?: UriComponents;
+    }
+
     export interface PendingCommentThread {
         body: string;
         range: IRange | undefined;
@@ -8375,6 +8446,127 @@ declare namespace monaco.languages.html {
  *--------------------------------------------------------------------------------------------*/
 
 declare namespace monaco.languages.json {
+    export interface BaseASTNode {
+        readonly type: 'object' | 'array' | 'property' | 'string' | 'number' | 'boolean' | 'null';
+        readonly parent?: ASTNode;
+        readonly offset: number;
+        readonly length: number;
+        readonly children?: ASTNode[];
+        readonly value?: string | boolean | number | null;
+    }
+    export interface ObjectASTNode extends BaseASTNode {
+        readonly type: 'object';
+        readonly properties: PropertyASTNode[];
+        readonly children: ASTNode[];
+    }
+    export interface PropertyASTNode extends BaseASTNode {
+        readonly type: 'property';
+        readonly keyNode: StringASTNode;
+        readonly valueNode?: ASTNode;
+        readonly colonOffset?: number;
+        readonly children: ASTNode[];
+    }
+    export interface ArrayASTNode extends BaseASTNode {
+        readonly type: 'array';
+        readonly items: ASTNode[];
+        readonly children: ASTNode[];
+    }
+    export interface StringASTNode extends BaseASTNode {
+        readonly type: 'string';
+        readonly value: string;
+    }
+    export interface NumberASTNode extends BaseASTNode {
+        readonly type: 'number';
+        readonly value: number;
+        readonly isInteger: boolean;
+    }
+    export interface BooleanASTNode extends BaseASTNode {
+        readonly type: 'boolean';
+        readonly value: boolean;
+    }
+    export interface NullASTNode extends BaseASTNode {
+        readonly type: 'null';
+        readonly value: null;
+    }
+    export type ASTNode = ObjectASTNode | PropertyASTNode | ArrayASTNode | StringASTNode | NumberASTNode | BooleanASTNode | NullASTNode;
+    export type JSONDocument = {
+        root: ASTNode | undefined;
+        getNodeFromOffset(offset: number, includeRightBound?: boolean): ASTNode | undefined;
+    };
+    export type JSONSchemaRef = JSONSchema | boolean;
+    export interface JSONSchemaMap {
+        [name: string]: JSONSchemaRef;
+    }
+    export interface JSONSchema {
+        id?: string;
+        $id?: string;
+        $schema?: string;
+        type?: string | string[];
+        title?: string;
+        default?: any;
+        definitions?: {
+            [name: string]: JSONSchema;
+        };
+        description?: string;
+        properties?: JSONSchemaMap;
+        patternProperties?: JSONSchemaMap;
+        additionalProperties?: boolean | JSONSchemaRef;
+        minProperties?: number;
+        maxProperties?: number;
+        dependencies?: JSONSchemaMap | {
+            [prop: string]: string[];
+        };
+        items?: JSONSchemaRef | JSONSchemaRef[];
+        minItems?: number;
+        maxItems?: number;
+        uniqueItems?: boolean;
+        additionalItems?: boolean | JSONSchemaRef;
+        pattern?: string;
+        minLength?: number;
+        maxLength?: number;
+        minimum?: number;
+        maximum?: number;
+        exclusiveMinimum?: boolean | number;
+        exclusiveMaximum?: boolean | number;
+        multipleOf?: number;
+        required?: string[];
+        $ref?: string;
+        anyOf?: JSONSchemaRef[];
+        allOf?: JSONSchemaRef[];
+        oneOf?: JSONSchemaRef[];
+        not?: JSONSchemaRef;
+        enum?: any[];
+        format?: string;
+        const?: any;
+        contains?: JSONSchemaRef;
+        propertyNames?: JSONSchemaRef;
+        examples?: any[];
+        $comment?: string;
+        if?: JSONSchemaRef;
+        then?: JSONSchemaRef;
+        else?: JSONSchemaRef;
+        defaultSnippets?: {
+            label?: string;
+            description?: string;
+            markdownDescription?: string;
+            body?: any;
+            bodyText?: string;
+        }[];
+        errorMessage?: string;
+        patternErrorMessage?: string;
+        deprecationMessage?: string;
+        enumDescriptions?: string[];
+        markdownEnumDescriptions?: string[];
+        markdownDescription?: string;
+        doNotSuggest?: boolean;
+        suggestSortText?: string;
+        allowComments?: boolean;
+        allowTrailingCommas?: boolean;
+    }
+    export interface MatchingSchema {
+        node: ASTNode;
+        schema: JSONSchema;
+    }
     export interface DiagnosticsOptions {
         /**
          * If set, the validator will be enabled and perform syntax and schema based validation,
@@ -8479,6 +8671,11 @@ declare namespace monaco.languages.json {
         setModeConfiguration(modeConfiguration: ModeConfiguration): void;
     }
     export const jsonDefaults: LanguageServiceDefaults;
+    export interface IJSONWorker {
+        parseJSONDocument(uri: string): Promise<JSONDocument | null>;
+        getMatchingSchemas(uri: string): Promise<MatchingSchema[]>;
+    }
+    export const getWorker: () => Promise<(...uris: Uri[]) => Promise<IJSONWorker>>;
 }
 
 /*---------------------------------------------------------------------------------------------
