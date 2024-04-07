@@ -1,22 +1,22 @@
 
-/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
- * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
- * Studio para auxiliÃ¡-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÃ§Ã£o:
+ * Descrição:
  * 
- * 	Este exemplo pede o nome do usuÃ¡rio e trÃªs valores inteiros, os quais 
+ * 	Este exemplo pede o nome do usuário e três valores inteiros, os quais 
  * 	representam a quantidade de porcas, parafusos e arruelas compradas. 
- * 	ApÃ³s, exibe o nome do usuÃ¡rio seguido da quantidade de cada item comprado
+ * 	Após, exibe o nome do usuário seguido da quantidade de cada item comprado
  * 	e o valor total a ser pago.
  * 
  * Autores:
@@ -31,7 +31,7 @@ programa
 {
 	funcao inicio ()
 	{	
-		// Os preÃ§os dos produtos sÃ£o definidos em constantes
+		// Os preços dos produtos são definidos em constantes
 		
 		const real PRECO_PARAFUSO = 1.50
 		const real PRECO_ARRUELA  = 2.00
@@ -54,8 +54,8 @@ programa
 		leia(quantidade_porcas)
 
 		/*
-		 * CÃ¡lculo dos valores a serem pagos. O cÃ¡lculo Ã© feito multiplicando
-		 * a quantidade de itens vendidos pelo preÃ§o de cada item
+		 * Cálculo dos valores a serem pagos. O cálculo é feito multiplicando
+		 * a quantidade de itens vendidos pelo preço de cada item
 		 */		
 		total_parafusos = PRECO_PARAFUSO * quantidade_parafusos
 		total_arruelas = PRECO_ARRUELA * quantidade_arruelas
@@ -75,3 +75,15 @@ programa
 	} 
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1024; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

@@ -1,29 +1,29 @@
 
-/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
- * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
- * Studio para auxiliÃ¡-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÃ§Ã£o:
+ * Descrição:
  * 
- * 	Este exemplo pede ao usuario que informe um nÃºmero inteiro. Logo apÃ³s, calcula e
- * 	exibe todos os nÃºmeros da sequÃªncia de Fibonacci atÃ© a posiÃ§Ã£o informada pelo usuÃ¡rio.
+ * 	Este exemplo pede ao usuario que informe um número inteiro. Logo após, calcula e
+ * 	exibe todos os números da sequência de Fibonacci até a posição informada pelo usuário.
  * 	
- * 	Neste exemplo, os nÃºmeros da sequÃªncia de Fibonacci sÃ£o calculados chamando recursivamente
- * 	a funÃ§Ã£o "fibonacci" definida no programa.
+ * 	Neste exemplo, os números da sequência de Fibonacci são calculados chamando recursivamente
+ * 	a função "fibonacci" definida no programa.
  * 	
- * 	A sequÃªncia de Fibonacci Ã© uma sequÃªncia numÃ©rica especial, na qual cada elemento da sequÃªncia 
- * 	Ã© calculado somando os dois elementos anteriores.
+ * 	A sequência de Fibonacci é uma sequência numérica especial, na qual cada elemento da sequência 
+ * 	é calculado somando os dois elementos anteriores.
  * 	
- * 	Para saber mais sobre a sequÃªncia de Fibonacci, acesse: 
+ * 	Para saber mais sobre a sequência de Fibonacci, acesse: 
  * 	http://www.infoescola.com/matematica/sequencia-de-fibonacci/
  * 	
  * Autores:
@@ -40,22 +40,22 @@ programa
 	{
 		inteiro numero
 		 
-		escreva("Quantos elementos da sequÃªncia de Fibonacci deseja calcular? ")
+		escreva("Quantos elementos da sequência de Fibonacci deseja calcular? ")
 		leia(numero)
 
-		// O laÃ§o de repetiÃ§Ã£o percorre todos os valores de 1 atÃ© a posiÃ§Ã£o informada,
-		// calculando o elemento correspondente na sequÃªncia
+		// O laço de repetição percorre todos os valores de 1 até a posição informada,
+		// calculando o elemento correspondente na sequência
 		
 		para (inteiro i = 1; i <= numero ; i++)
 		{
-			escreva(fibonacci(i), " ")  // Calcula e exibe o nÃºmero da sequÃªncia na posiÃ§Ã£o atual
+			escreva(fibonacci(i), " ")  // Calcula e exibe o número da sequência na posição atual
 		}
 
 		escreva("\n")
 	}
 
-	// FunÃ§Ã£o recursiva que calcula o enÃ©simo valor da sequÃªncia de Fibonnaci.
-	// Exemplo: caso seja passado 3 por parametro a funÃ§Ã£o irÃ¡ retornar 2, ou seja, o terceiro valor da sequencia de Fibonacci
+	// Função recursiva que calcula o enésimo valor da sequência de Fibonnaci.
+	// Exemplo: caso seja passado 3 por parametro a função irá retornar 2, ou seja, o terceiro valor da sequencia de Fibonacci
 	
 	funcao inteiro fibonacci(inteiro posicao)
 	{		
@@ -72,3 +72,15 @@ programa
 	}
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1339; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

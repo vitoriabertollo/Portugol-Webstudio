@@ -1,20 +1,20 @@
 
-/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
  *  
- * Copyright (C) 2017 - UNIVALI - Universidade do Vale do Itaja√≠
+ * Copyright (C) 2017 - UNIVALI - Universidade do Vale do ItajaÌ
  * 
- * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
- * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
+ * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
+ * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
- * Studio para auxili√°-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
+ * Studio para auxili·-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descri√ß√£o:
+ * DescriÁ„o:
  * 
- * 	Este exemplo demonstra como √© detectada a colis√£o entre dois ret√¢ngulos.
+ * 	Este exemplo demonstra como È detectada a colis„o entre dois ret‚ngulos.
  * 
  * Autores:
  * 
@@ -48,24 +48,24 @@ programa
 	logico exibir_guias = falso
 	logico tratar_colisoes = verdadeiro
 
-	inteiro x1 = 100	// Coordenada X do ret√¢ngulo 1
-	inteiro y1 = 350	// Coordenada Y do ret√¢ngulo 1
-	inteiro l1 = 80	// Largura do ret√¢ngulo 1
-	inteiro a1 = 60	// Altura do ret√¢ngulo 1
+	inteiro x1 = 100	// Coordenada X do ret‚ngulo 1
+	inteiro y1 = 350	// Coordenada Y do ret‚ngulo 1
+	inteiro l1 = 80	// Largura do ret‚ngulo 1
+	inteiro a1 = 60	// Altura do ret‚ngulo 1
 	
-	inteiro x2 = 350	// Coordenada X do ret√¢ngulo 2
-	inteiro y2 = 260	// Coordenada Y do ret√¢ngulo 2
-	inteiro l2 = 100	// Largura do ret√¢ngulo 2
-	inteiro a2 = 80	// Altura do ret√¢ngulo 2
+	inteiro x2 = 350	// Coordenada X do ret‚ngulo 2
+	inteiro y2 = 260	// Coordenada Y do ret‚ngulo 2
+	inteiro l2 = 100	// Largura do ret‚ngulo 2
+	inteiro a2 = 80	// Altura do ret‚ngulo 2
 
-	inteiro dmx = (l1 / 2) + (l2 / 2)	// Calcula a dist√¢ncia m√≠nima que pode haver entre o centro dos ret√¢ngulos no eixo X antes de ocorrer colis√£o na horizontal
-	inteiro dmy = (a1 / 2) + (a2 / 2)	// Calcula a dist√¢ncia m√≠nima que pode haver entre o centro dos ret√¢ngulos no eixo Y antes de ocorrer colis√£o na vertical
+	inteiro dmx = (l1 / 2) + (l2 / 2)	// Calcula a dist‚ncia mÌnima que pode haver entre o centro dos ret‚ngulos no eixo X antes de ocorrer colis„o na horizontal
+	inteiro dmy = (a1 / 2) + (a2 / 2)	// Calcula a dist‚ncia mÌnima que pode haver entre o centro dos ret‚ngulos no eixo Y antes de ocorrer colis„o na vertical
 
-	inteiro x1_inicial = x1	// Armazena a coordenada X inicial do ret√¢ngulo 1
-	inteiro y1_inicial = y1	// Armazena a coordenada Y inicial do ret√¢ngulo 1
+	inteiro x1_inicial = x1	// Armazena a coordenada X inicial do ret‚ngulo 1
+	inteiro y1_inicial = y1	// Armazena a coordenada Y inicial do ret‚ngulo 1
 
-	inteiro x2_inicial = x2	// Armazena a coordenada X inicial do ret√¢ngulo 2
-	inteiro y2_inicial = y2	// Armazena a coordenada Y inicial do ret√¢ngulo 2
+	inteiro x2_inicial = x2	// Armazena a coordenada X inicial do ret‚ngulo 2
+	inteiro y2_inicial = y2	// Armazena a coordenada Y inicial do ret‚ngulo 2
 			
 	funcao inicio()
 	{		
@@ -81,7 +81,7 @@ programa
 	funcao inicializar()
 	{
 		g.iniciar_modo_grafico(verdadeiro)
-		g.definir_titulo_janela("Colis√£o entre ret√¢ngulos")
+		g.definir_titulo_janela("Colis„o entre ret‚ngulos")
 		u.aguarde(1200)
 		g.definir_dimensoes_janela(LARGURA_TELA, ALTURA_TELA)
 		g.definir_estilo_texto(falso, verdadeiro, falso)		
@@ -108,11 +108,11 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_SETA_ACIMA))
 		{
-			y1 = y1 - 1			// Realiza a movimenta√ß√£o para cima
+			y1 = y1 - 1			// Realiza a movimentaÁ„o para cima
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				y1 = y1 + 1		// Desfaz a movimenta√ß√£o para cima
+				y1 = y1 + 1		// Desfaz a movimentaÁ„o para cima
 			}
 
 			travar_movimento(t.TECLA_SETA_ACIMA)
@@ -120,11 +120,11 @@ programa
 		}
 		senao se (t.tecla_pressionada(t.TECLA_SETA_ABAIXO))
 		{
-			y1 = y1 + 1			// Realiza a movimenta√ß√£o para baixo
+			y1 = y1 + 1			// Realiza a movimentaÁ„o para baixo
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				y1 = y1 - 1		// Desfaz a movimenta√ß√£o para baixo
+				y1 = y1 - 1		// Desfaz a movimentaÁ„o para baixo
 			}
 
 			travar_movimento(t.TECLA_SETA_ABAIXO)
@@ -135,22 +135,22 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_SETA_ESQUERDA))
 		{
-			x1 = x1 - 1			// Desfaz a movimenta√ß√£o para a esquerda
+			x1 = x1 - 1			// Desfaz a movimentaÁ„o para a esquerda
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				x1 = x1 + 1		// Realiza a movimenta√ß√£o para a esquerda
+				x1 = x1 + 1		// Realiza a movimentaÁ„o para a esquerda
 			}
 
 			travar_movimento(t.TECLA_SETA_ESQUERDA)
 		}
 		senao se (t.tecla_pressionada(t.TECLA_SETA_DIREITA))
 		{
-			x1 = x1 + 1			// Realiza a movimenta√ß√£o para a direita
+			x1 = x1 + 1			// Realiza a movimentaÁ„o para a direita
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				x1 = x1 - 1		// Desfaz a movimenta√ß√£o para a direita
+				x1 = x1 - 1		// Desfaz a movimentaÁ„o para a direita
 			}
 
 			travar_movimento(t.TECLA_SETA_DIREITA)
@@ -161,11 +161,11 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_W))
 		{
-			y2 = y2 - 1			// Realiza a movimenta√ß√£o para cima
+			y2 = y2 - 1			// Realiza a movimentaÁ„o para cima
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				y2 = y2 + 1		// Desfaz a movimenta√ß√£o para cima
+				y2 = y2 + 1		// Desfaz a movimentaÁ„o para cima
 			}
 
 			travar_movimento(t.TECLA_W)
@@ -173,11 +173,11 @@ programa
 		}
 		senao se (t.tecla_pressionada(t.TECLA_S))
 		{
-			y2 = y2 + 1			// Realiza a movimenta√ß√£o para baixo
+			y2 = y2 + 1			// Realiza a movimentaÁ„o para baixo
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				y2 = y2 - 1		// Desfaz a movimenta√ß√£o para baixo
+				y2 = y2 - 1		// Desfaz a movimentaÁ„o para baixo
 			}
 
 			travar_movimento(t.TECLA_S)
@@ -188,22 +188,22 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_A))
 		{
-			x2 = x2 - 1			// Desfaz a movimenta√ß√£o para a esquerda
+			x2 = x2 - 1			// Desfaz a movimentaÁ„o para a esquerda
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				x2 = x2 + 1		// Realiza a movimenta√ß√£o para a esquerda
+				x2 = x2 + 1		// Realiza a movimentaÁ„o para a esquerda
 			}
 
 			travar_movimento(t.TECLA_A)
 		}
 		senao se (t.tecla_pressionada(t.TECLA_D))
 		{
-			x2 = x2 + 1			// Realiza a movimenta√ß√£o para a direita
+			x2 = x2 + 1			// Realiza a movimentaÁ„o para a direita
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				x2 = x2 - 1		// Desfaz a movimenta√ß√£o para a direita
+				x2 = x2 - 1		// Desfaz a movimentaÁ„o para a direita
 			}
 
 			travar_movimento(t.TECLA_D)
@@ -221,25 +221,25 @@ programa
 
 	funcao logico ocorreu_colisao()
 	{
-		inteiro cx1 = x1 + (l1 / 2)						// Calcula o X do ponto central do ret√¢ngulo 1
-		inteiro cx2 = x2 + (l2 / 2)						// Calcula o X do ponto central do ret√¢ngulo 2
+		inteiro cx1 = x1 + (l1 / 2)						// Calcula o X do ponto central do ret‚ngulo 1
+		inteiro cx2 = x2 + (l2 / 2)						// Calcula o X do ponto central do ret‚ngulo 2
 
-		inteiro cy1 = y1 + (a1 / 2)						// Calcula o Y do ponto central do ret√¢ngulo 1
-		inteiro cy2 = y2 + (a2 / 2)						// Calcula o Y do ponto central do ret√¢ngulo 2
+		inteiro cy1 = y1 + (a1 / 2)						// Calcula o Y do ponto central do ret‚ngulo 1
+		inteiro cy2 = y2 + (a2 / 2)						// Calcula o Y do ponto central do ret‚ngulo 2
 
-		inteiro dx = valor_absoluto(cx2 - cx1)				// Calcula a dist√¢ncia no eixo X entre o centro do ret√¢ngulo 1 e centro do ret√¢ngulo 2
-		inteiro dy = valor_absoluto(cy2 - cy1)				// Calcula a dist√¢ncia no eixo Y entre o centro do ret√¢ngulo 1 e centro do ret√¢ngulo 2
+		inteiro dx = valor_absoluto(cx2 - cx1)				// Calcula a dist‚ncia no eixo X entre o centro do ret‚ngulo 1 e centro do ret‚ngulo 2
+		inteiro dy = valor_absoluto(cy2 - cy1)				// Calcula a dist‚ncia no eixo Y entre o centro do ret‚ngulo 1 e centro do ret‚ngulo 2
 
-		logico colisao_horizontal = (dx < dmx)				// Se a dist√¢ncia entre os centros no eixo X, for menor que a dist√¢ncia m√≠nima, ocorreu colis√£o na horizontal
-		logico colisao_vertical = (dy < dmy)				// Se a dist√¢ncia entre os centros no eixo Y, for menor que a dist√¢ncia m√≠nima, ocorreu colis√£o na vertical
+		logico colisao_horizontal = (dx < dmx)				// Se a dist‚ncia entre os centros no eixo X, for menor que a dist‚ncia mÌnima, ocorreu colis„o na horizontal
+		logico colisao_vertical = (dy < dmy)				// Se a dist‚ncia entre os centros no eixo Y, for menor que a dist‚ncia mÌnima, ocorreu colis„o na vertical
 
-													// Se ocorreu colis√£o na horizontal e na vertical ao mesmo tempo, ent√£o ocorreu uma colis√£o de fato
-		retorne (colisao_horizontal e colisao_vertical)		// Sen√£o, significa que o ret√¢ngulo 1 est√° passando ao redor do ret√¢ngulo 2
+													// Se ocorreu colis„o na horizontal e na vertical ao mesmo tempo, ent„o ocorreu uma colis„o de fato
+		retorne (colisao_horizontal e colisao_vertical)		// Sen„o, significa que o ret‚ngulo 1 est· passando ao redor do ret‚ngulo 2
 	}
 
 	funcao inteiro valor_absoluto(inteiro numero)
 	{
-		se (numero < 0)			// Se o n√∫mero for negativo, torna-o positivo
+		se (numero < 0)			// Se o n˙mero for negativo, torna-o positivo
 		{
 			numero = numero * -1
 		}
@@ -286,7 +286,7 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_G))
 		{
-			exibir_guias = nao exibir_guias	// Inverte o valor l√≥gico da vari√°vel. Se for verdadeiro, se tornar√° falso. Se for falso, se tornar√° verdadeiro
+			exibir_guias = nao exibir_guias	// Inverte o valor lÛgico da vari·vel. Se for verdadeiro, se tornar· falso. Se for falso, se tornar· verdadeiro
 			
 			enquanto (t.tecla_pressionada(t.TECLA_G)) 
 			{
@@ -299,7 +299,7 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_C))
 		{
-			tratar_colisoes = nao tratar_colisoes	// Inverte o valor l√≥gico da vari√°vel. Se for verdadeiro, se tornar√° falso. Se for falso, se tornar√° verdadeiro
+			tratar_colisoes = nao tratar_colisoes	// Inverte o valor lÛgico da vari·vel. Se for verdadeiro, se tornar· falso. Se for falso, se tornar· verdadeiro
 
 			se (tratar_colisoes e ocorreu_colisao())
 			{
@@ -429,12 +429,12 @@ programa
 
 	funcao desenhar_mensagem_movimento1(inteiro x, inteiro &y, inteiro espacamento)
 	{
-		desenhar_texto_informativo(x, y, espacamento, "Utilize as teclas 'ACIMA', 'ABAIXO', 'ESQUERDA' e 'DIREITA' para mover o ret√¢ngulo A")
+		desenhar_texto_informativo(x, y, espacamento, "Utilize as teclas 'ACIMA', 'ABAIXO', 'ESQUERDA' e 'DIREITA' para mover o ret‚ngulo A")
 	}
 
 	funcao desenhar_mensagem_movimento2(inteiro x, inteiro &y, inteiro espacamento)
 	{
-		desenhar_texto_informativo(x, y, espacamento, "Utilize as teclas 'W', 'S', 'A' e 'D' para mover o ret√¢ngulo B")
+		desenhar_texto_informativo(x, y, espacamento, "Utilize as teclas 'W', 'S', 'A' e 'D' para mover o ret‚ngulo B")
 	}
 
 	funcao desenhar_mensagem_colisoes(inteiro x, inteiro &y, inteiro espacamento)
@@ -446,7 +446,7 @@ programa
 			texto = "desativar"
 		}
 
-		desenhar_texto_informativo(x, y, espacamento, "Pressione a tecla 'C' para " + texto +" o tratamento de colis√µes")
+		desenhar_texto_informativo(x, y, espacamento, "Pressione a tecla 'C' para " + texto +" o tratamento de colisıes")
 	}
 	
 	funcao desenhar_mensagem_guias(inteiro x, inteiro &y, inteiro espacamento)
@@ -458,24 +458,24 @@ programa
 			texto = "ocultar"
 		}
 
-		desenhar_texto_informativo(x, y, espacamento, "Pressione a tecla 'G' para " + texto + " as guias de colis√£o")
+		desenhar_texto_informativo(x, y, espacamento, "Pressione a tecla 'G' para " + texto + " as guias de colis„o")
 	}
 
 	funcao desenhar_mensagem_precisao(inteiro x, inteiro &y, inteiro espacamento)
 	{
-		desenhar_texto_informativo(x, y, espacamento, "Segure a tecla 'SHIFT' enquanto move os ret√¢ngulos para dar mais precis√£o ao movimento")
+		desenhar_texto_informativo(x, y, espacamento, "Segure a tecla 'SHIFT' enquanto move os ret‚ngulos para dar mais precis„o ao movimento")
 	}
 
 	funcao desenhar_informacoes_retangulo_a(inteiro x, inteiro &y, inteiro espacamento)
 	{
-		cadeia texto = "Ret√¢ngulo A = [ X: " + x1 + ", Y: " + y1 + ", L: " + l1 + ", A: " + a1 + " ]"
+		cadeia texto = "Ret‚ngulo A = [ X: " + x1 + ", Y: " + y1 + ", L: " + l1 + ", A: " + a1 + " ]"
 		
 		desenhar_texto_informativo(x, y, espacamento, texto)
 	}
 
 	funcao desenhar_informacoes_retangulo_b(inteiro x, inteiro &y, inteiro espacamento)
 	{
-		cadeia texto = "Ret√¢ngulo B = [ X: " + x2 + ", Y: " + y2 + ", L: " + l2 + ", A: " + a2 + " ]"
+		cadeia texto = "Ret‚ngulo B = [ X: " + x2 + ", Y: " + y2 + ", L: " + l2 + ", A: " + a2 + " ]"
 		
 		desenhar_texto_informativo(x, y, espacamento, texto)
 	}
@@ -486,11 +486,11 @@ programa
 		real distancia = 0.0
 
 		distancia = tp.inteiro_para_real(dmx)
-		texto = "Dist√¢ncia m√≠nima no eixo X = " + tp.real_para_inteiro(m.arredondar(distancia, 0))
+		texto = "Dist‚ncia mÌnima no eixo X = " + tp.real_para_inteiro(m.arredondar(distancia, 0))
 		desenhar_texto_informativo(x, y, espacamento, texto)
 
 		distancia = tp.inteiro_para_real(dmy)
-		texto = "Dist√¢ncia m√≠nima no eixo Y = " + tp.real_para_inteiro(m.arredondar(distancia, 0))
+		texto = "Dist‚ncia mÌnima no eixo Y = " + tp.real_para_inteiro(m.arredondar(distancia, 0))
 		desenhar_texto_informativo(x, y, espacamento, texto)
 	}
 
@@ -510,3 +510,15 @@ programa
 		y = y + espacamento
 	}
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
+ * VocÍ pode apag·-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 950; 
+ * @DOBRAMENTO-CODIGO = [1, 69, 80, 89, 106, 133, 159, 186, 212, 221, 239, 249, 270, 276, 284, 297, 319, 337, 344, 350, 358, 366, 380, 394, 405, 429, 434, 439, 451, 463, 468, 475, 482, 496];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

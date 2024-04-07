@@ -1,39 +1,39 @@
 
-/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itaja√≠
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÌ
  * 
- * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
- * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
+ * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
+ * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
- * Studio para auxili√°-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
+ * Studio para auxili·-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descri√ß√£o:
+ * DescriÁ„o:
  * 
- * 	Este exemplo √© um Jogo de corrida escrito em Portugol (ainda em desenvolvimento).
+ * 	Este exemplo È um Jogo de corrida escrito em Portugol (ainda em desenvolvimento).
  * 	O exemplo demonstra como utilizar algumas das bibliotecas existentes no Portugol. 
- * 	Neste exemplo, tamb√©m √© poss√≠vel ver algumas t√©cnicas utilizadas na cria√ß√£o de jogos.
+ * 	Neste exemplo, tambÈm È possÌvel ver algumas tÈcnicas utilizadas na criaÁ„o de jogos.
  * 	
- * 	O objetivo do jogo √© conduzir o ve√≠culo do jogador at√© linha de chegada. O combust√≠vel
- * 	vai diminuindo ao longo do tempo, portanto o jogador deve ir pegando os gal√µes de combust√≠vel 
- * 	existentes na pista. Caso contr√°rio, o combust√≠vel acaba e o ve√≠culo do jogador para.
+ * 	O objetivo do jogo È conduzir o veÌculo do jogador atÈ linha de chegada. O combustÌvel
+ * 	vai diminuindo ao longo do tempo, portanto o jogador deve ir pegando os galıes de combustÌvel 
+ * 	existentes na pista. Caso contr·rio, o combustÌvel acaba e o veÌculo do jogador para.
  * 	
- * 	O jogador tamb√©m deve desviar dos outros ve√≠culos na pista. Se o jogador colidir na traseira 
- * 	ou na lateral de outro ve√≠culo ir√° tomar danos proporcionais √† velocidade dos dois ve√≠culos 
- * 	e o ve√≠culo do jogador ir√° perder velocidade (em alguns casos at√© parar).
+ * 	O jogador tambÈm deve desviar dos outros veÌculos na pista. Se o jogador colidir na traseira 
+ * 	ou na lateral de outro veÌculo ir· tomar danos proporcionais ‡ velocidade dos dois veÌculos 
+ * 	e o veÌculo do jogador ir· perder velocidade (em alguns casos atÈ parar).
  * 	
- * 	Se outro ve√≠culo colidir atr√°s do jogador, o jogador ir√° tomar danos proporcionais √† velocidade 
- *	os dois ve√≠culos. No entanto, o ve√≠culo do jogador ser√° arremessado para frente, ganhando velocidade. 
- *	Esta pode ser uma estrat√©gia √∫til quando o combust√≠vel estiver acabando.
+ * 	Se outro veÌculo colidir atr·s do jogador, o jogador ir· tomar danos proporcionais ‡ velocidade 
+ *	os dois veÌculos. No entanto, o veÌculo do jogador ser· arremessado para frente, ganhando velocidade. 
+ *	Esta pode ser uma estratÈgia ˙til quando o combustÌvel estiver acabando.
  * 	
- * 	Para reverter os danos causados ao ve√≠culo, o jogador deve passar nos pontos de reparo que est√£o
+ * 	Para reverter os danos causados ao veÌculo, o jogador deve passar nos pontos de reparo que est„o
  * 	espalhados pela pista.
  * 	
- * 	M√∫sica e efeitos sonoros: 
+ * 	M˙sica e efeitos sonoros: 
  * 	
  * 		FreeSFX (http://www.freesfx.co.uk/info/eula)
  * 		SoundJay (http://www.soundjay.com)	
@@ -57,10 +57,10 @@ programa
 	inclua biblioteca Sons --> sm
 	inclua biblioteca Texto --> txt
 
-	/* Constantes que definem as propriedades dos ve√≠culos */
+	/* Constantes que definem as propriedades dos veÌculos */
 	const inteiro _X = 0, _Y = 1, _MODELO = 2, _VELOCIDADE = 3, _COMBUSTIVEL = 4, _DANOS = 5
 
-	/* Constantes que definem as propriedades dos modelos de ve√≠culos */
+	/* Constantes que definem as propriedades dos modelos de veÌculos */
 	const inteiro _SX = 0, _SY = 1, _LARGURA = 2, _ALTURA = 3
 
 	/* Constantes que definem os tipos de objeto do jogo */
@@ -69,16 +69,16 @@ programa
 	/* Constantes que definem as telas do jogo */
 	const inteiro TELA_SAIR = 0, TELA_JOGO = 1
 
-	/* Define quantos quadros ser√£o desenhados por segundo (FPS) */
+	/* Define quantos quadros ser„o desenhados por segundo (FPS) */
 	const inteiro TAXA_ATUALIZACAO = 60
 
-	/* Constantes utilizadas para simular a f√≠sica do jogo */
+	/* Constantes utilizadas para simular a fÌsica do jogo */
 	const real ATRITO = 0.035, ACELERACAO = 0.085, FREIO = 0.135
 
-	/* Constantes que determinam a velocidade dos ve√≠culos no jogo */
+	/* Constantes que determinam a velocidade dos veÌculos no jogo */
 	const real VELOCIDADE_MAXIMA_JOGADOR = 12.0, VELOCIDADE_MAXIMA_VEICULOS = 11.0, VELOCIDADE_MINIMA_VEICULOS = 5.0
 
-	/* Constantes que determinam as propriedades dos gal√µes de combust√≠vel espalhados na estrada  */
+	/* Constantes que determinam as propriedades dos galıes de combustÌvel espalhados na estrada  */
 	const real MAXIMO_COMBUSTIVEL = 20000.0, COMBUSTIVEL_GALAO = 5000.0
 
 	/* Constantes que controlam a quantidade de dano causado pelas batidas */
@@ -87,28 +87,28 @@ programa
 	/* Constantes que determinam as propriedades dos pontos de reparo espalhados na estrada */
 	const real TAXA_REPARO = 200.0
 
-	/* Constantes que ajudam a determinar a frequ√™ncia com que os pontos de reparo aparecem na tela */
+	/* Constantes que ajudam a determinar a frequÍncia com que os pontos de reparo aparecem na tela */
 	const inteiro MAIOR_DISTANCIA_REPAROS = 12000, MENOR_DISTANCIA_REPAROS = 9000
 
-	/* Constantes que ajudam a determinar a frequ√™ncia com que os gal√µes de combust√≠vel aparecem na tela */
+	/* Constantes que ajudam a determinar a frequÍncia com que os galıes de combustÌvel aparecem na tela */
 	const inteiro MAIOR_DISTANCIA_GALOES = 6000, MENOR_DISTANCIA_GALOES = 3000
 	
-	/* Constantes que ajudam a determinar a frequ√™ncia com que os ve√≠culos aparecem na tela */
+	/* Constantes que ajudam a determinar a frequÍncia com que os veÌculos aparecem na tela */
 	const inteiro MAIOR_DISTANCIA_VEICULOS = 500, MENOR_DISTANCIA_VEICULOS = 100
 
 	/* 
 	 * Constante utilizadas para determinar os limites da estrada
 	 * Cada 3200 pixels equivalem a 1 Km no jogo
-	 * Na velocidade m√°xima, o jogador leva 4,5 segundos para percorrer 1 Km
+	 * Na velocidade m·xima, o jogador leva 4,5 segundos para percorrer 1 Km
 	 */
 	const real EXTENSAO_ESTRADA = 80000.0 //pixels = 20 Km = 112 seg = 01:52 min
 	
 	inteiro LARGURA_ACOSTAMENTO = 25
 
-	/* Constantes que definem a apar√™ncia dos medidores de combust√≠vel e danos */
+	/* Constantes que definem a aparÍncia dos medidores de combustÌvel e danos */
 	const inteiro LARGURA_MEDIDOR = 156, ALTURA_MEDIDOR = 8
 
-	/* Matriz que armazena os modelos de ve√≠culos do jogo */
+	/* Matriz que armazena os modelos de veÌculos do jogo */
 	inteiro MODELOS_VEICULOS[][] =
 	{
 		{   0,   0,  44,  96 }, {  43,   0,  44,  96 }, {  86,   0,  44,  96 }, { 129,   0,  44,  96 }, 
@@ -134,22 +134,22 @@ programa
 	/* Matrizes que armazenam os objetos do jogo e suas propriedades */
 	real veiculos[10][6], galoes[4][2], pontos_reparo[4][2]
 	
-	/* Vari√°veis que controlam o fluxo das telas do jogo */
+	/* Vari·veis que controlam o fluxo das telas do jogo */
 	inteiro tela_anterior = TELA_SAIR, tela_atual = TELA_JOGO
 
-	/* Vari√°veis que armazenam as dimens√µes da tela */
+	/* Vari·veis que armazenam as dimensıes da tela */
 	inteiro largura_tela = 0, altura_tela = 0
 
-	/* Vari√°veis que controlam o movimento da estrada */
+	/* Vari·veis que controlam o movimento da estrada */
 	real deslocamento_estrada = 0.0, distancia_percorrida = 0.0
 
-	/* Vari√°veis que controlam a frenagem do carro do jogador */
+	/* Vari·veis que controlam a frenagem do carro do jogador */
 	logico freiando = falso
 	
 	real inicio_freio = 0.0
 	
 
-	/* Vari√°veis utilizadas para fazer o controle de FPS e contabilizar o tempo de jogo */
+	/* Vari·veis utilizadas para fazer o controle de FPS e contabilizar o tempo de jogo */
 	inteiro tempo_inicio_fps = 0, tempo_fps = 0, frames = 0, fps = 0
 
 	inteiro tempo_inicio = 0, tempo_decorrido = 0, tempo_restante = 0
@@ -159,11 +159,11 @@ programa
 	inteiro tempo_quadro = 1000 / tp.real_para_inteiro(m.maior_numero(1.0, tp.inteiro_para_real(TAXA_ATUALIZACAO)))
 
 
-	/* Vari√°veis que armazenam os endere√ßos de mem√≥ria das imagens utilizadas no jogo */
+	/* Vari·veis que armazenam os endereÁos de memÛria das imagens utilizadas no jogo */
 	inteiro imagem_estrada = -1, imagem_veiculos = -1, imagem_objetos = -1
 
 
-	/* vari√°veis que armazenam os endere√ßos de mem√≥ria dos sons utilizados no jogo */
+	/* vari·veis que armazenam os endereÁos de memÛria dos sons utilizados no jogo */
 	inteiro musica_jogo = -1, som_trafego = -1, som_combustivel = -1,  som_freio = -1, som_ligar = -1
 
 	inteiro som_alarme_combustivel = -1, som_colisao = -1, som_reparo = -1, som_largada = -1
@@ -1155,7 +1155,7 @@ programa
 		real valor = carro_jogador[_COMBUSTIVEL]
 		real maximo = MAXIMO_COMBUSTIVEL
 		
-		desenhar_medidor("Combust√≠vel", x, valor, maximo, falso)
+		desenhar_medidor("CombustÌvel", x, valor, maximo, falso)
 	}
 
 	funcao desenhar_medidor(cadeia descricao, inteiro x, real valor, real maximo, logico inverter)
@@ -1246,7 +1246,7 @@ programa
 		desenhar_linha_chegada()
 
 		/* Descomente estas linhas para visualizar a
-		 * vari√°vel de controle de movimento da estrada
+		 * vari·vel de controle de movimento da estrada
 		 *
 		 * g.definir_cor(0xFF0000)
 		 * g.desenhar_linha(0, i_y1, largura_tela, i_y1)
@@ -1379,3 +1379,15 @@ programa
 	}
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
+ * VocÍ pode apag·-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 2144; 
+ * @DOBRAMENTO-CODIGO = [1, 175, 190, 203, 218, 226, 233, 246, 274, 290, 319, 332, 342, 354, 369, 378, 388, 392, 398, 403, 407, 412, 417, 421, 426, 367, 359, 435, 440, 445, 450, 458, 463, 474, 485, 496, 502, 494, 511, 519, 564, 555, 544, 542, 619, 606, 647, 634, 662, 682, 689, 696, 703, 714, 718, 722, 710, 728, 737, 745, 752, 757, 785, 811, 833, 859, 881, 886, 901, 931, 941, 946, 961, 978, 992, 1035, 1043, 1064, 1085, 1106, 1115, 1129, 1140, 1150, 1160, 1198, 1204, 1231, 1255, 1273, 1281, 1293, 1312, 1324, 1310, 1332, 1338, 1330, 1346, 1352, 1344, 1358, 1367, 1373];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

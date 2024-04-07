@@ -1,24 +1,24 @@
 
-/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
- * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
- * Studio para auxiliÃ¡-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÃ§Ã£o:
+ * Descrição:
  * 
- * 	Este exemplo cria e preenche um vetor com nÃºmeros aleatÃ³rios. Logo apÃ³s exibe o vetor
+ * 	Este exemplo cria e preenche um vetor com números aleatórios. Logo após exibe o vetor
  * 	no console de duas formas diferentes:
  * 	
- * 		a) Na ordem em que os nÃºmeros foram preenchidos
- * 		b) Na ordem inversa em que os nÃºmeros foram preenchidos
+ * 		a) Na ordem em que os números foram preenchidos
+ * 		b) Na ordem inversa em que os números foram preenchidos
  * 	
  * Autores:
  * 
@@ -39,7 +39,7 @@ programa
 		// preenche o vetor
 		para (inteiro posicao = 0; posicao < 10; posicao++)
 		{
-			vetor[posicao] = util.sorteia(1, 100) // Sorteia um nÃºmero e atribui Ã  posiÃ§Ã£o do vetor
+			vetor[posicao] = util.sorteia(1, 100) // Sorteia um número e atribui à posição do vetor
 		}
 
 		// Exibe o vetor na ordem original
@@ -60,3 +60,15 @@ programa
 	}
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1015; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

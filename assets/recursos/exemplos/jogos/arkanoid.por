@@ -6,7 +6,7 @@ programa
 	inclua biblioteca Tipos--> tp
 	inclua biblioteca Matematica --> m
 
-	/* Define quantos quadros ser√£o desenhados por segundo (FPS) */
+	/* Define quantos quadros ser„o desenhados por segundo (FPS) */
 	const inteiro TAXA_ATUALIZACAO = 60
 
 	const inteiro LARGURA_TELA = 800, ALTURA_TELA = 600, MARGEM_TELA = 15
@@ -206,8 +206,8 @@ programa
 		inteiro py = 0
 		real angulo = 0.0
 
-		inteiro dr = x2 + l2 	// Calcula o X da borda direita do ret√¢ngulo
-		inteiro br = y2 + a2	// Calcula o Y da base do ret√¢ngulo
+		inteiro dr = x2 + l2 	// Calcula o X da borda direita do ret‚ngulo
+		inteiro br = y2 + a2	// Calcula o Y da base do ret‚ngulo
 		
 		para (inteiro i = 1; i <= 4; i++)
 		{
@@ -242,17 +242,17 @@ programa
 
 	funcao logico cantos_retangulo_dentro_circulo(real cx1, real cy1)
 	{
-		real xv1 = x_bastao						// Calcula o X do v√©rtice 1 (superior esquerdo)
-		real yv1 = y_bastao						// Calcula o Y do v√©rtice 1 (superior esquerdo)
+		real xv1 = x_bastao						// Calcula o X do vÈrtice 1 (superior esquerdo)
+		real yv1 = y_bastao						// Calcula o Y do vÈrtice 1 (superior esquerdo)
 
-		real xv2 = x_bastao + largura_bastao		// Calcula o X do v√©rtice 2 (superior direito)
-		real yv2 = y_bastao						// Calcula o Y do v√©rtice 2 (superior direito)
+		real xv2 = x_bastao + largura_bastao		// Calcula o X do vÈrtice 2 (superior direito)
+		real yv2 = y_bastao						// Calcula o Y do vÈrtice 2 (superior direito)
 
-		real xv3 = x_bastao						// Calcula o X do v√©rtice 3 (inferior esquerdo)
-		real yv3 = y_bastao + altura_bastao		// Calcula o Y do v√©rtice 3 (inferior esquerdo)
+		real xv3 = x_bastao						// Calcula o X do vÈrtice 3 (inferior esquerdo)
+		real yv3 = y_bastao + altura_bastao		// Calcula o Y do vÈrtice 3 (inferior esquerdo)
 
-		real xv4 = x_bastao + largura_bastao		// Calcula o X do v√©rtice 4 (inferior direito)
-		real yv4 = y_bastao + altura_bastao		// Calcula o Y do v√©rtice 4 (inferior direito)
+		real xv4 = x_bastao + largura_bastao		// Calcula o X do vÈrtice 4 (inferior direito)
+		real yv4 = y_bastao + altura_bastao		// Calcula o Y do vÈrtice 4 (inferior direito)
 		
 		logico pontoA = ponto_dentro_circulo(cx1, cy1, xv1, yv1)
 		logico pontoB = ponto_dentro_circulo(cx1, cy1, xv2, yv2)		
@@ -277,7 +277,7 @@ programa
 
 	funcao real valor_absoluto(real numero)
 	{
-		se (numero < 0)			// Se o n√∫mero for negativo, torna-o positivo
+		se (numero < 0)			// Se o n˙mero for negativo, torna-o positivo
 		{
 			numero = numero * -1
 		}
@@ -509,3 +509,15 @@ programa
 		g.encerrar_modo_grafico()
 	}
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
+ * VocÍ pode apag·-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 3724; 
+ * @DOBRAMENTO-CODIGO = [48, 60, 77, 104, 109, 161, 173, 227, 232, 242, 264, 269, 277, 287, 292, 297, 302, 307, 338, 354, 364, 374, 379, 384, 389, 394, 399, 418, 427, 437, 444, 450, 457, 468, 476, 481, 486, 491, 496, 506];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

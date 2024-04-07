@@ -1,20 +1,20 @@
 
-/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
  *  
- * Copyright (C) 2017 - UNIVALI - Universidade do Vale do ItajaÃ­
+ * Copyright (C) 2017 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
- * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
- * Studio para auxiliÃ¡-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÃ§Ã£o:
+ * Descrição:
  * 
- * 	Este exemplo demonstra a utilizaÃ§Ã£o da biblioteca calendÃ¡rio em conjunto com a biblitecla graficos.
+ * 	Este exemplo demonstra a utilização da biblioteca calendário em conjunto com a biblitecla graficos.
  * 
  * Autores:
  * 
@@ -31,7 +31,7 @@ programa
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Teclado --> t
 
-	//variaveis do relÃ³gio
+	//variaveis do relógio
 	logico exibir_linhas_horas = falso
 	logico exibir_linhas_minutos = falso
 	inteiro tam_relogio = 0
@@ -101,8 +101,8 @@ programa
 
 	//cadeias
 	cadeia brand = "lite"
-	cadeia dica_segundos[2] = {"Pressione a tecla 'V' para ativar", "as linhas de orientaÃ§Ã£o dos segundos."}
-	cadeia dica_horas[2] = {"Pressione a tecla 'ESPAÃ‡O' para ativar", "as linhas de orientaÃ§Ã£o das horas."}
+	cadeia dica_segundos[2] = {"Pressione a tecla 'V' para ativar", "as linhas de orientação dos segundos."}
+	cadeia dica_horas[2] = {"Pressione a tecla 'ESPAÇO' para ativar", "as linhas de orientação das horas."}
 	cadeia dica_fechar = "Pressione a tecla 'ESC' para sair."
 	
 	funcao inicio()
@@ -371,9 +371,9 @@ programa
 			dica_segundos[0] = "Pressione a tecla 'V' para ativar"
 		}
 		se(exibir_linhas_horas){
-			dica_horas[0] = "Pressione a tecla 'ESPAÃ‡O' para desativar"
+			dica_horas[0] = "Pressione a tecla 'ESPAÇO' para desativar"
 		}senao{
-			dica_horas[0] = "Pressione a tecla 'ESPAÃ‡O' para ativar"
+			dica_horas[0] = "Pressione a tecla 'ESPAÇO' para ativar"
 		}
 		g.definir_cor(cor_fundo_dicas)
 		g.desenhar_retangulo(5, 10, g.largura_texto(dica_segundos[1])+10, g.altura_texto(dica_segundos[0])+g.altura_texto(dica_segundos[0])+10, verdadeiro, verdadeiro)
@@ -429,7 +429,7 @@ programa
 	funcao inicializar(){
 		
 		g.iniciar_modo_grafico(verdadeiro)
-		g.definir_titulo_janela("RelÃ³gio AnalÃ³gico")
+		g.definir_titulo_janela("Relógio Analógico")
 		
 		se(nao(fullscreen)){
 			g.definir_dimensoes_janela(800, 600)
@@ -462,3 +462,15 @@ programa
 	}
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 0; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

@@ -1,21 +1,21 @@
 
-/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
- * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
- * Studio para auxiliÃ¡-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÃ§Ã£o:
+ * Descrição:
  * 
- * 	Este exemplo demonstra o uso da funÃ§Ã£o "substituir" da biblioteca "Texto" para trocar
- * 	uma sequÃªncia de caracteres por outra em um dado do tipo cadeia.
+ * 	Este exemplo demonstra o uso da função "substituir" da biblioteca "Texto" para trocar
+ * 	uma sequência de caracteres por outra em um dado do tipo cadeia.
  * 
  * Autores:
  * 
@@ -36,89 +36,101 @@ programa
 		/*
 		 * Ao substituir um texto, devem ser considerados os seguintes aspectos:
 		 * 
-		 * 1 - A funÃ§Ã£o "substituir" nÃ£o altera o valor da variÃ¡vel original, mas 
-		 *     retorna um novo valor. Desta forma, a variÃ¡vel "texto" vai possuir
-		 *     sempre o valor "PATO", a nÃ£o ser que o valor retornado pela funÃ§Ã£o
-		 *     seja atribuÃ­do Ã  ela
+		 * 1 - A função "substituir" não altera o valor da variável original, mas 
+		 *     retorna um novo valor. Desta forma, a variável "texto" vai possuir
+		 *     sempre o valor "PATO", a não ser que o valor retornado pela função
+		 *     seja atribuído à ela
 		 *     
-		 * 2 - A funÃ§Ã£o "substituir" diferencia letras maÃ­usculas e minÃºsculas na
+		 * 2 - A função "substituir" diferencia letras maíusculas e minúsculas na
 		 *     hora de procurar o texto que se quer substituir
 		 */
 
 		//-----------------------------------------------------------------------------------//
 
-		// Aqui substituÃ­mos a sequÃªncia de caracteres "PA" pela
-		// sequÃªncia de caracteres "RA" para formar a palavra "RATO"
+		// Aqui substituímos a sequência de caracteres "PA" pela
+		// sequência de caracteres "RA" para formar a palavra "RATO"
 		substituicao = tx.substituir(texto, "PA", "RA")
 		
-		escreva(texto) 					// A variÃ¡vel "texto" manteve seu valor
-		escreva(" --> ", substituicao, "\n") 	// A variÃ¡vel "substituicao" possui o novo valor
+		escreva(texto) 					// A variável "texto" manteve seu valor
+		escreva(" --> ", substituicao, "\n") 	// A variável "substituicao" possui o novo valor
 		
 		//-----------------------------------------------------------------------------------//
 
-		// Aqui substituÃ­mos a sequÃªncia de caracteres "PA" pela
-		// sequÃªncia de caracteres "GA" para formar a palavra "GATO"
+		// Aqui substituímos a sequência de caracteres "PA" pela
+		// sequência de caracteres "GA" para formar a palavra "GATO"
 		substituicao = tx.substituir(texto, "PA", "GA")
 		
-		escreva(texto) 					// A variÃ¡vel "texto" manteve seu valor
-		escreva(" --> ", substituicao, "\n") 	// A variÃ¡vel "substituicao" possui o novo valor
+		escreva(texto) 					// A variável "texto" manteve seu valor
+		escreva(" --> ", substituicao, "\n") 	// A variável "substituicao" possui o novo valor
 
 		//-----------------------------------------------------------------------------------//
 
-		// Aqui substituÃ­mos a sequÃªncia de caracteres "A" pela
-		// sequÃªncia de caracteres "AR" para formar a palavra "PARTO"
+		// Aqui substituímos a sequência de caracteres "A" pela
+		// sequência de caracteres "AR" para formar a palavra "PARTO"
 		substituicao = tx.substituir(texto, "A", "AR")
 
-		escreva(texto) 					// A variÃ¡vel "texto" manteve seu valor
-		escreva(" --> ", substituicao, "\n") 	// A variÃ¡vel "substituicao" possui o novo valor
+		escreva(texto) 					// A variável "texto" manteve seu valor
+		escreva(" --> ", substituicao, "\n") 	// A variável "substituicao" possui o novo valor
 
 		//-----------------------------------------------------------------------------------//
 		
-		// Aqui substituÃ­mos a sequÃªncia de caracteres "AT" pela
-		// sequÃªncia de caracteres "ELICAN" para formar a palavra "PELICANO"
+		// Aqui substituímos a sequência de caracteres "AT" pela
+		// sequência de caracteres "ELICAN" para formar a palavra "PELICANO"
 		substituicao = tx.substituir(texto, "AT", "ELICAN")
 
-		escreva(texto) 					// A variÃ¡vel "texto" manteve seu valor
-		escreva(" --> ", substituicao, "\n") 	// A variÃ¡vel "substituicao" possui o novo valor
+		escreva(texto) 					// A variável "texto" manteve seu valor
+		escreva(" --> ", substituicao, "\n") 	// A variável "substituicao" possui o novo valor
 		
 		//-----------------------------------------------------------------------------------//
 
-		// Aqui substituÃ­mos a sequÃªncia de caracteres "TO" pela
-		// sequÃªncia de caracteres "MONHA" para formar a palavra "PAMONHA"
+		// Aqui substituímos a sequência de caracteres "TO" pela
+		// sequência de caracteres "MONHA" para formar a palavra "PAMONHA"
 		substituicao = tx.substituir(texto, "TO", "MONHA")
 		
-		escreva(texto) 					// A variÃ¡vel "texto" manteve seu valor
-		escreva(" --> ", substituicao, "\n") 	// A variÃ¡vel "substituicao" possui o novo valor
+		escreva(texto) 					// A variável "texto" manteve seu valor
+		escreva(" --> ", substituicao, "\n") 	// A variável "substituicao" possui o novo valor
 
 		//-----------------------------------------------------------------------------------//
 
-		// Aqui realizamos uma substituiÃ§Ã£o, mas como informamos uma sequÃªncia de caracteres
-		// em letras minÃºsculas, a substituiÃ§Ã£o nÃ£o irÃ¡ ocorrer
+		// Aqui realizamos uma substituição, mas como informamos uma sequência de caracteres
+		// em letras minúsculas, a substituição não irá ocorrer
 		substituicao = tx.substituir(texto, "to", "MONHA")
 		
-		escreva(texto) 					// A variÃ¡vel "texto" manteve seu valor
-		escreva(" --> ", substituicao, "\n") 	// A variÃ¡vel "substituicao" manteve seu valor
+		escreva(texto) 					// A variável "texto" manteve seu valor
+		escreva(" --> ", substituicao, "\n") 	// A variável "substituicao" manteve seu valor
 
 		//-----------------------------------------------------------------------------------//
 		
-		// Aqui realizamos uma substituiÃ§Ã£o, mas como informamos uma sequÃªncia de caracteres
-		// que nÃ£o existe no texto, a substituiÃ§Ã£o nÃ£o irÃ¡ ocorrer
+		// Aqui realizamos uma substituição, mas como informamos uma sequência de caracteres
+		// que não existe no texto, a substituição não irá ocorrer
 		substituicao = tx.substituir(texto, "LI", "MA")
 		
-		escreva(texto) 					// A variÃ¡vel "texto" manteve seu valor
-		escreva(" --> ", substituicao, "\n") 	// A variÃ¡vel "substituicao" manteve seu valor
+		escreva(texto) 					// A variável "texto" manteve seu valor
+		escreva(" --> ", substituicao, "\n") 	// A variável "substituicao" manteve seu valor
 
 		//-----------------------------------------------------------------------------------//
 
 
-		// Aqui realizamos uma substituiÃ§Ã£o e atribuÃ­mos o valor retornado Ã 
-		// variÃ¡vel "texto"
+		// Aqui realizamos uma substituição e atribuímos o valor retornado à
+		// variável "texto"
 		texto = tx.substituir(texto, "PA", "LAGAR")
 		
-		escreva(texto) 					// A variÃ¡vel "texto" possui o novo valor
-		escreva(" --> ", substituicao, "\n") 	// A variÃ¡vel "substituicao" manteve seu valor
+		escreva(texto) 					// A variável "texto" possui o novo valor
+		escreva(" --> ", substituicao, "\n") 	// A variável "substituicao" manteve seu valor
 
 		//-----------------------------------------------------------------------------------//
 	}
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 865; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

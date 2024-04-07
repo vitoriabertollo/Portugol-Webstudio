@@ -57,8 +57,8 @@ programa
 	
 
 	// Modelo 2
-	// Vers√£o 7
-	// Corre√ß√£o L
+	// Vers„o 7
+	// CorreÁ„o L
 	// Data Codewords 156
 	// Error correction codewords 20
 	// Databits 1248
@@ -76,7 +76,7 @@ programa
 
 	funcao gerar_qrcode(cadeia texto)
 	{
-		// Valor bin√°rio que indica que o QR CODE est√° armazenando apenas caracteres alfanum√©ricos
+		// Valor bin·rio que indica que o QR CODE est· armazenando apenas caracteres alfanumÈricos
 		cadeia codigo_binario = "0010"
 
 		texto = txt.caixa_alta(texto)
@@ -1084,8 +1084,8 @@ programa
 
 	funcao gerar_padrao_alinhamento(inteiro coluna, inteiro linha)
 	{
-		// Ajusta a linha e a coluna pois o posicionamento do padr√£o de alinhamento
-		// √© feito a partir do centro, e n√£o do canto superior esquerdo
+		// Ajusta a linha e a coluna pois o posicionamento do padr„o de alinhamento
+		// È feito a partir do centro, e n„o do canto superior esquerdo
 		coluna = coluna - 2
 		linha = linha - 2
 		
@@ -1862,8 +1862,8 @@ programa
 		escreva(buffer)
 	}
 
-	// Obt√©m o tamanho do texto a ser codificado no QR CODE e converte o tamanho em uma representa√ß√£o bin√°ria de 9 bits
-	// conforme a especifica√ß√£o do QR CODE
+	// ObtÈm o tamanho do texto a ser codificado no QR CODE e converte o tamanho em uma representaÁ„o bin·ria de 9 bits
+	// conforme a especificaÁ„o do QR CODE
 
 	funcao cadeia codificar_tamanho_texto(cadeia texto)
 	{
@@ -1885,7 +1885,7 @@ programa
 			
 			 primeiro_caracter = txt.obter_caracter(texto, i)
 
-			// Se o n√∫mero de caracteres for √≠mpar, ignorar o segundo caracter na √∫ltima execu√ß√£o
+			// Se o n˙mero de caracteres for Ìmpar, ignorar o segundo caracter na ˙ltima execuÁ„o
 			
 			 se (i < tamanho_texto - 1)
 			 {
@@ -1972,20 +1972,20 @@ programa
 			
 			inteiro valor = (codigo_primeiro * 45) + codigo_segundo
 
-			// Converte o valor em uma representa√ß√£o bin√°ria de 32 bits
+			// Converte o valor em uma representaÁ„o bin·ria de 32 bits
 			binario = tp.inteiro_para_cadeia(valor, 2)
 
-			// Extrai os √∫ltimos 11 bits, de acordo com a especifica√ß√£o do QR CODE
+			// Extrai os ˙ltimos 11 bits, de acordo com a especificaÁ„o do QR CODE
 			binario = txt.extrair_subtexto(binario, 21, 32)
 		}
 		senao
 		{
 			inteiro codigo_primeiro = obter_codigo_do_caracter(primeiro_caracter)
 
-			// Converte o valor em uma representa√ß√£o bin√°ria de 32 bits
+			// Converte o valor em uma representaÁ„o bin·ria de 32 bits
 			binario = tp.inteiro_para_cadeia(codigo_primeiro, 2)
 
-			// Extrai os √∫ltimos 6 bits, de acordo com a especifica√ß√£o do QR CODE
+			// Extrai os ˙ltimos 6 bits, de acordo com a especificaÁ„o do QR CODE
 			binario = txt.extrair_subtexto(binario, 26, 32)
 		}
 
@@ -2112,3 +2112,15 @@ programa
 		}
 	}
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
+ * VocÍ pode apag·-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 67; 
+ * @DOBRAMENTO-CODIGO = [68, 76, 101, 118, 179, 194, 209, 224, 239, 254, 269, 284, 299, 403, 428, 511, 564, 574, 590, 601, 624, 647, 670, 693, 716, 739, 762, 785, 828, 864, 876, 947, 963, 980, 1015, 1035, 1040, 1057, 1074, 1084, 1119, 1135, 1162, 1170, 1178, 1193, 1202, 1240, 1250, 1260, 1280, 1286, 1305, 1334, 1339, 1381, 1395, 1410, 1421, 1432, 1472, 1527, 1535, 1548, 1576, 1600, 1631, 1671, 1679, 1687, 1716, 1727, 1741, 1755, 1785, 1791, 1806, 1817, 1840, 1867, 1875, 1900, 1934, 1963, 1994, 2007, 2046, 2056, 2062, 2097];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */
