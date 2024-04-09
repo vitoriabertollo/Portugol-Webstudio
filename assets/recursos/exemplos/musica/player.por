@@ -23,7 +23,7 @@ programa
 	inteiro mais = -1
 	inteiro menos = -1
 	cadeia arquivos[255]
-	cadeia formatos[1]={"Arquivo de áudio|mp3"}
+	cadeia formatos[1]={"Arquivo de Ã¡udio|mp3"}
 	cadeia titulo_musica = ""
 	inteiro inicio_titulo = 0
 	inteiro fim_titulo = -1
@@ -486,7 +486,7 @@ programa
 			mouse_sobre_volicon = falso
 		}
 
-		//alterna exibição da playlist
+		//alterna exibiÃ§Ã£o da playlist
 		se(m.posicao_x()>xplaylist e m.posicao_x()<xplaylist+g.largura_imagem(iconePlaylist) e m.posicao_y()>yplaylist e m.posicao_y()<g.altura_imagem(iconePlaylist)+yplaylist){
 			mouse_sobre_playlist = verdadeiro	
 			se(m.algum_botao_pressionado() e nao mostrar_playlist){
@@ -794,9 +794,9 @@ programa
 
 	funcao atualizar_titulo(){
 		se(titulo_musica != ""){
-			g.definir_titulo_janela("Player de Música | Tocando: "+titulo_musica)	
+			g.definir_titulo_janela("Player de MÃºsica | Tocando: "+titulo_musica)	
 		}senao{
-			g.definir_titulo_janela("Player de Música")	
+			g.definir_titulo_janela("Player de MÃºsica")	
 		}
 		
 	}
@@ -832,15 +832,3 @@ programa
 
 	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 8; 
- * @DOBRAMENTO-CODIGO = [118, 113, 111, 149, 151, 168, 174, 181, 185, 192, 203, 211, 124, 227, 223, 222, 238, 234, 233, 259, 263, 265, 276, 255, 281, 284, 288, 245, 244, 296, 298, 305, 307, 314, 316, 323, 326, 328, 325, 337, 339, 336, 345, 347, 344, 356, 358, 355, 366, 368, 364, 373, 363, 294, 382, 391, 407, 411, 405, 416, 404, 419, 428, 434, 427, 425, 424, 441, 449, 453, 456, 448, 446, 463, 470, 475, 481, 468, 484, 491, 493, 495, 489, 499, 506, 508, 510, 504, 514, 525, 524, 522, 533, 520, 519, 537, 544, 547, 550, 543, 542, 561, 560, 559, 569, 557, 572, 581, 580, 579, 589, 577, 592, 598, 600, 597, 604, 596, 607, 402, 615, 618, 622, 614, 613, 629, 635, 628, 640, 646, 639, 653, 651, 662, 658, 668, 650, 675, 673, 681, 672, 687, 689, 686, 692, 612, 698, 717, 716, 726, 729, 725, 738, 742, 744, 741, 737, 750, 754, 757, 736, 764, 770, 781, 779, 778, 786, 776, 774, 795, 797, 794, 805, 815, 818, 803];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

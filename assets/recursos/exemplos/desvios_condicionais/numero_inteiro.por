@@ -1,21 +1,21 @@
 
-/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
  * 
- * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
- * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
+ * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
- * Studio para auxiliá-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
+ * Studio para auxiliÃ¡-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descrição:
+ * DescriÃ§Ã£o:
  * 
- * 	Este exemplo pede ao usuário que informe um número inteiro. Logo após, exibe uma
- * 	mensagem indicando se o número informado é positivo, negativo ou igual a zero.
+ * 	Este exemplo pede ao usuÃ¡rio que informe um nÃºmero inteiro. Logo apÃ³s, exibe uma
+ * 	mensagem indicando se o nÃºmero informado Ã© positivo, negativo ou igual a zero.
  * 
  * Autores:
  * 
@@ -31,35 +31,23 @@ programa
 	{
 		inteiro numero
 		
-		escreva("Digite um número inteiro: ")
+		escreva("Digite um nÃºmero inteiro: ")
 		leia(numero)
 
-		se(numero > 0) // Verifica se o número é positivo
+		se(numero > 0) // Verifica se o nÃºmero Ã© positivo
 		{ 
-			escreva("O número é positivo")
+			escreva("O nÃºmero Ã© positivo")
 		}
-		senao se(numero < 0) // Verifica se o número é negativo
+		senao se(numero < 0) // Verifica se o nÃºmero Ã© negativo
 		{ 
-			escreva("O número é negativo")
+			escreva("O nÃºmero Ã© negativo")
 		}
-		senao // Se não é positivo nem negativo, só pode ser igual a zero 
+		senao // Se nÃ£o Ã© positivo nem negativo, sÃ³ pode ser igual a zero 
 		{
-			escreva("O número é igual zero")
+			escreva("O nÃºmero Ã© igual zero")
 		}
 
 		escreva("\n")		
 	}
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 892; 
- * @DOBRAMENTO-CODIGO = [1];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

@@ -1,18 +1,11 @@
-se (5 > 4 e 6 == 6) //OperaÁ„o logica 'e' junto com operaÁıes relacionais.
+se (5 > 4 e 6 == 6) //Opera√ß√£o logica 'e' junto com opera√ß√µes relacionais.
 { 
 	//comandos
 }
 
-enquanto(verdadeiro e 5 < 4) //OperaÁ„o logica 'e' junto com operaÁıes relacionais e tipo logico.
+enquanto(verdadeiro e 5 < 4) //Opera√ß√£o logica 'e' junto com opera√ß√µes relacionais e tipo logico.
 {
 	//comandos
 }
 
-logico saida = 5 > 3 e 4 < 5 e 6 < 7 //OperaÁ„o lÛgica 'e' junto com operaÁıes relacionais.
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
- * VocÍ pode apag·-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 299; 
- */
+logico saida = 5 > 3 e 4 < 5 e 6 < 7 //Opera√ß√£o l√≥gica 'e' junto com opera√ß√µes relacionais.

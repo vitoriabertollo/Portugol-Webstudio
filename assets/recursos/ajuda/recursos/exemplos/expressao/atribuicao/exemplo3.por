@@ -2,23 +2,16 @@ programa
 {
     funcao inicio()
     {
-        //AtribuiÁ„o de valores constantes a uma vari·vel
+        //Atribui√ß√£o de valores constantes a uma vari√°vel
         inteiro a
         a = 2
         
-        //AtribuiÁ„o atravÈs de entrada de dados, informado pelo usu·rio
+        //Atribui√ß√£o atrav√©s de entrada de dados, informado pelo usu√°rio
         inteiro b
         leia(b)
         
-        //AtribuiÁ„o atravÈs de uma vari·vel j· informada pelo usu·rio
+        //Atribui√ß√£o atrav√©s de uma vari√°vel j√° informada pelo usu√°rio
         inteiro c
         c = b
     }
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
- * VocÍ pode apag·-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 362; 
- */

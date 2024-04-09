@@ -1,24 +1,24 @@
 
-/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÌ
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itaja√≠
  * 
- * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
- * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
+ * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
+ * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
- * Studio para auxili·-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
+ * Studio para auxili√°-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÁ„o:
+ * Descri√ß√£o:
  * 
  * 	Este exemplo ilustra o uso das matrizes na linguagem Portugol criando uma matriz 
  * 	e preenchendo sua diagonal principal.
  * 	
- * 	As matrizes nada mais s„o do que vetores de duas dimensıes (bidimensionais). Em 
- * 	outras  palavras, a matriz È um vetor aonde cada uma de suas posiÁıes (colunas) 
+ * 	As matrizes nada mais s√£o do que vetores de duas dimens√µes (bidimensionais). Em 
+ * 	outras  palavras, a matriz √© um vetor aonde cada uma de suas posi√ß√µes (colunas) 
  * 	armazena um outro vetor (linhas).
  *
  *   Exemplo de vetor:
@@ -31,10 +31,10 @@
  *   [4][5][6]
  *   [7][8][9]
  * 	
- * 	Na matem·tica, a diagonal principal de uma matriz È o conjunto dos elementos em que 
- * 	a linha e a coluna do elemento s„o iguais. Assim, a diagonal principal parte do canto
- * 	superior esquerdo (posiÁ„o 0,0) e segue para a direita e para abaixo atÈ encontrar o
- * 	lado direito ou o lado inferior da matriz. No exemplo abaixo, a diagonal principal È
+ * 	Na matem√°tica, a diagonal principal de uma matriz √© o conjunto dos elementos em que 
+ * 	a linha e a coluna do elemento s√£o iguais. Assim, a diagonal principal parte do canto
+ * 	superior esquerdo (posi√ß√£o 0,0) e segue para a direita e para abaixo at√© encontrar o
+ * 	lado direito ou o lado inferior da matriz. No exemplo abaixo, a diagonal principal √©
  * 	representada pelo caracter '*':
  * 	
  * 	[*][ ][ ][ ]
@@ -56,7 +56,7 @@ programa
 	
 	funcao inicio()
 	{
-		// Define as dimensıes (linhas e colunas) da matriz
+		// Define as dimens√µes (linhas e colunas) da matriz
 		const inteiro TAMANHO = 5
 
 		// Cria a matriz
@@ -100,15 +100,3 @@ programa
 	}
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
- * VocÍ pode apag·-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 1762; 
- * @DOBRAMENTO-CODIGO = [1];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

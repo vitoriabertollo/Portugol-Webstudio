@@ -1,21 +1,21 @@
 
-/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
  * 
- * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
- * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
+ * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
- * Studio para auxiliá-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
+ * Studio para auxiliÃ¡-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descrição:
+ * DescriÃ§Ã£o:
  * 
- * 	Este exemplo ilustra o uso do laço "faca-enquanto", simulando uma eleição entre 
- * 	dois candidatos. O exemplo ilustra também o uso do comando "escolha" para contabilizar
+ * 	Este exemplo ilustra o uso do laÃ§o "faca-enquanto", simulando uma eleiÃ§Ã£o entre 
+ * 	dois candidatos. O exemplo ilustra tambÃ©m o uso do comando "escolha" para contabilizar
  * 	os votos de cada candidato.
  * 	
  * Autores:
@@ -49,7 +49,7 @@ programa
 			escreva("  2 -> Candidato B\n")
 			escreva("  3 -> Branco\n")
 			
-			escreva("\nQualquer número diferente de 0, 1, 2 e 3 anulará o seu voto\n")
+			escreva("\nQualquer nÃºmero diferente de 0, 1, 2 e 3 anularÃ¡ o seu voto\n")
 			escreva("Digite seu voto: ")
 			
 			leia(voto)
@@ -58,7 +58,7 @@ programa
 			escolha (voto)
 			{
 				caso 0:
-					escreva ("Votação encerrada!\n")
+					escreva ("VotaÃ§Ã£o encerrada!\n")
 				pare
 				
 				caso 1: 
@@ -74,7 +74,7 @@ programa
 			 	pare
 			 	
 			 	caso contrario:
-			 		nulos = nulos + 1 // Opção inválida. Soma um voto nulo
+			 		nulos = nulos + 1 // OpÃ§Ã£o invÃ¡lida. Soma um voto nulo
 			}			 
 		}
 		enquanto(voto != 0)
@@ -102,15 +102,3 @@ programa
 	}
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 959; 
- * @DOBRAMENTO-CODIGO = [1];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

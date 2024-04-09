@@ -1,20 +1,20 @@
 
-/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
  *  
- * Copyright (C) 2017 - UNIVALI - Universidade do Vale do ItajaÌ
+ * Copyright (C) 2017 - UNIVALI - Universidade do Vale do Itaja√≠
  * 
- * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
- * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
+ * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
+ * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
- * Studio para auxili·-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
+ * Studio para auxili√°-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÁ„o:
+ * Descri√ß√£o:
  * 
- * 	Este exemplo demonstra como È detectada a colis„o entre dois cÌrculos.
+ * 	Este exemplo demonstra como √© detectada a colis√£o entre dois c√≠rculos.
  * 
  * Autores:
  * 
@@ -50,21 +50,21 @@ programa
 	logico exibir_guias = falso
 	logico tratar_colisoes = verdadeiro
 
-	inteiro x1 = 100	// Coordenada X do cÌrculo 1
-	inteiro y1 = 350	// Coordenada Y do cÌrculo 1
-	inteiro r1 = 50	// Raio do cÌrculo 1
+	inteiro x1 = 100	// Coordenada X do c√≠rculo 1
+	inteiro y1 = 350	// Coordenada Y do c√≠rculo 1
+	inteiro r1 = 50	// Raio do c√≠rculo 1
 	
-	inteiro x2 = 350	// Coordenada X do cÌrculo 2
-	inteiro y2 = 260	// Coordenada Y do cÌrculo 2
-	inteiro r2 = 60	// Raio do cÌrculo 2
+	inteiro x2 = 350	// Coordenada X do c√≠rculo 2
+	inteiro y2 = 260	// Coordenada Y do c√≠rculo 2
+	inteiro r2 = 60	// Raio do c√≠rculo 2
 
-	inteiro dm = r1 + r2	// Calcula a dist‚ncia mÌnima que pode haver entre o centro dos cÌrculos antes de ocorrer colis„o
+	inteiro dm = r1 + r2	// Calcula a dist√¢ncia m√≠nima que pode haver entre o centro dos c√≠rculos antes de ocorrer colis√£o
 
-	inteiro x1_inicial = x1	// Armazena a coordenada X inicial do cÌrculo 1
-	inteiro y1_inicial = y1	// Armazena a coordenada Y inicial do cÌrculo 1
+	inteiro x1_inicial = x1	// Armazena a coordenada X inicial do c√≠rculo 1
+	inteiro y1_inicial = y1	// Armazena a coordenada Y inicial do c√≠rculo 1
 
-	inteiro x2_inicial = x2	// Armazena a coordenada X inicial do cÌrculo 2
-	inteiro y2_inicial = y2	// Armazena a coordenada Y inicial do cÌrculo 2
+	inteiro x2_inicial = x2	// Armazena a coordenada X inicial do c√≠rculo 2
+	inteiro y2_inicial = y2	// Armazena a coordenada Y inicial do c√≠rculo 2
 		
 	funcao inicio()
 	{		
@@ -80,7 +80,7 @@ programa
 	funcao inicializar()
 	{
 		g.iniciar_modo_grafico(verdadeiro)
-		g.definir_titulo_janela("Colis„o entre cÌrculos")
+		g.definir_titulo_janela("Colis√£o entre c√≠rculos")
 		u.aguarde(1200)
 		g.definir_dimensoes_janela(LARGURA_TELA, ALTURA_TELA)
 		g.definir_estilo_texto(falso, verdadeiro, falso)		
@@ -107,11 +107,11 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_SETA_ACIMA))
 		{
-			y1 = y1 - 1			// Realiza a movimentaÁ„o para cima
+			y1 = y1 - 1			// Realiza a movimenta√ß√£o para cima
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				y1 = y1 + 1		// Desfaz a movimentaÁ„o para cima
+				y1 = y1 + 1		// Desfaz a movimenta√ß√£o para cima
 			}
 
 			travar_movimento(t.TECLA_SETA_ACIMA)
@@ -119,11 +119,11 @@ programa
 		}
 		senao se (t.tecla_pressionada(t.TECLA_SETA_ABAIXO))
 		{
-			y1 = y1 + 1			// Realiza a movimentaÁ„o para baixo
+			y1 = y1 + 1			// Realiza a movimenta√ß√£o para baixo
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				y1 = y1 - 1		// Desfaz a movimentaÁ„o para baixo
+				y1 = y1 - 1		// Desfaz a movimenta√ß√£o para baixo
 			}
 
 			travar_movimento(t.TECLA_SETA_ABAIXO)
@@ -134,22 +134,22 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_SETA_ESQUERDA))
 		{
-			x1 = x1 - 1			// Desfaz a movimentaÁ„o para a esquerda
+			x1 = x1 - 1			// Desfaz a movimenta√ß√£o para a esquerda
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				x1 = x1 + 1		// Realiza a movimentaÁ„o para a esquerda
+				x1 = x1 + 1		// Realiza a movimenta√ß√£o para a esquerda
 			}
 
 			travar_movimento(t.TECLA_SETA_ESQUERDA)
 		}
 		senao se (t.tecla_pressionada(t.TECLA_SETA_DIREITA))
 		{
-			x1 = x1 + 1			// Realiza a movimentaÁ„o para a direita
+			x1 = x1 + 1			// Realiza a movimenta√ß√£o para a direita
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				x1 = x1 - 1		// Desfaz a movimentaÁ„o para a direita
+				x1 = x1 - 1		// Desfaz a movimenta√ß√£o para a direita
 			}
 
 			travar_movimento(t.TECLA_SETA_DIREITA)
@@ -160,11 +160,11 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_W))
 		{
-			y2 = y2 - 1			// Realiza a movimentaÁ„o para cima
+			y2 = y2 - 1			// Realiza a movimenta√ß√£o para cima
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				y2 = y2 + 1		// Desfaz a movimentaÁ„o para cima
+				y2 = y2 + 1		// Desfaz a movimenta√ß√£o para cima
 			}
 
 			travar_movimento(t.TECLA_W)
@@ -172,11 +172,11 @@ programa
 		}
 		senao se (t.tecla_pressionada(t.TECLA_S))
 		{
-			y2 = y2 + 1			// Realiza a movimentaÁ„o para baixo
+			y2 = y2 + 1			// Realiza a movimenta√ß√£o para baixo
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				y2 = y2 - 1		// Desfaz a movimentaÁ„o para baixo
+				y2 = y2 - 1		// Desfaz a movimenta√ß√£o para baixo
 			}
 
 			travar_movimento(t.TECLA_S)
@@ -187,22 +187,22 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_A))
 		{
-			x2 = x2 - 1			// Desfaz a movimentaÁ„o para a esquerda
+			x2 = x2 - 1			// Desfaz a movimenta√ß√£o para a esquerda
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				x2 = x2 + 1		// Realiza a movimentaÁ„o para a esquerda
+				x2 = x2 + 1		// Realiza a movimenta√ß√£o para a esquerda
 			}
 
 			travar_movimento(t.TECLA_A)
 		}
 		senao se (t.tecla_pressionada(t.TECLA_D))
 		{
-			x2 = x2 + 1			// Realiza a movimentaÁ„o para a direita
+			x2 = x2 + 1			// Realiza a movimenta√ß√£o para a direita
 
 			se (ocorreu_colisao() e tratar_colisoes)
 			{
-				x2 = x2 - 1		// Desfaz a movimentaÁ„o para a direita
+				x2 = x2 - 1		// Desfaz a movimenta√ß√£o para a direita
 			}
 
 			travar_movimento(t.TECLA_D)
@@ -220,16 +220,16 @@ programa
 
 	funcao logico ocorreu_colisao()
 	{
-		retorne (distancia_centros() < dm)		// Se a dist‚ncia entre os centros dos cÌrculos for menor que a dist‚ncia mÌnima, ent„o ocorreu colis„o
+		retorne (distancia_centros() < dm)		// Se a dist√¢ncia entre os centros dos c√≠rculos for menor que a dist√¢ncia m√≠nima, ent√£o ocorreu colis√£o
 	}
 
 	funcao inteiro distancia_centros()
 	{
-		inteiro cx1 = x1 + r1							// Calcula o X do ponto central do ret‚ngulo 1
-		inteiro cy1 = y1 + r1							// Calcula o Y do ponto central do ret‚ngulo 1
+		inteiro cx1 = x1 + r1							// Calcula o X do ponto central do ret√¢ngulo 1
+		inteiro cy1 = y1 + r1							// Calcula o Y do ponto central do ret√¢ngulo 1
 		
-		inteiro cx2 = x2 + r2							// Calcula o X do ponto central do ret‚ngulo 2
-		inteiro cy2 = y2 + r2							// Calcula o Y do ponto central do ret‚ngulo 2
+		inteiro cx2 = x2 + r2							// Calcula o X do ponto central do ret√¢ngulo 2
+		inteiro cy2 = y2 + r2							// Calcula o Y do ponto central do ret√¢ngulo 2
 
 		real cx = m.potencia(tp.inteiro_para_real(cx2 - cx1), 2.0)	// Calcula o coeficiente no eixo X
 		real cy = m.potencia(tp.inteiro_para_real(cy2 - cy1), 2.0)	// Calcula o coeficiente no eixo Y
@@ -239,7 +239,7 @@ programa
 
 	funcao inteiro valor_absoluto(inteiro numero)
 	{
-		se (numero < 0)			// Se o n˙mero for negativo, torna-o positivo
+		se (numero < 0)			// Se o n√∫mero for negativo, torna-o positivo
 		{
 			numero = numero * -1
 		}
@@ -293,7 +293,7 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_G))
 		{
-			exibir_guias = nao exibir_guias	// Inverte o valor lÛgico da vari·vel. Se for verdadeiro, se tornar· falso. Se for falso, se tornar· verdadeiro
+			exibir_guias = nao exibir_guias	// Inverte o valor l√≥gico da vari√°vel. Se for verdadeiro, se tornar√° falso. Se for falso, se tornar√° verdadeiro
 			
 			enquanto (t.tecla_pressionada(t.TECLA_G)) 
 			{
@@ -306,7 +306,7 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_C))
 		{
-			tratar_colisoes = nao tratar_colisoes	// Inverte o valor lÛgico da vari·vel. Se for verdadeiro, se tornar· falso. Se for falso, se tornar· verdadeiro
+			tratar_colisoes = nao tratar_colisoes	// Inverte o valor l√≥gico da vari√°vel. Se for verdadeiro, se tornar√° falso. Se for falso, se tornar√° verdadeiro
 
 			se (tratar_colisoes e ocorreu_colisao())
 			{
@@ -419,12 +419,12 @@ programa
 
 	funcao desenhar_mensagem_movimento1(inteiro x, inteiro &y, inteiro espacamento)
 	{
-		desenhar_texto_informativo(x, y, espacamento, "Utilize as teclas 'ACIMA', 'ABAIXO', 'ESQUERDA' e 'DIREITA' para mover o cÌrculo A")
+		desenhar_texto_informativo(x, y, espacamento, "Utilize as teclas 'ACIMA', 'ABAIXO', 'ESQUERDA' e 'DIREITA' para mover o c√≠rculo A")
 	}
 
 	funcao desenhar_mensagem_movimento2(inteiro x, inteiro &y, inteiro espacamento)
 	{
-		desenhar_texto_informativo(x, y, espacamento, "Utilize as teclas 'W', 'S', 'A' e 'D' para mover o cÌrculo B")
+		desenhar_texto_informativo(x, y, espacamento, "Utilize as teclas 'W', 'S', 'A' e 'D' para mover o c√≠rculo B")
 	}
 
 	funcao desenhar_mensagem_colisoes(inteiro x, inteiro &y, inteiro espacamento)
@@ -436,7 +436,7 @@ programa
 			texto = "desativar"
 		}
 
-		desenhar_texto_informativo(x, y, espacamento, "Pressione a tecla 'C' para " + texto +" o tratamento de colisıes")
+		desenhar_texto_informativo(x, y, espacamento, "Pressione a tecla 'C' para " + texto +" o tratamento de colis√µes")
 	}
 	
 	funcao desenhar_mensagem_guias(inteiro x, inteiro &y, inteiro espacamento)
@@ -448,12 +448,12 @@ programa
 			texto = "ocultar"
 		}
 
-		desenhar_texto_informativo(x, y, espacamento, "Pressione a tecla 'G' para " + texto + " as guias de colis„o")
+		desenhar_texto_informativo(x, y, espacamento, "Pressione a tecla 'G' para " + texto + " as guias de colis√£o")
 	}
 
 	funcao desenhar_mensagem_precisao(inteiro x, inteiro &y, inteiro espacamento)
 	{
-		desenhar_texto_informativo(x, y, espacamento, "Segure a tecla 'SHIFT' enquanto move os cÌrculos para dar mais precis„o ao movimento")
+		desenhar_texto_informativo(x, y, espacamento, "Segure a tecla 'SHIFT' enquanto move os c√≠rculos para dar mais precis√£o ao movimento")
 	}
 
 	funcao desenhar_informacoes_circulo_a(inteiro x, inteiro &y, inteiro espacamento)
@@ -461,7 +461,7 @@ programa
 		inteiro cx = x1 + r1
 		inteiro cy = y1 + r1
 		
-		cadeia texto = "CÌrculo A = [ X: " + x1 + ", Y: " + y1 + ", CX: " + cx + ", CY: " + cy + ", R: " + r1 + ", D: " + (r1 * 2) + " ]"
+		cadeia texto = "C√≠rculo A = [ X: " + x1 + ", Y: " + y1 + ", CX: " + cx + ", CY: " + cy + ", R: " + r1 + ", D: " + (r1 * 2) + " ]"
 		
 		desenhar_texto_informativo(x, y, espacamento, texto)
 	}
@@ -471,7 +471,7 @@ programa
 		inteiro cx = x2 + r2
 		inteiro cy = y2 + r2
 		
-		cadeia texto = "CÌrculo B = [ X: " + x2 + ", Y: " + y2 + ", CX: " + cx + ", CY: " + cy + ", R: " + r2 + ", D: " + (r2 * 2) + " ]"
+		cadeia texto = "C√≠rculo B = [ X: " + x2 + ", Y: " + y2 + ", CX: " + cx + ", CY: " + cy + ", R: " + r2 + ", D: " + (r2 * 2) + " ]"
 		
 		desenhar_texto_informativo(x, y, espacamento, texto)
 	}
@@ -479,7 +479,7 @@ programa
 	funcao desenhar_distancias_minimas(inteiro x, inteiro &y, inteiro espacamento)
 	{		
 		real distancia = tp.inteiro_para_real(dm)
-		cadeia texto = "Dist‚ncia mÌnima dos centros = " + tp.real_para_inteiro(m.arredondar(distancia, 0))
+		cadeia texto = "Dist√¢ncia m√≠nima dos centros = " + tp.real_para_inteiro(m.arredondar(distancia, 0))
 		
 		desenhar_texto_informativo(x, y, espacamento, texto)
 	}
@@ -500,15 +500,3 @@ programa
 		y = y + espacamento
 	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
- * VocÍ pode apag·-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 948; 
- * @DOBRAMENTO-CODIGO = [1, 68, 79, 88, 105, 132, 158, 185, 211, 220, 225, 239, 249, 270, 276, 291, 304, 326, 345, 352, 359, 367, 380, 395, 419, 424, 429, 441, 453, 458, 468, 478, 486];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

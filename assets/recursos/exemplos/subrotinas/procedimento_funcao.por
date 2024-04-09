@@ -1,23 +1,23 @@
 
-/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÌ
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itaja√≠
  * 
- * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
- * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
+ * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
+ * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
- * Studio para auxili·-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
+ * Studio para auxili√°-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÁ„o:
+ * Descri√ß√£o:
  * 
- * 	Este exemplo ilustra o uso das funÁıes da linguagem Portugol.
+ * 	Este exemplo ilustra o uso das fun√ß√µes da linguagem Portugol.
  * 	
  * 	Neste exemplo, foi criado um procedimento que formata uma mensagem qualquer e uma 
- * 	funÁ„o que realiza um c·lculo matem·tico entre dois n˙meros informados.
+ * 	fun√ß√£o que realiza um c√°lculo matem√°tico entre dois n√∫meros informados.
  * 	
  * 	Para saber mais sobre o fatorial, acesse: http://www.infoescola.com/matematica/fatorial/
  * 	
@@ -35,8 +35,8 @@ programa
 	{
 		mensagem("Bem Vindo")  // Chama o procedimento
 		
-	     escreva("O resultado do primeiro c·lculo È: ", calcula (3.0, 4.0))  		// Chama a funÁ„o no escreva		
-	     escreva("\nO resultado do segundo c·lculo È: ", calcula (7.0, 2.0), "\n")  // Chama a funÁ„o no escreva		
+	     escreva("O resultado do primeiro c√°lculo √©: ", calcula (3.0, 4.0))  		// Chama a fun√ß√£o no escreva		
+	     escreva("\nO resultado do segundo c√°lculo √©: ", calcula (7.0, 2.0), "\n")  // Chama a fun√ß√£o no escreva		
 
 	     mensagem("Tchau")  // Chama o procedimento
 	}
@@ -53,7 +53,7 @@ programa
 		
 		escreva ("\n", texto, "\n") // escreve a mensagem
 		
-		// Insere uma linha apÛs do texto da mensagem
+		// Insere uma linha ap√≥s do texto da mensagem
 		para(i = 0; i < 50; i++)
 		{
 		  escreva ("-")
@@ -62,7 +62,7 @@ programa
 		escreva("\n")
 	}
 
-	// FunÁ„o que realiza um c·lculo e retorna o resultado
+	// Fun√ß√£o que realiza um c√°lculo e retorna o resultado
 	funcao real calcula (real a, real b)
 	{
 		real resultado
@@ -73,15 +73,3 @@ programa
 	}
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
- * VocÍ pode apag·-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 1089; 
- * @DOBRAMENTO-CODIGO = [1];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

@@ -1,33 +1,33 @@
 
-/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
  * 
- * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
- * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
+ * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
- * Studio para auxiliá-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
+ * Studio para auxiliÃ¡-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descrição:
+ * DescriÃ§Ã£o:
  * 
- * 	Este exemplo pede ao usuario que informe um número inteiro. Logo após, calcula 
- * 	e exibe o fatorial do número informado. 
+ * 	Este exemplo pede ao usuario que informe um nÃºmero inteiro. Logo apÃ³s, calcula 
+ * 	e exibe o fatorial do nÃºmero informado. 
  *
- *	Neste exemplo, o fatorial é calculado chamando recursivamente a função "fatorial" definida 
+ *	Neste exemplo, o fatorial Ã© calculado chamando recursivamente a funÃ§Ã£o "fatorial" definida 
  * 	no programa.
  * 	
- * 	O fatorial de um número é calculado multiplicando todos os valores inteiros entre 1 e 
- * 	o próprio número. Exemplos:
+ * 	O fatorial de um nÃºmero Ã© calculado multiplicando todos os valores inteiros entre 1 e 
+ * 	o prÃ³prio nÃºmero. Exemplos:
  * 	
  * 	Fatorial de 3 = 1 * 2 * 3 = 6
  * 	Fatorial de 4 = 1 * 2 * 3 * 4 = 24
  * 	Fatorial de 5 = 1 * 2 * 3 * 4 * 5 = 120
  * 	
- * 	Na matemática, o fatorial é representado pelo símbolo '!'.
+ * 	Na matemÃ¡tica, o fatorial Ã© representado pelo sÃ­mbolo '!'.
  * 	Exemplo: 5!
  * 	
  * 	Para saber mais sobre o fatorial, acesse:
@@ -47,14 +47,14 @@ programa
 	{
 		inteiro numero
 				
-		escreva("Digite um número: ")
+		escreva("Digite um nÃºmero: ")
 		leia(numero)
 
 		limpa()
-		escreva("O fatorial de ", numero, " é: ", fatorial(numero), "\n") 
+		escreva("O fatorial de ", numero, " Ã©: ", fatorial(numero), "\n") 
 	}
 
-	// Função recursiva que calcula o fatorial do número passado
+	// FunÃ§Ã£o recursiva que calcula o fatorial do nÃºmero passado
 		
 	funcao inteiro fatorial(inteiro numero)
 	{
@@ -67,15 +67,3 @@ programa
 	}
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 1405; 
- * @DOBRAMENTO-CODIGO = [1];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

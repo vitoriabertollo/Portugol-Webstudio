@@ -1,22 +1,22 @@
-/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
  *  
- * Copyright (C) 2016 - UNIVALI - Universidade do Vale do Itajaí
+ * Copyright (C) 2016 - UNIVALI - Universidade do Vale do ItajaÃ­
  * 
- * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
- * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
+ * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
- * Studio para auxiliá-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
+ * Studio para auxiliÃ¡-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descrição:
+ * DescriÃ§Ã£o:
  * 
- * 	Este exemplo é um gerador de Fases para o game The Ball Saga, um Jogo de Habilidade 
+ * 	Este exemplo Ã© um gerador de Fases para o game The Ball Saga, um Jogo de Habilidade 
  * 	(Bounce) escrito em Portugol. O exemplo demonstra como utilizar algumas das bibliotecas 
- * 	existentes no Portugol. Neste exemplo, também é possível ver algumas técnicas 
- * 	utilizadas na criação de jogos.
+ * 	existentes no Portugol. Neste exemplo, tambÃ©m Ã© possÃ­vel ver algumas tÃ©cnicas 
+ * 	utilizadas na criaÃ§Ã£o de jogos.
  * 	
  * Autores:
  * 
@@ -92,7 +92,7 @@
 	inteiro menu_propriedades[16][2]
 	inteiro linha_prop_atual=0, linha_menu_atual=0
 
-	//Botões
+	//BotÃµes
 	inteiro  largura_botao=120, altura_botao=35
 	inteiro cor_botao=0x000000, cor_botao_click=0xffffff
 	logico mostrar_linhas=verdadeiro, mostrar_propriedades = verdadeiro
@@ -311,7 +311,7 @@
 		preencher_propiedades()
 		g.iniciar_modo_grafico(falso)
 		g.definir_dimensoes_janela(1000, 700)
-		g.definir_titulo_janela("Criador de cenários")
+		g.definir_titulo_janela("Criador de cenÃ¡rios")
 		carregar_nivel("./theballsaga/fases/inicial.lvl")
 		g.definir_icone_janela(g.carregar_imagem("./theballsaga/imagens/res_800/ball.png"))
 		carregar_tema("./theballsaga/imagens/res_800/tiles.png")
@@ -1021,15 +1021,3 @@
 	
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 1364; 
- * @DOBRAMENTO-CODIGO = [0, 99, 112, 122, 130, 138, 168, 221, 237, 267, 294, 307, 320, 333, 343, 366, 385, 406, 435, 449, 459, 471, 477, 483, 492, 500, 507, 514, 526, 537, 553, 590, 629, 658, 684, 696, 715, 733, 757, 780, 792, 811, 830, 846, 862, 873, 884, 907, 929, 939, 948, 965, 982, 995];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

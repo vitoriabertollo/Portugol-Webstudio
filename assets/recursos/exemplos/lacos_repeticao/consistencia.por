@@ -1,21 +1,21 @@
 
-/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÌ
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itaja√≠
  * 
- * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
- * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
+ * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
+ * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
- * Studio para auxili·-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
+ * Studio para auxili√°-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÁ„o:
+ * Descri√ß√£o:
  
- * 	Este exemplo ilustra o uso de um laÁo de repetiÁ„o do tipo "faca-enquanto" para
- * 	validar a entrada dos dados informados pelo usu·rio.
+ * 	Este exemplo ilustra o uso de um la√ßo de repeti√ß√£o do tipo "faca-enquanto" para
+ * 	validar a entrada dos dados informados pelo usu√°rio.
  * 
  * Autores:
  * 
@@ -38,22 +38,10 @@ programa
 		}
 		enquanto (idade < 5 ou idade > 150)
 		
-		// A partir deste ponto do cÛdigo È garantido que a idade 
-		// ter· um valor v·lido e n„o causar· erros inesperados		
+		// A partir deste ponto do c√≥digo √© garantido que a idade 
+		// ter√° um valor v√°lido e n√£o causar√° erros inesperados		
 
 		escreva ("\nCorreto!\n")
 	}
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
- * VocÍ pode apag·-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 862; 
- * @DOBRAMENTO-CODIGO = [1];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

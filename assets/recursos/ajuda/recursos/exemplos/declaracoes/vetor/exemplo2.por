@@ -2,8 +2,8 @@ programa
 {
 	funcao inicio()
 	{
-		//Declaração de um vetor de inteiros
-		// de cinco posições já inicializado.
+		//DeclaraÃ§Ã£o de um vetor de inteiros
+		// de cinco posiÃ§Ãµes jÃ¡ inicializado.
 		inteiro vetor[5] = {15,22,8,10,11}
 
 		//Imprime o valor 15 correspondente 
@@ -16,21 +16,14 @@ programa
 		escreva("\n")
 
 		//Imprime o  valor 11 correspondente 
-		// ao último elemento do vetor
+		// ao Ãºltimo elemento do vetor
 		escreva(vetor[4])
 		
-		//Declaração de um vetor de reais de dez posições
+		//DeclaraÃ§Ã£o de um vetor de reais de dez posiÃ§Ãµes
 		real outro_vetor[10]
 
-		//Declaração de um vetor de caracteres onde o tamanho
-		// é definido pela quantidade de elementos da inicialização
+		//DeclaraÃ§Ã£o de um vetor de caracteres onde o tamanho
+		// Ã© definido pela quantidade de elementos da inicializaÃ§Ã£o
 		caracter nome[] = {'P','o','r','t','u','g','o','l'} 
 	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 245; 
- */
