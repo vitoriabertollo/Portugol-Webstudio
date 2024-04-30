@@ -1258,7 +1258,7 @@ export namespace editor {
          */
         label: string;
         /**
-         * Precondition rule.
+         * Precondition rule. The value should be a [context key expression](https://code.visualstudio.com/docs/getstarted/keybindings#_when-clause-contexts).
          */
         precondition?: string;
         /**
@@ -1620,6 +1620,14 @@ export namespace editor {
         Gutter = 2
     }
 
+    /**
+     * Section header style.
+     */
+    export enum MinimapSectionHeaderStyle {
+        Normal = 1,
+        Underlined = 2
+    }
+
     export interface IDecorationOptions {
         /**
          * CSS color to render.
@@ -1663,6 +1671,14 @@ export namespace editor {
          * The position in the minimap.
          */
         position: MinimapPosition;
+        /**
+         * If the decoration is for a section header, which header style.
+         */
+        sectionHeaderStyle?: MinimapSectionHeaderStyle | null;
+        /**
+         * If the decoration is for a section header, the header text.
+         */
+        sectionHeaderText?: string | null;
     }
 
     /**
@@ -3110,6 +3126,13 @@ export namespace editor {
          */
         rulers?: (number | IRulerOption)[];
         /**
+         * Locales used for segmenting lines into words when doing word related navigations or operations.
+         *
+         * Specify the BCP 47 language tag of the word you wish to recognize (e.g., ja, zh-CN, zh-Hant-TW, etc.).
+         * Defaults to empty array
+         */
+        wordSegmenterLocales?: string | string[];
+        /**
          * A string containing the word separators used when doing word navigation.
          * Defaults to `~!@#$%^&*()-=+[{]}\\|;:\'",.<>/?
          */
@@ -3826,6 +3849,10 @@ export namespace editor {
          */
         renderMarginRevertIcon?: boolean;
         /**
+         * Indicates if the gutter menu should be rendered.
+        */
+        renderGutterMenu?: boolean;
+        /**
          * Original model should be editable?
          * Defaults to false.
          */
@@ -4286,6 +4313,18 @@ export namespace editor {
          * Relative size of the font in the minimap. Defaults to 1.
          */
         scale?: number;
+        /**
+         * Whether to show named regions as section headers. Defaults to true.
+         */
+        showRegionSectionHeaders?: boolean;
+        /**
+         * Whether to show MARK: comments as section headers. Defaults to true.
+         */
+        showMarkSectionHeaders?: boolean;
+        /**
+         * Font size of section headers. Defaults to 9.
+         */
+        sectionHeaderFontSize?: number;
     }
 
     /**
@@ -4935,25 +4974,26 @@ export namespace editor {
         useShadowDOM = 127,
         useTabStops = 128,
         wordBreak = 129,
-        wordSeparators = 130,
-        wordWrap = 131,
-        wordWrapBreakAfterCharacters = 132,
-        wordWrapBreakBeforeCharacters = 133,
-        wordWrapColumn = 134,
-        wordWrapOverride1 = 135,
-        wordWrapOverride2 = 136,
-        wrappingIndent = 137,
-        wrappingStrategy = 138,
-        showDeprecated = 139,
-        inlayHints = 140,
-        editorClassName = 141,
-        pixelRatio = 142,
-        tabFocusMode = 143,
-        layoutInfo = 144,
-        wrappingInfo = 145,
-        defaultColorDecorators = 146,
-        colorDecoratorsActivatedOn = 147,
-        inlineCompletionsAccessibilityVerbose = 148
+        wordSegmenterLocales = 130,
+        wordSeparators = 131,
+        wordWrap = 132,
+        wordWrapBreakAfterCharacters = 133,
+        wordWrapBreakBeforeCharacters = 134,
+        wordWrapColumn = 135,
+        wordWrapOverride1 = 136,
+        wordWrapOverride2 = 137,
+        wrappingIndent = 138,
+        wrappingStrategy = 139,
+        showDeprecated = 140,
+        inlayHints = 141,
+        editorClassName = 142,
+        pixelRatio = 143,
+        tabFocusMode = 144,
+        layoutInfo = 145,
+        wrappingInfo = 146,
+        defaultColorDecorators = 147,
+        colorDecoratorsActivatedOn = 148,
+        inlineCompletionsAccessibilityVerbose = 149
     }
 
     export const EditorOptions: {
@@ -5091,6 +5131,7 @@ export namespace editor {
         useShadowDOM: IEditorOption<EditorOption.useShadowDOM, boolean>;
         useTabStops: IEditorOption<EditorOption.useTabStops, boolean>;
         wordBreak: IEditorOption<EditorOption.wordBreak, 'normal' | 'keepAll'>;
+        wordSegmenterLocales: IEditorOption<EditorOption.wordSegmenterLocales, {}>;
         wordSeparators: IEditorOption<EditorOption.wordSeparators, string>;
         wordWrap: IEditorOption<EditorOption.wordWrap, 'on' | 'off' | 'wordWrapColumn' | 'bounded'>;
         wordWrapBreakAfterCharacters: IEditorOption<EditorOption.wordWrapBreakAfterCharacters, string>;
@@ -5618,6 +5659,7 @@ export namespace editor {
     export interface IPasteEvent {
         readonly range: Range;
         readonly languageId: string | null;
+        readonly clipboardEvent?: ClipboardEvent;
     }
 
     export interface IDiffEditorConstructionOptions extends IDiffEditorOptions, IEditorConstructionOptions {
@@ -6964,6 +7006,22 @@ export namespace languages {
     }
 
     /**
+     * Info provided on partial acceptance.
+     */
+    export interface PartialAcceptInfo {
+        kind: PartialAcceptTriggerKind;
+    }
+
+    /**
+     * How a partial acceptance was triggered.
+     */
+    export enum PartialAcceptTriggerKind {
+        Word = 0,
+        Line = 1,
+        Suggest = 2
+    }
+
+    /**
      * How a suggest provider was triggered.
      */
     export enum CompletionTriggerKind {
@@ -7109,7 +7167,7 @@ export namespace languages {
         /**
          * Will be called when an item is partially accepted.
          */
-        handlePartialAccept?(completions: T, item: T['items'][number], acceptedCharacters: number): void;
+        handlePartialAccept?(completions: T, item: T['items'][number], acceptedCharacters: number, info: PartialAcceptInfo): void;
         /**
          * Will be called when a completions list is no longer in use and can be garbage-collected.
         */
@@ -7829,7 +7887,7 @@ export namespace languages {
         body: string;
         range: IRange | undefined;
         uri: Uri;
-        owner: string;
+        uniqueOwner: string;
         isReply: boolean;
     }
 
