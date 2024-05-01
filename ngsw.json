@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1714529862398,
+  "timestamp": 1714570981383,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.8a95d3d4279d24f6.js",
+        "/main.ba598abe129192e1.js",
         "/manifest.webmanifest",
         "/polyfills.dac9e2bcc400f347.js",
         "/runtime.6727eabc545f25f6.js",
@@ -18549,7 +18549,7 @@
     "/assets/monaco-editor/min/vs/loader.js": "eb0856dfc78341251ce83f0538d23043adf8d665",
     "/assets/monaco-editor/monaco.d.ts": "20a7a9d528d20e1b62787ad2eba602cf749f04ff",
     "/assets/monaco-editor/package.json": "529db276177ae5177f65e39beb13db3e56508830",
-    "/assets/portugol-worker/worker.js": "93c2413a973940583f72bf72763cdb13237b6ce2",
+    "/assets/portugol-worker/worker.js": "4684a810b88398f237b6a31c3fa10a33ae692526",
     "/assets/recursos/.etag": "6485f67b5df6157f21e01d2ae6c9d7c95c34a4f9",
     "/assets/recursos/ajuda/estilos/SyntaxHighlighter.css": "4162675b3b4d2354973021572bfd4685deb6712d",
     "/assets/recursos/ajuda/estilos/ajuda.css": "9e6ad574f9fa6c48d6f856756016eac3c1a5686b",
@@ -19228,7 +19228,7 @@
     "/assets/recursos/exercicios/exercicio60.pex": "6082892362c640c5b7c9e63b12d6594dab32128d",
     "/assets/recursos/exercicios/schema.xsd": "cd13152ea836b1eed121a6972a619f595ac5d46c",
     "/favicon.ico": "a3dadb5b6906874517b9a2bc021bb3f154290edd",
-    "/index.html": "f87c0002e3b16d28536b2eb438bc8f1203bd6cea",
+    "/index.html": "662f1db833a9afdb333785e1f70460f67b536345",
     "/lato-latin-400-normal.b7ffde2383bb16ba.woff2": "fcd4136085f2a03481d9958cc6793a5ed98e714c",
     "/lato-latin-400-normal.c97328b91ac5cc66.woff": "70a33ccebe9b4300ff6e0b3887264f8d4b34ad43",
     "/lato-latin-700-normal.3fc09a6113184f16.woff": "a9c3bff8bbfccb6bf598fd0fa0a8b04f0f26b6bf",
@@ -19237,7 +19237,7 @@
     "/lato-latin-ext-400-normal.6ebed106d6de17e2.woff2": "ed53e9f8967142ea4aa2fd113f696799319d91b2",
     "/lato-latin-ext-700-normal.1586d9d8fea4252b.woff": "42e7b9b972925b22d6d6d261015d9a4fe1bace90",
     "/lato-latin-ext-700-normal.8697d1d596a20b96.woff2": "d764e136ada1fba8ec4d99994b179d984d7983b8",
-    "/main.8a95d3d4279d24f6.js": "73872df1e2933c33c8f6e0d80e33ff2802166260",
+    "/main.ba598abe129192e1.js": "705110a158fe323ab400a66ad9dfa240ff071b75",
     "/manifest.webmanifest": "ea9afcc9f466e61c4f2a5fb56f9ad31683c1de7f",
     "/polyfills.dac9e2bcc400f347.js": "609f2eedaa72f583cc0ccfa8967b5213e99068d3",
     "/runtime.6727eabc545f25f6.js": "c3cbea28d60cd1839ae4bac368acef4d13c35b20",
