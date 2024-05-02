@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1714670847987,
+  "timestamp": 1714671416043,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.be486b7b11cef608.js",
+        "/main.3d4fe409327e6b00.js",
         "/manifest.webmanifest",
         "/polyfills.dac9e2bcc400f347.js",
         "/runtime.6727eabc545f25f6.js",
@@ -19223,7 +19223,7 @@
     "/assets/recursos/exercicios/exercicio60.pex": "6082892362c640c5b7c9e63b12d6594dab32128d",
     "/assets/recursos/exercicios/schema.xsd": "cd13152ea836b1eed121a6972a619f595ac5d46c",
     "/favicon.ico": "a3dadb5b6906874517b9a2bc021bb3f154290edd",
-    "/index.html": "52b4eac433cb3c3689abb646f3fe4b3eb0b722ab",
+    "/index.html": "2af0d590dc20efdd69a4a782bf5ef1db620e3d9f",
     "/lato-latin-400-normal.b7ffde2383bb16ba.woff2": "fcd4136085f2a03481d9958cc6793a5ed98e714c",
     "/lato-latin-400-normal.c97328b91ac5cc66.woff": "70a33ccebe9b4300ff6e0b3887264f8d4b34ad43",
     "/lato-latin-700-normal.3fc09a6113184f16.woff": "a9c3bff8bbfccb6bf598fd0fa0a8b04f0f26b6bf",
@@ -19232,7 +19232,7 @@
     "/lato-latin-ext-400-normal.6ebed106d6de17e2.woff2": "ed53e9f8967142ea4aa2fd113f696799319d91b2",
     "/lato-latin-ext-700-normal.1586d9d8fea4252b.woff": "42e7b9b972925b22d6d6d261015d9a4fe1bace90",
     "/lato-latin-ext-700-normal.8697d1d596a20b96.woff2": "d764e136ada1fba8ec4d99994b179d984d7983b8",
-    "/main.be486b7b11cef608.js": "498940fbc61a643a75dcd63189646d65d7384a61",
+    "/main.3d4fe409327e6b00.js": "5cec37b49d4b4a811e9a91c48370b97639af1657",
     "/manifest.webmanifest": "ea9afcc9f466e61c4f2a5fb56f9ad31683c1de7f",
     "/polyfills.dac9e2bcc400f347.js": "609f2eedaa72f583cc0ccfa8967b5213e99068d3",
     "/runtime.6727eabc545f25f6.js": "c3cbea28d60cd1839ae4bac368acef4d13c35b20",
