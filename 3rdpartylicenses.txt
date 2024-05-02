@@ -212,6 +212,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+@ngneat/overview
+MIT
+
+@ngxpert/hot-toast
+MIT
+
 @portugol-webstudio/antlr
 GPL-3.0
 
