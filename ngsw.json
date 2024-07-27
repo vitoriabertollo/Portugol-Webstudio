@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1722043564832,
+  "timestamp": 1722045956198,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-UDZQ6YE4.js",
+        "/main-VENDH5V5.js",
         "/manifest.webmanifest",
         "/polyfills-E7NSLPUH.js",
         "/styles-CE7SXL5G.css"
@@ -18582,8 +18582,8 @@
     "/assets/monaco-editor/min/vs/loader.js": "0ad2a6e61dbfb33e48fc4f08156094a1bebfffa7",
     "/assets/monaco-editor/monaco.d.ts": "12e16bfa3714e07b34f1627a57df691a051765e4",
     "/assets/monaco-editor/package.json": "d8cedaa90f6019cbbb5cd832d18ffe60f444bf37",
-    "/assets/portugol-worker/worker.js": "133ce60e7a03d32113d6ffc7564c92d99bf2ae41",
-    "/assets/portugol-worker/worker.js.map": "630cf755c0e30f0a851f276cfde6e8b07fa22797",
+    "/assets/portugol-worker/worker.js": "6161093a075a67eb31dc6ca925ca45bdc73d0525",
+    "/assets/portugol-worker/worker.js.map": "4346d9fbca7d9ccf6d4ead09a2c0b780fb545f9c",
     "/assets/recursos/ajuda/estilos/SyntaxHighlighter.css": "4162675b3b4d2354973021572bfd4685deb6712d",
     "/assets/recursos/ajuda/estilos/ajuda.css": "9e6ad574f9fa6c48d6f856756016eac3c1a5686b",
     "/assets/recursos/ajuda/estilos/index.css": "df28a87aa49702297859fb7900c44f8250da8786",
@@ -19262,8 +19262,8 @@
     "/assets/recursos/exercicios/exercicio60.pex": "6082892362c640c5b7c9e63b12d6594dab32128d",
     "/assets/recursos/exercicios/schema.xsd": "cd13152ea836b1eed121a6972a619f595ac5d46c",
     "/favicon.ico": "a3dadb5b6906874517b9a2bc021bb3f154290edd",
-    "/index.html": "4f4b19b9a328fe8b5505fb59db3c21b85d5392bb",
-    "/main-UDZQ6YE4.js": "15119450cd3f668336df71a4dbb01b7b33a46272",
+    "/index.html": "c1b288e2e29b862416eb132be6d133c110da92ee",
+    "/main-VENDH5V5.js": "8784347a883e730192cbd009b9ba45936aa0e271",
     "/manifest.webmanifest": "ea9afcc9f466e61c4f2a5fb56f9ad31683c1de7f",
     "/polyfills-E7NSLPUH.js": "a347aadb35ab4e1cc22f425b06c9141a67750e58",
     "/styles-CE7SXL5G.css": "eb87eac5ff99ebf5d893257821d03f46aedb4eec"
