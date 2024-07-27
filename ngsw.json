@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1722040899413,
+  "timestamp": 1722043564832,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-XNAZTWXJ.js",
+        "/main-UDZQ6YE4.js",
         "/manifest.webmanifest",
         "/polyfills-E7NSLPUH.js",
         "/styles-CE7SXL5G.css"
@@ -19262,8 +19262,8 @@
     "/assets/recursos/exercicios/exercicio60.pex": "6082892362c640c5b7c9e63b12d6594dab32128d",
     "/assets/recursos/exercicios/schema.xsd": "cd13152ea836b1eed121a6972a619f595ac5d46c",
     "/favicon.ico": "a3dadb5b6906874517b9a2bc021bb3f154290edd",
-    "/index.html": "6d6228fc94a624a57813c8ea89e7b9bf28344a40",
-    "/main-XNAZTWXJ.js": "eca3efcdd1f066a03cba63e20d7ca0d0a5187687",
+    "/index.html": "4f4b19b9a328fe8b5505fb59db3c21b85d5392bb",
+    "/main-UDZQ6YE4.js": "15119450cd3f668336df71a4dbb01b7b33a46272",
     "/manifest.webmanifest": "ea9afcc9f466e61c4f2a5fb56f9ad31683c1de7f",
     "/polyfills-E7NSLPUH.js": "a347aadb35ab4e1cc22f425b06c9141a67750e58",
     "/styles-CE7SXL5G.css": "eb87eac5ff99ebf5d893257821d03f46aedb4eec"
