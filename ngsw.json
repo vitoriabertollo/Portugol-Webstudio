@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1721873264830,
+  "timestamp": 1722040899413,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,10 +13,10 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-VR6OYD6Z.js",
+        "/main-XNAZTWXJ.js",
         "/manifest.webmanifest",
-        "/polyfills-MH5IBZ74.js",
-        "/styles-JFUGDC3T.css"
+        "/polyfills-E7NSLPUH.js",
+        "/styles-CE7SXL5G.css"
       ],
       "patterns": []
     },
@@ -7488,6 +7488,7 @@
         "/assets/mdi/zodiac-taurus.svg",
         "/assets/mdi/zodiac-virgo.svg",
         "/assets/portugol-worker/worker.js",
+        "/assets/portugol-worker/worker.js.map",
         "/assets/recursos/ajuda/estilos/SyntaxHighlighter.css",
         "/assets/recursos/ajuda/estilos/ajuda.css",
         "/assets/recursos/ajuda/estilos/index.css",
@@ -18581,7 +18582,8 @@
     "/assets/monaco-editor/min/vs/loader.js": "0ad2a6e61dbfb33e48fc4f08156094a1bebfffa7",
     "/assets/monaco-editor/monaco.d.ts": "12e16bfa3714e07b34f1627a57df691a051765e4",
     "/assets/monaco-editor/package.json": "d8cedaa90f6019cbbb5cd832d18ffe60f444bf37",
-    "/assets/portugol-worker/worker.js": "1cd763a2bfef67552ee4bc49c7a135cc8b61bf46",
+    "/assets/portugol-worker/worker.js": "133ce60e7a03d32113d6ffc7564c92d99bf2ae41",
+    "/assets/portugol-worker/worker.js.map": "630cf755c0e30f0a851f276cfde6e8b07fa22797",
     "/assets/recursos/ajuda/estilos/SyntaxHighlighter.css": "4162675b3b4d2354973021572bfd4685deb6712d",
     "/assets/recursos/ajuda/estilos/ajuda.css": "9e6ad574f9fa6c48d6f856756016eac3c1a5686b",
     "/assets/recursos/ajuda/estilos/index.css": "df28a87aa49702297859fb7900c44f8250da8786",
@@ -19260,11 +19262,11 @@
     "/assets/recursos/exercicios/exercicio60.pex": "6082892362c640c5b7c9e63b12d6594dab32128d",
     "/assets/recursos/exercicios/schema.xsd": "cd13152ea836b1eed121a6972a619f595ac5d46c",
     "/favicon.ico": "a3dadb5b6906874517b9a2bc021bb3f154290edd",
-    "/index.html": "b87cfd37a48f30971237b70b71184d287b433a44",
-    "/main-VR6OYD6Z.js": "1e3efb0a649a7bd423dc65364a9be540e85aaa29",
+    "/index.html": "6d6228fc94a624a57813c8ea89e7b9bf28344a40",
+    "/main-XNAZTWXJ.js": "eca3efcdd1f066a03cba63e20d7ca0d0a5187687",
     "/manifest.webmanifest": "ea9afcc9f466e61c4f2a5fb56f9ad31683c1de7f",
-    "/polyfills-MH5IBZ74.js": "c7fdbc7259367a3112d05e61e33c04c4b2efa9b4",
-    "/styles-JFUGDC3T.css": "2bc6250900698af88a81d7f55c4ce815c3d27ad4"
+    "/polyfills-E7NSLPUH.js": "a347aadb35ab4e1cc22f425b06c9141a67750e58",
+    "/styles-CE7SXL5G.css": "eb87eac5ff99ebf5d893257821d03f46aedb4eec"
   },
   "navigationUrls": [
     {
