@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1722048199644,
+  "timestamp": 1722126871383,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,10 +13,10 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-XMWCTNHW.js",
+        "/main-DC7ISNFK.js",
         "/manifest.webmanifest",
-        "/polyfills-E7NSLPUH.js",
-        "/styles-CE7SXL5G.css"
+        "/polyfills-UCPGG4LZ.js",
+        "/styles-J6SE6XLN.css"
       ],
       "patterns": []
     },
@@ -19262,11 +19262,11 @@
     "/assets/recursos/exercicios/exercicio60.pex": "6082892362c640c5b7c9e63b12d6594dab32128d",
     "/assets/recursos/exercicios/schema.xsd": "cd13152ea836b1eed121a6972a619f595ac5d46c",
     "/favicon.ico": "a3dadb5b6906874517b9a2bc021bb3f154290edd",
-    "/index.html": "3ee89ff992716603ef680c8f2905cc016a974586",
-    "/main-XMWCTNHW.js": "f1ddd22973ad9bebca03bfcbd35952244729f72a",
+    "/index.html": "1f354ea534a3e15a8312bf7571b88e01ca87221d",
+    "/main-DC7ISNFK.js": "9b838fbe87fdf3413509870a4b893bb7229acadf",
     "/manifest.webmanifest": "ea9afcc9f466e61c4f2a5fb56f9ad31683c1de7f",
-    "/polyfills-E7NSLPUH.js": "a347aadb35ab4e1cc22f425b06c9141a67750e58",
-    "/styles-CE7SXL5G.css": "eb87eac5ff99ebf5d893257821d03f46aedb4eec"
+    "/polyfills-UCPGG4LZ.js": "48cc3e6a7b089c31de457bfce7f08d4fdf335adf",
+    "/styles-J6SE6XLN.css": "05cbd97cc975197b7641555ba68883fe0003457f"
   },
   "navigationUrls": [
     {
