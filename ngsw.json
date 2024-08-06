@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1722881896721,
+  "timestamp": 1722907543786,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-KJ4PP7SH.js",
+        "/main-FAPZSAD6.js",
         "/manifest.webmanifest",
         "/polyfills-UCPGG4LZ.js",
         "/styles-J4VB7D22.css"
@@ -18582,8 +18582,8 @@
     "/assets/monaco-editor/min/vs/loader.js": "0ad2a6e61dbfb33e48fc4f08156094a1bebfffa7",
     "/assets/monaco-editor/monaco.d.ts": "12e16bfa3714e07b34f1627a57df691a051765e4",
     "/assets/monaco-editor/package.json": "d8cedaa90f6019cbbb5cd832d18ffe60f444bf37",
-    "/assets/portugol-worker/worker.js": "52fd95372a9e6161e42daa6d88d9502a7f082ade",
-    "/assets/portugol-worker/worker.js.map": "b2d341ca5907d2d227e44fb63e38e88dadf677b5",
+    "/assets/portugol-worker/worker.js": "74525a1d071e83656dc7d72fafe752243287861f",
+    "/assets/portugol-worker/worker.js.map": "9855562f0a2cd8d6df10ac4458750a9687b27070",
     "/assets/recursos/ajuda/estilos/SyntaxHighlighter.css": "4162675b3b4d2354973021572bfd4685deb6712d",
     "/assets/recursos/ajuda/estilos/ajuda.css": "9e6ad574f9fa6c48d6f856756016eac3c1a5686b",
     "/assets/recursos/ajuda/estilos/index.css": "df28a87aa49702297859fb7900c44f8250da8786",
@@ -19262,8 +19262,8 @@
     "/assets/recursos/exercicios/exercicio60.pex": "6082892362c640c5b7c9e63b12d6594dab32128d",
     "/assets/recursos/exercicios/schema.xsd": "cd13152ea836b1eed121a6972a619f595ac5d46c",
     "/favicon.ico": "a3dadb5b6906874517b9a2bc021bb3f154290edd",
-    "/index.html": "f1b010b2e7177e9edcb290a51b4a602230dd9f47",
-    "/main-KJ4PP7SH.js": "6f6b6b221f88bb7153c6461c3968dc1a2e5cee32",
+    "/index.html": "611a1fc46990d8c7e22fcdd2d2490145b8ea080a",
+    "/main-FAPZSAD6.js": "fc9367e32f60a18a90e8fd80ddd149bd82068368",
     "/manifest.webmanifest": "ea9afcc9f466e61c4f2a5fb56f9ad31683c1de7f",
     "/polyfills-UCPGG4LZ.js": "48cc3e6a7b089c31de457bfce7f08d4fdf335adf",
     "/styles-J4VB7D22.css": "cb48864d9f28f090c7ae69b93ca23a37b59fd3a9"
