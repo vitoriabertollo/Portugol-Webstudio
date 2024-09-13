@@ -1,23 +1,23 @@
 
-/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
- * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
- * Studio para auxiliÃ¡-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÃ§Ã£o:
+ * Descrição:
  * 
  * 	Este exemplo demonstra o uso da constante "PI" da biblioteca "Matematica". Neste
- * 	exemplo, a constante Ã© utilizada para calcular a Ã¡rea de uma circunferÃªncia.
+ * 	exemplo, a constante é utilizada para calcular a área de uma circunferência.
  * 	
- * 	Maiores informaÃ§Ãµes sobre como Ã© realizado o cÃ¡lculo de uma circunferÃªncia, podem
+ * 	Maiores informações sobre como é realizado o cálculo de uma circunferência, podem
  * 	ser obtidas em: http://www.brasilescola.com/matematica/comprimento-Area-circunferencia.htm
  * 
  * Autores:
@@ -36,21 +36,33 @@ programa
 		real raio
 		real area
 
-		escreva("Informe o raio da circunferÃªncia em cm: ")
+		escreva("Informe o raio da circunferência em cm: ")
 		leia(raio)
 
-		// Calcula a Ã¡rea da circunferÃªncia utilizando a constante
+		// Calcula a área da circunferência utilizando a constante
 		// PI da biblioteca
 		area = mat.PI * mat.potencia(raio, 2.0)
 
 		// Arredonda o resultado para 2 casas decimais para facilitar
-		// a visualizaÃ§Ã£o
+		// a visualização
 		area = mat.arredondar(area, 2)
 
 		limpa()
 		
-		escreva("O valor de PI Ã©: ", mat.PI)
-		escreva("\nA Ã¡rea da circunferÃªncia Ã©: ", area, " cmÂ²\n")
+		escreva("O valor de PI é: ", mat.PI)
+		escreva("\nA área da circunferência é: ", area, " cm²\n")
 	}
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1064; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

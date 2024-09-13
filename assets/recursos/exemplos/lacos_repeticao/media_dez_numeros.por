@@ -1,22 +1,22 @@
 
-/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itaja√≠
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÌ
  * 
- * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
- * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
+ * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
+ * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
- * Studio para auxili√°-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
+ * Studio para auxili·-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descri√ß√£o:
+ * DescriÁ„o:
  * 
- * 	Este exemplo pede ao usuario que informe 10 n√∫meros. Logo ap√≥s, calcula e
- * 	exibe a m√©dia dos n√∫meros digitados. O exemplo utiliza um la√ßo de repeti√ß√£o do
- * 	tipo "enquanto" para determinar se todos os 10 valores j√° foram lidos.
+ * 	Este exemplo pede ao usuario que informe 10 n˙meros. Logo apÛs, calcula e
+ * 	exibe a mÈdia dos n˙meros digitados. O exemplo utiliza um laÁo de repetiÁ„o do
+ * 	tipo "enquanto" para determinar se todos os 10 valores j· foram lidos.
  *
  * Autores:
  * 
@@ -34,22 +34,34 @@ programa
 		
 		real numero, media, soma = 0.0
 
-		// La√ßo que verifica se j√° foram informados 10 valores
+		// LaÁo que verifica se j· foram informados 10 valores
 		
 		enquanto(contador <= 10) 
 		{
 			limpa()
-			escreva("Digite o ", contador, "¬∫ n√∫mero: ")
+			escreva("Digite o ", contador, "∫ n˙mero: ")
 			leia(numero)
 			
-			soma = soma + numero  	// A variavel soma √© o acumulador deste exemplo
+			soma = soma + numero  	// A variavel soma È o acumulador deste exemplo
 			contador = contador + 1  // Incrementa o contador
 		}
 		
 		media = soma / 10
 		
 		limpa()
-		escreva("A m√©dia dos n√∫meros √©: ", media, "\n")
+		escreva("A mÈdia dos n˙meros È: ", media, "\n")
 	}
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
+ * VocÍ pode apag·-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 966; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

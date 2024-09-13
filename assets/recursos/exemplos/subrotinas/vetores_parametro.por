@@ -1,37 +1,37 @@
 
-/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itaja√≠
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÌ
  * 
- * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
- * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
+ * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
+ * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
- * Studio para auxili√°-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
+ * Studio para auxili·-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descri√ß√£o:
+ * DescriÁ„o:
  * 
- * 	Este exemplo ilustra a passagem de par√¢metros para uma fun√ß√£o. O exemplo
- * 	demonstra tanto a passagem de par√¢metro por valor, quanto a passagem de 
- * 	par√¢metro por refer√™ncia.
+ * 	Este exemplo ilustra a passagem de par‚metros para uma funÁ„o. O exemplo
+ * 	demonstra tanto a passagem de par‚metro por valor, quanto a passagem de 
+ * 	par‚metro por referÍncia.
  * 	
- * 	Quando um par√¢metro √© passado por valor, o seu valor √© copiado para dentro  
- * 	da fun√ß√£o. Desta forma, se a fun√ß√£o altera o valor do par√¢metro, o valor s√≥
- * 	√© alterado dentro da fun√ß√£o, mas √© mantido o valor original fora dela.
+ * 	Quando um par‚metro È passado por valor, o seu valor È copiado para dentro  
+ * 	da funÁ„o. Desta forma, se a funÁ„o altera o valor do par‚metro, o valor sÛ
+ * 	È alterado dentro da funÁ„o, mas È mantido o valor original fora dela.
  * 	
- * 	Por outro lado, quando um par√¢metro √© passado por refer√™ncia, qualquer altera√ß√£o  
- * 	dentro da fun√ß√£o √© imediatamente refletida na vari√°vel fora da fun√ß√£o. Isto porque,
- * 	na verdade, o que a fun√ß√£o recebe n√£o √© uma c√≥pia do valor contido na vari√°vel, mas 
- * 	sim, uma refer√™ncia (um atalho) para a vari√°vel original. No Portugol, a passagem de
- * 	par√¢metro por refer√™ncia √© representada pelo operador '&'.
+ * 	Por outro lado, quando um par‚metro È passado por referÍncia, qualquer alteraÁ„o  
+ * 	dentro da funÁ„o È imediatamente refletida na vari·vel fora da funÁ„o. Isto porque,
+ * 	na verdade, o que a funÁ„o recebe n„o È uma cÛpia do valor contido na vari·vel, mas 
+ * 	sim, uma referÍncia (um atalho) para a vari·vel original. No Portugol, a passagem de
+ * 	par‚metro por referÍncia È representada pelo operador '&'.
  * 	
- * 	Caso n√£o compreenda estes conceitos, experimente depurar o programa e visualizar
- * 	como o valor das vari√°veis s√£o alterados na √°rvore estrutural √† esquerda. Se ainda
- * 	assim tiver dificuldades, pe√ßa a ajuda de um professor ou algu√©m experiente em 
- * 	programa√ß√£o.
+ * 	Caso n„o compreenda estes conceitos, experimente depurar o programa e visualizar
+ * 	como o valor das vari·veis s„o alterados na ·rvore estrutural ‡ esquerda. Se ainda
+ * 	assim tiver dificuldades, peÁa a ajuda de um professor ou alguÈm experiente em 
+ * 	programaÁ„o.
  * 
  * Autores:
  * 
@@ -47,24 +47,24 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro vet [10] // Declara um vetor com 10 posi√ß√µes
+		inteiro vet [10] // Declara um vetor com 10 posiÁıes
 		
 		preenche (vet)
 		
-		escreva("Vetor antes da ordena√ß√£o:\n")
+		escreva("Vetor antes da ordenaÁ„o:\n")
 		exibe (vet)
 
 		ordena (vet)
 
-		escreva("\n\nVetor ap√≥s a ordena√ß√£o:\n")		
+		escreva("\n\nVetor apÛs a ordenaÁ„o:\n")		
 		exibe (vet)
 
 		escreva("\n")
 	}
 
-	// Preenche o vetor com n√∫meros aleat√≥rios. Neste caso, o vetor √©
-	// passado por refer√™ncia
-	// vetores n√£o precisam do & pois eles sempre s√£o passados por referencia automaticamente
+	// Preenche o vetor com n˙meros aleatÛrios. Neste caso, o vetor È
+	// passado por referÍncia
+	// vetores n„o precisam do & pois eles sempre s„o passados por referencia automaticamente
 	funcao preenche (inteiro v[]) 
 	{
 		para (inteiro i = 0; i < 10; i++)
@@ -105,3 +105,15 @@ programa
 	}
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
+ * VocÍ pode apag·-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1922; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

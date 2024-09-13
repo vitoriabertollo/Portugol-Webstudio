@@ -1,21 +1,21 @@
 
-/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
- * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
- * Studio para auxiliÃ¡-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÃ§Ã£o:
+ * Descrição:
  * 
- * 	Este exemplo demonstra como utilizar a funÃ§Ã£o "extrair_subtexto" da biblioteca "Texto"
- * 	para obter uma parte de um texto armazenado em uma variÃ¡vel do tipo cadeia.
+ * 	Este exemplo demonstra como utilizar a função "extrair_subtexto" da biblioteca "Texto"
+ * 	para obter uma parte de um texto armazenado em uma variável do tipo cadeia.
  * 
  * Autores:
  * 
@@ -36,34 +36,46 @@ programa
 		cadeia sub_texto
 
 		/*
-		 * Aqui extraÃ­mos a palavra "PA" da palavra "PAREDES". Para isso
-		 * Ã© necessÃ¡rio entender dois conceitos.
+		 * Aqui extraímos a palavra "PA" da palavra "PAREDES". Para isso
+		 * é necessário entender dois conceitos.
 		 * 
-		 * 1 - O primeiro caracter de uma cadeia fica na posiÃ§Ã£o 0
+		 * 1 - O primeiro caracter de uma cadeia fica na posição 0
 		 * 
-		 * 2 - Ao extrair um subtexto, o caracter informado pela Ãºltima 
-		 * 	  posiÃ§Ã£o nÃ£o Ã© considerado
+		 * 2 - Ao extrair um subtexto, o caracter informado pela última 
+		 * 	  posição não é considerado
 		 * 
-		 * Na palavra "PAREDES" o caracter 0 Ã© 'P', o caracter 1 Ã© 'A',
-		 * o caracter 2 Ã© 'R', e assim por diante.
+		 * Na palavra "PAREDES" o caracter 0 é 'P', o caracter 1 é 'A',
+		 * o caracter 2 é 'R', e assim por diante.
 		 * 
 		 * Para formar a palavra "PA", precisamos extrair os caracteres 
-		 * 'P' e 'A', ou seja, os caracteres nas posiÃ§Ãµes 0 e 1. Como a 
-		 * Ãºltima posiÃ§Ã£o nÃ£o Ã© considerada na extraÃ§Ã£o, informamos as 
-		 * posiÃ§Ãµes 0 e 2.
+		 * 'P' e 'A', ou seja, os caracteres nas posições 0 e 1. Como a 
+		 * última posição não é considerada na extração, informamos as 
+		 * posições 0 e 2.
 		 */		
 		sub_texto = tx.extrair_subtexto(texto, 0, 2)
 		escreva(sub_texto, "\n")
 
 		/* 
-		 * Aqui extraÃ­mos a palavra "REDES" da palavra "PAREDES".
+		 * Aqui extraímos a palavra "REDES" da palavra "PAREDES".
 		 * 
 		 * Para formar a palavra "REDE", precisamos extrair os caracteres 
-		 * 'R', 'E', 'D', 'E' e 'S', ou seja, os caracteres nas posiÃ§Ãµes 2, 
-		 * 3, 4, 5 e 6. Como a Ãºltima posiÃ§Ã£o nÃ£o Ã© considerada na extraÃ§Ã£o, 
-		 * informamos as posiÃ§Ãµes 2 e 7.
+		 * 'R', 'E', 'D', 'E' e 'S', ou seja, os caracteres nas posições 2, 
+		 * 3, 4, 5 e 6. Como a última posição não é considerada na extração, 
+		 * informamos as posições 2 e 7.
 		 */
 		sub_texto = tx.extrair_subtexto(texto, 2, 7)
 		escreva(sub_texto, "\n")
 	}
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 877; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

@@ -1,29 +1,29 @@
 
-/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itaja√≠
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÌ
  * 
- * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
- * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
+ * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
+ * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
- * Studio para auxili√°-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
+ * Studio para auxili·-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descri√ß√£o:
+ * DescriÁ„o:
  * 
- * 	Este exemplo √© um Jogo escrito em Portugol no qual o jogador controla uma nave que
- * 	deve pousar na lua o mais r√°pido poss√≠vel. O exemplo demonstra como utilizar algumas 
- * 	das bibliotecas existentes no Portugol. Neste exemplo, tamb√©m √© poss√≠vel ver algumas
- * 	t√©cnicas utilizadas na cria√ß√£o de jogos.
+ * 	Este exemplo È um Jogo escrito em Portugol no qual o jogador controla uma nave que
+ * 	deve pousar na lua o mais r·pido possÌvel. O exemplo demonstra como utilizar algumas 
+ * 	das bibliotecas existentes no Portugol. Neste exemplo, tambÈm È possÌvel ver algumas
+ * 	tÈcnicas utilizadas na criaÁ„o de jogos.
  *	
- *	As regras do jogo s√£o as seguintes:
+ *	As regras do jogo s„o as seguintes:
  *	
  *		a) O jogador perde se guiar a nave para fora da tela
  *		b) O jogador perde se pousar a nave fora da plataforma de pouso
- *		c) O jogador perde se pousar a nave muito r√°pido
+ *		c) O jogador perde se pousar a nave muito r·pido
  * 	
  *   Jogo adaptado de http://www.gametutorial.net/article/Keyboard-input---Moon-lander
  * 	
@@ -45,27 +45,27 @@ programa
 	inclua biblioteca Sons --> sn
 
 	/* 
-	 *  Define se o jogo est√° sendo depurado ou n√£o. Quando o jogo est√° em modo de depura√ß√£o, 
-	 *  algumas informa√ß√µes adicionais aparecem na tela como, por exemplo, a taxa de atualiza√ß√£o,
-	 *  isto √©, a contagem de FPS
+	 *  Define se o jogo est· sendo depurado ou n„o. Quando o jogo est· em modo de depuraÁ„o, 
+	 *  algumas informaÁıes adicionais aparecem na tela como, por exemplo, a taxa de atualizaÁ„o,
+	 *  isto È, a contagem de FPS
 	 */
 	const logico DEPURANDO = verdadeiro
 
-	/* Dimens√µes da tela do jogo */ 
+	/* Dimensıes da tela do jogo */ 
 	const inteiro LARGURA_DA_TELA = 800, ALTURA_DA_TELA = 600
 
 	
 	/* 
-	 * Constante que define quanto tempo o jogo deve aguardar na tela inicial at√© iniciar 
-	 * a demonstra√ß√£o caso nenhuma tecla seja pressionada.
+	 * Constante que define quanto tempo o jogo deve aguardar na tela inicial atÈ iniciar 
+	 * a demonstraÁ„o caso nenhuma tecla seja pressionada.
 	 * 
-	 * Este tempo tamb√©m √© usado para decidir quanto tempo a intelig√™ncia artifical deve
-	 * aguardar para reiniciar a demonstra√ß√£o ap√≥s pousar, quebrar ou ir para o espa√ßo.
+	 * Este tempo tambÈm È usado para decidir quanto tempo a inteligÍncia artifical deve
+	 * aguardar para reiniciar a demonstraÁ„o apÛs pousar, quebrar ou ir para o espaÁo.
 	 */
 	const inteiro TEMPO_DE_ESPERA_DA_DEMONSTRACAO = 5000
 
 
-	/* Constantes para controle da f√≠sica do jogo */
+	/* Constantes para controle da fÌsica do jogo */
 	const real ACELERACAO_GRAVIDADE = 0.1270, VELOCIDADE_MAXIMA_GRAVIDADE = 3.1760
 	
 	const real ACELERACAO_FOGUETE = 0.1412, VELOCIDADE_MAXIMA_FOGUETE = 14.1160
@@ -74,15 +74,15 @@ programa
 
 
 	/* 
-	 * Esta constante define a que dist√¢ncia ir√° se considerarq que o foguete est√° pr√≥ximo 
+	 * Esta constante define a que dist‚ncia ir· se considerarq que o foguete est· prÛximo 
 	 * da plataformma.
 	 * 
-	 * √â utilizada pela intelig√™ncia artificial da demonstra√ß√£o para saber quando o foguete 
+	 * … utilizada pela inteligÍncia artificial da demonstraÁ„o para saber quando o foguete 
 	 * deve ser acelerado.
 	 */
 	const inteiro DISTANCIA_DE_PROXIMIDADE_DA_PLATAFORMA = 70
 
-	/* Define quantos quadros ser√£o desenhados por segundo (FPS) */
+	/* Define quantos quadros ser„o desenhados por segundo (FPS) */
 	const inteiro TAXA_DE_ATUALIZACAO = 85
 
 
@@ -93,7 +93,7 @@ programa
 	
 	const inteiro TELA_QUEBROU = 4, TELA_ESPACO = 5, TELA_DEMONSTRACAO = 6
 
-	/* Vari√°veis que controlam o fluxo de telas do jogo */
+	/* Vari·veis que controlam o fluxo de telas do jogo */
 	inteiro tela_atual = TELA_MENU, tela_anterior = TELA_SAIR
 
 	logico executando_demonstracao = falso
@@ -105,20 +105,20 @@ programa
 	const inteiro VELOCIDADE_DA_ANIMACAO = 5, ESTADO_DA_ANIMACAO = 6, TAMANHO_DA_ESTRELA = 7
 
 	
-	/* Constantes que definem os poss√≠veis estados da anima√ß√£o das estrelas */
+	/* Constantes que definem os possÌveis estados da animaÁ„o das estrelas */
 	const inteiro AUMENTANDO_BRILHO = 0, DIMINUINDO_BRILHO = 1
 
 
 	/* 
-	 * Matriz que armazena a posi√ß√£o e a intensidadede de brilho das estrelas cintilantes. 
-	 * Estes valores s√£o definidos aleatoriamente quando o jogo inicia.
+	 * Matriz que armazena a posiÁ„o e a intensidadede de brilho das estrelas cintilantes. 
+	 * Estes valores s„o definidos aleatoriamente quando o jogo inicia.
 	 */
 	inteiro estrelas_cintilantes[30][8]
 	
 		
 	/* 
-	 * Vari√°veis que armazenam as dimens√µes e posi√ß√µes dos objetos no jogo. S√£o calculadas
-	 * de acordo com as imagens que s√£o utilizadas.
+	 * Vari·veis que armazenam as dimensıes e posiÁıes dos objetos no jogo. S„o calculadas
+	 * de acordo com as imagens que s„o utilizadas.
 	 */
 
 	inteiro x_do_foguete = 0, y_do_foguete = 0, largura_do_foguete = 0, altura_do_foguete = 0
@@ -130,11 +130,11 @@ programa
 	inteiro centro_da_tela = LARGURA_DA_TELA / 2
 	
 
-	/* Vari√°veis utilizadas para controlar a velocidade de foguete */
+	/* Vari·veis utilizadas para controlar a velocidade de foguete */
 	real velocidade_vertical = 0.0, velocidade_horizontal = 0.0
 
 
-	/* Vari√°veis que controlam o estado do movimento do foguete */
+	/* Vari·veis que controlam o estado do movimento do foguete */
 	logico foguete_esta_acelerando = falso
 
 	logico foguete_esta_movendo_para_a_direita = falso
@@ -144,7 +144,7 @@ programa
 	logico inteligencia_artificial_decidiu_acelerar = falso	
 	
 	
-	/* Vari√°veis utilizadas para controlar o FPS e o tempo de jogo */
+	/* Vari·veis utilizadas para controlar o FPS e o tempo de jogo */
 	inteiro tempo_inicio_jogo = 0
 
 	inteiro tempo_inicio = 0, tempo_decorrido = 0, tempo_restante = 0, tempo_quadro = 0
@@ -154,7 +154,7 @@ programa
 	inteiro tempo_inicio_tela = 0, tempo_inicio_aceleracao = 0, tempo_escolhido_aceleracao = 0
 
 	
-	/* Vari√°veis que armazenam o endere√ßo de mem√≥ria das imagens utilizadas no jogo */
+	/* Vari·veis que armazenam o endereÁo de memÛria das imagens utilizadas no jogo */
 	inteiro imagem_de_fundo_do_cenario = 0, imagem_de_fundo_do_menu = 0, imagem_logotipo_portugol_studio = 0
 	
 	inteiro imagem_do_foguete = 0, imagem_foguete_quebrado = 0
@@ -163,17 +163,17 @@ programa
 	
 	inteiro imagem_jato = 0, imagem_jato2 = 0, imagem_da_plataforma = 0, imagem_do_fogo = 0, imagem_jato_menu = 0, imagem_foguete_menu = 0
 
-	/* Var√°veis que armazenam o endere√ßo da m√∫sica de fundo do jogo e dos sons */
+	/* Var·veis que armazenam o endereÁo da m˙sica de fundo do jogo e dos sons */
 	inteiro musica_de_fundo = -1, som_houston = -1
 
 
-	/* Vari√°veis que controlam a anima√ß√£o do fogo quando o foguete quebrou */
+	/* Vari·veis que controlam a animaÁ„o do fogo quando o foguete quebrou */
 	inteiro indice_imagem_fogo = 0
 	
 	logico alternou_imagem_fogo = falso
 
 
-	/* Vari√°veis que controlam a anima√ß√£o das estrelas e dos planetas no fundo do cen√°rio */
+	/* Vari·veis que controlam a animaÁ„o das estrelas e dos planetas no fundo do cen·rio */
 	inteiro indice_do_fundo_do_cenario = 0, indice_dos_planetas = 0, ultimo_giro_fundo = 0, ultimo_giro_planetas = 0
 	
 	
@@ -382,11 +382,11 @@ programa
 			 * Se o foguete estiver dentro da plataforma, move para um dos lados, com 50%
 			 * de probabilidade para cada lado. 
 			 * 
-			 * Esta movimenta√ß√£o para fora da plataforma deixa a demonstra√ß√£o mais realista, 
-			 * mais pr√≥xima da movimenta√ß√£o de um jogador real. 
+			 * Esta movimentaÁ„o para fora da plataforma deixa a demonstraÁ„o mais realista, 
+			 * mais prÛxima da movimentaÁ„o de um jogador real. 
 			 * 
-			 * Al√©m disso, ela faz com que em alguns caso a intelig√™ncia artifical perca por
-			 * pousar fora da plataforma, o que tamb√©m contribui para deixar a IA mais realista.
+			 * AlÈm disso, ela faz com que em alguns caso a inteligÍncia artifical perca por
+			 * pousar fora da plataforma, o que tambÈm contribui para deixar a IA mais realista.
 			 */
 			
 			se (probabilidade <= 50)
@@ -422,7 +422,7 @@ programa
 
 			/* 
 			 * Cria uma probabilidade de 5% de o foguete acelerar por tempo demais e se perder 
-			 * no espa√ßo. Esta movimenta√ß√£o deixa a IA mais realista.
+			 * no espaÁo. Esta movimentaÁ„o deixa a IA mais realista.
 			 */
 			
 			se (probabilidade <= 5) 
@@ -490,15 +490,15 @@ programa
 		g.definir_cor(0xFFFFFF)
 		g.definir_estilo_texto(falso, falso, falso)
 		
-		desenhar_texto_centralizado("Parab√©ns, voc√™ venceu!", 240)
+		desenhar_texto_centralizado("ParabÈns, vocÍ venceu!", 240)
 
 		se (segundos > 1)
 		{
-			desenhar_texto_centralizado("voc√™ pousou em " + segundos  + " segundos!", 270)
+			desenhar_texto_centralizado("vocÍ pousou em " + segundos  + " segundos!", 270)
 		}
 		senao
 		{
-			desenhar_texto_centralizado("voc√™ pousou em 1 segundo!", 270)
+			desenhar_texto_centralizado("vocÍ pousou em 1 segundo!", 270)
 		}
 		
 		desenhar_texto_centralizado("Pressione ENTER para jogar novamente", 300)
@@ -576,11 +576,11 @@ programa
 
        	se (foguete_esta_fora_da_plataforma())
        	{
-			desenhar_texto_centralizado("que pena, voc√™ pousou fora da plataforma!", 270)
+			desenhar_texto_centralizado("que pena, vocÍ pousou fora da plataforma!", 270)
        	}
        	senao se (foguete_esta_acima_da_velocidade_de_pouso())
        	{
-       		desenhar_texto_centralizado("que pena, voc√™ pousou r√°pido demais!", 270)
+       		desenhar_texto_centralizado("que pena, vocÍ pousou r·pido demais!", 270)
        	}
 		
 		desenhar_texto_centralizado("Pressione ENTER para jogar novamente", 300)
@@ -699,7 +699,7 @@ programa
 		g.definir_cor(BRANCO)
 		g.definir_estilo_texto(falso, falso, falso)
    		
-       	desenhar_texto_centralizado("voc√™ perdeu o controle e ficou √† deriva no espa√ßo!", 270)
+       	desenhar_texto_centralizado("vocÍ perdeu o controle e ficou ‡ deriva no espaÁo!", 270)
 		desenhar_texto_centralizado("Pressione ENTER para jogar novamente", 300)
 		desenhar_texto_centralizado("Pressione ESC para sair", 330)
 	}
@@ -891,9 +891,9 @@ programa
 
 		/*
 		 * A imagem da plataforma possui bordas de 15 pixels na direita e na esquerda, por isso
-		 * √© preciso somar e subtrair estes pixels das bordas para que o c√°lculo funcione.
+		 * È preciso somar e subtrair estes pixels das bordas para que o c·lculo funcione.
 		 * 
-		 * Futuramente isto ser√° corrigido na pr√≥pria imagem, eliminando as bordas
+		 * Futuramente isto ser· corrigido na prÛpria imagem, eliminando as bordas
 		 */
 		
 		inteiro borda_esquerda_da_plataforma = x_da_plataforma + 15
@@ -1192,10 +1192,10 @@ programa
 	funcao inteiro x_do_centro_do_foguete()
 	{
 		/* 
-		 *  A imagem do foguete tem bordas diferentes na esquerda e na direita, por isso √©
-		 *  necess√°rio acrescentar 4 pixels para corrigir esta diferen√ßa.
+		 *  A imagem do foguete tem bordas diferentes na esquerda e na direita, por isso È
+		 *  necess·rio acrescentar 4 pixels para corrigir esta diferenÁa.
 		 *  
-		 *  Isto dever√° ser corrigido na pr√≥pria imagem futuramente
+		 *  Isto dever· ser corrigido na prÛpria imagem futuramente
 		 */
 		
 		retorne x_do_foguete + (largura_do_foguete / 2) + 4
@@ -1245,7 +1245,7 @@ programa
 		
 		frames = 0
 		
-		// Hack para n√£o exibir o FPS zerado na primeira vez que desenhar a tela
+		// Hack para n„o exibir o FPS zerado na primeira vez que desenhar a tela
 		tempo_inicio_fps = u.tempo_decorrido() - 1000
 	}
 
@@ -1311,7 +1311,7 @@ programa
 		/* 
 		 * Ao diminuir 11 pixels, eliminamos as bordas em volta da imagem do foguete. 
 		 * 
-		 * A imagem n√£o deveria ter estas bordas. A imagem dever√° ser editada futuramente
+		 * A imagem n„o deveria ter estas bordas. A imagem dever· ser editada futuramente
 		 * para remover estas bordas.
 		 */
 		
@@ -1377,3 +1377,15 @@ programa
 		sn.liberar_som(som_houston)
 	}
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
+ * VocÍ pode apag·-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1364; 
+ * @DOBRAMENTO-CODIGO = [1, 185, 183, 179, 206, 210, 204, 199, 223, 230, 234, 228, 240, 275, 295, 285, 280, 308, 302, 327, 320, 344, 342, 350, 357, 367, 371, 365, 380, 391, 395, 376, 363, 406, 410, 404, 422, 427, 431, 415, 402, 438, 447, 451, 445, 458, 462, 456, 443, 469, 483, 512, 507, 528, 532, 526, 539, 543, 537, 524, 550, 564, 569, 589, 595, 613, 622, 618, 630, 642, 637, 658, 662, 656, 669, 673, 667, 654, 681, 694, 713, 708, 706, 720, 728, 740, 736, 749, 745, 734, 760, 764, 770, 774, 756, 784, 789, 793, 780, 799, 804, 809, 816, 820, 824, 828, 814, 834, 845, 854, 859, 867, 876, 881, 891, 888, 907, 912, 919, 926, 933, 938, 943, 948, 958, 953, 966, 979, 986, 977, 996, 994, 1005, 1012, 1003, 1023, 1021, 1073, 1069, 1083, 1079, 1094, 1090, 1056, 1041, 1113, 1111, 1120, 1139, 1143, 1133, 1149, 1155, 1166, 1171, 1176, 1181, 1193, 1191, 1203, 1208, 1213, 1223, 1218, 1232, 1251, 1270, 1278, 1302, 1310, 1308, 1333, 1340, 1347, 1354, 1373];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

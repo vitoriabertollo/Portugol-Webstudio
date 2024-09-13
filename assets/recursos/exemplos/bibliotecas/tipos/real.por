@@ -1,20 +1,20 @@
 
-/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
- * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
- * Studio para auxiliÃ¡-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÃ§Ã£o:
+ * Descrição:
  * 
- * 	Este exemplo demonstra como utilizar as funÃ§Ãµes da biblioteca "Tipos" para verificar
+ * 	Este exemplo demonstra como utilizar as funções da biblioteca "Tipos" para verificar
  * 	e converter dados do tipo real para outros tipos e vice-versa.
  * 
  * Autores:
@@ -34,32 +34,32 @@ programa
 		real num_real
 		inteiro num_inteiro
 
-		// Aqui usamos a funÃ§Ã£o "cadeia_e_real" para verificar se o texto
-		// contido na variÃ¡vel do tipo cadeia representa um nÃºmero real
+		// Aqui usamos a função "cadeia_e_real" para verificar se o texto
+		// contido na variável do tipo cadeia representa um número real
 		se (tp.cadeia_e_real(texto))
 		{
-			// Agora que jÃ¡ sabemos que esta cadeia representa um nÃºmero real
-			// utilizamos a funÃ§Ã£o "cadeia_para_real" para converter a cadeia
-			// em um nÃºmero real e podermos trabalhar com ele
+			// Agora que já sabemos que esta cadeia representa um número real
+			// utilizamos a função "cadeia_para_real" para converter a cadeia
+			// em um número real e podermos trabalhar com ele
 			num_real = tp.cadeia_para_real(texto)
 			num_real = num_real * 2
 
 			escreva("Valor convertido em real: ", num_real, "\n")
 
-			// Algumas operaÃ§Ãµes, como o MOD (%), sÃ³ podem ser feitas entre
-			// nÃºmeros inteiros
+			// Algumas operações, como o MOD (%), só podem ser feitas entre
+			// números inteiros
 			//
-			// Neste caso, vamos converter o nÃºmero real em inteiro para podermos
-			// utilizÃ¡-lo nesta operaÃ§Ã£o
+			// Neste caso, vamos converter o número real em inteiro para podermos
+			// utilizá-lo nesta operação
 			//
-			// Note que ao fazer isso, o nÃºmero serÃ¡ truncado, ou seja, todos os 
-			// valores apÃ³s a vÃ­rgula serÃ£o perdidos e somente a parte inteira do
-			// nÃºmero serÃ¡ mantida
+			// Note que ao fazer isso, o número será truncado, ou seja, todos os 
+			// valores após a vírgula serão perdidos e somente a parte inteira do
+			// número será mantida
 			num_inteiro = tp.real_para_inteiro(num_real)	
 			escreva("Valor convertido em inteiro: ", num_inteiro, "\n")
 
-			// Por Ãºltimo, podemos transformar novamente o valor real em uma cadeia, 
-			// caso seja necessÃ¡rio. Para isso usamos a funÃ§Ã£o "real_para_cadeia"
+			// Por último, podemos transformar novamente o valor real em uma cadeia, 
+			// caso seja necessário. Para isso usamos a função "real_para_cadeia"
 
 			num_real = num_real + 5.0
 			texto = tp.real_para_cadeia(num_real)
@@ -69,3 +69,11 @@ programa
 	}
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 862; 
+ * @DOBRAMENTO-CODIGO = [1];
+ */

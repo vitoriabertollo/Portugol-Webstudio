@@ -1,26 +1,26 @@
 
-/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itaja√≠
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÌ
  * 
- * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
- * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
+ * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
+ * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
- * Studio para auxili√°-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
+ * Studio para auxili·-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descri√ß√£o:
+ * DescriÁ„o:
  * 
  * 	Este exemplo ilustra o uso dos vetores da linguagem Portugol.
  * 	
- * 	Neste exemplo, s√£o criados dois vetores. O primeiro, √© do tipo cadeia e armazena os 
- * 	nomes de v√°rias pessoas. O segundo, √© do tipo real e armazena as alturas destas pessoas.
+ * 	Neste exemplo, s„o criados dois vetores. O primeiro, È do tipo cadeia e armazena os 
+ * 	nomes de v·rias pessoas. O segundo, È do tipo real e armazena as alturas destas pessoas.
  *
- * 	O programa ent√£o percorre cada um dos vetores, montando no console uma tabela dos dados
- * 	existentes. Cada nome √© associado √† sua respectiva altura.
+ * 	O programa ent„o percorre cada um dos vetores, montando no console uma tabela dos dados
+ * 	existentes. Cada nome È associado ‡ sua respectiva altura.
  * 	
  * 	Para saber mais sobre o fatorial, acesse: http://www.infoescola.com/matematica/fatorial/
  * 	
@@ -36,27 +36,39 @@ programa
 {
 	funcao inicio()
 	{
-		// Cria√ß√£o dos vetores, j√° com os dados inicializados
+		// CriaÁ„o dos vetores, j· com os dados inicializados
 		cadeia nome[] = { "Andre", "Thiago" , "Bruno", "Carlos", "Cassio" }
 		real altura[] = { 1.71, 1.78, 1.75, 1.87, 1.71 }
 
-		// Cria o cabe√ßalho da tabela
+		// Cria o cabeÁalho da tabela
 		escreva ("--------------------\n")
 		escreva ("       TABELA       \n")
 		escreva ("--------------------\n")
 
-		/* Perocorre os vetores exibindo as informa√ß√µes. Note que as informa√ß√µes
-		 * s√£o relacionadas, colocando-as na mesmas na mesma posi√ß√£o em ambos os 
-		 * vetores. Por exemplo, se quis√©ssemos incluir a idade de cada pessoa,
-		 * criar√≠amos mais um vetor do tipo inteiro e a idade de Andre, seria 
-		 * armazenada na posi√ß√£o 0 do novo vetor, a idade de Thiago, na posi√ß√£o 1, 
-		 * a de Bruno na posi√ß√£o 2, e assim por diante.
+		/* Perocorre os vetores exibindo as informaÁıes. Note que as informaÁıes
+		 * s„o relacionadas, colocando-as na mesmas na mesma posiÁ„o em ambos os 
+		 * vetores. Por exemplo, se quisÈssemos incluir a idade de cada pessoa,
+		 * criarÌamos mais um vetor do tipo inteiro e a idade de Andre, seria 
+		 * armazenada na posiÁ„o 0 do novo vetor, a idade de Thiago, na posiÁ„o 1, 
+		 * a de Bruno na posiÁ„o 2, e assim por diante.
 		 */		  
 		para (inteiro posicao = 0; posicao < 5; posicao++)
 		{
-			// O caracter especial \t serve para escrever uma tabula√ß√£o
+			// O caracter especial \t serve para escrever uma tabulaÁ„o
 			escreva (nome[posicao], "\t\t", altura [posicao], "\n")
 		}
 	}
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
+ * VocÍ pode apag·-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1213; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

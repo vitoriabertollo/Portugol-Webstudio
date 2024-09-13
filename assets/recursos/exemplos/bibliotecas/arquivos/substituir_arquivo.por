@@ -1,17 +1,17 @@
-/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
  *  
- * Copyright (C) 2018 - UNIVALI - Universidade do Vale do ItajaÃ­
+ * Copyright (C) 2018 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
- * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
- * Studio para auxiliÃ¡-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÃ§Ã£o:
+ * Descrição:
  * 		
  *	Exemplo de como substituir o texto de dentro de um arquivo por outro
  * 	
@@ -33,9 +33,9 @@ programa
 		//Abrimos um arquivo em modo escrita e escrevemos algumas coisas nele
 		inteiro endereco = a.abrir_arquivo("dummyText.txt", a.MODO_ESCRITA)
 
-		a.escrever_linha("O portugol Ã© uma IDE muito maneira", endereco)
-		a.escrever_linha("O portugol contÃ©m vÃ¡rios exemplos interessantes", endereco)
-		a.escrever_linha("O portugol Ã© realizado no LITE", endereco)
+		a.escrever_linha("O portugol é uma IDE muito maneira", endereco)
+		a.escrever_linha("O portugol contém vários exemplos interessantes", endereco)
+		a.escrever_linha("O portugol é realizado no LITE", endereco)
 
 		a.fechar_arquivo(endereco)
 
@@ -52,19 +52,19 @@ programa
 		a.fechar_arquivo(endereco)
 
 
-		//Uma vez confirmado o texto, substituiremos algumas partes desse texto por outras com a funÃ§Ã£o substituir texto
-		//ela pode tanto substituir todas as ocorrÃªncias de um texto
+		//Uma vez confirmado o texto, substituiremos algumas partes desse texto por outras com a função substituir texto
+		//ela pode tanto substituir todas as ocorrências de um texto
 		//ou substituir apenas a primeira ocorrencia do texto
-		//isso serÃ¡ definido pelo Ãºltimo parÃ¢metro na funÃ§Ã£o
+		//isso será definido pelo último parâmetro na função
 		//caso verdadeiro apenas a primeira ocorrencia
 		//caso falso todas as ocorrencias
 
-		//a seguinte funÃ§Ã£o substituirÃ¡ no arquivo de texto a palavra portugol
+		//a seguinte função substituirá no arquivo de texto a palavra portugol
 		//por Portugol Studio, em todas as ocorrencias
 		a.substituir_texto("dummyText.txt", "portugol", "Portugol Studio", falso)
-		//a seguinte funÃ§Ã£o substituirÃ¡ no arquivo de texto a palavra Ã©
-		//por retrata, apenas na primeira ocorrÃªncia
-		a.substituir_texto("dummyText.txt", "Ã©", "retrata", verdadeiro)
+		//a seguinte função substituirá no arquivo de texto a palavra é
+		//por retrata, apenas na primeira ocorrência
+		a.substituir_texto("dummyText.txt", "é", "retrata", verdadeiro)
 
 
 		//em seguida impimiremos o texto do arquivo novamente, para poder-mos comparar os casos
@@ -80,3 +80,15 @@ programa
 		a.fechar_arquivo(endereco)
 	}
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 759; 
+ * @DOBRAMENTO-CODIGO = [0];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

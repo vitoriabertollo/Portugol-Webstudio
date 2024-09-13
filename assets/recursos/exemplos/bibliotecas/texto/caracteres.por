@@ -1,23 +1,23 @@
 
-/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itaja√≠
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÌ
  * 
- * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
- * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
+ * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
+ * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
- * Studio para auxili√°-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
+ * Studio para auxili·-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descri√ß√£o:
+ * DescriÁ„o:
  * 
- * 	Este exemplo demonstra o uso da fun√ß√£o "obter_caracter" da biblioteca "Texto" para
- * 	obter um caracter espec√≠fico dentro de um dado do tipo cadeia. Neste exemplo, o
- * 	usu√°rio deve informar um valor e o programa ir√° verificar se o valor digitado √©
- * 	um n√∫mero bin√°rio v√°lido.
+ * 	Este exemplo demonstra o uso da funÁ„o "obter_caracter" da biblioteca "Texto" para
+ * 	obter um caracter especÌfico dentro de um dado do tipo cadeia. Neste exemplo, o
+ * 	usu·rio deve informar um valor e o programa ir· verificar se o valor digitado È
+ * 	um n˙mero bin·rio v·lido.
  * 
  * Autores:
  * 
@@ -36,24 +36,24 @@ programa
 		caracter digito
 		logico binario = verdadeiro
 
-		escreva("Informe um n√∫mero no formato bin√°rio (Ex.: 1101001): ")
+		escreva("Informe um n˙mero no formato bin·rio (Ex.: 1101001): ")
 		leia(numero)
 
-		// Usamos um la√ßo para percorrer todos os caracteres da cadeia. Come√ßando 
-		// no caracter 0 e indo at√© o √∫ltimo caracter, tx.numero_caracteres(numero) - 1
+		// Usamos um laÁo para percorrer todos os caracteres da cadeia. ComeÁando 
+		// no caracter 0 e indo atÈ o ˙ltimo caracter, tx.numero_caracteres(numero) - 1
 		para (inteiro indice = 0; indice <= tx.numero_caracteres(numero) - 1; indice++)
 		{
-			// Obtemos o caracter na posi√ß√£o indicada pelo √≠ndice
+			// Obtemos o caracter na posiÁ„o indicada pelo Ìndice
 			digito = tx.obter_caracter(numero, indice)
 
-			// Verificamos o caracter nesta posi√ß√£o. Se n√£o for 0 nem 1, 
-			// ent√£o o n√∫mero n√£o √© bin√°rio		
+			// Verificamos o caracter nesta posiÁ„o. Se n„o for 0 nem 1, 
+			// ent„o o n˙mero n„o È bin·rio		
 			se (digito != '0' e digito != '1')
 			{
 				binario = falso
 
-				// J√° sabemos que o n√∫mero n√£o √© bin√°rio, ent√£o n√£o precisamos continuar
-				// verificando. Por isso interrompemos o la√ßo com o comando "pare"
+				// J· sabemos que o n˙mero n„o È bin·rio, ent„o n„o precisamos continuar
+				// verificando. Por isso interrompemos o laÁo com o comando "pare"
 				pare
 			}
 		}
@@ -62,12 +62,24 @@ programa
 
 		se (binario)
 		{
-			escreva("O n√∫mero informado √© bin√°rio\n")
+			escreva("O n˙mero informado È bin·rio\n")
 		}
 		senao
 		{
-			escreva("O n√∫mero informado n√£o √© bin√°rio\n")
+			escreva("O n˙mero informado n„o È bin·rio\n")
 		}
 	}	
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
+ * VocÍ pode apag·-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 991; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */
