@@ -22,8 +22,8 @@ programa
 	inteiro tampalavra
 	inteiro max_letras = 50
 
-	cadeia messagem_erro = "Parece que o servidor das imagens n„o quer conversa agora. Tenta mais uma vez, quem sabe ele muda de ideia."
-	cadeia messagem_erro_conexao = "Verifique sua conex„o com a internet e tente novamente."
+	cadeia messagem_erro = "Parece que o servidor das imagens n√£o quer conversa agora. Tenta mais uma vez, quem sabe ele muda de ideia."
+	cadeia messagem_erro_conexao = "Verifique sua conex√£o com a internet e tente novamente."
 	
 	inteiro imagens[50]
 	inteiro itens_carregaveis
@@ -198,7 +198,7 @@ programa
 		para(inteiro i=0; i < tampalavra; i++){
 			imagens[i] = g.carregar_imagem(diretorio_ps+i+".jpg")
 			carregando++
-			desenhar_carregando(carregando, "Tentando equilibrar imagens na memÛria")
+			desenhar_carregando(carregando, "Tentando equilibrar imagens na mem√≥ria")
 			u.aguarde(200)
 		}
 		para(inteiro i=0; i < tampalavra; i++){
@@ -348,14 +348,3 @@ programa
 		g.fechar_janela()
 	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
- * VocÍ pode apag·-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 8; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

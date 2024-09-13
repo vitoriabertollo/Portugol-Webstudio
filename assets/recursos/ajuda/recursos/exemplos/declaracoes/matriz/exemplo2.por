@@ -2,8 +2,8 @@ programa
 {
     funcao inicio()
     {
-        //Declaração de uma matriz de inteiros
-        // de duas linhas e duas colunas já inicializado.
+        //DeclaraÃ§Ã£o de uma matriz de inteiros
+        // de duas linhas e duas colunas jÃ¡ inicializado.
         inteiro matriz[2][2] = {{15,22},{10,11}}
 
         //Atribui -1 na primeira linha e segunda
@@ -17,25 +17,18 @@ programa
         escreva("\n")
 
         //Imprime o valor 11 correspondente  
-        // a última linha e última coluna da matriz.
+        // a Ãºltima linha e Ãºltima coluna da matriz.
         escreva(matriz[1][1])
 
-        //Declaração de uma matriz de reais de 
+        //DeclaraÃ§Ã£o de uma matriz de reais de 
         // duas linhas e quatro colunas.
         real outra_matriz[2][4]
 
-        //Declaração de uma matriz de caracteres onde o tamanho
-        // de linhas e colunas são definidos pela inicialização
+        //DeclaraÃ§Ã£o de uma matriz de caracteres onde o tamanho
+        // de linhas e colunas sÃ£o definidos pela inicializaÃ§Ã£o
         caracter jogo_velha[][] = {{'X','O','X'}
                                   ,{'O','X','O'}
                                   ,{' ',' ','X'}}
 
     }
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 1011; 
- */

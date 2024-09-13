@@ -1,30 +1,30 @@
 
-/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÌ
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itaja√≠
  * 
- * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
- * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
+ * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
+ * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
- * Studio para auxili·-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
+ * Studio para auxili√°-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÁ„o:
+ * Descri√ß√£o:
  * 
- * 	Este exemplo utiliza a biblioteca "Sons" para criar uma bateria eletrÙnica. O
+ * 	Este exemplo utiliza a biblioteca "Sons" para criar uma bateria eletr√¥nica. O
  * 	exemplo permite reproduzir 3 faixas de sons de forma independente, cada uma
  * 	representando uma parte da bateria: caixa, bumbo, chimbal.
  * 	
- * 	O usu·rio pode ligar e desligar cada uma das partes da bateria e definir o
- * 	ritmo das batidas. AlÈm disso, È possÌvel especificar o volume de cada parte
+ * 	O usu√°rio pode ligar e desligar cada uma das partes da bateria e definir o
+ * 	ritmo das batidas. Al√©m disso, √© poss√≠vel especificar o volume de cada parte
  * 	da bateria.
  * 	
  * 	Para criar este exemplo, foram gravados sons separados de cada parte da bateria
- * 	e eles s„o reproduzidos simultaneamente de acordo com o que foi configurado pelo
- * 	usu·rio na tela.
+ * 	e eles s√£o reproduzidos simultaneamente de acordo com o que foi configurado pelo
+ * 	usu√°rio na tela.
  * 
  * Autores:
  * 
@@ -38,7 +38,7 @@
  
 programa
 {
-	/* Incluindo as bibliotecas necess·rias */
+	/* Incluindo as bibliotecas necess√°rias */
 	inclua biblioteca Util
 	inclua biblioteca Sons
 	inclua biblioteca Graficos
@@ -47,20 +47,20 @@ programa
 	inclua biblioteca Matematica
 	inclua biblioteca Tipos
 
-	/* Constantes que armazenam as dimensıes da tela */
+	/* Constantes que armazenam as dimens√µes da tela */
 	const inteiro LARGURA_DA_TELA = 725, ALTURA_DA_TELA = 300
 
-	/* Constantes que armazenam a largura e altura dos botıes desenhados na tela */
+	/* Constantes que armazenam a largura e altura dos bot√µes desenhados na tela */
 	const inteiro LARGURA_DO_BOTAO = 28, ALTURA_DO_BOTAO = 28
 	
 	/* 
 	 * Constantes que armazenam as cores utilizadas para desenhar na tela .
-	 * Para entender como as cores s„o criadas no computador, acesse:
+	 * Para entender como as cores s√£o criadas no computador, acesse:
 	 * 
 	 * http://www.dicasdeprogramacao.com.br/entenda-como-funcionam-os-codigos-de-cores-rgb/
 	 * 
-	 * No Portugol Studio, os valores hexadecimais s„o representados utilizando a notaÁ„o 
-	 * 0x ao invÈs da notaÁ„o #. Ou seja, 0xFF00FF È igual a #FF00FF
+	 * No Portugol Studio, os valores hexadecimais s√£o representados utilizando a nota√ß√£o 
+	 * 0x ao inv√©s da nota√ß√£o #. Ou seja, 0xFF00FF √© igual a #FF00FF
 	 */
 	const inteiro COR_DE_FUNDO_DOS_CONTROLES = 0x191919  	// RGB = 25,25,25
 
@@ -73,17 +73,17 @@ programa
 	const inteiro COR_CLARA_LINHA_DIVISORIA = 0x4C4C4C 	// RGB = 76,76,76
 
 
-	/* Constante que armazena o nome da fonte que ser· utilizada para escrever na tela */
+	/* Constante que armazena o nome da fonte que ser√° utilizada para escrever na tela */
 	const cadeia FONTE_DO_TEXTO = "Verdana"
 
-	/* Constante que armazena o nome da pasta onde as imagens est„o guardadas */
+	/* Constante que armazena o nome da pasta onde as imagens est√£o guardadas */
 	const cadeia PASTA_DE_IMAGENS = "./bateria/imagens/"
 
-	/* Constante que armazena o nome da pasta onde os sons est„o guardados */
+	/* Constante que armazena o nome da pasta onde os sons est√£o guardados */
 	const cadeia PASTA_DE_SONS = "./bateria/sons/"
 
 
-	/* Vari·veis que armazenam as imagens que ser„o desenhadas na tela */
+	/* Vari√°veis que armazenam as imagens que ser√£o desenhadas na tela */
 	inteiro imagem_fundo = 0
 
 	inteiro imagem_botao_iniciar = 0, imagem_botao_iniciar_hover = 0
@@ -111,36 +111,36 @@ programa
 	inteiro imagem_botao_aumentar_volume_caixa =0, imagem_botao_diminuir_volume_caixa = 0
 
 	/* 
-	* Vari·veis que armazenam os sons de bateria que ser„o reproduzidos.
-	* Sons, sem eles a vida n„o seria a mesma :)
+	* Vari√°veis que armazenam os sons de bateria que ser√£o reproduzidos.
+	* Sons, sem eles a vida n√£o seria a mesma :)
 	*/
 	inteiro som_bumbo = 0, som_caixa = 0, som_chimbal = 0
 	
-	/* Vari·veis que controlam os volumes dos sons das peÁas da bateria */
+	/* Vari√°veis que controlam os volumes dos sons das pe√ßas da bateria */
 	inteiro volume_bumbo = 100, volume_caixa = 90, volume_chimbal = 80
 
 
-	/* Vari·vel que controla a velocidade da m˙sica em BPM (Batidas por Minuto) */
+	/* Vari√°vel que controla a velocidade da m√∫sica em BPM (Batidas por Minuto) */
 	inteiro andamento = 100
 	
 	/* 
-	 *  Vari·vel que controla o tempo musical. No total existem 16 tempos musicais. 
- 	 *  Essa vari·vel controla em qual tempo a simulaÁ„o se encontra no momento.
+	 *  Vari√°vel que controla o tempo musical. No total existem 16 tempos musicais. 
+ 	 *  Essa vari√°vel controla em qual tempo a simula√ß√£o se encontra no momento.
  	 */
 	inteiro tempo_atual = 0 
 
-	/* Vari·vel que controla a execuÁ„o da m˙sica, ou seja, se a m˙sica est· executando ou parada */
+	/* Vari√°vel que controla a execu√ß√£o da m√∫sica, ou seja, se a m√∫sica est√° executando ou parada */
 	logico executando = falso
 
-	/* Define o n˙mero de peÁas da bateria */
+	/* Define o n√∫mero de pe√ßas da bateria */
 	const inteiro NUMERO_DE_PECAS = 3
 
-	/* Constante que define o n˙mero de batidas da m˙sica */
+	/* Constante que define o n√∫mero de batidas da m√∫sica */
 	const inteiro NUMERO_DE_BATIDAS = 16
 
 	/* 
-	 *  Matriz que armazena as vari·veis de controle das batidas de som.
-	 *  Sempre que vocÍ clica em um dos botıes para ativar um som, uma das posiÁıes dessa matriz È modificada
+	 *  Matriz que armazena as vari√°veis de controle das batidas de som.
+	 *  Sempre que voc√™ clica em um dos bot√µes para ativar um som, uma das posi√ß√µes dessa matriz √© modificada
 	 */
 	logico notas[NUMERO_DE_PECAS][NUMERO_DE_BATIDAS] = 
 	{
@@ -151,7 +151,7 @@ programa
 		/* chimbal --> */ { falso, falso, falso, falso, falso, falso, falso, falso, falso, falso, falso, falso, falso, falso, falso, falso }  /*2*/
 	}
 
-	/* Vari·veis usadas para detectar o clique do mouse */
+	/* Vari√°veis usadas para detectar o clique do mouse */
 	inteiro ultimo_x = -1, ultimo_y = -1
 	
 	logico clicou = falso
@@ -233,8 +233,8 @@ programa
 		senao
 		{
 			/*
-			 * Verifica se houve clique em algum bot„o. Se o mouse foi liberado na mesma regi„o em que 
-			 * ele foi pressionao ent„o temos um clique
+			 * Verifica se houve clique em algum bot√£o. Se o mouse foi liberado na mesma regi√£o em que 
+			 * ele foi pressionao ent√£o temos um clique
 			 */
 			se (ultimo_x >= 0 e ultimo_y >= 0) // Se houve um pressionamento do mouse anteriormente...
 			{
@@ -244,8 +244,8 @@ programa
 				se (delta_x >= 0 e delta_x <= LARGURA_DO_BOTAO e delta_y >= 0 e delta_y <= ALTURA_DO_BOTAO)
 				{
 					/* 
-					 * Esta vari·vel ser· utilizada na funÁ„o que desenha os botıes para verificar se o mouse  
-					 * foi liberado na mesma regi„o onde ele foi pressionado
+					 * Esta vari√°vel ser√° utilizada na fun√ß√£o que desenha os bot√µes para verificar se o mouse  
+					 * foi liberado na mesma regi√£o onde ele foi pressionado
 					 */					
 					clicou = verdadeiro 
 					
@@ -264,11 +264,11 @@ programa
 	{
 		tempo_atual = (tempo_atual + 1) % NUMERO_DE_BATIDAS
 
-		// Percorre o vetor de notas e gera os sons para as notas que est„o ativadas
+		// Percorre o vetor de notas e gera os sons para as notas que est√£o ativadas
 		
-		para (inteiro linha = 0; linha < 3; linha++) // O n˙mero de linhas est· prÈ-fixado de acordo com o n˙mero de peÁas da bateria (3 peÁas)
+		para (inteiro linha = 0; linha < 3; linha++) // O n√∫mero de linhas est√° pr√©-fixado de acordo com o n√∫mero de pe√ßas da bateria (3 pe√ßas)
 		{
-			para (inteiro coluna = 0; coluna < NUMERO_DE_BATIDAS; coluna++) // O n˙mero de colunas tambÈm est· prefixado. S„o 16 subdivisıes em um compasso musical.
+			para (inteiro coluna = 0; coluna < NUMERO_DE_BATIDAS; coluna++) // O n√∫mero de colunas tamb√©m est√° prefixado. S√£o 16 subdivis√µes em um compasso musical.
 			{
 				se (notas[linha][coluna] e coluna == tempo_atual)
 				{
@@ -301,23 +301,23 @@ programa
 
 	funcao desenhar()
 	{
-		// Os botıes de ativaÁ„o dos sons ser„o desenhados desse ponto para baixo
+		// Os bot√µes de ativa√ß√£o dos sons ser√£o desenhados desse ponto para baixo
 		inteiro margem_superior = 100 		
 		inteiro margem_esquerda = 100
 
-		// EspaÁo entre os grupos de 4 botıes
+		// Espa√ßo entre os grupos de 4 bot√µes
 		inteiro espaco_entre_os_grupos = 10 
 		
 		// Desenha o plano de fundo da tela
 		Graficos.desenhar_imagem(0, 0, imagem_fundo)	
 
-		// Botıes de iniciar, parar, aumentar e diminuir volume geral
+		// Bot√µes de iniciar, parar, aumentar e diminuir volume geral
 		desenhar_botoes_de_controles_gerais() 
 
 		// Desenha o logo "Portugol-909" na teala
 		desenhar_logotipo()
 
-		// Linha divisÛria horizontal 
+		// Linha divis√≥ria horizontal 
 		desenhar_linha_divisoria(margem_superior - 10) 
 		
 		desenhar_linha_divisoria(220)
@@ -327,7 +327,7 @@ programa
 		// Desenha os nomes Bumbo, Caixa e Chimbal no lado esquerdo da tela
 		desenhar_nomes_das_pecas(margem_superior) 
 
-		// Desenha os botıes de ativaÁ„o dos sons
+		// Desenha os bot√µes de ativa√ß√£o dos sons
 		desenhar_botoes_das_pecas(margem_superior, margem_esquerda, espaco_entre_os_grupos) 
 		
 		desenhar_lampadas(margem_superior - 27, margem_esquerda + 8, espaco_entre_os_grupos)
@@ -344,9 +344,9 @@ programa
 		Graficos.definir_cor(COR_DO_TEXTO)
 		Graficos.definir_estilo_texto(falso, verdadeiro, falso)
 		
-		Graficos.desenhar_texto(10, y, "Os cÌrculos amarelos s„o batidas ativadas, e cinzas s„o desativadas.")	
-		Graficos.desenhar_texto(10, y + 20, "Clique em um cÌrculo para ativ·-lo ou desativ·-lo.")
-		Graficos.desenhar_texto(10, y + 40, "Pode ser feito enquanto est· tocando")	
+		Graficos.desenhar_texto(10, y, "Os c√≠rculos amarelos s√£o batidas ativadas, e cinzas s√£o desativadas.")	
+		Graficos.desenhar_texto(10, y + 20, "Clique em um c√≠rculo para ativ√°-lo ou desativ√°-lo.")
+		Graficos.desenhar_texto(10, y + 40, "Pode ser feito enquanto est√° tocando")	
 	}
 
 	funcao desenhar_logotipo()
@@ -368,7 +368,7 @@ programa
 
 	funcao logico desenhar_botao(inteiro x_do_botao, inteiro y_do_botao, inteiro botao_normal, inteiro botao_hover)
 	{
-		// Retorna verdadeiro se o mouse est· em cima do bot„o
+		// Retorna verdadeiro se o mouse est√° em cima do bot√£o
 		
 		logico mouse_em_cima_do_botao = mouse_esta_em_cima_do_botao(x_do_botao, y_do_botao)
 		
@@ -446,7 +446,7 @@ programa
 
 	funcao aumentar_volume_peca(inteiro &volume) 
 	{
-		// AtenÁ„o, o par‚metro "volume" est· sendo passado por referÍncia
+		// Aten√ß√£o, o par√¢metro "volume" est√° sendo passado por refer√™ncia
 		
 		volume = volume + 10
 		
@@ -458,7 +458,7 @@ programa
 
 	funcao diminuir_volume_peca(inteiro &volume) 
 	{
-		// AtenÁ„o, o par‚metro "volume" est· sendo passado por referÍncia
+		// Aten√ß√£o, o par√¢metro "volume" est√° sendo passado por refer√™ncia
 		
 		volume = volume - 10
 		
@@ -515,7 +515,7 @@ programa
 		inteiro espaco_entre_botoes = 1
 		inteiro x_do_botao = x
 		
-		// Bot„o diminuir volume da peÁa
+		// Bot√£o diminuir volume da pe√ßa
 		desenhar_botao(x, y, botao_diminuir, imagem_botao_diminuir_volume_geral_hover)
 		x_do_botao = x_do_botao + espaco_entre_botoes + LARGURA_DO_BOTAO
 		
@@ -523,7 +523,7 @@ programa
 
 		x_do_botao = x_do_botao + 52
 
-		//bot„o aumentar volume da peÁa
+		//bot√£o aumentar volume da pe√ßa
 		desenhar_botao(x_do_botao, y, botao_aumentar, imagem_botao_aumentar_volume_geral_hover)
 		x_do_botao = x_do_botao + espaco_entre_botoes + LARGURA_DO_BOTAO
 	}
@@ -563,18 +563,18 @@ programa
 		inteiro espaco_entre_botoes = LARGURA_DO_BOTAO + 3		
 		inteiro x_do_botao = margem
 
-		// Bot„o iniciar
+		// Bot√£o iniciar
 		desenhar_botao(x_do_botao, margem, imagem_botao_iniciar, imagem_botao_iniciar_hover)
 		x_do_botao = x_do_botao + espaco_entre_botoes
 
-		// Bot„o parar
+		// Bot√£o parar
 		desenhar_botao(x_do_botao, margem, imagem_botao_parar, imagem_botao_parar_hover)
 		x_do_botao = x_do_botao + espaco_entre_botoes
 
-		// EspaÁo de 30 pixels entre os grupos de botıes
+		// Espa√ßo de 30 pixels entre os grupos de bot√µes
 		x_do_botao = x_do_botao + 30 
 		
-		// Bot„o para diminuir o andamento da m˙sica
+		// Bot√£o para diminuir o andamento da m√∫sica
 		desenhar_botao(x_do_botao, margem, imagem_botao_diminuir_andamento, imagem_botao_diminuir_andamento_hover)
 		x_do_botao = x_do_botao + espaco_entre_botoes
 
@@ -585,11 +585,11 @@ programa
 		
 		x_do_botao = x_do_botao + 72
 
-		// Bot„o para aumentar o andamento da m˙sica
+		// Bot√£o para aumentar o andamento da m√∫sica
 		desenhar_botao(x_do_botao, margem, imagem_botao_aumentar_andamento, imagem_botao_aumentar_andamento_hover)
 		x_do_botao = x_do_botao + (espaco_entre_botoes * 2)
 
-		// Bot„o diminuir volume geral
+		// Bot√£o diminuir volume geral
 		desenhar_botao(x_do_botao, margem, imagem_botao_diminuir_volume_geral, imagem_botao_diminuir_volume_geral_hover)
 		x_do_botao = x_do_botao + espaco_entre_botoes
 
@@ -598,7 +598,7 @@ programa
 		desenhar_barras_de_volume(x_do_botao, margem, 10, volume_geral/10, COR_CLARA_LINHA_DIVISORIA, COR_DAS_BARRAS_DE_VOLUME)
 		x_do_botao = x_do_botao + 52
 
-		// Bot„o aumentar volume geral
+		// Bot√£o aumentar volume geral
 		desenhar_botao(x_do_botao, margem, imagem_botao_aumentar_volume_geral, imagem_botao_aumentar_volume_geral_hover)
 		x_do_botao = x_do_botao + espaco_entre_botoes
 	}
@@ -638,7 +638,7 @@ programa
 
 	funcao logico mouse_esta_em_cima_do_botao(inteiro x_do_botao, inteiro y_do_botao)
 	{
-		// Verifica se o mouse est· em cima do bot„o. Assume que os botıes tem sempre a mesma largura e altura
+		// Verifica se o mouse est√° em cima do bot√£o. Assume que os bot√µes tem sempre a mesma largura e altura
 		 
 		inteiro mouse_x = Mouse.posicao_x()
 		inteiro mouse_y = Mouse.posicao_y()
@@ -657,11 +657,11 @@ programa
 		{
 			se (i % 4 == 0 e i > 0)
 			{
-				// Adiciona um espaÁo a cada grupo de 4 botıes
+				// Adiciona um espa√ßo a cada grupo de 4 bot√µes
 				x = x + espacamento
 			}
 
-			// Decide se desenha a l‚mpada ligada ou desligada
+			// Decide se desenha a l√¢mpada ligada ou desligada
 			
 			se (i != tempo_atual)
 			{							
@@ -719,25 +719,25 @@ programa
 			{
 				se (coluna % 4 == 0 e coluna > 0)
 				{
-					//Adiciona um espaÁo a cada grupo de 4 botıes
+					//Adiciona um espa√ßo a cada grupo de 4 bot√µes
 					x = x + espacamento
 				}
 
 				se (mouse_esta_em_cima_do_botao(x, y))
 				{
 					/* 
-					 * Verifica se existe um clique pendente, se existir inverte o estado do bot„o. 
+					 * Verifica se existe um clique pendente, se existir inverte o estado do bot√£o. 
 					 * Se estava ligado vai ficar desligado e vice-versa. 
 					 */
 					se (clicou)
 					{
 						notas[linha][coluna] = nao notas[linha][coluna]
 						
-						// Reinicia a vari·vel usada para detectar clique
+						// Reinicia a vari√°vel usada para detectar clique
 						clicou = falso
 					}
 					
-			   		se (notas[linha][coluna]) // A nota est· ativada?
+			   		se (notas[linha][coluna]) // A nota est√° ativada?
 					{
 						Graficos.desenhar_imagem(x, y, imagem_botao_ligado_hover)
 					}
@@ -748,7 +748,7 @@ programa
 				}
 				senao
 				{
-					se (notas[linha][coluna]) //A nota est· ativada?
+					se (notas[linha][coluna]) //A nota est√° ativada?
 					{ 
 						se (coluna == tempo_atual e executando)
 						{
@@ -777,10 +777,10 @@ programa
 		carregar_imagens()
 		carregar_sons()
 
-		// Inicializando o modo gr·fico
+		// Inicializando o modo gr√°fico
 		Graficos.iniciar_modo_grafico(verdadeiro)
 		Graficos.definir_dimensoes_janela(LARGURA_DA_TELA, ALTURA_DA_TELA)
-		Graficos.definir_titulo_janela("Bateria EletrÙnica")
+		Graficos.definir_titulo_janela("Bateria Eletr√¥nica")
 	}
 
 	funcao carregar_imagens()
@@ -807,8 +807,8 @@ programa
 	funcao carregar_imagens_botao(cadeia nome_imagem, inteiro &imagem_normal, inteiro &imagem_hover)
 	{
 		/* 
-	 	 * FunÁ„o que carrega ao mesmo tempo a imagem normal e a imagem de hover. Note que os par‚metros
-	 	 * est„o sendo passados por referÍncia, para que eles sejam alterados pela chamada da funÁ„o.
+	 	 * Fun√ß√£o que carrega ao mesmo tempo a imagem normal e a imagem de hover. Note que os par√¢metros
+	 	 * est√£o sendo passados por refer√™ncia, para que eles sejam alterados pela chamada da fun√ß√£o.
 	 	 */
 		cadeia nome_imagem_normal = nome_imagem + ".png"
 		cadeia nome_imagem_hover = nome_imagem + "_hover.png"
@@ -820,8 +820,8 @@ programa
 	funcao carregar_imagens_botao_volume(inteiro &imagem_aumentar, inteiro &imagem_diminuir)
 	{
 		/* 
-	 	 * FunÁ„o que carrega ao mesmo tempo a imagem normal e a imagem de hover. Note que os par‚metros
-	 	 * est„o sendo passados por referÍncia, para que eles sejam alterados pela chamada da funÁ„o.
+	 	 * Fun√ß√£o que carrega ao mesmo tempo a imagem normal e a imagem de hover. Note que os par√¢metros
+	 	 * est√£o sendo passados por refer√™ncia, para que eles sejam alterados pela chamada da fun√ß√£o.
 	 	 */
 		cadeia nome_imagem_aumentar = PASTA_DE_IMAGENS + "mais_volume.png"
 		cadeia nome_imagem_diminuir = PASTA_DE_IMAGENS + "menos_volume.png"
@@ -893,15 +893,3 @@ programa
 		Sons.liberar_som(som_chimbal)
 	}	
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
- * VocÍ pode apag·-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 1395; 
- * @DOBRAMENTO-CODIGO = [1, 158, 166, 189, 218, 262, 301, 339, 351, 368, 392, 446, 458, 470, 483, 496, 512, 530, 559, 605, 614, 622, 630, 638, 651, 678, 698, 709, 774, 785, 806, 819, 832, 839, 847, 888];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

@@ -10,10 +10,3 @@ funcao nome_da_funcao3 (cadeia &parametro)
 {
 	parametro = "Novo Valor"
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 225; 
- */

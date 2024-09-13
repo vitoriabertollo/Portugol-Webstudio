@@ -14,7 +14,7 @@ programa
    		}
    		senao se (nota >= 6)
    		{
-   			escreva("O aluno teve um desempenho razoável na prova")
+   			escreva("O aluno teve um desempenho razoÃ¡vel na prova")
    		}
    		senao
    		{
@@ -22,10 +22,3 @@ programa
    		}
   	}  
 }  
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 458; 
- */

@@ -1,22 +1,22 @@
-/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
  *  
- * Copyright (C) 2016 - UNIVALI - Universidade do Vale do ItajaÌ
+ * Copyright (C) 2016 - UNIVALI - Universidade do Vale do Itaja√≠
  * 
- * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
- * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
+ * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
+ * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
- * Studio para auxili·-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
+ * Studio para auxili√°-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÁ„o:
+ * Descri√ß√£o:
  * 
- * 	Este exemplo È um programa que cria fases para o jogo Programe
+ * 	Este exemplo √© um programa que cria fases para o jogo Programe
  * 	escrito em Portugol. O exemplo demonstra como utilizar algumas das bibliotecas 
- * 	existentes no Portugol. Neste exemplo, tambÈm È possÌvel ver algumas tÈcnicas 
- * 	utilizadas na criaÁ„o de jogos.
+ * 	existentes no Portugol. Neste exemplo, tamb√©m √© poss√≠vel ver algumas t√©cnicas 
+ * 	utilizadas na cria√ß√£o de jogos.
  * 	
  * Autores:
  * 
@@ -37,7 +37,7 @@ programa
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Sons --> sm
 
-	//constantes que significam objetos ou botıes, para facilitar o uso
+	//constantes que significam objetos ou bot√µes, para facilitar o uso
 	
 	const inteiro BOTAO_SALVAR=18
 	const inteiro BOTAO_ABRIR=28
@@ -89,7 +89,7 @@ programa
 	inteiro pontos_minimos_instrucoes=0, pontos_loops_minimos=0, pontos_loop_dentro_minimo=0
 
 	inteiro NUMERO_LINHAS=8, NUMERO_COLUNAS=8
-	//variaveis para verificar aÁıes
+	//variaveis para verificar a√ß√µes
 	logico pegou_objeto=falso
 	logico tem_saida=falso, tem_inicio=falso
 
@@ -152,7 +152,7 @@ programa
 
 	funcao verifica_botoes()
 	{
-		//verifica se algum bot„o foi clicado	
+		//verifica se algum bot√£o foi clicado	
 		se(mouse_esta_sobre_objeto(posicao_quadro[0]+466, posicao_quadro[1], 39, 47))
 		{
 			
@@ -198,7 +198,7 @@ programa
 
 	funcao salvar_arquivo()
 	{
-		//funÁ„o para salvar o arquivo do mapa atual
+		//fun√ß√£o para salvar o arquivo do mapa atual
 		cadeia formatos[] =
 		{
 			"Arquivos de Level|lvl"
@@ -212,8 +212,8 @@ programa
 
 	funcao escrever_nivel(cadeia nome_arquivo)
 	{	
-		//funÁ„o escreve os dados do mapa no arquivo
-		//eles s„o transformados em pequenos dados hexadecimais e unidos no arquivo 	
+		//fun√ß√£o escreve os dados do mapa no arquivo
+		//eles s√£o transformados em pequenos dados hexadecimais e unidos no arquivo 	
 		inteiro arquivo, linha = 0, coluna=0, indice = 0
 		cadeia texto_linha
 				
@@ -357,7 +357,7 @@ programa
 	
 	funcao desenhar()
 	{
-		//funÁ„o que chama os desenhos
+		//fun√ß√£o que chama os desenhos
 		g.limpar()
 		g.definir_cor(0x99FF66)
 		g.desenhar_retangulo(0, 0, 800, 600, falso, verdadeiro)
@@ -393,7 +393,7 @@ programa
 
 	funcao desenha_saida()
 	{
-		//a saida deve fica abaixo de qualquer objeto, por isso ela È desenhada separadamente
+		//a saida deve fica abaixo de qualquer objeto, por isso ela √© desenhada separadamente
 		para(inteiro i=0; i<8;i++)
 		{
 			para(inteiro j=0;j<8;j++)
@@ -545,14 +545,14 @@ programa
 
 	funcao acha_mouse()
 	{
-		//atualiza a posiÁ„o do mouse nas variaveis
+		//atualiza a posi√ß√£o do mouse nas variaveis
 		posicao_x_mouse=mo.posicao_x()
 		posicao_y_mouse=mo.posicao_y()
 	}
 
 	funcao pega_objeto()
 	{
-		//pega o objeto que foi clicado e coloca no mouse atÈ ser deixado no mapa
+		//pega o objeto que foi clicado e coloca no mouse at√© ser deixado no mapa
 		se(objeto_clicado==0 e pegou_objeto==falso)
 		{
 			objeto_clicado=objeto_selecionado()
@@ -571,7 +571,7 @@ programa
 
 	funcao poe_objeto_no_tile()
 	{
-		//coloca os obejtos presos ao mouse no mapa na posiÁ„o onde estiver o mouse, o modo e o mapa que o objeto ser· colocado, vai depender do objeto
+		//coloca os obejtos presos ao mouse no mapa na posi√ß√£o onde estiver o mouse, o modo e o mapa que o objeto ser√° colocado, vai depender do objeto
 		acha_mouse()
 		se(objeto_clicado>0 e objeto_clicado<4)
 		{
@@ -756,7 +756,7 @@ programa
 	
 	funcao logico mouse_esta_sobre_objeto(inteiro posicao_x_objeto, inteiro posicao_y_objeto, inteiro tamanho_x_objeto, inteiro tamanho_y_objeto)
 	{
-		//funcao generica que verifica se o mouse est· sobre o obejto a partir da posiÁ„o e tamanho do tal.
+		//funcao generica que verifica se o mouse est√° sobre o obejto a partir da posi√ß√£o e tamanho do tal.
 		se(posicao_x_mouse>posicao_x_objeto e posicao_x_mouse<posicao_x_objeto+tamanho_x_objeto)
 		{
 			se(posicao_y_mouse>posicao_y_objeto e posicao_y_mouse<posicao_y_objeto+tamanho_y_objeto)
@@ -769,8 +769,8 @@ programa
 
 	funcao logico objeto_foi_clicado(logico esta_no_objeto)
 	{
-		//funcao generica que verifica se um objeto foi clicado passando uma confirmaÁ„o se o mouse est· sobre o tal
-		//normalmente utilizada junto com o funÁ„o mouse_esta_sobre_o_objeto()
+		//funcao generica que verifica se um objeto foi clicado passando uma confirma√ß√£o se o mouse est√° sobre o tal
+		//normalmente utilizada junto com o fun√ß√£o mouse_esta_sobre_o_objeto()
 		se(esta_no_objeto e mo.botao_pressionado(mo.BOTAO_ESQUERDO))
 		{
 			retorne verdadeiro
@@ -793,7 +793,7 @@ programa
 	
 	funcao inicializar()
 	{
-		//inicia o modo gr·fico
+		//inicia o modo gr√°fico
 		g.iniciar_modo_grafico(verdadeiro)
 		g.definir_dimensoes_janela(800, 600)
 		g.definir_titulo_janela("JogoLite")
@@ -801,22 +801,10 @@ programa
 
 	funcao inicio()
 	{
-		//funÁ„o que inicia o progrma e manda para as funÁıes necess·rias
+		//fun√ß√£o que inicia o progrma e manda para as fun√ß√µes necess√°rias
 		carregar_imagens()
 		inicializar()
 		criador()	
 	}
 
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
- * VocÍ pode apag·-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 1347; 
- * @DOBRAMENTO-CODIGO = [0, 99, 108, 117, 127, 136, 141, 152, 198, 212, 271, 285, 334, 357, 371, 393, 409, 419, 434, 445, 450, 475, 482, 545, 552, 571, 649, 740, 756, 769, 780, 793, 801];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

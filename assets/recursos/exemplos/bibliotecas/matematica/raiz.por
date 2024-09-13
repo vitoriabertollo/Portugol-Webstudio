@@ -1,20 +1,20 @@
 
-/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
  * 
- * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
- * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
+ * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
- * Studio para auxiliá-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
+ * Studio para auxiliÃ¡-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descrição:
+ * DescriÃ§Ã£o:
  * 
- * 	Este exemplo demonstra como obter a raíz de um número usando a função "raiz" da
+ * 	Este exemplo demonstra como obter a raÃ­z de um nÃºmero usando a funÃ§Ã£o "raiz" da
  * 	biblioteca "Matematica".
  * 
  * Autores:
@@ -34,26 +34,14 @@ programa
 		real raiz
 
 		numero = 4.0
-		raiz = mat.raiz(numero, 2.0) // Obtém a raíz quadrada do número
+		raiz = mat.raiz(numero, 2.0) // ObtÃ©m a raÃ­z quadrada do nÃºmero
 		
-		escreva("A raíz quadrada de ", numero , " é: ", raiz, "\n")
+		escreva("A raÃ­z quadrada de ", numero , " Ã©: ", raiz, "\n")
 
 		numero = 27.0
-		raiz = mat.raiz(numero, 3.0) // Obtém a raíz cúbica do número
+		raiz = mat.raiz(numero, 3.0) // ObtÃ©m a raÃ­z cÃºbica do nÃºmero
 
-		escreva("A raíz cúbica de ", numero , " é: ", raiz, "\n")
+		escreva("A raÃ­z cÃºbica de ", numero , " Ã©: ", raiz, "\n")
 	}
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 825; 
- * @DOBRAMENTO-CODIGO = [1];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

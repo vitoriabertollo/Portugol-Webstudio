@@ -6,16 +6,16 @@ programa
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Matematica --> m
 
-	/* Dimensões da tela do jogo */ 
+	/* DimensÃµes da tela do jogo */ 
 	const inteiro LARGURA_TELA = 800, ALTURA_TELA = 600
 
 	
-	/* Define quantos quadros serão desenhados por segundo (FPS) */
-	/* Mude o valor para 0 para rodar com a velocidade máxima */
+	/* Define quantos quadros serÃ£o desenhados por segundo (FPS) */
+	/* Mude o valor para 0 para rodar com a velocidade mÃ¡xima */
 	const inteiro TAXA_ATUALIZACAO = 60
 	
 
-	/* Variáveis utilizadas para fazer o controle de FPS e contabilizar o tempo de jogo */
+	/* VariÃ¡veis utilizadas para fazer o controle de FPS e contabilizar o tempo de jogo */
 	inteiro tempo_inicio_fps = 0, tempo_fps = 0, frames = 0, fps = 0
 
 	inteiro tempo_inicio = 0, tempo_decorrido = 0, tempo_restante = 0
@@ -399,14 +399,3 @@ programa
 		g.encerrar_modo_grafico()
 	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 6770; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {z_index, 33, 6, 7};
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

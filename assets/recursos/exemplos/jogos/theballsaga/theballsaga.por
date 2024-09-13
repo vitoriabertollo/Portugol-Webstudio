@@ -1,21 +1,21 @@
-/* CLIQUE NO SINAL DE "+", ¿ ESQUERDA, PARA EXIBIR A DESCRI«√O DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", √Ä ESQUERDA, PARA EXIBIR A DESCRI√á√ÉO DO EXEMPLO
  *  
- * Copyright (C) 2016 - UNIVALI - Universidade do Vale do ItajaÌ
+ * Copyright (C) 2016 - UNIVALI - Universidade do Vale do Itaja√≠
  * 
- * Este arquivo de cÛdigo fonte È livre para utilizaÁ„o, cÛpia e/ou modificaÁ„o
- * desde que este cabeÁalho, contendo os direitos autorais e a descriÁ„o do programa, 
+ * Este arquivo de c√≥digo fonte √© livre para utiliza√ß√£o, c√≥pia e/ou modifica√ß√£o
+ * desde que este cabe√ßalho, contendo os direitos autorais e a descri√ß√£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vÌdeoaulas do Portugol 
- * Studio para auxili·-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as v√≠deoaulas do Portugol 
+ * Studio para auxili√°-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * DescriÁ„o:
+ * Descri√ß√£o:
  * 
- * 	Este exemplo È um Jogo de Habilidade (Bounce) escrito em Portugol. O exemplo demonstra
- * 	como utilizar algumas das bibliotecas existentes no Portugol. Neste exemplo, tambÈm 
- * 	È possÌvel ver algumas tÈcnicas utilizadas na criaÁ„o de jogos.
+ * 	Este exemplo √© um Jogo de Habilidade (Bounce) escrito em Portugol. O exemplo demonstra
+ * 	como utilizar algumas das bibliotecas existentes no Portugol. Neste exemplo, tamb√©m 
+ * 	√© poss√≠vel ver algumas t√©cnicas utilizadas na cria√ß√£o de jogos.
  * 	
  * Autores:
  * 
@@ -37,7 +37,7 @@ programa
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Sons --> sm
 
-	//	Dimensıes da tela
+	//	Dimens√µes da tela
 	const inteiro RESOLUCAO_800x608 = 0
 	const inteiro RESOLUCAO_1025x779 = 1
 	inteiro largura=800, altura=608, largura_tela=800, altura_tela=608
@@ -50,7 +50,7 @@ programa
 	inteiro y_inicial=0
 	logico pulando=falso
 
-	//	Vari·veis do objeto
+	//	Vari√°veis do objeto
 	real posicao_horizontal = 40.0, posicao_vertical = 45.0, aceleracao = 0.03 , velocidade_horizontal = 0.0
 	real velocidade_vertical = 0.0, aceleracao_horizontal = 0.07, velocidade_maxima = 1.8, velocidade_vertical_maxima=8.0, velocidade_vertical_base=8.0, velocidade_diminuida=0.4, velocidade_normal=1.8, velocidade_aumentada=3.0
 	logico colisao_vertical = falso, colisao_horizontal = falso, colisao_superior = falso, colisao_inferior = falso
@@ -60,7 +60,7 @@ programa
  	const real COEFICIENTE_DE_INVERSAO_H = 0.9
  	const real COEFICIENTE_DE_INVERSAO_V = 0.75
 
-	//	Vari·veis para imagens	
+	//	Vari√°veis para imagens	
 	const inteiro MAX_LINHAS = 200, MAX_COLUNAS=200
 	inteiro NUMERO_LINHAS = 3, NUMERO_COLUNAS = 3
 	inteiro bola = -1, bolat=-1, bolas=-1, raio_bolinha = 10, setas = 0, cenario[MAX_LINHAS][MAX_COLUNAS], propriedades[MAX_LINHAS][MAX_COLUNAS]
@@ -69,7 +69,7 @@ programa
 	inteiro logo=-1
 
 	
-	// Vari·vies para arquivos
+	// Vari√°vies para arquivos
 	cadeia continuar_jogo = u.obter_diretorio_usuario() + "/.portugol/dados/theballsaga/%s_continue.ash"
 	cadeia fonte = "ZipSonikItalic", fontetex = "Papyrus"
 	cadeia font	
@@ -92,9 +92,9 @@ programa
 	real y_comandos
 	real tamanho_fonte, tamanho_fonte_hover
 	const inteiro OPCOES_MENU = 6
-	cadeia opcoes_menu[OPCOES_MENU]={"Novo Jogo", "Continuar","Controles", "ResoluÁ„o", "Creditos", "Sair"}
+	cadeia opcoes_menu[OPCOES_MENU]={"Novo Jogo", "Continuar","Controles", "Resolu√ß√£o", "Creditos", "Sair"}
 	
-	// Vari·veis de lvl
+	// Vari√°veis de lvl
 	inteiro fase=1
 	logico venceu=falso
 	inteiro vida_maxima=3, vida=vida_maxima
@@ -151,16 +151,16 @@ programa
 	logico chave_prata=falso, chave_ouro=falso, invuneravel=falso
 	inteiro tempo_inicio_invunerabilidade = 0, max_tempo_invunerabilidade=6000, tempo_passado=0
 
-	// Vari·veis de armazenamento
+	// Vari√°veis de armazenamento
 	logico salvo=falso
 	cadeia usuario=""
 
-	// Vari·vies de Modo de Jogo
+	// Vari√°vies de Modo de Jogo
 	inteiro modo_jogo=0
 	const inteiro MODO_BOLINHA=0, MODO_PLATAFORMA=1
 	
 	/*
-	 * FunÁ„o que recebe o nome da pessoa para posteriormente 
+	 * Fun√ß√£o que recebe o nome da pessoa para posteriormente 
 	 * salvar o andamento do jogo, em um arquivo de mesmo nome;
 	*/
 	funcao identificacao()
@@ -197,7 +197,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que desenha a tela identificaÁ„o;
+	 * Fun√ß√£o que desenha a tela identifica√ß√£o;
 	*/
 	funcao desenhar_identificacao()
 	{
@@ -217,8 +217,8 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que define o tamanho dos tiles, e carrega as imagens, 
-	 * de acordo com a resoluÁ„o de tela escolhida;
+	 * Fun√ß√£o que define o tamanho dos tiles, e carrega as imagens, 
+	 * de acordo com a resolu√ß√£o de tela escolhida;
 	 * 
 	 * Qualquer valor fora desses dois sera considerado como 800x608
 	 * 
@@ -268,7 +268,7 @@ programa
 	}
 
 	/*
-	 * FunÁ„o que carrega as imagens na pasta da resoluÁ„o escolhida;
+	 * Fun√ß√£o que carrega as imagens na pasta da resolu√ß√£o escolhida;
 	 * 
 	 * @Parametros
 	 * largura - largura da tela em pixels;
@@ -291,10 +291,10 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que carrega uma imagem;
+	 * Fun√ß√£o que carrega uma imagem;
 	 * 
 	 * @Parametros
-	 * &img - vari·vel onde a imagem ser· armazenada;
+	 * &img - vari√°vel onde a imagem ser√° armazenada;
 	 * caminho - caminho para a imagem a ser carregada;
 	*/
 	funcao carregar_imagem(inteiro &img, cadeia caminho)
@@ -304,11 +304,11 @@ programa
 	}
 
 	/*
-	 * FunÁ„o que libera o espaÁo de memÛria onde a imagem
+	 * Fun√ß√£o que libera o espa√ßo de mem√≥ria onde a imagem
 	 * estava armazenada;
 	 * 
 	 * @Parametros
-	 * &img - vari·vel onde a imagem est· armazenada;
+	 * &img - vari√°vel onde a imagem est√° armazenada;
 	*/
 	funcao liberar_imagem(inteiro &img)
 	{
@@ -320,8 +320,8 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que libera o espaÁo de memÛria de todas as imagens
-	 * que estavam armazenadas na memÛria do game;
+	 * Fun√ß√£o que libera o espa√ßo de mem√≥ria de todas as imagens
+	 * que estavam armazenadas na mem√≥ria do game;
 	*/
 	funcao liberar_imagens()
 	{
@@ -334,10 +334,10 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que calcula a quantidade de vezes que as telas (frames) do game, 
-	 * s„o renderizadas por segundo, criando um tempo entre as renderizaÁıes e
-	 * melhorando o uso de memÛria diminuindo a quantidade de renderizaÁıes 
-	 * necess·rias por segundo;
+	 * Fun√ß√£o que calcula a quantidade de vezes que as telas (frames) do game, 
+	 * s√£o renderizadas por segundo, criando um tempo entre as renderiza√ß√µes e
+	 * melhorando o uso de mem√≥ria diminuindo a quantidade de renderiza√ß√µes 
+	 * necess√°rias por segundo;
 	 */
 	funcao atualizar_fps()
 	{
@@ -353,7 +353,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que carrega todos os sons do jogo;
+	 * Fun√ß√£o que carrega todos os sons do jogo;
 	*/	
 	funcao carregar_sons()
 	{
@@ -363,7 +363,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que carrega as fontes usadas no jogo;
+	 * Fun√ß√£o que carrega as fontes usadas no jogo;
 	*/
 	funcao carregar_fontes()
 	{
@@ -372,7 +372,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que carrega as imagens na pasta da resoluÁ„o escolhida;
+	 * Fun√ß√£o que carrega as imagens na pasta da resolu√ß√£o escolhida;
 	*/
 	funcao inicializar()
 	{	
@@ -388,9 +388,9 @@ programa
 	}
 		
 	/*
-	 * FunÁ„o que gera a imagem do cen·rio (em memÛria)
-	 * e armazena na vari·vel imagem_cenario, para melhorar
-	 * o cÛdigo e tornar o jogos mais leve para a memÛria
+	 * Fun√ß√£o que gera a imagem do cen√°rio (em mem√≥ria)
+	 * e armazena na vari√°vel imagem_cenario, para melhorar
+	 * o c√≥digo e tornar o jogos mais leve para a mem√≥ria
 	 * RAM
 	*/
 	funcao desenhar_imagem()
@@ -408,7 +408,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que aplica o scroll (rolagens) na
+	 * Fun√ß√£o que aplica o scroll (rolagens) na
 	 * imagem de fundo para fazer a "camera"
 	 * acompanhar a bolinha;
 	*/
@@ -437,7 +437,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que calcula o scroll horizontal da imagem de fundo;
+	 * Fun√ß√£o que calcula o scroll horizontal da imagem de fundo;
 	*/
 	funcao rolagem_horizontal()
 	{
@@ -456,7 +456,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que calcula o scroll vertical da imagem de fundo;
+	 * Fun√ß√£o que calcula o scroll vertical da imagem de fundo;
 	*/
 	funcao rolagem_vertical()
 	{
@@ -475,7 +475,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o respons·vel por renderizar na tela 
+	 * Fun√ß√£o respons√°vel por renderizar na tela 
 	 * todas as partes do jogo;
 	*/
 	funcao desenhar()
@@ -495,7 +495,7 @@ programa
 			
 			desenhar_chaves_menu()
 			
-			g.desenhar_texto(17*TAMANHO_TILE, TAMANHO_TILE/1.3-(g.altura_texto("PontuaÁ„o: "+pontos)/2), "PontuaÁ„o: "+pontos)
+			g.desenhar_texto(17*TAMANHO_TILE, TAMANHO_TILE/1.3-(g.altura_texto("Pontua√ß√£o: "+pontos)/2), "Pontua√ß√£o: "+pontos)
 			se(mostrar_dica)
 			{				
 				dicas()
@@ -508,8 +508,8 @@ programa
 	}
 
 	/*
-	 * FunÁ„o respons·vel pelas mensagens de
-	 * auxÌlio ao usu·rio nos primeiros nÌveis do jogo;
+	 * Fun√ß√£o respons√°vel pelas mensagens de
+	 * aux√≠lio ao usu√°rio nos primeiros n√≠veis do jogo;
 	*/
 	funcao mensagens()
 	{
@@ -521,7 +521,7 @@ programa
 			g.definir_cor(cor_portal)
 			g.desenhar_texto(TAMANHO_TILE*13, altura_tela/5+TAMANHO_TILE*1.3, "LARANJA")
 			g.definir_cor(g.COR_BRANCO)
-			g.desenhar_texto(TAMANHO_TILE*5, altura_tela/4+TAMANHO_TILE*1.3, "Use setas e espaÁo para controlar a bolinha")
+			g.desenhar_texto(TAMANHO_TILE*5, altura_tela/4+TAMANHO_TILE*1.3, "Use setas e espa√ßo para controlar a bolinha")
 			
 		}
 
@@ -537,7 +537,7 @@ programa
 		se(mundo==0 e fase==4)
 		{
 			g.definir_cor(g.COR_BRANCO)
-			g.desenhar_texto(TAMANHO_TILE*6, altura_tela/5+TAMANHO_TILE*1.3, "Para abrir uma porta È necess·rio uma")
+			g.desenhar_texto(TAMANHO_TILE*6, altura_tela/5+TAMANHO_TILE*1.3, "Para abrir uma porta √© necess√°rio uma")
 			g.definir_cor(cor_portal)
 			g.desenhar_texto(TAMANHO_TILE*10, altura_tela/4+TAMANHO_TILE*1.3, "Chave")
 			g.definir_cor(g.COR_BRANCO)
@@ -556,7 +556,7 @@ programa
 		se(mundo==0 e fase==6)
 		{
 			g.definir_cor(g.COR_BRANCO)
-			g.desenhar_texto(TAMANHO_TILE*6, altura_tela/5+TAMANHO_TILE*1.3, "Escudos te d„o")
+			g.desenhar_texto(TAMANHO_TILE*6, altura_tela/5+TAMANHO_TILE*1.3, "Escudos te d√£o")
 			g.definir_cor(cor_portal)
 			g.desenhar_texto(TAMANHO_TILE*13, altura_tela/5+TAMANHO_TILE*1.3, "Invunerabilidades")
 			g.definir_cor(g.COR_BRANCO)			
@@ -564,8 +564,8 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que desenha para o jogador, caso ele j· tenha,
-	 * as chaves que ele j· possui para poder abrir portas;
+	 * Fun√ß√£o que desenha para o jogador, caso ele j√° tenha,
+	 * as chaves que ele j√° possui para poder abrir portas;
 	*/
 	funcao desenhar_chaves_menu()
 	{
@@ -606,9 +606,9 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que aplica a gravidade na bolinha, de acordo com o modo
+	 * Fun√ß√£o que aplica a gravidade na bolinha, de acordo com o modo
 	 * de jogo;
-	 * È a mesma que tambÈm inverte a gravidade;
+	 * √© a mesma que tamb√©m inverte a gravidade;
 	*/
 	funcao gravidade()
 	{
@@ -636,9 +636,9 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que analiza as tiles que rodeiam a bolinha
-	 * afim de detectar possÌveis colisıes com parades
-	 * ou tiles que n„o s„o "passaveis";
+	 * Fun√ß√£o que analiza as tiles que rodeiam a bolinha
+	 * afim de detectar poss√≠veis colis√µes com parades
+	 * ou tiles que n√£o s√£o "passaveis";
 	*/
 	funcao colisoes(inteiro linha_do_retangulo,inteiro coluna_do_retangulo)
 	{	
@@ -767,8 +767,8 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
-	 * um tile do tivo INVUNERABILIDADE faz com que ele n„o
+	 * Fun√ß√£o que quando o personagem entra em contato com
+	 * um tile do tivo INVUNERABILIDADE faz com que ele n√£o
 	 * morra, durante o tempo determinado (5 segundos);
 	*/
 	funcao colisao_INVUNERABILIDADE(inteiro l, inteiro c)
@@ -779,7 +779,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que analiza se a bolinha ainda est· vuner·vel;
+	 * Fun√ß√£o que analiza se a bolinha ainda est√° vuner√°vel;
 	*/
 	funcao controle_tempo()
 	{
@@ -794,7 +794,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
+	 * Fun√ß√£o que quando o personagem entra em contato com
 	 * um tile do tipo CONTINUE faz com que o atual estado
 	 * de jogo do jogador seja armazenado em seu arquivo
 	 * e garanta que caso ele morra, retorne para mesma fase;
@@ -815,8 +815,8 @@ programa
 	}
 
 	/*
-	 * FunÁ„o que garante que a bolinha n„o extrapole as velocidades
-	 * m·ximas e mÌnimas do jogo;
+	 * Fun√ß√£o que garante que a bolinha n√£o extrapole as velocidades
+	 * m√°ximas e m√≠nimas do jogo;
 	*/				
 	funcao estabilizar_velocidades()
 	{
@@ -825,9 +825,9 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
+	 * Fun√ß√£o que quando o personagem entra em contato com
 	 * um tile do tipo DIMINUIR_VELOCIDADE, sua velocidade
-	 * m·xima seja alterada para uma bem menor;
+	 * m√°xima seja alterada para uma bem menor;
 	*/
 	funcao colisao_DIMINUIR_VELOCIDADE()
 	{
@@ -836,9 +836,9 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
+	 * Fun√ß√£o que quando o personagem entra em contato com
 	 * um tile do tipo AUMENTAR_VELOCIDADE, sua velocidade
-	 * m·xima seja alterada;
+	 * m√°xima seja alterada;
 	*/
 	funcao colisao_AUMENTAR_VELOCIDADE()
 	{		
@@ -869,7 +869,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
+	 * Fun√ß√£o que quando o personagem entra em contato com
 	 * um tile do tipo VIDA, receba mais uma vida;
 	*/
 	funcao colisao_VIDA(inteiro l, inteiro c)
@@ -881,8 +881,8 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
-	 * um tile do tipo PORTA_PRATA, analiza se ele tem ou n„o
+	 * Fun√ß√£o que quando o personagem entra em contato com
+	 * um tile do tipo PORTA_PRATA, analiza se ele tem ou n√£o
 	 * a chave, e caso tenha, abre a porta para ele;
 	*/	
 	funcao colisao_PORTA_PRATA(inteiro l, inteiro c, inteiro &prop)
@@ -904,8 +904,8 @@ programa
 	}
 		
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
-	 * um tile do tipo PORTA_OURO, analiza se ele tem ou n„o
+	 * Fun√ß√£o que quando o personagem entra em contato com
+	 * um tile do tipo PORTA_OURO, analiza se ele tem ou n√£o
 	 * a chave, e caso tenha, abre a porta para ele;
 	*/
 	funcao colisao_PORTA_OURO(inteiro l, inteiro c, inteiro &prop)
@@ -927,9 +927,9 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
+	 * Fun√ß√£o que quando o personagem entra em contato com
 	 * um tile do tipo CHAVE_PRATA, adiciona a chave ao
-	 * invent·rio do jogador;
+	 * invent√°rio do jogador;
 	*/
 	funcao colisao_CHAVE_PRATA(inteiro l, inteiro c)
 	{
@@ -941,9 +941,9 @@ programa
 	}
 
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
+	 * Fun√ß√£o que quando o personagem entra em contato com
 	 * um tile do tipo CHAVE_OURO, adiciona a chave ao
-	 * invent·rio do jogador;
+	 * invent√°rio do jogador;
 	*/
 	funcao colisao_CHAVE_OURO(inteiro l, inteiro c)
 	{
@@ -955,9 +955,9 @@ programa
 	}
 	
 	/*
-	 * ESSA FUN«√O … VITAL PARA TODO O FUNCIONAMENTO DO PROGRAMA E TODO O EQUILIBRIO
+	 * ESSA FUN√á√ÉO √â VITAL PARA TODO O FUNCIONAMENTO DO PROGRAMA E TODO O EQUILIBRIO
 	 * SISMICO DO UNIVERSO, DA VIDA E TUDO MAIS.
-	 * N√O A REMOVA.
+	 * N√ÉO A REMOVA.
 	*/
 	funcao colisao_FLUIDO()
 	{
@@ -965,9 +965,9 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que analiza se o tile est· vazio
+	 * Fun√ß√£o que analiza se o tile est√° vazio
 	 * 
-	 * @retorna verdadeiro se n„o for sÛlido e falso se for.
+	 * @retorna verdadeiro se n√£o for s√≥lido e falso se for.
 	*/
 	funcao logico tile_vazio(inteiro linha, inteiro coluna)
 	{
@@ -975,9 +975,9 @@ programa
 	}
 
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
+	 * Fun√ß√£o que quando o personagem entra em contato com
 	 * um tile do tipo PORTAL, passa o jogador para o
-	 * prÛximo nÌvel;
+	 * pr√≥ximo n√≠vel;
 	*/
 	funcao colisao_portal()
 	{
@@ -989,7 +989,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
+	 * Fun√ß√£o que quando o personagem entra em contato com
 	 * um tile do tipo SOLIDO impede a bolinha de continuar
 	 * o movimento;
 	*/
@@ -1039,7 +1039,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que quando o personagem entra em contato com
+	 * Fun√ß√£o que quando o personagem entra em contato com
 	 * um tile do tipo MORTAL diminui uma vida;
 	*/
 	funcao colisao_MORTAL()
@@ -1068,8 +1068,8 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que quando o personagem morre, acessa o arquivo
-	 * de save e o leva para o ˙ltimo nÌvel salvo;
+	 * Fun√ß√£o que quando o personagem morre, acessa o arquivo
+	 * de save e o leva para o √∫ltimo n√≠vel salvo;
 	*/
 	funcao continuar()
 	{
@@ -1091,14 +1091,14 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que recebe as teclas digitadas pelo usu·rio
-	 * e faz as modificaÁıes de estado de acordo com a 
+	 * Fun√ß√£o que recebe as teclas digitadas pelo usu√°rio
+	 * e faz as modifica√ß√µes de estado de acordo com a 
 	 * tecla;
 	*/
 	funcao comandos()
 	{
-		// Tecla de atalho para matar a bolinha. Vai ser ˙til durante 
-		// os testes e depuraÁ„o do game
+		// Tecla de atalho para matar a bolinha. Vai ser √∫til durante 
+		// os testes e depura√ß√£o do game
 		se (t.tecla_pressionada(t.TECLA_CONTROL) e t.tecla_pressionada(t.TECLA_K))
 		{
 			invuneravel=falso
@@ -1107,18 +1107,18 @@ programa
 		}
 
 		// Tecla de atalho para um comando	JUMP, que permite pular para
-		// qualquer fase do jogo. Vai ser ˙til durante os testes e 
-		// depuraÁ„o do game
+		// qualquer fase do jogo. Vai ser √∫til durante os testes e 
+		// depura√ß√£o do game
 		se (t.tecla_pressionada(t.TECLA_CONTROL) e t.tecla_pressionada(t.TECLA_J))
 		{
 			// Sem o aguarde o teclado buga e fica como se a tecla J estivesse o tempo todo pressionada
 			u.aguarde(250) 
 			
 			g.minimizar_janela()
-			escreva("Digite o n˙mero do mundo: ")
+			escreva("Digite o n√∫mero do mundo: ")
 			leia(mundo)
 
-			escreva("Digite o n˙mero da fase: ")
+			escreva("Digite o n√∫mero da fase: ")
 			leia(fase)
 
 			carregar_imagens(largura_tela)
@@ -1208,8 +1208,8 @@ programa
 	}
 
 	/*
-	 * Trata o problema da bolinha sair para fora da tela (matando ela) e chama a funÁ„o
-	 * que trata colisıes.
+	 * Trata o problema da bolinha sair para fora da tela (matando ela) e chama a fun√ß√£o
+	 * que trata colis√µes.
 	*/
 	
 	funcao chamar_trata_colisoes_nivel()
@@ -1237,10 +1237,10 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o para ajudar no controle de tela.
+	 * Fun√ß√£o para ajudar no controle de tela.
 	 * Sempre que o jogador estiver jogando a tela_atual
-	 * ser· esta tela. Somente nela as funÁıes de jogo 
-	 * ser„o chamadas;
+	 * ser√° esta tela. Somente nela as fun√ß√µes de jogo 
+	 * ser√£o chamadas;
 	*/
 	funcao tela_jogar()
 	{
@@ -1320,8 +1320,8 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que inicializa a contagem de tempo de execuÁ„o do jogo
-	 * alÈm de ser respons·vel pelo controle geral de telas;
+	 * Fun√ß√£o que inicializa a contagem de tempo de execu√ß√£o do jogo
+	 * al√©m de ser respons√°vel pelo controle geral de telas;
 	*/
 	funcao inicio()
 	{
@@ -1365,7 +1365,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que reinicia um jogo que j· tenha algum dado salvo em seu arquivo
+	 * Fun√ß√£o que reinicia um jogo que j√° tenha algum dado salvo em seu arquivo
 	 * de save;
 	*/
 	funcao reiniciar_jogo()
@@ -1386,8 +1386,8 @@ programa
 	}
 
 	/*
-	 * Tela respons·vel por interigir com o usu·rio permitindo que ele
-	 * escolha a resoluÁ„o na qual deseja jogar;
+	 * Tela respons√°vel por interigir com o usu√°rio permitindo que ele
+	 * escolha a resolu√ß√£o na qual deseja jogar;
 	*/
 	funcao tela_resolucao()
 	{
@@ -1425,7 +1425,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que imprime a Tela_resoluÁ„o na tela do programa
+	 * Fun√ß√£o que imprime a Tela_resolu√ß√£o na tela do programa
 	*/
 	funcao desenhar_tela_resolucao()
 	{
@@ -1440,7 +1440,7 @@ programa
 	}
 
 	/*
-	 * Tela que permite ao usu·rio ver os creditos do jogo, como por exemplo
+	 * Tela que permite ao usu√°rio ver os creditos do jogo, como por exemplo
 	 * os criadores, e testers;
 	*/
 	funcao tela_creditos()
@@ -1474,7 +1474,7 @@ programa
 				g.definir_tamanho_texto(TAMANHO_TILE)
 				g.desenhar_texto(largura_tela/2-g.largura_texto("Creditos")/2, j, "Creditos")
 				g.definir_tamanho_texto(TAMANHO_TILE/2)
-				g.desenhar_texto(largura_tela/2-g.largura_texto("AndrÈ Luis Alice Raabe - Coordenador")/2, j+100, "AndrÈ Luis Alice Raabe - Coordenador")
+				g.desenhar_texto(largura_tela/2-g.largura_texto("Andr√© Luis Alice Raabe - Coordenador")/2, j+100, "Andr√© Luis Alice Raabe - Coordenador")
 				g.desenhar_texto(largura_tela/2-g.largura_texto("Alisson Steffens Henrique - Desenvolvimento")/2, j+180, "Alisson Steffens Henrique - Desenvolvimento")
 				g.desenhar_texto(largura_tela/2-g.largura_texto("Luiz Fernando Noschang - Desenvolvimento")/2, j+140, "Luiz Fernando Noschang - Desenvolvimento")
 				g.desenhar_texto(largura_tela/2-g.largura_texto("Paulo Eduardo Martins - BetaBugger")/2, j+220, "Paulo Eduardo Martins - BetaBugger")
@@ -1494,8 +1494,8 @@ programa
 	}
   
   	/*
-	 * FunÁ„o que carrega uma determinada fase do jogo na matriz respons·vel por
-	 * sua alocaÁ„o;
+	 * Fun√ß√£o que carrega uma determinada fase do jogo na matriz respons√°vel por
+	 * sua aloca√ß√£o;
 	 * 
 	 * @Parametros
 	 * nivel - fase a ser carregada;
@@ -1566,7 +1566,7 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que coordena as impressıes do jogo durante as mensagens de dica;
+	 * Fun√ß√£o que coordena as impress√µes do jogo durante as mensagens de dica;
 	*/
 	funcao dicas()
 	{
@@ -1587,7 +1587,7 @@ programa
 				
 				desenhar_chaves_menu()
 				
-				g.desenhar_texto(17*TAMANHO_TILE, TAMANHO_TILE/1.3-(g.altura_texto("PontuaÁ„o: "+pontos)/2), "PontuaÁ„o: "+pontos)
+				g.desenhar_texto(17*TAMANHO_TILE, TAMANHO_TILE/1.3-(g.altura_texto("Pontua√ß√£o: "+pontos)/2), "Pontua√ß√£o: "+pontos)
 				g.definir_cor(cor_preto)
 				g.definir_opacidade(150)
 				g.desenhar_retangulo(0, 0, largura_tela, altura_tela, falso, verdadeiro)
@@ -1616,13 +1616,13 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o respons·vel por contar o n˙mero de linhas que um determinado arquivo tem;
+	 * Fun√ß√£o respons√°vel por contar o n√∫mero de linhas que um determinado arquivo tem;
 	 * 
 	 * @Parametros
 	 * nome_arquivo - cadeia do caminho do arquivo a ser contabilizado
 	 * 
 	 * @Retorna
-	 * linhas - inteiro com o n˙mero de linhas
+	 * linhas - inteiro com o n√∫mero de linhas
 	*/
 	funcao inteiro contar_linhas_arquivo(cadeia nome_arquivo)
 	{
@@ -1641,7 +1641,7 @@ programa
 	}
 	
 	/*
-	* Tela que permite ao usu·rio ver a tela do menu;
+	* Tela que permite ao usu√°rio ver a tela do menu;
 	*/
 	funcao tela_menu()
 	{	
@@ -1675,7 +1675,7 @@ programa
 	}
 	
 	/*
-	 * Tela exibida ao personagem apÛs passar por todas as fases e mundos
+	 * Tela exibida ao personagem ap√≥s passar por todas as fases e mundos
 	 * contidas nas pastas principais do jogo;
 	*/
 	funcao tela_vitoria()
@@ -1703,7 +1703,7 @@ programa
 			g.definir_opacidade(255)
 			g.definir_cor(g.COR_BRANCO)
 			g.definir_tamanho_texto(2*TAMANHO_TILE)
-			g.desenhar_texto(TAMANHO_TILE*6, altura_tela/5+TAMANHO_TILE*1.3, "VocÍ Venceu")
+			g.desenhar_texto(TAMANHO_TILE*6, altura_tela/5+TAMANHO_TILE*1.3, "Voc√™ Venceu")
 			g.renderizar()
 		}
 		mundo = 0
@@ -1711,9 +1711,9 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que cria em memÛria uma imagem do fundo com um
+	 * Fun√ß√£o que cria em mem√≥ria uma imagem do fundo com um
 	 * retangulo, fazendo com que o jogo precise de menos imagens
-	 * em sua base, por poder criar esta em memÛria;
+	 * em sua base, por poder criar esta em mem√≥ria;
 	*/
 	funcao fundo_retangular()
 	{
@@ -1725,10 +1725,10 @@ programa
 	}
 	
 /*
-	 * FunÁ„o que cria em memÛria uma imagem do fundo do menu
+	 * Fun√ß√£o que cria em mem√≥ria uma imagem do fundo do menu
 	 * com o texto do nome do jogo, fazendo com que o jogo 
 	 * precise de menos imagens em sua base, por poder criar 
-	 * esta em memÛria;
+	 * esta em mem√≥ria;
 	*/
 	funcao fundo_menu()
 	{
@@ -1745,7 +1745,7 @@ programa
 	}
 
 	/*
-	 * FunÁ„o que cria a tela de menu, e a renderiza na tela do programa
+	 * Fun√ß√£o que cria a tela de menu, e a renderiza na tela do programa
 	*/
 	funcao desenhar_tela_menu()
 	{
@@ -1759,7 +1759,7 @@ programa
 	}
 	
 	/*
-	 * Tela que tem como funÁ„o mostrar ao usu·rio os controles do jogo;
+	 * Tela que tem como fun√ß√£o mostrar ao usu√°rio os controles do jogo;
 	*/
 	funcao tela_controles()
 	{
@@ -1792,10 +1792,10 @@ programa
 			g.desenhar_texto(x, y, "Setas ou W,A,S,D:")
 			y=y+tamanho_fonte*1.2
 			x=x*2
-			g.desenhar_texto(x, y, "controlam a direÁ„o da bolinha")
+			g.desenhar_texto(x, y, "controlam a dire√ß√£o da bolinha")
 			y=y+2*tamanho_fonte*1.2
 			x=x/2
-			g.desenhar_texto(x, y, "Barra de EspaÁo ou Enter:")
+			g.desenhar_texto(x, y, "Barra de Espa√ßo ou Enter:")
 			y=y+tamanho_fonte*1.2
 			x=x*2
 			g.desenhar_texto(x, y, "inverte a gravidade")
@@ -1816,14 +1816,14 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que desenhas as opÁıes do menu, em seu determinado lugar e no modo
+	 * Fun√ß√£o que desenhas as op√ß√µes do menu, em seu determinado lugar e no modo
 	 * normal ou selecionado;
 	 * 
 	 * @Parametros
 	 * 
 	 * texto - texto a ser escrito;
-	 * y - posiÁ„o (altura) onde o texto ser· desenhado
-	 * indice - indice da opÁ„o no vetor respons·vel;
+	 * y - posi√ß√£o (altura) onde o texto ser√° desenhado
+	 * indice - indice da op√ß√£o no vetor respons√°vel;
 	*/
 	funcao desenhar_item_menu(cadeia texto, inteiro y, inteiro indice)
 	{	
@@ -1868,8 +1868,8 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que recebe do teclado, as entradas necess·rias
-	 * para coordenar a escolha de opÁıes no menu;
+	 * Fun√ß√£o que recebe do teclado, as entradas necess√°rias
+	 * para coordenar a escolha de op√ß√µes no menu;
 	*/
 	funcao opcao_tela_menu_teclado()
 	{
@@ -1895,8 +1895,8 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que recebe do teclado, as entradas necess·rias
-	 * para coordenar a escolha de opÁıes na tela de resoluÁ„o;
+	 * Fun√ß√£o que recebe do teclado, as entradas necess√°rias
+	 * para coordenar a escolha de op√ß√µes na tela de resolu√ß√£o;
 	*/
 	funcao opcao_tela_resolucao_teclado()
 	{
@@ -1923,9 +1923,9 @@ programa
 	}
 	
 	/*
-	 * FunÁ„o que, quando a vari·vel lÛgica, "depurando" est· ativa,
-	 * mostra na tela durante o jogo algumas informaÁ„o de debug,
-	 * alÈm de os tiles ao qual a bolinha est· tendo contato;
+	 * Fun√ß√£o que, quando a vari√°vel l√≥gica, "depurando" est√° ativa,
+	 * mostra na tela durante o jogo algumas informa√ß√£o de debug,
+	 * al√©m de os tiles ao qual a bolinha est√° tendo contato;
 	*/
 	funcao desenhar_informacoes_depuracao()
 	{
@@ -1946,15 +1946,3 @@ programa
 	}
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seÁ„o do arquivo guarda informaÁıes do Portugol Studio.
- * VocÍ pode apag·-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 1326; 
- * @DOBRAMENTO-CODIGO = [0, 165, 201, 227, 275, 299, 312, 325, 341, 357, 367, 376, 395, 414, 441, 460, 480, 513, 569, 612, 642, 773, 783, 801, 820, 831, 842, 874, 887, 910, 933, 947, 961, 971, 981, 995, 1044, 1073, 1097, 1214, 1244, 1325, 1370, 1391, 1429, 1445, 1502, 1570, 1626, 1645, 1680, 1717, 1732, 1749, 1763, 1827, 1873, 1900, 1929];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

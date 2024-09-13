@@ -1,24 +1,24 @@
 
-/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+/* CLIQUE NO SINAL DE "+", Ã€ ESQUERDA, PARA EXIBIR A DESCRIÃ‡ÃƒO DO EXEMPLO
  *  
- * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do ItajaÃ­
  * 
- * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
- * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * Este arquivo de cÃ³digo fonte Ã© livre para utilizaÃ§Ã£o, cÃ³pia e/ou modificaÃ§Ã£o
+ * desde que este cabeÃ§alho, contendo os direitos autorais e a descriÃ§Ã£o do programa, 
  * seja mantido.
  * 
- * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
- * Studio para auxiliá-lo:
+ * Se tiver dificuldade em compreender este exemplo, acesse as vÃ­deoaulas do Portugol 
+ * Studio para auxiliÃ¡-lo:
  * 
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
- * Descrição:
+ * DescriÃ§Ã£o:
  * 
- * 	Este exemplo é um Jogo da Serpente (Snake) escrito em Portugol. O exemplo demonstra
- * 	como utilizar algumas das bibliotecas existentes no Portugol. Neste exemplo, também 
- * 	é possível ver algumas técnicas utilizadas na criação de jogos.
+ * 	Este exemplo Ã© um Jogo da Serpente (Snake) escrito em Portugol. O exemplo demonstra
+ * 	como utilizar algumas das bibliotecas existentes no Portugol. Neste exemplo, tambÃ©m 
+ * 	Ã© possÃ­vel ver algumas tÃ©cnicas utilizadas na criaÃ§Ã£o de jogos.
  * 	
- * 	Música e efeitos sonoros: FreeSFX (http://www.freesfx.co.uk/info/eula)
+ * 	MÃºsica e efeitos sonoros: FreeSFX (http://www.freesfx.co.uk/info/eula)
  * 	Fonte: http://www.dafont.com/pt/poetsen-one.font
  * 	
  * Autores:
@@ -42,28 +42,28 @@ programa
 	/* Constantes que definem os atributos de um segmento da serpente */	
 	const inteiro LINHA = 0, COLUNA = 1, DIRECAO = 2
 
-	/* Constantes que definem as direções possíveis para o segmento da serpente */
+	/* Constantes que definem as direÃ§Ãµes possÃ­veis para o segmento da serpente */
 	const inteiro ACIMA = 0, ABAIXO = 1, ESQUERDA = 2, DIREITA = 3
 
 	/* Constantes que definem as tela do jogo */
 	const inteiro SAIR = 0, MENU = 1, JOGO = 2, VITORIA = 3, DERROTA = 4, PLACAR = 5, IDENTIFICACAO = 6
 
-	/* Constantes que definem as opções do menu */
+	/* Constantes que definem as opÃ§Ãµes do menu */
 	const inteiro OPCAO_NOVO_JOGO = 0, OPCAO_DIFICULDADE = 1, OPCAO_CENARIO = 2, OPCAO_SONS = 3, OPCAO_TEMA = 4
 
-	/* Constantes que definem o intervalo de atualização para cada nível de dificuldade */
+	/* Constantes que definem o intervalo de atualizaÃ§Ã£o para cada nÃ­vel de dificuldade */
 	const inteiro MUITO_FACIL = 0, FACIL = 1, MEDIO = 2, DIFICIL = 3, MUITO_DIFICIL = 4, CHUCK_NORRIS = 5
 	
-	/* Intervalos de tempo em que o jogo deve ser atualizado, de acordo com o nível de dificuldade */
+	/* Intervalos de tempo em que o jogo deve ser atualizado, de acordo com o nÃ­vel de dificuldade */
 	const inteiro INTERVALO_ATUALIZACAO[] = {500, 125, 60, 30, 15, 15}
 
-	/* Valor da comida, de acordo com o nível de dificuldade */
+	/* Valor da comida, de acordo com o nÃ­vel de dificuldade */
 	const inteiro VALOR_COMIDA[] = {1, 5, 25, 50, 75, 125}
 
 	/* Constantes que definem as propriedades do tema do jogo */
 	const inteiro NOME_TEMA = 0, PASTA_IMAGENS = 1, COR_FUNDO = 2, COR_TEXTO = 3, COR_BORDA = 4
 	
-	/* Temas disponíveis para o jogo */
+	/* Temas disponÃ­veis para o jogo */
 	cadeia TEMAS[][] = 
 	{
 		{"Moderno", "moderno", "0xB5D3E0", "0x000000", "0x000000"},
@@ -76,7 +76,7 @@ programa
 	/* Matriz que armazena as entradas do placar */
 	cadeia placar_jogo[10][4]
 
-	/* Constantes que definem as dimensões do cenário */
+	/* Constantes que definem as dimensÃµes do cenÃ¡rio */
 	const inteiro LINHAS = 30, COLUNAS = 35, BORDA_CENARIO = 10, ALTURA_PAINEL_PONTUACAO = 30
 
 	/* Constantes que definem o tamanho da serpente no jogo */
@@ -88,25 +88,25 @@ programa
 	 *  Cada linha da matriz equivale a um segmento da serpente
 	 *  Cada coluna da matriz equivale a um atributo do segmento
 	 *  
-	 *  Para tornar o código mais compreensível, foi definida uma constante para cada
-	 *  atributo do segmento. Assim, ao invés de acessar o índice da matriz diretamente,
+	 *  Para tornar o cÃ³digo mais compreensÃ­vel, foi definida uma constante para cada
+	 *  atributo do segmento. Assim, ao invÃ©s de acessar o Ã­ndice da matriz diretamente,
 	 *  utiliza-se a constante correspondente ao atributo que se quer obter 
 	 *  
 	 *  Ex.: inteiro direcaoCabeca = serpente[CABECA][DIRECAO]
 	 */
 	inteiro serpente[TAMANHO_MAXIMO_SERPENTE][3]
 
-	/* Variáveis que definem o índice da cabeça e da cauda da serpente na matriz */
+	/* VariÃ¡veis que definem o Ã­ndice da cabeÃ§a e da cauda da serpente na matriz */
 	inteiro CABECA = 0, CAUDA = 0 
 
 
-	/* Variáveis que armazenam as opções do jogo */
+	/* VariÃ¡veis que armazenam as opÃ§Ãµes do jogo */
 	logico cenario_circular = falso, reproduzir_sons = verdadeiro, continuar = falso
 	
 	inteiro dificuldade = MEDIO, tema_atual = 0, opcao_menu = OPCAO_NOVO_JOGO
 
 
-	/* Variáveis de controle do jogo */
+	/* VariÃ¡veis de controle do jogo */
 	cadeia nome_jogador = ""
 	
 	inteiro pontuacao_jogador = 0, tamanho_serpente = 0, entrada_placar = -1
@@ -118,21 +118,21 @@ programa
 	inteiro comida[2], ultimo_estado_cauda[3], tema[5]
 
 
-	/* Variáveis que controlam o fluxo das telas do jogo */
+	/* VariÃ¡veis que controlam o fluxo das telas do jogo */
 	inteiro tela_atual = MENU, tela_anterior = SAIR	
 
 
-	/* Variáveis utilizadas para fazer o controle de FPS e contabilizar o tempo de jogo */
+	/* VariÃ¡veis utilizadas para fazer o controle de FPS e contabilizar o tempo de jogo */
 	inteiro tempo_inicio_frame, tempo_decorrido_frame, tempo_restante_frame
 	
 	inteiro tempo_total_jogo = 0, tempo_inicio_jogo = 0, tempo_inicio_intermitencia = 0
 
 
-	/* Variáveis que armazenam os endereços de memória das imagens utilizadas no jogo */
+	/* VariÃ¡veis que armazenam os endereÃ§os de memÃ³ria das imagens utilizadas no jogo */
 	inteiro imagem_segmento = 0, imagem_comida = 0
 
 
-	/* variáveis que armazenam os endereços de memória dos sons utilizados no jogo */
+	/* variÃ¡veis que armazenam os endereÃ§os de memÃ³ria dos sons utilizados no jogo */
 	inteiro musica_menu = -1, musica_jogo = -1, som_comida = -1, som_derrota = -1
 	
 	inteiro rep_musica_menu = -1, rep_musica_jogo = -1
@@ -747,7 +747,7 @@ programa
 		
 		inteiro x_tempo = largura_tela - BORDA_CENARIO - 20 - g.largura_texto("Tempo")
 		inteiro x_dificuldade = x_tempo - 20 - g.largura_texto("Dificuldade")
-		inteiro x_pontuacao = x_dificuldade - 20 - g.largura_texto("Pontuação")
+		inteiro x_pontuacao = x_dificuldade - 20 - g.largura_texto("PontuaÃ§Ã£o")
 		inteiro x_posicao = BORDA_CENARIO + 10
 		inteiro x_nome = x_posicao + g.largura_texto("Pos.") + 10
 
@@ -758,7 +758,7 @@ programa
 
 		g.desenhar_texto(x_posicao, y, "Pos.")
 		g.desenhar_texto(x_nome, y, "Nome")
-		g.desenhar_texto(x_pontuacao, y, "Pontuação")
+		g.desenhar_texto(x_pontuacao, y, "PontuaÃ§Ã£o")
 		g.desenhar_texto(x_dificuldade, y, "Dificuldade")		
 		g.desenhar_texto(x_tempo, y, "Tempo")
 
@@ -951,7 +951,7 @@ programa
 	{
 		cadeia itens[] = 
 		{
-			"Parabéns você venceu o jogo!",
+			"ParabÃ©ns vocÃª venceu o jogo!",
 			"Pressione [ ENTER ] para continuar",
 			"Pressione [ ESC ] para voltar ao menu"
 		}
@@ -966,7 +966,7 @@ programa
 	{		
 		cadeia itens[] = 
 		{
-			"Que pena você perdeu o jogo!",
+			"Que pena vocÃª perdeu o jogo!",
 			"Pressione [ ENTER ] para continuar",
 			"Pressione [ ESC ] para voltar ao menu"
 		}
@@ -1171,7 +1171,7 @@ programa
 			" ",
 			"================================",
 			"Pressione [ ENTER ] para iniciar o jogo",
-			"Pressione [ ESPAÇO ] para exibir o placar",
+			"Pressione [ ESPAÃ‡O ] para exibir o placar",
 			"Pressione [ ESC ] para sair"
 		}
 		
@@ -1306,15 +1306,15 @@ programa
 
 		escolha (opcao_dificuldade)
 		{
-			caso MUITO_FACIL	: retorne texto_dificuldade + "Muito Fácil"
-			caso FACIL		: retorne texto_dificuldade + "Fácil"
-			caso MEDIO		: retorne texto_dificuldade + "Médio"
-			caso DIFICIL		: retorne texto_dificuldade + "Difícil"
-			caso MUITO_DIFICIL	: retorne texto_dificuldade + "Muito Difícil"
+			caso MUITO_FACIL	: retorne texto_dificuldade + "Muito FÃ¡cil"
+			caso FACIL		: retorne texto_dificuldade + "FÃ¡cil"
+			caso MEDIO		: retorne texto_dificuldade + "MÃ©dio"
+			caso DIFICIL		: retorne texto_dificuldade + "DifÃ­cil"
+			caso MUITO_DIFICIL	: retorne texto_dificuldade + "Muito DifÃ­cil"
 			caso CHUCK_NORRIS	: retorne texto_dificuldade + "Chuck Norris"
 		}
 
-		retorne "Dificuldade inválida"
+		retorne "Dificuldade invÃ¡lida"
 	}
 
 	funcao cadeia texto_opcao_sons()
@@ -1325,7 +1325,7 @@ programa
 		}
 		senao
 		{
-			retorne "Reproduzir Sons: Não"
+			retorne "Reproduzir Sons: NÃ£o"
 		}
 	}
 
@@ -1333,11 +1333,11 @@ programa
 	{
 		se (cenario_circular)
 		{
-			retorne "Cenário Circular: Sim"
+			retorne "CenÃ¡rio Circular: Sim"
 		}
 		senao
 		{
-			retorne "Cenário Circular: Não"
+			retorne "CenÃ¡rio Circular: NÃ£o"
 		}
 	}
 
@@ -1735,7 +1735,7 @@ programa
 		g.definir_cor(tema[COR_TEXTO])
 		g.definir_estilo_texto(falso, falso, falso)
 		
-		g.desenhar_texto(x, y, "Pontuação: " + pontuacao_jogador)
+		g.desenhar_texto(x, y, "PontuaÃ§Ã£o: " + pontuacao_jogador)
 	}
 
 	funcao desenhar_tempo_jogo()
@@ -1834,15 +1834,3 @@ programa
 	}
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 1087; 
- * @DOBRAMENTO-CODIGO = [1, 140, 160, 173, 183, 201, 210, 216, 234, 226, 240, 254, 258, 252, 296, 309, 346, 375, 399, 391, 419, 435, 413, 441, 449, 466, 470, 474, 459, 491, 546, 511, 565, 505, 600, 571, 613, 632, 639, 643, 624, 650, 657, 666, 701, 718, 727, 827, 839, 851, 869, 888, 897, 919, 941, 949, 964, 988, 1000, 1004, 1008, 1012, 978, 1028, 1037, 1051, 1072, 1087, 1101, 1113, 1128, 1142, 1151, 1156, 1193, 1235, 1249, 1261, 1273, 1285, 1290, 1302, 1319, 1331, 1343, 1348, 1373, 1408, 1422, 1443, 1449, 1457, 1473, 1486, 1497, 1503, 1495, 1520, 1528, 1536, 1548, 1562, 1577, 1582, 1600, 1617, 1624, 1635, 1646, 1657, 1622, 1672, 1679, 1686, 1693, 1670, 1702, 1718, 1728, 1740, 1754, 1765, 1771, 1788, 1800, 1808, 1813, 1821, 1827];
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

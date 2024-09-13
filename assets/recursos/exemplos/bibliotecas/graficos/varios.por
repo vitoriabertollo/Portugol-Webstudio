@@ -1,21 +1,21 @@
 /*
- * Este programa exemplifica o uso de várias bibliotecas ao mesmo tempo.
+ * Este programa exemplifica o uso de vÃ¡rias bibliotecas ao mesmo tempo.
  * 
- * Para executar este exemplo, marque a caixa "Exibir opççoes de execução" 
- * localizada abaixo da árvore estrutural (à esquerda). Após, mande executar
+ * Para executar este exemplo, marque a caixa "Exibir opÃ§Ã§oes de execuÃ§Ã£o" 
+ * localizada abaixo da Ã¡rvore estrutural (Ã  esquerda). ApÃ³s, mande executar
  * ou depurar o programa.
  * 
  * Na tela a seguir, informe seu nome, sua idade e sua altura, cada valor em uma linha.
  * Exemplo:
  * 
- * Joãzinho da Silva
+ * JoÃ£zinho da Silva
  * 19
  * 1.76
  * 
- * Por último, clique em "Executar" ou "Depurar".
+ * Por Ãºltimo, clique em "Executar" ou "Depurar".
  * 
- * Dica: Clique Shift + f1  "Ajuda" --> "Bibliotecas" para abrir a documentação das bibliotecas.
- * você poderá visualizar as bibliotecas disponíveis e a utilidade de cada função.
+ * Dica: Clique Shift + f1  "Ajuda" --> "Bibliotecas" para abrir a documentaÃ§Ã£o das bibliotecas.
+ * vocÃª poderÃ¡ visualizar as bibliotecas disponÃ­veis e a utilidade de cada funÃ§Ã£o.
  */
 programa
 {	
@@ -40,7 +40,7 @@ programa
 				idade = tip.cadeia_para_inteiro(params[1], 10)
 				id = verdadeiro
 			}
-			senao escreva("O segundo parâmetro deve ser do tipo inteiro")
+			senao escreva("O segundo parÃ¢metro deve ser do tipo inteiro")
 
 			se (tip.cadeia_e_real(params[2]))
 			{
@@ -48,13 +48,13 @@ programa
 				alt = verdadeiro
 				
 			}
-			senao escreva("O terceiro parâmetro deve ser do tipo real")
+			senao escreva("O terceiro parÃ¢metro deve ser do tipo real")
 
 			se (id e alt)
 			{
 				inteiro centimetros = tip.real_para_inteiro(mat.arredondar((2.0 - altura), 2) * 100)
 				
-				escreva("Seu nome é: ", nome)
+				escreva("Seu nome Ã©: ", nome)
 				escreva("\nSeu nome possui ", t.numero_caracteres(nome), " letras")
 
 				nome = t.substituir(nome, "A", "")
@@ -64,22 +64,22 @@ programa
 				nome = t.substituir(nome, "U", "")
 				
 				escreva("\nSeu nome sem as vogais: ", nome)				
-				escreva("\nVocê tem ", idade, " anos")
-				escreva("\nAno que vem você terá ", idade + 1, " anos")
-				escreva("\nSua altura é: ", altura)
-				escreva("\nFalta ", centimetros, " centímetros para você atingir 2 metros de altura")
+				escreva("\nVocÃª tem ", idade, " anos")
+				escreva("\nAno que vem vocÃª terÃ¡ ", idade + 1, " anos")
+				escreva("\nSua altura Ã©: ", altura)
+				escreva("\nFalta ", centimetros, " centÃ­metros para vocÃª atingir 2 metros de altura")
 	
 				se (altura <= 1.60)
 				{
-					escreva("\nVocê é muito baixo!")
+					escreva("\nVocÃª Ã© muito baixo!")
 				}
 				senao se (altura > 1.60 e altura < 1.80)
 				{
-					escreva("\nVocê tem uma altura normal!")
+					escreva("\nVocÃª tem uma altura normal!")
 				}
 				senao 
 				{
-					escreva("\nVocê é muito alto!")
+					escreva("\nVocÃª Ã© muito alto!")
 				}
 
 				inteiro intervalo = 10000
@@ -93,7 +93,7 @@ programa
 				faca
 				{
 					limpa()
-					escreva("Você gostou deste exemplo? (S/N): ")
+					escreva("VocÃª gostou deste exemplo? (S/N): ")
 					leia(opcao)
 
 					se (tip.caracter_e_logico(opcao))
@@ -111,18 +111,7 @@ programa
 				enquanto (nao tip.caracter_e_logico(opcao))
 			}
 		}
-		senao escreva("Devem ser informados três parâmetros: nome, idade e altura!")
+		senao escreva("Devem ser informados trÃªs parÃ¢metros: nome, idade e altura!")
 	}
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 827; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

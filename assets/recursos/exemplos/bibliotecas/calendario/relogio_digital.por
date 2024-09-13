@@ -45,7 +45,7 @@ programa
 	funcao desenhar(){
 		g.desenhar_imagem(0, 0, imagem)
 		
-		//conversão da data para texto
+		//conversÃ£o da data para texto
 		cadeia d = tp.inteiro_para_cadeia(dia, 10)
 		cadeia m = tp.inteiro_para_cadeia(mes, 10)
 		m = txt.preencher_a_esquerda('0', 2, m)
@@ -53,7 +53,7 @@ programa
 		cadeia dm = tp.inteiro_para_cadeia(dia_mes, 10)
 		dm = txt.preencher_a_esquerda('0', 2, dm)
 
-		//conversão da hora para texto
+		//conversÃ£o da hora para texto
 		cadeia hr = tp.inteiro_para_cadeia(hora, 10)
 		hr = txt.preencher_a_esquerda('0', 2, hr)
 		cadeia min = tp.inteiro_para_cadeia(minuto, 10)
@@ -132,7 +132,7 @@ programa
 	funcao inicializar(){
 		g.iniciar_modo_grafico(verdadeiro)
 		g.definir_dimensoes_janela(800, 600)
-		g.definir_titulo_janela("Relógio Digital")
+		g.definir_titulo_janela("RelÃ³gio Digital")
 		altura_janela = g.altura_janela()
 		largura_janela = g.largura_janela()
 		carregar_fonte()
@@ -140,14 +140,3 @@ programa
 	}
 }
 
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 0; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */

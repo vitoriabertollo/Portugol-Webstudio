@@ -7,15 +7,8 @@ programa
 
 		enquanto (parar != 'S')
 		{
-			escreva ("deseja parar o laço? (S/N)")
+			escreva ("deseja parar o laÃ§o? (S/N)")
 			leia (parar)
 		}
 	}
 }	
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 163; 
- */
