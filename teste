@@ -1,0 +1,139 @@
+programa
+{
+    // Declaração de variáveis globais
+    inteiro labirinto[5][5]
+    inteiro posX = 0, posY = 0
+    inteiro tesouroX, tesouroY
+    inteiro direcao // Variável para capturar o movimento do jogador
+
+    funcao inicio()
+    {
+        // Inicializa o labirinto e posiciona o tesouro
+        inicializarLabirinto()
+
+        // Loop principal do jogo
+        enquanto (nao encontrouTesouro())
+        {
+            limparTela()
+            exibirLabirinto()
+            escrever("\nVocê está na posição: (", posX, ", ", posY, ")")
+            escrever("\nEscolha um movimento:")
+            escrever("\n1 - Cima | 2 - Baixo | 3 - Esquerda | 4 - Direita")
+            leia(direcao) // Captura a direção escolhida pelo jogador
+            moverJogador(direcao)
+        }
+
+        // Mensagem de vitória
+        limparTela()
+        exibirLabirinto()
+        escrever("\nParabéns! Você encontrou o tesouro na posição (", tesouroX, ", ", tesouroY, ")!")
+    }
+
+    funcao inicializarLabirinto()
+    {
+        // Inicializa o labirinto com caminhos livres (0) e paredes (1)
+        para (inteiro i = 0; i < 5; i++)
+        {
+            para (inteiro j = 0; j < 5; j++)
+            {
+                se (gerarNumeroAleatorio(0, 100) < 30) // 30% de chance de ser uma parede
+                {
+                    labirinto[i][j] = 1
+                }
+                senao
+                {
+                    labirinto[i][j] = 0
+                }
+            }
+        }
+
+        // Garante que a posição inicial e final sejam acessíveis
+        labirinto[0][0] = 0
+        tesouroX = gerarNumeroAleatorio(0, 4)
+        tesouroY = gerarNumeroAleatorio(0, 4)
+
+        // Certifica que o tesouro não está na posição inicial
+        enquanto (tesouroX == 0 e tesouroY == 0)
+        {
+            tesouroX = gerarNumeroAleatorio(0, 4)
+            tesouroY = gerarNumeroAleatorio(0, 4)
+        }
+
+        labirinto[tesouroX][tesouroY] = 2 // Define o tesouro
+    }
+
+    funcao exibirLabirinto()
+    {
+        para (inteiro i = 0; i < 5; i++)
+        {
+            para (inteiro j = 0; j < 5; j++)
+            {
+                se (i == posX e j == posY)
+                {
+                    escrever(" J ") // Posição do jogador
+                }
+                senao se (labirinto[i][j] == 1)
+                {
+                    escrever(" # ") // Parede
+                }
+                senao se (labirinto[i][j] == 2)
+                {
+                    escrever(" T ") // Tesouro
+                }
+                senao
+                {
+                    escrever(" . ") // Caminho livre
+                }
+            }
+            escrever("\n")
+        }
+    }
+
+    funcao moverJogador(inteiro movimento)
+    {
+        inteiro novoX = posX, novoY = posY
+
+        // Estrutura de decisão para o movimento
+        escolha (movimento)
+        {
+            caso 1: // Cima
+                novoX = novoX - 1
+            caso 2: // Baixo
+                novoX = novoX + 1
+            caso 3: // Esquerda
+                novoY = novoY - 1
+            caso 4: // Direita
+                novoY = novoY + 1
+            caso contrario:
+                escrever("\nMovimento inválido!")
+        } // Fim da estrutura escolha-caso
+
+        // Verifica se a nova posição é válida
+        se (novoX >= 0 e novoX < 5 e novoY >= 0 e novoY < 5 e labirinto[novoX][novoY] != 1)
+        {
+            posX = novoX
+            posY = novoY
+        }
+        senao
+        {
+            escrever("\nMovimento inválido ou parede encontrada!")
+            esperar(1000) // Pausa para o jogador ler o aviso
+        }
+    }
+
+    funcao logico encontrouTesouro()
+    {
+        // Retorna verdadeiro se o jogador encontrar o tesouro
+        se (posX == tesouroX e posY == tesouroY)
+        {
+            retornar verdadeiro
+        }
+        retornar falso
+    }
+
+    funcao inteiro gerarNumeroAleatorio(inteiro min, inteiro max)
+    {
+        // Gera um número pseudoaleatório entre min e max
+        retornar ((min + ((max - min + 1) * mod(simboloRelogio(), 1000) / 1000)))
+    }
+}
